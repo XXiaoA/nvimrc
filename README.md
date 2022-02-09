@@ -26,5 +26,5 @@
 ### 说明
 neovim版本必须0.5以上，才能使lua  
 许多参考自：<https://github.com/nshen/learn-neovim-lua>  
-快捷键见[此](https://gitee.com/XXiao-a/neovim_configuration/keybindings.md)
+[点击见快捷键](https://gitee.com/XXiao-a/neovim_configuration/keybindings.md)
 
