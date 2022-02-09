@@ -25,7 +25,7 @@
 
 ### 说明
 **[点此见快捷键](./docs/keybindings.md)**  
-**初次所以需安装[packer](./docs/packer.md)以管理插件**
+**初次使用需安装[packer](./docs/packer.md)以管理插件**
 
 neovim版本必须0.5以上，才能使lua  
 许多参考自：<https://github.com/nshen/learn-neovim-lua>  
