@@ -1,37 +1,30 @@
-# neovim_configuration
+# neovim_configuration  
 
-#### 介绍
-自己的neovim配置
+### 目录树(~/.config/nvim/)  
+```
+├── init.vim  
+├── lua  
+│   ├── basic.lua  
+│   ├── keybindings.lua  
+│   ├── plugin-config  
+│   │   ├── Comment.lua  
+│   │   ├── bufferline.lua  
+│   │   ├── nvim-tree.lua  
+│   │   └── nvim-treesitter.lua  
+│   └── plugins.lua  
+└── plugin  
+    └── packer_compiled.lua  
+```
 
-#### 软件架构
-软件架构说明
+### 插件
+* https://github.com/glepnir/zephyr-nvim 主题配色
+* https://github.com/kyazdani42/nvim-tree.lua 目录树
+* https://github.com/akinsho/bufferline.nvim buffer转跳
+* https://github.com/nvim-treesitter/nvim-treesitter 语法高亮
+* https://github.com/numToStr/Comment.nvim 注释
 
+### 说明
+neovim版本必须0.5以上，才能使lua  
+许多参考自：<https://github.com/nshen/learn-neovim-lua>  
+快捷键见[此](https://gitee.com/XXiao-a/neovim_configuration/keybindings.md)
 
-#### 安装教程
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 使用说明
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 参与贡献
-
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
-
-
-#### 特技
-
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
