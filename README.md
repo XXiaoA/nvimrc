@@ -17,11 +17,11 @@
 ```
 
 ### 插件
-* https://github.com/glepnir/zephyr-nvim 主题配色
-* https://github.com/kyazdani42/nvim-tree.lua 目录树
-* https://github.com/akinsho/bufferline.nvim buffer转跳
-* https://github.com/nvim-treesitter/nvim-treesitter 语法高亮
-* https://github.com/numToStr/Comment.nvim 注释
+* <https://github.com/glepnir/zephyr-nvim> 主题配色
+* <https://github.com/kyazdani42/nvim-tree.lua> 目录树
+* <https://github.com/akinsho/bufferline.nvim buffer>转跳
+* <https://github.com/nvim-treesitter/nvim-treesitter> 语法高亮
+* <https://github.com/numToStr/Comment.nvim> 注释
 
 ### 说明
 neovim版本必须0.5以上，才能使lua  
