@@ -59,19 +59,19 @@
 ```帮助
 # 单行注释
 
-`gcw` - Toggle from the current cursor position to the next word
-`gc$` - Toggle from the current cursor position to the end of line
-`gc}` - Toggle until the next blank line
-`gc5l` - Toggle 5 lines after the current cursor position
-`gc8k` - Toggle 8 lines before the current cursor position
-`gcip` - Toggle inside of paragraph
-`gca}` - Toggle around curly brackets
+`gcw` - 从当前光标位置注释该单词
+`gc$` - 从当前光标位置注释到行尾
+`gc}` - 从当前光标位置注释到下一个空行
+`gc5l` - 从当前光标位置往后注释5行
+`gc8k` - 从当前光标位置往前注释8行
+`gcip` - 注释当前段落
+`gca}` - 注释当前花括号范围
 
 # 多行注释
 
-`gb2}` - Toggle until the 2 next blank line
-`gbaf` - Toggle comment around a function (w/ LSP/treesitter support)
-`gbac` - Toggle comment around a class (w/ LSP/treesitter support)
+`gb2}` - 从当前光标位置注释到下两个空行
+`gbaf` - 注释当前函数 (支持 w/LSP/treesitter)
+`gbac` - 注释当前类 (支持 w/LSP/treesitter)
 ```
 
 * 目前默认拓展模式(Extended mappings)未开启，需要开启可前往Comment.lua文件
