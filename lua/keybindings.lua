@@ -20,7 +20,6 @@ map("n", "<C-u>", "10k", opt)
 map("n", "<C-d>", "10j", opt)
 
 -- 输入模式/选择模式 jj/JJ 退出
-map("v", "jj", "<ESC>", opt)
 map("v", "JJ", "<ESC>", opt)
 map("i", "jj", "<ESC>", opt)
 map("i", "JJ", "<ESC>", opt)
