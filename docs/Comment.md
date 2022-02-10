@@ -1,71 +1,63 @@
-#### Basic mappings
+#### 基础映射 Basic mappings
+默认情况下启用这些映射。
 
-These mappings are enabled by default. (config: `mappings.basic`)
+- 命令模式
 
-- NORMAL mode
+```帮助
+`gcc` - 使用单行注释注释当前行
+`gbc` - 使用多行注释注释当前行
+`[行数]gcc` - 使用单行注释向下注释给出的行数
+`[行数]gbc` - 使用多行注释向下注释给出的行数
+`gc[行数]{方向}` - 使用单行注释向给出的方向注释给出的行数
+`gb[行数]{方向}` - 使用多行注释向给出的方向注释给出的行数
 
-```help
-`gcc` - Toggles the current line using linewise comment
-`gbc` - Toggles the current line using blockwise comment
-`[count]gcc` - Toggles the number of line given as a prefix-count using linewise
-`[count]gbc` - Toggles the number of line given as a prefix-count using blockwise
-`gc[count]{motion}` - (Op-pending) Toggles the region using linewise comment
-`gb[count]{motion}` - (Op-pending) Toggles the region using linewise comment
 ```
 
-<a id="count-prefix">
+> 注意:不支持`.`重复 `[行数]gcc` 和 `[行数]gbc`
 
-> NOTE: Dot repeat is not supported with `[count]gcc` and `[count]gbc`
+- 选择模式
 
-- VISUAL mode
-
-```help
-`gc` - Toggles the region using linewise comment
-`gb` - Toggles the region using blockwise comment
+```帮助
+`gc` - 使用单行注释注释所选的行
+`gb` - 使用多行注释注释所选的行
 ```
 
-<a id="extra-mappings"></a>
+#### 额外映射 Extra mappings
+默认情况下启用这些映射。
 
-#### Extra mappings
+- 命令模式
 
-These mappings are enabled by default. (config: `mappings.extra`)
-
-- NORMAL mode
-
-```help
-`gco` - Insert comment to the next line and enters INSERT mode
-`gcO` - Insert comment to the previous line and enters INSERT mode
-`gcA` - Insert comment to end of the current line and enters INSERT mode
+```帮助
+`gco` - 将注释插入到下一行并进入输入模式
+`gcO` - 将注释插入到上一行并进入输入模式
+`gcA` - 将注释插入到当前行尾并进入输入模式
 ```
 
-<a id="extended-mappings"></a>
+#### 扩展映射 Extended mappings
+默认情况下启用这些映射。
 
-#### Extended mappings
+- 命令模式
 
-These mappings are disabled by default. (config: `mappings.extended`)
-
-- NORMAL mode
-
-```help
-`g>[count]{motion}` - (Op-pending) Comments the region using linewise comment
-`g>c` - Comments the current line using linewise comment
-`g>b` - Comments the current line using blockwise comment
-`g<[count]{motion}` - (Op-pending) Uncomments the region using linewise comment
-`g<c` - Uncomments the current line using linewise comment
-`g<b`- Uncomments the current line using blockwise comment
+```帮助
+`g>[行数]{方向}` - 使用单行注释对区域进行注释
+`g>c` - 使用单行注释注释当前行
+`g>b` - 使用多行注释注释当前行
+`g<[行数]{方向}` - 使用单行注释取消该区域的注释
+`g<c` - 使用单行注释取消当前行的注释
+`g<b` - 使用多行注释取消当前行的注释
 ```
 
-- VISUAL mode
+- 选择模式
 
-```help
-`g>` - Comments the region using single line
-`g<` - Unomments the region using single line
+```帮助
+`g>` - 使用单行注释注释选择的区域
+`g<` - 使用单行注释取消注释选择的区域
 ```
 
-##### Examples
+##### 例子 Examples
 
-```help
-# Linewise
+```帮助
+# 单行注释
 
 `gcw` - Toggle from the current cursor position to the next word
 `gc$` - Toggle from the current cursor position to the end of line
@@ -75,12 +67,12 @@ These mappings are disabled by default. (config: `mappings.extended`)
 `gcip` - Toggle inside of paragraph
 `gca}` - Toggle around curly brackets
 
-# Blockwise
+# 多行注释
 
 `gb2}` - Toggle until the 2 next blank line
 `gbaf` - Toggle comment around a function (w/ LSP/treesitter support)
 `gbac` - Toggle comment around a class (w/ LSP/treesitter support)
 ```
 
-
+* 目前默认拓展模式(Extended mappings)未开启，需要开启可前往Comment.lua文件
 * [官网](https://github.com/numToStr/Comment.nvim)
