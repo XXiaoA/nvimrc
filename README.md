@@ -24,9 +24,12 @@
 * <https://github.com/numToStr/Comment.nvim> 注释
 
 ### 说明
-**[点此见快捷键](./docs/keybindings.md)**  
-**初次使用需安装[packer](./docs/packer.md)以管理插件**
+1. **[点此见快捷键](./docs/keybindings.md)**  
+2. 许多参考自：<https://github.com/nshen/learn-neovim-lua>  
 
-neovim版本必须0.5以上，才能使lua  
-许多参考自：<https://github.com/nshen/learn-neovim-lua>  
+
+## 注意事项！
+* 初次使用需安装**[packer](./docs/packer.md)**以管理插件
+* neovim版本必须**0.5**以上，才能使lua  
+* treesitter插件里的lua高亮和zephyr主题冲突，删除`$HOME/.local/share/nvim/site/pack/packer/start/zephyr-nvim/after/queries/lua/highlights.scm`文件即可。[见此](https://github.com/nvim-treesitter/nvim-treesitter/issues/2435)
 
