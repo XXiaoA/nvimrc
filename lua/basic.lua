@@ -1,7 +1,7 @@
 -- 禁止创建备份文件
 vim.o.backup = false
 vim.o.writebackup = false
-vim.o.swapfile = false
+-- vim.o.swapfile = false
 -- F9打开/关闭粘贴模式
 vim.o.pastetoggle="<F9>"
 -- 编码设置
@@ -34,7 +34,7 @@ vim.o.list = true
 vim.o.textwidth = 80
 -- 设置自动换行
 vim.o.wrap = true
--- jk移动时光标下上方保留8行
+-- jk移动时光标下上方保留10行
 vim.o.scrolloff = 10
 vim.o.sidescrolloff = 10
 -- 允许使用鼠标
