@@ -20,8 +20,9 @@ func! CompileRunGcc()
     elseif &filetype == 'pyc'
         exec '!time python3 "%"'
     elseif &filetype == 'java'
-        exec '!javac "%"'
-        exec '!java "%<"'
+        " exec '!javac "%"'
+        " exec '!java "%<"'
+        exec '!time java "%"'
     elseif &filetype == 'javascript'
         exec '!node "%"'
     elseif &filetype == 'sh'
@@ -29,6 +30,7 @@ func! CompileRunGcc()
     endif
 endfunc!"}}}
 
+" 主题
 set background=dark
 " colorscheme gruvbox
 colorscheme zephyr
@@ -38,3 +40,6 @@ lua require('plugin-config/nvim-tree')
 lua require('plugin-config/bufferline')
 lua require('plugin-config/nvim-treesitter')
 lua require('plugin-config/Comment')
+lua require('plugin-config/telescope')
+lua require('lsp/setup')
+lua require('lsp/nvim-cmp')

@@ -34,7 +34,7 @@ vim.o.list = true
 vim.o.textwidth = 80
 -- 设置自动换行
 vim.o.wrap = true
--- jk移动时光标下上方保留10行
+-- jk移动时光标下上方保留8行
 vim.o.scrolloff = 10
 vim.o.sidescrolloff = 10
 -- 允许使用鼠标
