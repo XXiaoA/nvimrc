@@ -32,7 +32,8 @@
 * 初次使用需安装[packer](./docs/packer.md)以管理插件
 * neovim版本必须***0.6***以上，建议最新版  
 * treesitter插件里的lua高亮和zephyr主题冲突，删除`$HOME/.local/share/nvim/site/pack/packer/start/zephyr-nvim/after/queries/lua/highlights.scm`文件即可。[见此](https://github.com/nvim-treesitter/nvim-treesitter/issues/2435)
-* 初次使用请安装以下依赖```
+* 初次使用请安装以下依赖
+```
 pip install python-lsp-server  
 apt install python3.8-venv nodejs npm
 curl -LO
