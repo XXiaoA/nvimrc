@@ -33,8 +33,12 @@
 * neovim版本必须**0.5**以上，才能使lua  
 * treesitter插件里的lua高亮和zephyr主题冲突，删除`$HOME/.local/share/nvim/site/pack/packer/start/zephyr-nvim/after/queries/lua/highlights.scm`文件即可。[见此](https://github.com/nvim-treesitter/nvim-treesitter/issues/2435)
 * 初次使用请安装以下依赖```
-pip install python-lsp-server
-apt install python3.8-venv nodejs npm```
+pip install python-lsp-server  
+apt install python3.8-venv nodejs npm
+curl -LO
+https://github.com/BurntSushi/ripgrep/releases/download/12.1.1/ripgrep_12.1.1_amd64.deb
+sudo dpkg -i ripgrep_12.1.1_amd64.deb
+ ```
 
 ### TODO
 1. 完善快捷键说明
