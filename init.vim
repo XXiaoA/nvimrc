@@ -45,4 +45,5 @@ lua require('plugin-config/telescope')
 lua require('lsp/setup')
 lua require('lsp/nvim-cmp')
 lua require('plugin-config/nvim-autopairs')
-
+lua require("plugin-config/indent_blankline")
+lua require('plugin-config/galaxyline')

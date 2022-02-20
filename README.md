@@ -2,32 +2,18 @@
 
 ### 目录树(~/.config/nvim/)  
 ```
-.
-├── docs
-│   ├── Comment.md
-│   ├── keybindings.md
-│   └── packer.md
-├── init.vim
-├── lua
-│   ├── basic.lua
-│   ├── keybindings.lua
-│   ├── lsp
-│   │   ├── java.lua
-│   │   ├── lua.lua
-│   │   ├── nvim-cmp.lua
-│   │   ├── python.lua
-│   │   └── setup.lua
-│   ├── plugin-config
-│   │   ├── bufferline.lua
-│   │   ├── Comment.lua
-│   │   ├── nvim-autopairs.lua
-│   │   ├── nvim-tree.lua
-│   │   ├── nvim-treesitter.lua
-│   │   └── telescope.lua
-│   └── plugins.lua
-├── plugin
-│   └── packer_compiled.lua
-└── README.md
+├── init.vim  
+├── lua  
+│   ├── basic.lua  
+│   ├── keybindings.lua  
+│   ├── plugin-config  
+│   │   ├── Comment.lua  
+│   │   ├── bufferline.lua  
+│   │   ├── nvim-tree.lua  
+│   │   └── nvim-treesitter.lua  
+│   └── plugins.lua  
+└── plugin  
+    └── packer_compiled.lua  
 ```
 
 ### 插件
@@ -55,6 +41,6 @@ sudo dpkg -i ripgrep_12.1.1_amd64.deb
  ```
 
 ### TODO
--[] 完善快捷键说明
--[] 解决python语法检测无法配置的问题
--[] ...
+1. 完善快捷键说明
+2. 解决python语法检测无法配置的问题
+3. ...
