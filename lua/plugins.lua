@@ -48,4 +48,7 @@ return require('packer').startup(function()
 	}
 -- 加速文件搜索速度,如果安装失败需要到插件目录执行make命令手动编译
 	use {"nvim-telescope/telescope-fzf-native.nvim", run = "make"}
+    -- 自动补全括号
+    use {"windwp/nvim-autopairs"}
 end)
+

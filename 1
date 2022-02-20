@@ -1,3 +1,10 @@
+lua << EOF
+require('lspconfig').pylsp.setup({
+    settings = {
+        pylsp.plugins.flake8.maxLineLength:120
+        }
+})
+EOF
 " 基础设置
 lua require("basic")
 set mouse=
