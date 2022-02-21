@@ -57,12 +57,19 @@ return require('packer').startup(function()
     -- 缩进线
     use "lukas-reineke/indent-blankline.nvim"
     -- 状态栏
-    use {
-          'glepnir/galaxyline.nvim',
-            branch = 'main',
-            -- your statusline
-            config = function() require'my_statusline' end,
-            -- some optional icons
-            requires = {'kyazdani42/nvim-web-devicons', opt = true}
-        }
+    -- use {
+    --       'glepnir/galaxyline.nvim',
+    --         branch = 'main',
+    --         -- your statusline
+    --         -- config = function() require'my_statusline' end,
+    --         -- some optional icons
+    --         requires = {'kyazdani42/nvim-web-devicons', opt = true}
+    --     }
+    use 'Lokaltog/vim-powerline'
+    -- use ' vim-airline/vim-airline-themes'
+    -- use ' vim-airline/vim-airline '
+    -- 多光标
+    use 'mg979/vim-visual-multi'
+    -- 颜色
+    use 'norcalli/nvim-colorizer.lua'
 end)
