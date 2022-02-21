@@ -65,11 +65,15 @@ return require('packer').startup(function()
     --         -- some optional icons
     --         requires = {'kyazdani42/nvim-web-devicons', opt = true}
     --     }
-    use 'Lokaltog/vim-powerline'
-    -- use ' vim-airline/vim-airline-themes'
-    -- use ' vim-airline/vim-airline '
+    -- use 'Lokaltog/vim-powerline'
+    use {
+          'nvim-lualine/lualine.nvim',
+          requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+        }
     -- 多光标
     use 'mg979/vim-visual-multi'
     -- 颜色
     use 'norcalli/nvim-colorizer.lua'
+    -- 命令行窗口
+    use 'nikvdp/neomux'
 end)

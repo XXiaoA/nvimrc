@@ -125,6 +125,11 @@ _G.packer_plugins = {
     path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/lspkind-nvim",
     url = "https://github.com/onsails/lspkind-nvim"
   },
+  ["lualine.nvim"] = {
+    loaded = true,
+    path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/lualine.nvim",
+    url = "https://github.com/nvim-lualine/lualine.nvim"
+  },
   ["nvim-autopairs"] = {
     loaded = true,
     path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
@@ -134,6 +139,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
+  },
+  ["nvim-colorizer.lua"] = {
+    loaded = true,
+    path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
+    url = "https://github.com/norcalli/nvim-colorizer.lua"
   },
   ["nvim-lsp-installer"] = {
     loaded = true,
@@ -180,20 +190,15 @@ _G.packer_plugins = {
     path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
-  ["vim-airline "] = {
-    loaded = true,
-    path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/vim-airline ",
-    url = "https://github.com/ vim-airline/vim-airline "
-  },
-  ["vim-airline-themes"] = {
-    loaded = true,
-    path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/vim-airline-themes",
-    url = "https://github.com/ vim-airline/vim-airline-themes"
-  },
   ["vim-search-pulse"] = {
     loaded = true,
     path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/vim-search-pulse",
     url = "https://github.com/inside/vim-search-pulse"
+  },
+  ["vim-visual-multi"] = {
+    loaded = true,
+    path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/vim-visual-multi",
+    url = "https://github.com/mg979/vim-visual-multi"
   },
   ["vim-vsnip"] = {
     loaded = true,

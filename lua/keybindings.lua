@@ -29,8 +29,8 @@ map("v", "<", "<gv", opt)
 map("v", ">", ">gv", opt)
 
 -- magic search
-map("n", "/", "/\\v", { noremap = true , silent = false})
-map("v", "/", "/\\v", { noremap = true , silent = false})
+-- map("n", "/", "/\\v", { noremap = true , silent = false})
+-- map("v", "/", "/\\v", { noremap = true , silent = false})
 
 ------------------------------------------------------------------
 -- 分屏快捷键
