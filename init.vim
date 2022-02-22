@@ -49,4 +49,5 @@ lua require("plugin-config/indent_blankline")
 lua require('plugin-config/nvim-colorizer')
 " lua require('plugin-config/galaxyline')
 lua require('plugin-config/lualine')
+lua require('plugin-config/venn')
 

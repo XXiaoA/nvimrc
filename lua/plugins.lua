@@ -76,4 +76,6 @@ return require('packer').startup(function()
     use 'norcalli/nvim-colorizer.lua'
     -- 命令行窗口
     use 'nikvdp/neomux'
+    -- 画图
+    use "jbyuki/venn.nvim"
 end)
