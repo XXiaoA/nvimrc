@@ -38,6 +38,9 @@ return require('packer').startup(function()
     use 'rafamadriz/friendly-snippets'
     -- lspkind
     use 'onsails/lspkind-nvim'
+    -- 美化
+    use 'folke/lsp-colors.nvim'
+
 	-- 文件搜索 预览 等
 	use {
 	"nvim-telescope/telescope.nvim",
@@ -82,4 +85,6 @@ return require('packer').startup(function()
     use {"ellisonleao/glow.nvim"}
     -- copilot
     -- use 'github/copilot.vim'
+    -- 彩色括号
+    use "luochen1990/rainbow"
 end)
