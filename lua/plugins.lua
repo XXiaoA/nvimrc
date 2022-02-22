@@ -84,7 +84,7 @@ return require('packer').startup(function()
     -- markdown
     use {"ellisonleao/glow.nvim"}
     -- copilot
-    -- use 'github/copilot.vim' 
+    -- use 'github/copilot.vim'
     -- 彩色括号
     use "luochen1990/rainbow"
 end)
