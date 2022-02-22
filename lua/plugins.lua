@@ -75,7 +75,7 @@ return require('packer').startup(function()
     -- 颜色
     use 'norcalli/nvim-colorizer.lua'
     -- 命令行窗口
-    use 'nikvdp/neomux'
+    use {"akinsho/toggleterm.nvim"}
     -- 画图
     use "jbyuki/venn.nvim"
     -- markdown
