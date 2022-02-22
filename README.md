@@ -1,20 +1,45 @@
 # neovim_configuration  
 
 ### 目录树(~/.config/nvim/)  
-```
-├── init.vim  
-├── lua  
-│   ├── basic.lua  
-│   ├── keybindings.lua  
-│   ├── plugin-config  
-│   │   ├── Comment.lua  
-│   │   ├── bufferline.lua  
-│   │   ├── nvim-tree.lua  
-│   │   └── nvim-treesitter.lua  
-│   └── plugins.lua  
-└── plugin  
-    └── packer_compiled.lua  
-```
+<details>
+<summary>展开查看</summary>
+<pre><code>
+.
+├── docs
+│   ├── Comment.md
+│   ├── keybindings.md
+│   └── packer.md
+├── init.vim
+├── lua
+│   ├── basic.lua
+│   ├── keybindings.lua
+│   ├── lsp
+│   │   ├── java.lua
+│   │   ├── lua.lua
+│   │   ├── nvim-cmp.lua
+│   │   ├── python.lua
+│   │   └── setup.lua
+│   ├── plugin-config
+│   │   ├── bufferline.lua
+│   │   ├── Comment.lua
+│   │   ├── galaxyline.lua
+│   │   ├── glow.lua
+│   │   ├── indent_blankline.lua
+│   │   ├── lualine.lua
+│   │   ├── nvim-autopairs.lua
+│   │   ├── nvim-colorizer.lua
+│   │   ├── nvim-tree.lua
+│   │   ├── nvim-treesitter.lua
+│   │   ├── telescope.lua
+│   │   ├── toggleterm.lua
+│   │   └── venn.lua
+│   └── plugins.lua
+├── plugin
+│   └── packer_compiled.lua
+├── private_init.lua
+└── README.md
+</code></pre>
+</details>
 
 ### 插件
 * <https://github.com/glepnir/zephyr-nvim> 主题配色
@@ -32,7 +57,8 @@
 * 初次使用需安装[packer](./docs/packer.md)以管理插件
 * neovim版本必须***0.6***以上，建议最新版  
 * treesitter插件里的lua高亮和zephyr主题冲突，删除`$HOME/.local/share/nvim/site/pack/packer/start/zephyr-nvim/after/queries/lua/highlights.scm`文件即可。[见此](https://github.com/nvim-treesitter/nvim-treesitter/issues/2435)
-* 初次使用请安装以下依赖```
+* 初次使用请安装以下依赖
+```
 pip install python-lsp-server  
 apt install python3.8-venv nodejs npm
 curl -LO
