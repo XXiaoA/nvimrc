@@ -78,4 +78,8 @@ return require('packer').startup(function()
     use 'nikvdp/neomux'
     -- 画图
     use "jbyuki/venn.nvim"
+    -- markdown
+    use {"ellisonleao/glow.nvim"}
+    -- copilot
+    -- use 'github/copilot.vim'
 end)

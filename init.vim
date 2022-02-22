@@ -50,4 +50,4 @@ lua require('plugin-config/nvim-colorizer')
 " lua require('plugin-config/galaxyline')
 lua require('plugin-config/lualine')
 lua require('plugin-config/venn')
-
+lua require('plugin-config/glow')
