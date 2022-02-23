@@ -81,8 +81,6 @@ return require('packer').startup(function()
     use {"akinsho/toggleterm.nvim"}
     -- 画图
     use "jbyuki/venn.nvim"
-    -- markdown
-    use {"ellisonleao/glow.nvim"}
     -- copilot
     -- use 'github/copilot.vim'
     -- 彩色括号
