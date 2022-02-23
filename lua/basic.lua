@@ -76,4 +76,3 @@ vim.o.foldmethod = "marker"
 -- 折叠的级别（100）
 vim.o.foldlevel = 100
 vim.o.autoindent = true
-

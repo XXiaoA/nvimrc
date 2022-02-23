@@ -50,7 +50,6 @@ lua require('plugin-config/nvim-colorizer')
 " lua require('plugin-config/galaxyline')
 lua require('plugin-config/lualine')
 lua require('plugin-config/venn')
-lua require('plugin-config/glow')
 lua require('plugin-config/toggleterm')
 let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
 let g:rainbow_conf = {

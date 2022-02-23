@@ -28,3 +28,8 @@ require'nvim-treesitter.configs'.setup {
 -- 默认不要折叠
 -- https://stackoverflow.com/questions/8316139/how-to-set-the-default-to-unfolded-when-you-open-a-file
 -- vim.wo.foldlevel = 99
+
+-- 解决和彩色括号冲突
+require "nvim-treesitter.highlight"                                              
+local hlmap = vim.treesitter.highlighter.hl_map                                  
+hlmap["punctuation.bracket"] = nil
