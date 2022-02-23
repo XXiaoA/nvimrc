@@ -17,9 +17,7 @@ vim.keybinds = {
     opts = {noremap = true, silent = true}
 }
 
---{{{"基础
-map("n", "<C-j>", "4j", opt)
-map("n", "<C-k>", "4k", opt)
+-- {{{"基础
 map("i", "<C-h>", "<ESC>I", opt)
 map("i", "<C-l>", "<ESC>A", opt)
 

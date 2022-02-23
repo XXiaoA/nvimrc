@@ -87,4 +87,6 @@ return require('packer').startup(function()
     -- use 'github/copilot.vim'
     -- 彩色括号
     use "luochen1990/rainbow"
+    -- 运行片段代码
+    use { 'michaelb/sniprun', run = 'bash ./install.sh'}
 end)
