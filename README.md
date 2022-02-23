@@ -68,7 +68,7 @@ sudo dpkg -i ripgrep_12.1.1_amd64.deb
 * [buffer显示](https://github.com/akinsho/bufferline.nvim)
 * [语法高亮](https://github.com/nvim-treesitter/nvim-treesitter)
 * [一键注释](https://github.com/numToStr/Comment.nvim)
-* [LSP](https://github.com/neovim/nvim-lspconfig)  更多lsp插件请看[plugins.lua文件](./lua/plugins)
+* [LSP](https://github.com/neovim/nvim-lspconfig)  更多lsp插件请看[plugins.lua文件](./lua/plugins.lua)
 * [文件搜索等](https://github.com/nvim-telescope/telescope.nvim)
 * [括号补全](https://github.com/windwp/nvim-autopairs) 
 * [信标](https://github.com/danilamihailov/beacon.nvim) 
@@ -80,7 +80,7 @@ sudo dpkg -i ripgrep_12.1.1_amd64.deb
 * [命令行窗口](https://github.com/akinsho/toggleterm.nvim) 
 * [制图](https://github.com/jbyuki/venn.nvim) 
 * [彩色括号](https://github.com/luochen1990/rainbow) 
-* [运行代码](https://github.com/)michaelb/sniprun 
+* [运行代码](https://github.com/michaelb/sniprun)
 <!-- * [](https://github.com/)  -->
 <!-- * [](https://github.com/)  -->
 <!-- * [](https://github.com/)  -->
