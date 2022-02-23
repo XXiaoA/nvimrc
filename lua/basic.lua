@@ -32,8 +32,8 @@ vim.o.number = true
 vim.o.list = true
 -- 设置行宽
 vim.o.textwidth = 80
--- 设置禁止自动折行
-vim.o.wrap = false
+-- 设置自动折行
+vim.o.wrap = true
 -- 取消自动换行，把textwidth调大
 vim.o.textwidth = 1000
 -- jk移动时光标下上方保留8行
