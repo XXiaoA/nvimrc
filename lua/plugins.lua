@@ -93,4 +93,7 @@ return require('packer').startup(function()
     use 'glepnir/dashboard-nvim'
     -- 加快加载时间
     use 'lewis6991/impatient.nvim'
+    -- 保存自动创建文件夹
+    use 'DataWraith/auto_mkdir'
+
 end)
