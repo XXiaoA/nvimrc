@@ -58,6 +58,7 @@ apt install python3.8-venv nodejs npm
 curl -LO
 https://github.com/BurntSushi/ripgrep/releases/download/12.1.1/ripgrep_12.1.1_amd64.deb
 sudo dpkg -i ripgrep_12.1.1_amd64.deb
+apt install figlet
  ```
  若想使用lazygit窗口请自行百度查找安装`lazygit`的教程
 
@@ -81,9 +82,9 @@ sudo dpkg -i ripgrep_12.1.1_amd64.deb
 * [制图](https://github.com/jbyuki/venn.nvim) 
 * [彩色括号](https://github.com/luochen1990/rainbow) 
 * [运行代码](https://github.com/michaelb/sniprun)
-<!-- * [](https://github.com/)  -->
-<!-- * [](https://github.com/)  -->
-<!-- * [](https://github.com/)  -->
+* [快捷键](https://github.com/folke/which-key.nvim) 
+* [启动页](https://github.com/glepnir/dashboard-nvim) 
+* [加快启动速度](https://github.com/lewis6991/impatient.nvim) 
 <!-- * [](https://github.com/)  -->
 <!-- * [](https://github.com/)  -->
 <!-- * [](https://github.com/)  -->
@@ -94,7 +95,5 @@ sudo dpkg -i ripgrep_12.1.1_amd64.deb
 ### TODO
 1. 完善快捷键说明
 2. 解决python语法检测无法配置的问题
-3. 给每个插件加使用指北
+3. 给插件加使用指北
 
-### 说明：
-许多参考自：<https://github.com/nshen/learn-neovim-lua>  
