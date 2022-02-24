@@ -99,9 +99,7 @@ return require('packer').startup(function()
     use {
       'jghauser/mkdir.nvim',
         config = function()
-            require('mkdir')
-              end
-              }
+        require('mkdir')
+        end
     }
-
 end)
