@@ -1,17 +1,3 @@
-local wk=require("which-key")
-local optsi = {
-  mode = "i", -- NORMAL mode
-  prefix = "", 
-  buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-  silent = true, -- use `silent` when creating keymaps
-  noremap = true, -- use `noremap` when creating keymaps
-  nowait = false, -- use `nowait` when creating keymaps
-}
-wk.register({
-    ['<C-l>'] = {"<ESC>A", "write"},
-}, optsi)
-
-
 -- leader key 为空格
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
@@ -33,7 +19,8 @@ vim.keybinds = {
 
 -- {{{"基础
 map("i", "<C-h>", "<ESC>I", opt)
--- map("i", "<C-l>", "<ESC>A", opt)
+map("i", "<C-l>", "<ESC>A", opt)
+map("n", "<C-s>", ":w<CR>", opt)
 
 -- ctrl u / ctrl + d  只移动10行，默认移动半屏
 map("n", "<C-u>", "10k", opt)
