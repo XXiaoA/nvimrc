@@ -87,13 +87,10 @@ return require('packer').startup(function()
     use "luochen1990/rainbow"
     -- 运行片段代码
     use { 'michaelb/sniprun', run = 'bash ./install.sh'}
-    -- 快捷键
-    use "folke/which-key.nvim"
     -- 启动页
     use 'glepnir/dashboard-nvim'
     -- 加快加载时间
     use 'lewis6991/impatient.nvim'
     -- 保存自动创建文件夹
     use 'DataWraith/auto_mkdir'
-
 end)
