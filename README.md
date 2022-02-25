@@ -97,4 +97,4 @@ sudo dpkg -i ripgrep_12.1.1_amd64.deb
 3. 给每个插件加使用指北
 
 ### 说明：
-许多参考自：<https://github.com/nshen/learn-neovim-lua>  
+感谢：[/nshen/learn-neovim-lua](https://github.com/nshen/learn-neovim-lua)
