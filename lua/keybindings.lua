@@ -21,6 +21,7 @@ vim.keybinds = {
 map("i", "<C-h>", "<ESC>I", opt)
 map("i", "<C-l>", "<ESC>A", opt)
 map("n", "<C-s>", ":w<CR>", opt)
+map("i", "<C-s>", "<ESC>:w<CR>i", opt)
 
 -- ctrl u / ctrl + d  只移动10行，默认移动半屏
 map("n", "<C-u>", "10k", opt)
