@@ -59,6 +59,10 @@ curl -LO
 https://github.com/BurntSushi/ripgrep/releases/download/12.1.1/ripgrep_12.1.1_amd64.deb
 sudo dpkg -i ripgrep_12.1.1_amd64.deb
  ```
+gcc
+make
+make -C ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim
+cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim && make clean && make
  若想使用lazygit窗口请自行百度查找安装`lazygit`的教程
 
 

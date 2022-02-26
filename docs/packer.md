@@ -12,6 +12,8 @@ git clone --depth 1 https://github.com/wbthomason/packer.nvim\
 
 ```
 
+**如果是使用我的配置，以下无需阅读**
+
 然后创建插件配置文件 `lua/plugins.lua` ，Packer 可以管理和升级他自己
 
 修改 `lua/plugins.lua` 为如下代码
