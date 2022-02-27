@@ -93,4 +93,6 @@ return require('packer').startup(function()
     use 'lewis6991/impatient.nvim'
     -- 保存自动创建文件夹
     use 'DataWraith/auto_mkdir'
+    -- 自动对齐
+    use 'junegunn/vim-easy-align'
 end)
