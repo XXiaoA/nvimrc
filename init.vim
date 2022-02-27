@@ -23,9 +23,10 @@ lua require('plugin-config/telescope')
 lua require('plugin-config/nvim-autopairs')
 lua require("plugin-config/indent_blankline")
 lua require('plugin-config/nvim-colorizer')
-lua require('plugin-config/lualine')
+" lua require('plugin-config/lualine')
 lua require('plugin-config/venn')
 lua require('plugin-config/toggleterm')
+lua require('plugin-config/galaxyline')
 lua require'impatient'.enable_profile()
 
 

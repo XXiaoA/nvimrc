@@ -60,15 +60,15 @@ return require('packer').startup(function()
     -- 缩进线
     use "lukas-reineke/indent-blankline.nvim"
     -- 状态栏
-    -- use {
-    --       'glepnir/galaxyline.nvim',
-    --         branch = 'main',
-    --         -- your statusline
-    --         -- config = function() require'my_statusline' end,
-    --         -- some optional icons
-    --         requires = {'kyazdani42/nvim-web-devicons', opt = true}
-    --     }
-    -- use 'Lokaltog/vim-powerline'
+    use({
+          "NTBBloodbath/galaxyline.nvim",
+          -- your statusline
+          config = function()
+            require("galaxyline.themes.eviline")
+          end,
+          -- some optional icons
+          requires = { "kyazdani42/nvim-web-devicons", opt = true }
+        })
     use {
           'nvim-lualine/lualine.nvim',
           requires = { 'kyazdani42/nvim-web-devicons', opt = true }
@@ -92,12 +92,5 @@ return require('packer').startup(function()
     -- 加快加载时间
     use 'lewis6991/impatient.nvim'
     -- 保存自动创建文件夹
-    -- mkdir
-    -- use {
-    --   'jghauser/mkdir.nvim',
-    --   config = function()
-    --     require('mkdir')
-    --   end
-    -- }
     use 'DataWraith/auto_mkdir'
 end)

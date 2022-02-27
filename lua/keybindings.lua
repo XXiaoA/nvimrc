@@ -23,6 +23,8 @@ map("i", "<C-l>", "<ESC>A", opt)
 map("n", "<C-s>", ":w<CR>", opt)
 map("i", "<C-s>", "<ESC>:w<CR>i", opt)
 
+-- 新建buffer
+map('n', '<leader>fn', ':enew<cr>', opt)
 -- ctrl u / ctrl + d  只移动10行，默认移动半屏
 map("n", "<C-u>", "10k", opt)
 map("n", "<C-d>", "10j", opt)
