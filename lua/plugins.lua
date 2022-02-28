@@ -95,4 +95,10 @@ return require('packer').startup(function()
     use 'DataWraith/auto_mkdir'
     -- 自动对齐
     use 'junegunn/vim-easy-align'
+    -- 代码生成图片
+    -- use 'kristijanhusak/vim-carbon-now-sh'
+    -- surround
+    use 'tpope/vim-surround'
+    -- 自动保存
+    use 'Pocco81/AutoSave.nvim'
 end)

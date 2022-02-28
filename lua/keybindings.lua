@@ -21,7 +21,7 @@ vim.keybinds = {
 map("i", "<C-h>", "<ESC>I", opt)
 map("i", "<C-l>", "<ESC>A", opt)
 map("n", "<C-s>", ":w<CR>", opt)
-map("i", "<C-s>", "<ESC>:w<CR>i", opt)
+map("n", "<C-q>", ":wq<CR>", opt)
 
 -- 新建buffer
 map('n', '<leader>fn', ':enew<cr>', opt)
