@@ -101,4 +101,6 @@ return require('packer').startup(function()
     use 'tpope/vim-surround'
     -- 自动保存
     use 'Pocco81/AutoSave.nvim'
+    -- 去除末尾空格/空行
+    use 'McAuleyPenney/tidy.nvim'
 end)
