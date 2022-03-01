@@ -1,4 +1,3 @@
-map <F5> :call RunCode()<CR>
 func! RunCode()
     exec "w"
     if &filetype == 'c'
@@ -19,5 +18,7 @@ func! RunCode()
         exec '!node "%"'
     elseif &filetype == 'sh'
         exec '!sh "%"'
+    elseif &filetype == 'lua'
+        exec '!lua "%"'
     endif
 endfunc!

@@ -114,5 +114,8 @@ return require('packer').startup(function()
         require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
       end
     }
+    -- 电灯泡
     use 'kosayoda/nvim-lightbulb'
+    -- 中文文档
+    use 'yianwillis/vimcdoc'
 end)

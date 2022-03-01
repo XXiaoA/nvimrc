@@ -38,6 +38,9 @@ map("i", "JJ", "<ESC>", opt)
 map("v", "<", "<gv", opt)
 map("v", ">", ">gv", opt)
 
+-- 运行代码
+map('n', '<leader>rc', ':call RunCode()<cr>', opt)
+
 -- magic search
 -- map("n", "/", "/\\v", { noremap = true , silent = false})
 -- map("v", "/", "/\\v", { noremap = true , silent = false})
