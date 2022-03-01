@@ -1,1 +1,13 @@
+-- require('lspconfig').pylsp.setup{
+--     settings = {
+-- -- pylsp.plugins.flake8.maxLineLength
+--         pylsp = {
+--             plugins = {
+--                 flake8 = {
+--                     maxLineLength = 80
+--                 }
+--             }
+--         }
+--     }
+-- }
 return{}

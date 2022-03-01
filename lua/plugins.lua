@@ -2,11 +2,11 @@ return require('packer').startup(function()
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
     --    -- gruvbox theme 主题1
-    --    use {
-    --        "ellisonleao/gruvbox.nvim",
-    --        requires = {"rktjmp/lush.nvim"}
-    --    }
-    -- 主题2
+    use {
+       "ellisonleao/gruvbox.nvim",
+       requires = {"rktjmp/lush.nvim"}
+    }
+    -- 主题
     use 'glepnir/zephyr-nvim'
     -- nvim-tree
     use {
@@ -103,4 +103,16 @@ return require('packer').startup(function()
     use 'Pocco81/AutoSave.nvim'
     -- 去除末尾空格/空行
     use 'McAuleyPenney/tidy.nvim'
+    -- 运行时间
+    use 'dstein64/vim-startuptime'
+    -- 快速转跳
+    use {
+      'phaazon/hop.nvim',
+      branch = 'v1', -- optional but strongly recommended
+      config = function()
+        -- you can configure Hop the way you like here; see :h hop-config
+        require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+      end
+    }
+    use 'kosayoda/nvim-lightbulb'
 end)

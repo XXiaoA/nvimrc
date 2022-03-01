@@ -1,7 +1,7 @@
 -- 禁止创建备份文件
 vim.o.backup = false
 vim.o.writebackup = false
--- vim.o.swapfile = false
+vim.o.swapfile = false
 -- F9打开/关闭粘贴模式
 vim.o.pastetoggle="<F9>"
 -- 编码设置
