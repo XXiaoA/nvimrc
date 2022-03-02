@@ -20,8 +20,8 @@ vim.keybinds = {
 -- {{{"基础
 map("i", "<C-h>", "<ESC>I", opt)
 map("i", "<C-l>", "<ESC>A", opt)
-map("n", "<C-s>", ":w<CR>", opt)
-map("n", "<C-q>", ":wq<CR>", opt)
+map("n", "W", ":w<CR>", opt)
+map("n", "Q", ":wq<CR>", opt)
 
 -- 新建buffer
 map('n', '<leader>fn', ':enew<cr>', opt)
@@ -39,7 +39,7 @@ map("v", "<", "<gv", opt)
 map("v", ">", ">gv", opt)
 
 -- 运行代码
-map('n', '<leader>rc', ':call RunCode()<cr>', opt)
+map('n', '<F5>', ':call RunCode()<cr>', opt)
 
 -- magic search
 -- map("n", "/", "/\\v", { noremap = true , silent = false})
