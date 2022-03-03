@@ -19,7 +19,7 @@ require'nvim-treesitter.configs'.setup {
   },
   -- 启用基于Treesitter的代码格式化(=) . NOTE: This is an experimental feature.
   indent = {
-    enable = true
+    enable = false
   }
 }
 -- 开启 Folding
@@ -30,6 +30,6 @@ require'nvim-treesitter.configs'.setup {
 -- vim.wo.foldlevel = 99
 
 -- 解决和彩色括号冲突
-require "nvim-treesitter.highlight"                                              
-local hlmap = vim.treesitter.highlighter.hl_map                                  
+require "nvim-treesitter.highlight"
+local hlmap = vim.treesitter.highlighter.hl_map
 hlmap["punctuation.bracket"] = nil
