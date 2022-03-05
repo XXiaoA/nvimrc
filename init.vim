@@ -29,6 +29,7 @@ lua require('plugin-config/toggleterm')
 lua require('plugin-config/galaxyline')
 lua require('plugin-config/AutoSave')
 lua require('plugin-config/hop')
+lua require('plugin-config/formatter')
 lua require'impatient'.enable_profile()
 
 

@@ -102,7 +102,7 @@ return require('packer').startup(function()
     -- 自动保存
     use 'Pocco81/AutoSave.nvim'
     -- 去除末尾空格/空行
-    use 'McAuleyPenney/tidy.nvim'
+    -- use 'McAuleyPenney/tidy.nvim'
     -- 运行时间
     use 'dstein64/vim-startuptime'
     -- 快速转跳
@@ -118,4 +118,8 @@ return require('packer').startup(function()
     use 'kosayoda/nvim-lightbulb'
     -- 中文文档
     use 'yianwillis/vimcdoc'
+    -- 格式化代码
+    use 'mhartington/formatter.nvim'
+    -- 翻译
+    use 'voldikss/vim-translator'
 end)

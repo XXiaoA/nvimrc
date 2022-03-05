@@ -18,6 +18,21 @@ vim.keybinds = {
 }
 
 -- {{{"基础
+-- map('v', '<BS>', '"_a', opt)
+map('v', 'x', '"_x', opt)
+map('n', 'x', '"_x', opt)
+map('n', 'Y', 'y$', opt)
+map('v', 'c', '"_c', opt)
+map('v', 'p', 'pgvy', opt)
+map('v', 'P', 'Pgvy', opt)
+
+map('n', '<m-up>', ':m .-2<cr>', opt)
+map('n', '<m-down>', ':m .+1<cr>', opt)
+map('i', '<m-up>', '<ESC>:m .-2<cr>i', opt)
+map('i', '<m-down>', '<ESC>:m .+1<cr>i', opt)
+map('v', '<m-up>', ":m '<-2<cr>gv", opt)
+map('v', '<m-down>', ":m '>+1<cr>gv", opt)
+
 map("i", "<C-h>", "<ESC>I", opt)
 map("i", "<C-l>", "<ESC>A", opt)
 map("n", "W", ":w<CR>", opt)
@@ -39,7 +54,7 @@ map("v", "<", "<gv", opt)
 map("v", ">", ">gv", opt)
 
 -- 运行代码
-map('n', '<F5>', ':call RunCode()<cr>', opt)
+map('n', '<leader>rc', ':call RunCode()<cr>', opt)
 
 -- magic search
 -- map("n", "/", "/\\v", { noremap = true , silent = false})
