@@ -66,7 +66,7 @@ Packer.nvim 安装后会增加以下命令，
 
 每次修改完 `lua/plugins.lua` 这个文件后，保存退出，重新打开
 
-调用 `:PackerSync` 就可以了，但要确定你的网络可以连接到 `github`。
+调用 `:PackerSync` 就可以了，但要确定你的网络可以连接到 `github`，或者使用GitHub的`镜像站`。
 
 安装完成， 按 `q` 退出
 

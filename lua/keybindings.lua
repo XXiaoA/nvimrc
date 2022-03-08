@@ -19,12 +19,12 @@ vim.keybinds = {
 
 -- {{{"基础
 -- map('v', '<BS>', '"_a', opt)
-map('v', 'x', '"_x', opt)
-map('n', 'x', '"_x', opt)
-map('n', 'Y', 'y$', opt)
-map('v', 'c', '"_c', opt)
-map('v', 'p', 'pgvy', opt)
-map('v', 'P', 'Pgvy', opt)
+-- map('v', 'x', '"_x', opt)
+-- map('n', 'x', '"_x', opt)
+-- map('n', 'Y', 'y$', opt)
+-- map('v', 'c', '"_c', opt)
+-- map('v', 'p', 'pgvy', opt)
+-- map('v', 'P', 'Pgvy', opt)
 
 map('n', '<m-up>', ':m .-2<cr>', opt)
 map('n', '<m-down>', ':m .+1<cr>', opt)
@@ -38,8 +38,6 @@ map("i", "<C-l>", "<ESC>A", opt)
 map("n", "W", ":w<CR>", opt)
 map("n", "Q", ":wq<CR>", opt)
 
--- 新建buffer
-map('n', '<leader>fn', ':enew<cr>', opt)
 -- ctrl u / ctrl + d  只移动10行，默认移动半屏
 map("n", "<C-u>", "10k", opt)
 map("n", "<C-d>", "10j", opt)
@@ -99,6 +97,7 @@ map("n", "<leader>i", "gg=G", opt)
 
 -- dashboard-nvim
 map('n', '<leader>fr', ':DashboardFindHistory<CR>', opt)
+map('n', '<leader>fn', ':DashboardNewFile<CR>', opt)
 map('n', '<leader>tc', ':DashboardChangeColorscheme<CR>', opt)
 map('n', '<leader>fa', ':DashboardFindWord<CR>', opt)
 map('n', '<leader>fm', ':DashboardJumpMark<CR>', opt)
