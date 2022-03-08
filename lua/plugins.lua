@@ -114,7 +114,7 @@ return require('packer').startup(function()
     -- 中文文档
     use 'yianwillis/vimcdoc'
     -- 格式化代码
-    use 'sbdchd/neoformat'
+    use 'mhartington/formatter.nvim'
     -- 翻译
     use 'voldikss/vim-translator'
 end)

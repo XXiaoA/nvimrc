@@ -27,7 +27,7 @@ lua require('plugin-config/venn')
 lua require('plugin-config/toggleterm')
 lua require('plugin-config/AutoSave')
 lua require('plugin-config/hop')
-lua require('plugin-config/formatter')
+lua require('plugin-config/format')
 lua require'impatient'.enable_profile()
 
 

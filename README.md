@@ -105,7 +105,7 @@ cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim && make 
 * [快速移动](https://github.com/phaazon/hop.nvim',) 
 * [中文文档](https://github.com/yianwillis/vimcdoc) 
 * [翻译](https://github.com/voldikss/vim-translator) 
-<!-- * [](https://github.com/)  -->
+* [格式化代码](https://github.com/mhartington/formatter.nvim) 
 <!-- * [](https://github.com/)  -->
 <!-- * [](https://github.com/)  -->
 <!-- * [](https://github.com/)  -->
