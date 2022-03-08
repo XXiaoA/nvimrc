@@ -100,6 +100,9 @@ cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim && make 
 * [运行代码](https://github.com/michaelb/sniprun)
 * [启动页](https://github.com/glepnir/dashboard-nvim) 
 * [加快启动速度](https://github.com/lewis6991/impatient.nvim) 
+
+</code></pre>
+</details>
 <!-- * [](https://github.com/)  -->
 <!-- * [](https://github.com/)  -->
 <!-- * [](https://github.com/)  -->
@@ -127,8 +130,6 @@ cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim && make 
 <!-- * [](https://github.com/)  -->
 <!-- * [](https://github.com/)  -->
 
-</code></pre>
-</details>
 ### TODO
 1. 完善快捷键说明
 2. 配置lsp
