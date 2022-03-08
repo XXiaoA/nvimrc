@@ -76,9 +76,6 @@ cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim && make 
 
 
 ### 插件
-<details>
-<summary>展开查看</summary>
-<pre><code>
 * [插件管理](https://github.com/wbthomason/packer.nvim) 
 * [主题](https://github.com/ellisonleao/gruvbox.nvim)
 * [目录树](https://github.com/kyazdani42/nvim-tree.lua)
@@ -101,8 +98,6 @@ cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim && make 
 * [启动页](https://github.com/glepnir/dashboard-nvim) 
 * [加快启动速度](https://github.com/lewis6991/impatient.nvim) 
 
-</code></pre>
-</details>
 <!-- * [](https://github.com/)  -->
 <!-- * [](https://github.com/)  -->
 <!-- * [](https://github.com/)  -->
