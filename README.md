@@ -82,7 +82,7 @@ cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim && make 
 * [buffer显示](https://github.com/akinsho/bufferline.nvim)
 * [语法高亮](https://github.com/nvim-treesitter/nvim-treesitter)
 * [一键注释](https://github.com/numToStr/Comment.nvim)
-* [自动补全](https://github.com/hrsh7th/cmp-nvim-lsp)  
+* [自动补全](https://github.com/hrsh7th/nvim-cmp)  
 * [文件搜索等](https://github.com/nvim-telescope/telescope.nvim)
 * [括号补全](https://github.com/windwp/nvim-autopairs) 
 * [信标](https://github.com/danilamihailov/beacon.nvim) 
