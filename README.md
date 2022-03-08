@@ -1,61 +1,23 @@
 # neovim_configuration  
 
-### 目录树(~/.config/nvim/)  
-<details>
-<summary>展开查看</summary>
-<pre><code>
-.
-├── init.vim
-├── lua
-│   ├── basic.lua
-│   ├── keybindings.lua
-│   ├── lsp
-│   │   ├── java.lua
-│   │   ├── lua.lua
-│   │   ├── nvim-cmp.lua
-│   │   ├── python.lua
-│   │   └── setup.lua
-│   ├── plugin-config
-│   │   ├── AutoSave.lua
-│   │   ├── bufferline.lua
-│   │   ├── colors.lua
-│   │   ├── Comment.lua
-│   │   ├── formatter.lua
-│   │   ├── hop.lua
-│   │   ├── indent_blankline.lua
-│   │   ├── lsp-colors.lua
-│   │   ├── lualine.lua
-│   │   ├── nvim-autopairs.lua
-│   │   ├── nvim-colorizer.lua
-│   │   ├── nvim-lightbulb.lua
-│   │   ├── nvim-tree.lua
-│   │   ├── nvim-treesitter.lua
-│   │   ├── rainbow.lua
-│   │   ├── telescope.lua
-│   │   ├── termwrapper.lua
-│   │   ├── toggleterm.lua
-│   │   ├── venn.lua
-│   │   └── which-key.lua
-│   └── plugins.lua
-└── vim
-    ├── dashboard.vim
-    ├── rainbow.vim
-    └── RunCode.vim
 
-</code></pre>
-</details>
+## 使用我的配置
+1. 你需要安装neovim，并且确保版本在**0.6**及以上
+2. 初次使用需安装`packer`以管理插件，请安装。[安装方法](./docs/packer.md)  
+3. 完成第二步后打开nvim，有报错很正常。一路跳过即可。然后normal模式执行`:PackerInstall`
+4. 安装[相关依赖](https://github.com/XXiaoA/neovim-configuration#依赖)
 
-
-### 快捷键
-**[点此见快捷键](./docs/keybindings.md)**  
+## 快捷键
+[点此见快捷键](./docs/keybindings.md)  
 
 
 ## 注意事项！
 **如果你在使用过程中发现问题欢迎提issue，我会尽快回复**
 
-* 初次使用需安装`packer`以管理插件，请安装。[安装方法](./docs/packer.md) 
 * neovim版本必须***0.6***以上，建议最新版  
 * treesitter插件里的lua高亮和主题冲突，删除`$HOME/.local/share/nvim/site/pack/packer/start/zephyr-nvim/after/queries/lua/highlights.scm`文件即可。[见此](https://github.com/nvim-treesitter/nvim-treesitter/issues/2435)
+
+## 依赖
 * 初次使用需要安装以下依赖，以下以**ubuntu**系统为例 ，其他系统请自行百度
 ```
 # 需先安装python，然后安装 python-lsp-server
@@ -78,7 +40,7 @@ cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim && make 
 * 若想使用toggleterm.nvim的`lazygit`窗口请自行百度查找安装lazygit的教程
 
 
-### 插件
+## 插件
 * [插件管理](https://github.com/wbthomason/packer.nvim) 
 * [主题](https://github.com/ellisonleao/gruvbox.nvim)
 * [目录树](https://github.com/kyazdani42/nvim-tree.lua)
@@ -127,10 +89,57 @@ cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim && make 
 <!-- * [](https://github.com/)  -->
 <!-- * [](https://github.com/)  -->
 
+
+## 其他
+### 目录树(~/.config/nvim/)  
+<details>
+<summary>展开查看</summary>
+<pre><code>
+.
+├── init.vim
+├── lua
+│   ├── basic.lua
+│   ├── keybindings.lua
+│   ├── lsp
+│   │   ├── java.lua
+│   │   ├── lua.lua
+│   │   ├── nvim-cmp.lua
+│   │   ├── python.lua
+│   │   └── setup.lua
+│   ├── plugin-config
+│   │   ├── AutoSave.lua
+│   │   ├── bufferline.lua
+│   │   ├── colors.lua
+│   │   ├── Comment.lua
+│   │   ├── formatter.lua
+│   │   ├── hop.lua
+│   │   ├── indent_blankline.lua
+│   │   ├── lsp-colors.lua
+│   │   ├── lualine.lua
+│   │   ├── nvim-autopairs.lua
+│   │   ├── nvim-colorizer.lua
+│   │   ├── nvim-lightbulb.lua
+│   │   ├── nvim-tree.lua
+│   │   ├── nvim-treesitter.lua
+│   │   ├── rainbow.lua
+│   │   ├── telescope.lua
+│   │   ├── termwrapper.lua
+│   │   ├── toggleterm.lua
+│   │   ├── venn.lua
+│   │   └── which-key.lua
+│   └── plugins.lua
+└── vim
+    ├── dashboard.vim
+    ├── rainbow.vim
+    └── RunCode.vim
+
+</code></pre>
+</details>
+
 ### TODO
 1. 完善快捷键说明
 2. 配置lsp
 3. 给每个插件加使用指北
 
 ### 说明：
-感谢：[/nshen/learn-neovim-lua](https://github.com/nshen/learn-neovim-lua)
+感谢：[nshen/learn-neovim-lua](https://github.com/nshen/learn-neovim-lua)
