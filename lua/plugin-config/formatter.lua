@@ -1,1 +1,0 @@
-require('formatter').setup()
