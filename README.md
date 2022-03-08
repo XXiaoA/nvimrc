@@ -76,6 +76,9 @@ cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim && make 
 
 
 ### 插件
+<details>
+<summary>展开查看</summary>
+<pre><code>
 * [插件管理](https://github.com/wbthomason/packer.nvim) 
 * [主题](https://github.com/ellisonleao/gruvbox.nvim)
 * [目录树](https://github.com/kyazdani42/nvim-tree.lua)
@@ -95,6 +98,26 @@ cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim && make 
 * [制图](https://github.com/jbyuki/venn.nvim) 
 * [彩色括号](https://github.com/luochen1990/rainbow) 
 * [运行代码](https://github.com/michaelb/sniprun)
+* [启动页](https://github.com/glepnir/dashboard-nvim) 
+* [加快启动速度](https://github.com/lewis6991/impatient.nvim) 
+<!-- * [](https://github.com/)  -->
+<!-- * [](https://github.com/)  -->
+<!-- * [](https://github.com/)  -->
+<!-- * [](https://github.com/)  -->
+<!-- * [](https://github.com/)  -->
+<!-- * [](https://github.com/)  -->
+<!-- * [](https://github.com/)  -->
+<!-- * [](https://github.com/)  -->
+<!-- * [](https://github.com/)  -->
+<!-- * [](https://github.com/)  -->
+<!-- * [](https://github.com/)  -->
+<!-- * [](https://github.com/)  -->
+<!-- * [](https://github.com/)  -->
+<!-- * [](https://github.com/)  -->
+<!-- * [](https://github.com/)  -->
+<!-- * [](https://github.com/)  -->
+<!-- * [](https://github.com/)  -->
+<!-- * [](https://github.com/)  -->
 <!-- * [](https://github.com/)  -->
 <!-- * [](https://github.com/)  -->
 <!-- * [](https://github.com/)  -->
@@ -104,9 +127,11 @@ cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim && make 
 <!-- * [](https://github.com/)  -->
 <!-- * [](https://github.com/)  -->
 
+</code></pre>
+</details>
 ### TODO
 1. 完善快捷键说明
-2. 解决python语法检测无法配置的问题
+2. 配置lsp
 3. 给每个插件加使用指北
 
 ### 说明：
