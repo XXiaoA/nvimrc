@@ -5,10 +5,6 @@
 <summary>展开查看</summary>
 <pre><code>
 .
-├── docs
-│   ├── Comment.md
-│   ├── keybindings.md
-│   └── packer.md
 ├── init.vim
 ├── lua
 │   ├── basic.lua
@@ -20,25 +16,32 @@
 │   │   ├── python.lua
 │   │   └── setup.lua
 │   ├── plugin-config
+│   │   ├── AutoSave.lua
 │   │   ├── bufferline.lua
+│   │   ├── colors.lua
 │   │   ├── Comment.lua
-│   │   ├── galaxyline.lua
+│   │   ├── formatter.lua
+│   │   ├── hop.lua
 │   │   ├── indent_blankline.lua
 │   │   ├── lsp-colors.lua
 │   │   ├── lualine.lua
 │   │   ├── nvim-autopairs.lua
 │   │   ├── nvim-colorizer.lua
+│   │   ├── nvim-lightbulb.lua
 │   │   ├── nvim-tree.lua
 │   │   ├── nvim-treesitter.lua
 │   │   ├── rainbow.lua
 │   │   ├── telescope.lua
+│   │   ├── termwrapper.lua
 │   │   ├── toggleterm.lua
-│   │   └── venn.lua
+│   │   ├── venn.lua
+│   │   └── which-key.lua
 │   └── plugins.lua
-├── plugin
-│   └── packer_compiled.lua
-├── private_init.lua
-└── README.md
+└── vim
+    ├── dashboard.vim
+    ├── rainbow.vim
+    └── RunCode.vim
+
 </code></pre>
 </details>
 
@@ -50,29 +53,35 @@
 ## 注意事项！
 * 初次使用需安装`packer`以管理插件，请安装。[安装方法](./docs/packer.md) 
 * neovim版本必须***0.6***以上，建议最新版  
-* treesitter插件里的lua高亮和zephyr主题冲突，删除`$HOME/.local/share/nvim/site/pack/packer/start/zephyr-nvim/after/queries/lua/highlights.scm`文件即可。[见此](https://github.com/nvim-treesitter/nvim-treesitter/issues/2435)
-* 初次使用请安装以下依赖
+* treesitter插件里的lua高亮和主题冲突，删除`$HOME/.local/share/nvim/site/pack/packer/start/zephyr-nvim/after/queries/lua/highlights.scm`文件即可。[见此](https://github.com/nvim-treesitter/nvim-treesitter/issues/2435)
+* 初次使用需要安装以下依赖，以下以**ubuntu**系统为例 ，其他系统请自行百度
 ```
+# 需先安装python，然后安装 python-lsp-server
 pip install python-lsp-server  
-apt install python3.8-venv nodejs npm
-curl -LO
-https://github.com/BurntSushi/ripgrep/releases/download/12.1.1/ripgrep_12.1.1_amd64.deb
+# 安装 python3.8-venv, gcc, make
+apt install python3.8-venv gcc make
+# 安装 ripgrep
+curl -LO https://github.com/BurntSushi/ripgrep/releases/download/12.1.1/ripgrep_12.1.1_amd64.deb
 sudo dpkg -i ripgrep_12.1.1_amd64.deb
  ```
-gcc
-make
+
+如果telescope-fzf-native报错fzf未安装尝试执行以下指令
+```
 make -C ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim
 cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim && make clean && make
- 若想使用lazygit窗口请自行百度查找安装`lazygit`的教程
+```
+
+若想使用toggleterm.nvim的`lazygit`窗口请自行百度查找安装lazygit的教程
 
 
 ### 插件
-* [主题](https://github.com/glepnir/zephyr-nvim)
+* [插件管理](https://github.com/wbthomason/packer.nvim) 
+* [主题](https://github.com/ellisonleao/gruvbox.nvim)
 * [目录树](https://github.com/kyazdani42/nvim-tree.lua)
 * [buffer显示](https://github.com/akinsho/bufferline.nvim)
 * [语法高亮](https://github.com/nvim-treesitter/nvim-treesitter)
 * [一键注释](https://github.com/numToStr/Comment.nvim)
-* [LSP](https://github.com/neovim/nvim-lspconfig)  更多lsp插件请看[plugins.lua文件](./lua/plugins.lua)
+* [自动补全](https://github.com/hrsh7th/cmp-nvim-lsp)  
 * [文件搜索等](https://github.com/nvim-telescope/telescope.nvim)
 * [括号补全](https://github.com/windwp/nvim-autopairs) 
 * [信标](https://github.com/danilamihailov/beacon.nvim) 
@@ -85,7 +94,6 @@ cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim && make 
 * [制图](https://github.com/jbyuki/venn.nvim) 
 * [彩色括号](https://github.com/luochen1990/rainbow) 
 * [运行代码](https://github.com/michaelb/sniprun)
-<!-- * [](https://github.com/)  -->
 <!-- * [](https://github.com/)  -->
 <!-- * [](https://github.com/)  -->
 <!-- * [](https://github.com/)  -->
