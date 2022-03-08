@@ -9,7 +9,6 @@ lua require('plugins')
 " 主题
 set background=dark
 colorscheme gruvbox
-" colorscheme zephyr
 
 source $HOME/.config/nvim/vim/RunCode.vim
 source $HOME/.config/nvim/vim/rainbow.vim
@@ -23,10 +22,9 @@ lua require('plugin-config/telescope')
 lua require('plugin-config/nvim-autopairs')
 lua require("plugin-config/indent_blankline")
 lua require('plugin-config/nvim-colorizer')
-" lua require('plugin-config/lualine')
+lua require('plugin-config/lualine')
 lua require('plugin-config/venn')
 lua require('plugin-config/toggleterm')
-lua require('plugin-config/galaxyline')
 lua require('plugin-config/AutoSave')
 lua require('plugin-config/hop')
 lua require('plugin-config/formatter')

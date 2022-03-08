@@ -96,8 +96,14 @@ map("n", "<A-w>", ":bd<CR>", opt)
 -- nvim-treesitter 代码格式化
 map("n", "<leader>i", "gg=G", opt)
 
--- Telescope
-map("n", "<leader>fr", ":Telescope oldfiles<CR>", opt)
+
+-- dashboard-nvim
+map('n', '<leader>fr', ':DashboardFindHistory<CR>', opt)
+map('n', '<leader>tc', ':DashboardChangeColorscheme<CR>', opt)
+map('n', '<leader>fa', ':DashboardFindWord<CR>', opt)
+map('n', '<leader>fm', ':DashboardJumpMark<CR>', opt)
+map('n', '<leader>ss', ':<C-u>SessionSave<CR>', opt)
+map('n', '<leader>sl', ':<C-u>SessionLoad<CR>', opt)
 
 
 local pluginKeys = {}

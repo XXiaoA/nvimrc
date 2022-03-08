@@ -1,3 +1,9 @@
+require('packer').init({
+	git = {
+		default_url_format = "https://hub.xn--p8jhe.tw/%s"
+		 
+	}
+})
 return require('packer').startup(function()
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
@@ -6,8 +12,6 @@ return require('packer').startup(function()
        "ellisonleao/gruvbox.nvim",
        requires = {"rktjmp/lush.nvim"}
     }
-    -- 主题
-    use 'glepnir/zephyr-nvim'
     -- nvim-tree
     use {
         'kyazdani42/nvim-tree.lua',
@@ -60,15 +64,6 @@ return require('packer').startup(function()
     -- 缩进线
     use "lukas-reineke/indent-blankline.nvim"
     -- 状态栏
-    use({
-          "NTBBloodbath/galaxyline.nvim",
-          -- your statusline
-          config = function()
-            require("galaxyline.themes.eviline")
-          end,
-          -- some optional icons
-          requires = { "kyazdani42/nvim-web-devicons", opt = true }
-        })
     use {
           'nvim-lualine/lualine.nvim',
           requires = { 'kyazdani42/nvim-web-devicons', opt = true }
