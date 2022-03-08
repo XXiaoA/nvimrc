@@ -59,8 +59,10 @@
 ```
 # 需先安装python，然后安装 python-lsp-server
 pip install python-lsp-server  
-# 安装 python3.8-venv, gcc, make
-apt install python3.8-venv gcc make
+# 安装 python3.8-venv, gcc, make, nodejs, npm
+apt install python3.8-venv gcc make nodejs npm
+# 用npm安装luafmt
+npm i -g lua-fmt
 # 安装 ripgrep
 curl -LO https://github.com/BurntSushi/ripgrep/releases/download/12.1.1/ripgrep_12.1.1_amd64.deb
 sudo dpkg -i ripgrep_12.1.1_amd64.deb
