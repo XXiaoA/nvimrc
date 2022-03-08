@@ -97,15 +97,14 @@ cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim && make 
 * [运行代码](https://github.com/michaelb/sniprun)
 * [启动页](https://github.com/glepnir/dashboard-nvim) 
 * [加快启动速度](https://github.com/lewis6991/impatient.nvim) 
-
-<!-- * [](https://github.com/)  -->
-<!-- * [](https://github.com/)  -->
-<!-- * [](https://github.com/)  -->
-<!-- * [](https://github.com/)  -->
-<!-- * [](https://github.com/)  -->
-<!-- * [](https://github.com/)  -->
-<!-- * [](https://github.com/)  -->
-<!-- * [](https://github.com/)  -->
+* [自动创建文件夹](https://github.com/DataWraith/auto_mkdir) 
+* [一键对齐](https://github.com/junegunn/vim-easy-align) 
+* [surround](https://github.com/tpope/vim-surround) 
+* [自动保存](https://github.com/Pocco81/AutoSave.nvim) 
+* [计算启动时间](https://github.com/dstein64/vim-startuptime) 
+* [快速移动](https://github.com/phaazon/hop.nvim',) 
+* [中文文档](https://github.com/yianwillis/vimcdoc) 
+* [翻译](https://github.com/voldikss/vim-translator) 
 <!-- * [](https://github.com/)  -->
 <!-- * [](https://github.com/)  -->
 <!-- * [](https://github.com/)  -->
