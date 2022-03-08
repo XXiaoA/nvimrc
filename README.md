@@ -52,6 +52,7 @@
 
 ## 注意事项！
 **如果你在使用过程中发现问题欢迎提issue，我会尽快回复**
+
 * 初次使用需安装`packer`以管理插件，请安装。[安装方法](./docs/packer.md) 
 * neovim版本必须***0.6***以上，建议最新版  
 * treesitter插件里的lua高亮和主题冲突，删除`$HOME/.local/share/nvim/site/pack/packer/start/zephyr-nvim/after/queries/lua/highlights.scm`文件即可。[见此](https://github.com/nvim-treesitter/nvim-treesitter/issues/2435)
@@ -68,13 +69,13 @@ curl -LO https://github.com/BurntSushi/ripgrep/releases/download/12.1.1/ripgrep_
 sudo dpkg -i ripgrep_12.1.1_amd64.deb
  ```
 
-如果telescope-fzf-native报错fzf未安装尝试执行以下命令
+* 如果telescope-fzf-native报错fzf未安装尝试执行以下命令
 ```
 make -C ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim
 cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim && make clean && make
 ```
 
-若想使用toggleterm.nvim的`lazygit`窗口请自行百度查找安装lazygit的教程
+* 若想使用toggleterm.nvim的`lazygit`窗口请自行百度查找安装lazygit的教程
 
 
 ### 插件
