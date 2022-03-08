@@ -24,7 +24,7 @@
 | v    | <A+down>    | 所选行移动到下一行 |
 | n    | W           | 保存文件           |
 | n    | Q           | 退出文件           |
-| n    | <leader>rc  | 运行代码           |
+| n    | <Leader>rc  | 运行代码           |
 
 ## 插件
 ### nvimTree 目录树
