@@ -1,3 +1,5 @@
+-- 禁止鼠标
+vim.o.mouse = ""
 -- 禁止创建备份文件
 vim.o.backup = false
 vim.o.writebackup = false

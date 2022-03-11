@@ -1,6 +1,5 @@
 " 基础设置
 lua require("basic")
-set mouse=
 " 快捷键映射
 lua require('keybindings')
 " Packer插件管理

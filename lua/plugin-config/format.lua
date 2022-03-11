@@ -1,6 +1,7 @@
-require('formatter').setup({
-  filetype = {
-    lua = {
+require("formatter").setup(
+  {
+    filetype = {
+      lua = {
         -- luafmt
         function()
           return {
@@ -9,6 +10,7 @@ require('formatter').setup({
             stdin = true
           }
         end
-    },
+      }
+    }
   }
-})
+)
