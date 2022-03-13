@@ -1,9 +1,9 @@
 require('packer').init({
 	git = {
 		default_url_format = "https://hub.xn--p8jhe.tw/%s"
-		 
 	}
 })
+
 return require('packer').startup(function()
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
