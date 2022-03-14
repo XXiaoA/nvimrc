@@ -1,7 +1,7 @@
 func! RunCode()
     exec "w"
     if &filetype == 'c'
-        exec '!clang "%" -o "%<"'
+        exec '!gcc "%" -o "%<"'
         exec '!./"%<"'
     elseif &filetype == 'cpp'
         exec '!g++ "%" -o "%<"'
