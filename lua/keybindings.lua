@@ -52,7 +52,7 @@ map("v", "<", "<gv", opt)
 map("v", ">", ">gv", opt)
 
 -- 运行代码
-map('n', '<leader>rc', ':call RunCode()<cr>', opt)
+map('n', '<leader>cr', ':call RunCode()<cr>', opt)
 
 -- magic search
 -- map("n", "/", "/\\v", { noremap = true , silent = false})
