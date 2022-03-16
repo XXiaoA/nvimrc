@@ -104,6 +104,11 @@ map('n', '<leader>fm', ':DashboardJumpMark<CR>', opt)
 map('n', '<leader>ss', ':<C-u>SessionSave<CR>', opt)
 map('n', '<leader>sl', ':<C-u>SessionLoad<CR>', opt)
 
+-- 'windwp/nvim-spectre'
+map('v', '<leader>s', ":lua require('spectre').open_visual()<CR>", opt)
+map('n', '<leader>S', ":lua require('spectre').open()<CR>", opt)
+map('n', '<leader>sw', ":lua require('spectre').open_visual({select_word=true})<CR>", opt)
+map('n', '<leader>sp', ":lua require('spectre').open_file_search()<cr>", opt)
 
 local pluginKeys = {}
 
