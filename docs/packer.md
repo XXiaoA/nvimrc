@@ -1,6 +1,6 @@
 ## Neovim 插件管理与配置
 
-使用 `Packer.nvim` 安装与更新 `Neovim` 插件
+使用 [ Packer.nvim ](https://github.com/wbthomason/packer.nvim) 安装与更新 `Neovim` 插件
 
 ## 安装 Packer.nvim 插件管理器
 
