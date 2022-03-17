@@ -77,4 +77,3 @@
 ```
 
 * 目前默认拓展模式(Extended mappings)未开启，需要开启可前往Comment.lua文件
-* [官网](https://github.com/numToStr/Comment.nvim)
