@@ -53,4 +53,4 @@
 
 ### Comment 代码注释
 + 命令/选择模式`C-_`/`C_/`注释当行代码   
-详细[见此](./Comment.md)
+详细[见此](./plugins/Comment.md)

@@ -1,4 +1,6 @@
-#### 基础映射 Basic mappings
+## Comment
+
+### 基础映射 Basic mappings
 默认情况下启用这些映射。
 
 - 命令模式
@@ -22,7 +24,7 @@
 `gb` - 使用多行注释注释所选的行
 ```
 
-#### 额外映射 Extra mappings
+### 额外映射 Extra mappings
 默认情况下启用这些映射。
 
 - 命令模式
@@ -33,7 +35,7 @@
 `gcA` - 将注释插入到当前行尾并进入输入模式
 ```
 
-#### 扩展映射 Extended mappings
+### 扩展映射 Extended mappings
 默认情况下启用这些映射。
 
 - 命令模式
@@ -54,7 +56,7 @@
 `g<` - 使用单行注释取消注释选择的区域
 ```
 
-##### 例子 Examples
+#### 例子 Examples
 
 ```帮助
 # 单行注释
