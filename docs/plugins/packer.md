@@ -12,7 +12,8 @@ git clone --depth 1 https://github.com/wbthomason/packer.nvim\
 
 ```
 
-## 如果是使用我的配置，可以直接阅读[使用方法](#插件安装与更新) 
+## 配置Packer.nvim
+如果是使用我的配置，可以直接阅读[使用方法](#插件安装与更新) 
 
 然后创建插件配置文件 `lua/plugins.lua` ，Packer 可以管理和升级他自己
 
@@ -69,6 +70,3 @@ Packer.nvim 安装后会增加以下命令，
 调用 `:PackerSync` 就可以了，但要确定你的网络可以连接到 `github`，或者使用GitHub的`镜像站`。
 
 安装完成， 按 `q` 退出
-
-
-- [回首页](../README.md)
