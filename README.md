@@ -42,7 +42,10 @@ cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim && make 
 * ~~treesitter插件里的lua高亮和主题冲突，删除`$HOME/.local/share/nvim/site/pack/packer/start/zephyr-nvim/after/queries/lua/highlights.scm`文件即可。[见此](https://github.com/nvim-treesitter/nvim-treesitter/issues/2435)~~
 
 
-## 插件
+## [插件使用指北](./docs/plugins.md)
+
+
+## 插件列表
 * [插件管理](https://github.com/wbthomason/packer.nvim) 
 * [主题](https://github.com/ellisonleao/gruvbox.nvim)
 * [目录树](https://github.com/kyazdani42/nvim-tree.lua)
@@ -73,7 +76,7 @@ cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim && make 
 * [中文文档](https://github.com/yianwillis/vimcdoc) 
 * [翻译](https://github.com/voldikss/vim-translator) 
 * [格式化代码](https://github.com/mhartington/formatter.nvim) 
-<!-- * [](https://github.com/)  -->
+* [内容搜索](https://github.com/windwp/nvim-spectre) 
 <!-- * [](https://github.com/)  -->
 <!-- * [](https://github.com/)  -->
 <!-- * [](https://github.com/)  -->
