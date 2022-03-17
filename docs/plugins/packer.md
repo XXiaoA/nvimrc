@@ -12,7 +12,7 @@ git clone --depth 1 https://github.com/wbthomason/packer.nvim\
 
 ```
 
-## 如果是使用我的配置，可以直接阅读[使用方法](.#%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E4%B8%8E%E6%9B%B4%E6%96%B0) 
+## 如果是使用我的配置，可以直接阅读[使用方法](#插件安装与更新) 
 
 然后创建插件配置文件 `lua/plugins.lua` ，Packer 可以管理和升级他自己
 
