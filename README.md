@@ -7,9 +7,6 @@
 3. 完成第3步后打开nvim，等待安装[Packer.nvim](docs/packer.md)，有报错很正常。一路跳过即可。然后normal模式执行`:PackerInstall`
 4. 安装[相关依赖](https://github.com/XXiaoA/neovim-configuration#依赖)
 
-## 快捷键
-[点此见快捷键](./docs/keybindings.md)  
-
 
 ## 依赖
 * 初次使用需要安装以下依赖，以下以**ubuntu**系统为例 ，其他系统请按照注释自行百度
@@ -34,6 +31,11 @@ cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim && make 
 
 * 若想使用toggleterm.nvim的`lazygit`窗口请自行百度查找安装lazygit的教程
 
+
+## 快捷键
+[点此见快捷键](./docs/keybindings.md)  
+
+
 ## 注意事项！
 **如果你在使用过程中发现问题欢迎提issue，我会尽快回复**
 
@@ -42,16 +44,16 @@ cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim && make 
 * ~~treesitter插件里的lua高亮和主题冲突，删除`$HOME/.local/share/nvim/site/pack/packer/start/zephyr-nvim/after/queries/lua/highlights.scm`文件即可。[见此](https://github.com/nvim-treesitter/nvim-treesitter/issues/2435)~~
 
 
-## [插件使用指北](./docs/plugins.md)
-
+## [插件使用指北](./docs/allPlugins.md)
+各个插件的 **简单** 食用方法
 
 ## 插件列表
-* [插件管理](https://github.com/wbthomason/packer.nvim) 
+* [Packer.nvim](https://github.com/wbthomason/packer.nvim) 插件管理
 * [主题](https://github.com/ellisonleao/gruvbox.nvim)
 * [目录树](https://github.com/kyazdani42/nvim-tree.lua)
 * [buffer显示](https://github.com/akinsho/bufferline.nvim)
 * [语法高亮](https://github.com/nvim-treesitter/nvim-treesitter)
-* [一键注释](https://github.com/numToStr/Comment.nvim)
+* [Comment](https://github.com/numToStr/Comment.nvim) 快捷注释
 * [自动补全](https://github.com/hrsh7th/nvim-cmp)  
 * [文件搜索等](https://github.com/nvim-telescope/telescope.nvim)
 * [括号补全](https://github.com/windwp/nvim-autopairs) 
@@ -77,22 +79,6 @@ cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim && make 
 * [翻译](https://github.com/voldikss/vim-translator) 
 * [格式化代码](https://github.com/mhartington/formatter.nvim) 
 * [内容搜索](https://github.com/windwp/nvim-spectre) 
-<!-- * [](https://github.com/)  -->
-<!-- * [](https://github.com/)  -->
-<!-- * [](https://github.com/)  -->
-<!-- * [](https://github.com/)  -->
-<!-- * [](https://github.com/)  -->
-<!-- * [](https://github.com/)  -->
-<!-- * [](https://github.com/)  -->
-<!-- * [](https://github.com/)  -->
-<!-- * [](https://github.com/)  -->
-<!-- * [](https://github.com/)  -->
-<!-- * [](https://github.com/)  -->
-<!-- * [](https://github.com/)  -->
-<!-- * [](https://github.com/)  -->
-<!-- * [](https://github.com/)  -->
-<!-- * [](https://github.com/)  -->
-<!-- * [](https://github.com/)  -->
 
 
 ## 其他
@@ -142,9 +128,9 @@ cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim && make 
 </details>
 
 ### TODO
-1. 完善快捷键说明
-2. 配置lsp
-3. 给每个插件加使用指北
+[ ] 完善快捷键说明
+[ ] 配置lsp
+[ ] 给每个插件加使用指北
 
 ### 说明：
 感谢：[nshen/learn-neovim-lua](https://github.com/nshen/learn-neovim-lua)
