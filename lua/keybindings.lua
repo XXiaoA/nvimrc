@@ -36,7 +36,7 @@ map('v', '<m-down>', ":m '>+1<cr>gv", opt)
 map("i", "<C-h>", "<ESC>I", opt)
 map("i", "<C-l>", "<ESC>A", opt)
 map("n", "W", ":w<CR>", opt)
-map("n", "Q", ":wq<CR>", opt)
+map("n", "Q", ":q<CR>", opt)
 
 -- ctrl u / ctrl + d  只移动10行，默认移动半屏
 map("n", "<C-u>", "10k", opt)
