@@ -4,7 +4,7 @@
 ## 使用我的配置
 1. 你需要安装neovim，并且确保版本在**0.6**及以上
 2. clone本仓库的内容到你nvim的配置目录，例如Linux的`~/.config/nvim/`。注意是仓库内容，而不是仓库，可以clone仓库到`~/.config/`然后改名为`nvim`
-3. 完成第3步后打开nvim，有报错很正常。一路跳过即可。然后normal模式执行`:PackerInstall`
+3. 完成第3步后打开nvim，等待安装`packer`，有报错很正常。一路跳过即可。然后normal模式执行`:PackerInstall`
 4. 安装[相关依赖](https://github.com/XXiaoA/neovim-configuration#依赖)
 
 ## 快捷键
@@ -16,8 +16,8 @@
 ```
 # 需先安装python，然后安装 python-lsp-server
 pip install python-lsp-server  
-# 安装 python3.8-venv, gcc, make, nodejs, npm
-apt install python3.8-venv gcc make nodejs npm
+# 安装 python3.8-venv, g++, gcc, make, nodejs, npm
+apt install python3.8-venv g++ gcc make nodejs npm
 # 用npm安装luafmt
 npm i -g lua-fmt
 # 安装 ripgrep
