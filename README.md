@@ -82,55 +82,10 @@ cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim && make 
 
 
 ## 其他
-### 目录树(~/.config/nvim/)  
-<details>
-<summary>展开查看</summary>
-<pre><code>
-.
-├── init.vim
-├── lua
-│   ├── basic.lua
-│   ├── keybindings.lua
-│   ├── lsp
-│   │   ├── java.lua
-│   │   ├── lua.lua
-│   │   ├── nvim-cmp.lua
-│   │   ├── python.lua
-│   │   └── setup.lua
-│   ├── plugin-config
-│   │   ├── AutoSave.lua
-│   │   ├── bufferline.lua
-│   │   ├── colors.lua
-│   │   ├── Comment.lua
-│   │   ├── formatter.lua
-│   │   ├── hop.lua
-│   │   ├── indent_blankline.lua
-│   │   ├── lsp-colors.lua
-│   │   ├── lualine.lua
-│   │   ├── nvim-autopairs.lua
-│   │   ├── nvim-colorizer.lua
-│   │   ├── nvim-lightbulb.lua
-│   │   ├── nvim-tree.lua
-│   │   ├── nvim-treesitter.lua
-│   │   ├── rainbow.lua
-│   │   ├── telescope.lua
-│   │   ├── termwrapper.lua
-│   │   ├── toggleterm.lua
-│   │   ├── venn.lua
-│   │   └── which-key.lua
-│   └── plugins.lua
-└── vim
-    ├── dashboard.vim
-    ├── rainbow.vim
-    └── RunCode.vim
-
-</code></pre>
-</details>
-
 ### TODO
-[ ] 完善快捷键说明
-[ ] 配置lsp
-[ ] 给每个插件加使用指北
+[ ] 完善快捷键说明  
+[ ] 配置lsp  
+[ ] 给每个插件加使用指北  
 
 ### 说明：
 感谢：[nshen/learn-neovim-lua](https://github.com/nshen/learn-neovim-lua)
