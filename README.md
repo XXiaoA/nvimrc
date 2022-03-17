@@ -49,9 +49,9 @@ cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim && make 
 
 ## 插件列表
 * [Packer.nvim](https://github.com/wbthomason/packer.nvim) 插件管理
-* [主题](https://github.com/ellisonleao/gruvbox.nvim)
-* [目录树](https://github.com/kyazdani42/nvim-tree.lua)
-* [buffer显示](https://github.com/akinsho/bufferline.nvim)
+* [gruvbox](https://github.com/ellisonleao/gruvbox.nvim) 主题
+* [nvim-tree](https://github.com/kyazdani42/nvim-tree.lua) 目录树
+* [bufferline](https://github.com/akinsho/bufferline.nvim) buffer显示
 * [语法高亮](https://github.com/nvim-treesitter/nvim-treesitter)
 * [Comment](https://github.com/numToStr/Comment.nvim) 快捷注释
 * [自动补全](https://github.com/hrsh7th/nvim-cmp)  
