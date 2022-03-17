@@ -12,7 +12,7 @@
 
 
 ## 依赖
-* 初次使用需要安装以下依赖，以下以**ubuntu**系统为例 ，其他系统请自行百度
+* 初次使用需要安装以下依赖，以下以**ubuntu**系统为例 ，其他系统请按照注释自行百度
 ```
 # 需先安装python，然后安装 python-lsp-server
 pip install python-lsp-server  
