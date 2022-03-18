@@ -40,7 +40,7 @@
 - `x` 剪切
 - `c` 拷贝
 - `p` 粘贴
-- `d` 删除
+- `d` 删除  
 以上是较常用的操作。[详见](./plugins/nvim-tree.md)
 
 ### bufferline 
