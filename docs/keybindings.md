@@ -41,7 +41,7 @@
 - `c` 拷贝
 - `p` 粘贴
 - `d` 删除
-以上是较常用的操作。[详见](./plugins/nvim-tree.md
+以上是较常用的操作。[详见](./plugins/nvim-tree.md)
 
 ### bufferline 
 + 命令模式`A-h`/`A-l`左右Tab切换
