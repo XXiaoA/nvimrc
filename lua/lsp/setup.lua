@@ -6,8 +6,7 @@ local lsp_installer = require "nvim-lsp-installer"
 local servers = {
     sumneko_lua = require "lsp.lua", -- /lua/lsp/lua.lua
     pylsp = require "lsp.python", -- /lua/lsp/python.lua
-    -- pyright = require "lsp.python", -- python
-    -- jdtls = require "lsp.java", -- java
+    clangd = require "lsp.c"
 
 }
 
