@@ -41,7 +41,7 @@
 - `c` 拷贝
 - `p` 粘贴
 - `d` 删除
-
+以上是较常用的操作。[详见](./plugins/nvim-tree.md
 
 ### bufferline 
 + 命令模式`A-h`/`A-l`左右Tab切换
@@ -49,8 +49,8 @@
 
 ### nvim-treesitter 高亮代码
 + 命令模式`gg=G`格式化全部代码  
-可选择模式选择代码再= ~~(此功能作用不大)~~  
+> 可选择模式选择代码再 = ~~(此功能作用不大)~~  
 
 ### Comment 代码注释
 + 命令/选择模式`C-_`/`C_/`注释当行代码   
-详细[见此](./plugins/Comment.md)
+[详见](./plugins/Comment.md)
