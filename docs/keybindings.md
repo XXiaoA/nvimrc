@@ -26,7 +26,7 @@
 | n/j  | \<A-down\>    | 当行移动到下一行   |
 | v    | \<A-up\>      | 所选行移动到上一行 |
 | v    | \<A-down\>    | 所选行移动到下一行 |
-| n    | \<leader\>rc  | 运行代码           |
+| n    | \<leader\>cr  | 运行代码           |
 
 ## 插件
 ### nvimTree 目录树
@@ -45,7 +45,7 @@
 
 ### bufferline 
 + 命令模式`A-h`/`A-l`左右Tab切换
-+ 命令模式`A-w`关闭当前Tab
++ 命令模式`A-w`关闭当前Buffer
 
 ### nvim-treesitter 高亮代码
 + 命令模式`gg=G`格式化全部代码  
