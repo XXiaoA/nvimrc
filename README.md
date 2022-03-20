@@ -11,10 +11,10 @@
 ## 依赖
 * 初次使用需要安装以下依赖，以下以**ubuntu**系统为例 ，其他系统请按照注释自行百度
 ```
-# 需先安装python，然后安装 python-lsp-server
+# 安装 python python3.8-venv, g++, gcc, make, nodejs npm
+apt install python python3.8-venv g++ gcc make nodejs npm
+# 安装 python-lsp-server
 pip install python-lsp-server  
-# 安装 python3.8-venv, g++, gcc, make, nodejs npm
-apt install python3.8-venv g++ gcc make nodejs npm
 # 用npm安装luafmt(可选，格式化lua文件)
 npm i -g lua-fmt
 # 安装 ripgrep
@@ -24,7 +24,6 @@ sudo dpkg -i ripgrep_12.1.1_amd64.deb
 
 * 如果telescope-fzf-native报错fzf未安装尝试执行以下命令
 ```
-make -C ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim
 cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim && make clean && make
 ```
 
