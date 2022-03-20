@@ -9,12 +9,12 @@ require'nvim-treesitter.configs'.setup {
   },
   -- 启用增量选择
   incremental_selection = {
-    enable = false,
+    enable = true,
     keymaps = {
-      init_selection = '<CR>',
-      node_incremental = '<CR>',
-      node_decremental = '<BS>',
-      scope_incremental = '<TAB>',
+      init_selection = 'gnn',
+      node_incremental = 'grn',
+      node_decremental = 'grc',
+      scope_incremental = 'grm',
     }
   },
   -- 启用基于Treesitter的代码格式化(=) . NOTE: This is an experimental feature.
