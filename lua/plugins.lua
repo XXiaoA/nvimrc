@@ -129,6 +129,5 @@ return require('packer').startup(function()
     use 'voldikss/vim-translator'
     -- 搜索
     use {'windwp/nvim-spectre',
-        requires = 'nvim-lua/plenary.nvim'
-}
+        requires = 'nvim-lua/plenary.nvim'}
 end)
