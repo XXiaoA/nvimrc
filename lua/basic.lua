@@ -1,4 +1,5 @@
 -- 禁止鼠标
+-- vim.o.mouse = "a"
 vim.o.mouse = ""
 -- 禁止创建备份文件
 vim.o.backup = false
@@ -41,8 +42,6 @@ vim.o.textwidth = 1000
 -- jk移动时光标下上方保留8行
 vim.o.scrolloff = 10
 vim.o.sidescrolloff = 10
--- 允许使用鼠标
--- vim.o.mouse = "a"
 -- 使用系统剪切板
 vim.o.clipboard = "unnamedplus"
 -- 设置自动缩进
