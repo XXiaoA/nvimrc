@@ -84,8 +84,6 @@ return require('packer').startup(function()
     use 'norcalli/nvim-colorizer.lua'
     -- 命令行窗口
     use {"akinsho/toggleterm.nvim"}
-    -- 画图
-    use "jbyuki/venn.nvim"
     -- copilot
     -- use 'github/copilot.vim'
     -- 彩色括号
@@ -130,4 +128,6 @@ return require('packer').startup(function()
     -- 搜索
     use {'windwp/nvim-spectre',
         requires = 'nvim-lua/plenary.nvim'}
+    -- 按键
+    use "folke/which-key.nvim"
 end)
