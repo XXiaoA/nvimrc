@@ -23,11 +23,11 @@ lua require('plugin-config/nvim-autopairs')
 lua require("plugin-config/indent_blankline")
 lua require('plugin-config/nvim-colorizer')
 lua require('plugin-config/lualine')
-lua require('plugin-config/venn')
 lua require('plugin-config/toggleterm')
 lua require('plugin-config/AutoSave')
 lua require('plugin-config/hop')
 lua require('plugin-config/format')
+lua require('plugin-config/which-key')
 lua require'impatient'.enable_profile()
 
 

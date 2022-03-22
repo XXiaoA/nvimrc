@@ -72,8 +72,8 @@ vim.o.spell = true
 vim.o.spelllang = "en_us,cjk"
 -- 是否支持折叠
 vim.o.foldenable = true
--- 折叠的方式（按照缩进）
-vim.o.foldmethod = "marker"
+-- 折叠的方式
+-- vim.o.foldmethod = "marker"
 -- 折叠的级别（100）
 vim.o.foldlevel = 100
 vim.o.autoindent = true

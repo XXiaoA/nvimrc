@@ -72,8 +72,8 @@
 # 多行注释
 
 `gb2}` - 从当前光标位置注释到下两个空行
-`gbaf` - 注释当前函数 (w/LSP/treesitter支持)
-`gbac` - 注释当前类 (w/LSP/treesitter支持)
+`gbaf` - 注释当前函数 (需要w/LSP/treesitter支持)
+`gbac` - 注释当前类 (需要w/LSP/treesitter支持)
 ```
 
 * 目前默认拓展模式(Extended mappings)未开启，需要开启可前往Comment.lua文件
