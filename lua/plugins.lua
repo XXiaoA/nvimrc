@@ -125,9 +125,6 @@ return require('packer').startup(function()
     use 'mhartington/formatter.nvim'
     -- 翻译
     use 'voldikss/vim-translator'
-    -- 搜索
-    use {'windwp/nvim-spectre',
-        requires = 'nvim-lua/plenary.nvim'}
     -- 按键
     use "folke/which-key.nvim"
 end)

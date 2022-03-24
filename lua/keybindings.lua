@@ -26,17 +26,18 @@ vim.keybinds = {
 -- map('v', 'p', 'pgvy', opt)
 -- map('v', 'P', 'Pgvy', opt)
 
-map('n', '<m-up>', ':m .-2<cr>', opt)
-map('n', '<m-down>', ':m .+1<cr>', opt)
-map('i', '<m-up>', '<ESC>:m .-2<cr>i', opt)
-map('i', '<m-down>', '<ESC>:m .+1<cr>i', opt)
-map('v', '<m-up>', ":m '<-2<cr>gv", opt)
-map('v', '<m-down>', ":m '>+1<cr>gv", opt)
+map('n', '<A-k>h', ':noh<cr>', opt)
+map('n', '<A-up>', ':m .-2<cr>', opt)
+map('n', '<A-down>', ':m .+1<cr>', opt)
+map('i', '<A-up>', '<ESC>:m .-2<cr>i', opt)
+map('i', '<A-down>', '<ESC>:m .+1<cr>i', opt)
+map('v', '<A-up>', ":m '<-2<cr>gv", opt)
+map('v', '<A-down>', ":m '>+1<cr>gv", opt)
 
 map("i", "<C-h>", "<ESC>I", opt)
 map("i", "<C-l>", "<ESC>A", opt)
 map("n", "W", ":w<CR>", opt)
-map("n", "Q", ":q<CR>", opt)
+map("n", "Q", ":q<cr>", opt)
 
 -- ctrl u / ctrl + d  只移动10行，默认移动半屏
 map("n", "<C-u>", "10k", opt)
@@ -104,12 +105,6 @@ map('n', '<leader>fm', ':DashboardJumpMark<CR>', opt)
 map('n', '<leader>ss', ':<C-u>SessionSave<CR>', opt)
 map('n', '<leader>sl', ':<C-u>SessionLoad<CR>', opt)
 
--- 'windwp/nvim-spectre'
-map('v', '<leader>s', ":lua require('spectre').open_visual()<CR>", opt)
-map('n', '<leader>S', ":lua require('spectre').open()<CR>", opt)
-map('n', '<leader>sw', ":lua require('spectre').open_visual({select_word=true})<CR>", opt)
-map('n', '<leader>sp', ":lua require('spectre').open_file_search()<cr>", opt)
-
 local pluginKeys = {}
 
 -- 代码注释插--[[ 件 ]]
@@ -149,7 +144,6 @@ pluginKeys.maplsp = function(mapbuf)
     mapbuf('n', 'gn', '<cmd>lua vim.diagnostic.goto_next()<CR>', opt)
     -- mapbuf('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opt)
     mapbuf('n', '<gk>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opt)
-    -- leader + =
     mapbuf('n', '<leader>=', '<cmd>lua vim.lsp.buf.formatting()<CR>', opt)
     -- mapbuf('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opt)
     -- mapbuf('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opt)
