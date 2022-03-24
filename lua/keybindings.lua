@@ -56,11 +56,6 @@ map("v", ">", ">gv")
 -- 运行代码
 map('n', '<leader>cr', ':call RunCode()<cr>')
 
--- magic search
--- map("n", "/", "/\\v", { noremap = true , silent = false})
--- map("v", "/", "/\\v", { noremap = true , silent = false})
-
-------------------------------------------------------------------
 -- 分屏快捷键
 map("n", "sv", ":vsp<CR>")
 map("n", "sh", ":sp<CR>")
@@ -83,7 +78,7 @@ map("n", "<C-j>", "<C-w>j")
 map("n", "<C-k>", "<C-w>k")
 map("n", "<C-l>", "<C-w>l")
 -- }}}
---------------------------------------------------------------------
+
 -- 插件快捷键{{{
 -- nvimTree
 map('n', '<A-m>', ':NvimTreeToggle<CR>')
@@ -106,26 +101,12 @@ map('n', '<leader>fm', ':DashboardJumpMark<CR>')
 map('n', '<leader>ss', ':<C-u>SessionSave<CR>')
 map('n', '<leader>sl', ':<C-u>SessionLoad<CR>')
 
-local pluginKeys = {}
-
--- 代码注释插--[[ 件 ]]
--- see ./lua/plugin-config/comment.lua
--- pluginKeys.comment = {
---     toggler = {
---         line = 'gcc',
---         block = 'gbc',
---     },
---     opleader = {
---         line = 'gc',
---         bock = 'gb'
---     }
--- }
-
 -- ctrl + /
 map("n", "<C-_>", "gcc", {noremap = false})
 map("v", "<C-_>", "gcc", {noremap = false})
 
 -- lsp 回调函数快捷键设置
+local pluginKeys = {}
 pluginKeys.maplsp = function(mapbuf)
     -- rename
     mapbuf('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opt)
