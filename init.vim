@@ -7,7 +7,7 @@ lua require('plugins')
 
 " 主题
 set termguicolors
-set background=dark " or light if you want light mode
+set background=dark
 colorscheme gruvbox
 
 source $HOME/.config/nvim/vim/RunCode.vim
