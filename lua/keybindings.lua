@@ -1,13 +1,21 @@
--- leader key 为空格
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+-- Function for make mapping easier.
+local function map(mode, lhs, rhs, opts)
+    local options = { noremap = true,
+        silent = true}
+    if opts then
+        options = vim.tbl_extend("force", options, opts)
+    end
+    vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+end
 
--- 本地变量
-local map = vim.api.nvim_set_keymap
 local opt = {
     noremap = true,
     silent = true
 }
+
+-- leader key 为空格
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 vim.keybinds = {
     gmap = vim.api.nvim_set_keymap,
@@ -18,42 +26,35 @@ vim.keybinds = {
 }
 
 -- {{{"基础
--- map('v', '<BS>', '"_a', opt)
--- map('v', 'x', '"_x', opt)
--- map('n', 'x', '"_x', opt)
--- map('n', 'Y', 'y$', opt)
--- map('v', 'c', '"_c', opt)
--- map('v', 'p', 'pgvy', opt)
--- map('v', 'P', 'Pgvy', opt)
 
-map('n', '<A-k>h', ':noh<cr>', opt)
-map('n', '<A-up>', ':m .-2<cr>', opt)
-map('n', '<A-down>', ':m .+1<cr>', opt)
-map('i', '<A-up>', '<ESC>:m .-2<cr>i', opt)
-map('i', '<A-down>', '<ESC>:m .+1<cr>i', opt)
-map('v', '<A-up>', ":m '<-2<cr>gv", opt)
-map('v', '<A-down>', ":m '>+1<cr>gv", opt)
+map('n', '<A-k>h', ':noh<cr>')
+map('n', '<A-up>', ':m .-2<cr>')
+map('n', '<A-down>', ':m .+1<cr>')
+map('i', '<A-up>', '<ESC>:m .-2<cr>i')
+map('i', '<A-down>', '<ESC>:m .+1<cr>i')
+map('v', '<A-up>', ":m '<-2<cr>gv")
+map('v', '<A-down>', ":m '>+1<cr>gv")
 
-map("i", "<C-h>", "<ESC>I", opt)
-map("i", "<C-l>", "<ESC>A", opt)
-map("n", "W", ":w<CR>", opt)
-map("n", "Q", ":q<cr>", opt)
+map("i", "<C-h>", "<ESC>I")
+map("i", "<C-l>", "<ESC>A")
+map("n", "W", ":w<CR>")
+map("n", "Q", ":q<cr>")
 
 -- ctrl u / ctrl + d  只移动10行，默认移动半屏
-map("n", "<C-u>", "10k", opt)
-map("n", "<C-d>", "10j", opt)
+map("n", "<C-u>", "10k")
+map("n", "<C-d>", "10j")
 
 -- 输入模式/选择模式 jj/JJ 退出
-map("v", "JJ", "<ESC>", opt)
-map("i", "jj", "<ESC>", opt)
-map("i", "JJ", "<ESC>", opt)
+map("v", "JJ", "<ESC>")
+map("i", "jj", "<ESC>")
+map("i", "JJ", "<ESC>")
 
 -- visual模式下缩进代码
-map("v", "<", "<gv", opt)
-map("v", ">", ">gv", opt)
+map("v", "<", "<gv")
+map("v", ">", ">gv")
 
 -- 运行代码
-map('n', '<leader>cr', ':call RunCode()<cr>', opt)
+map('n', '<leader>cr', ':call RunCode()<cr>')
 
 -- magic search
 -- map("n", "/", "/\\v", { noremap = true , silent = false})
@@ -61,49 +62,49 @@ map('n', '<leader>cr', ':call RunCode()<cr>', opt)
 
 ------------------------------------------------------------------
 -- 分屏快捷键
-map("n", "sv", ":vsp<CR>", opt)
-map("n", "sh", ":sp<CR>", opt)
+map("n", "sv", ":vsp<CR>")
+map("n", "sh", ":sp<CR>")
 
 -- 关闭当前
-map("n", "sc", "<C-w>c", opt)
+map("n", "sc", "<C-w>c")
 -- 关闭其他
-map("n", "so", "<C-w>o", opt) -- close others
+map("n", "so", "<C-w>o") -- close others
 
 -- 比例控制
-map("n", "s.", ":vertical resize +20<CR>", opt)
-map("n", "s,", ":vertical resize -20<CR>", opt)
-map("n", "s=", "<C-w>=", opt)
-map("n", "sj", ":resize +10<CR>", opt)
-map("n", "sk", ":resize -10<CR>", opt)
+map("n", "s.", ":vertical resize +20<CR>")
+map("n", "s,", ":vertical resize -20<CR>")
+map("n", "s=", "<C-w>=")
+map("n", "sj", ":resize +10<CR>")
+map("n", "sk", ":resize -10<CR>")
 
 -- ctrl + hjkl  窗口之间跳转
-map("n", "<C-h>", "<C-w>h", opt)
-map("n", "<C-j>", "<C-w>j", opt)
-map("n", "<C-k>", "<C-w>k", opt)
-map("n", "<C-l>", "<C-w>l", opt)
+map("n", "<C-h>", "<C-w>h")
+map("n", "<C-j>", "<C-w>j")
+map("n", "<C-k>", "<C-w>k")
+map("n", "<C-l>", "<C-w>l")
 -- }}}
 --------------------------------------------------------------------
 -- 插件快捷键{{{
 -- nvimTree
-map('n', '<A-m>', ':NvimTreeToggle<CR>', opt)
+map('n', '<A-m>', ':NvimTreeToggle<CR>')
 
 -- bufferline 左右Tab切换
-map("n", "<A-h>", ":BufferLineCyclePrev<CR>", opt)
-map("n", "<A-l>", ":BufferLineCycleNext<CR>", opt)
-map("n", "<A-w>", ":bd<CR>", opt)
+map("n", "<A-h>", ":BufferLineCyclePrev<CR>")
+map("n", "<A-l>", ":BufferLineCycleNext<CR>")
+map("n", "<A-w>", ":bd<CR>")
 
 -- nvim-treesitter 代码格式化
-map("n", "<leader>i", "gg=G", opt)
+map("n", "<leader>i", "gg=G")
 
 
 -- dashboard-nvim
-map('n', '<leader>fr', ':DashboardFindHistory<CR>', opt)
-map('n', '<leader>fn', ':DashboardNewFile<CR>', opt)
-map('n', '<leader>tc', ':DashboardChangeColorscheme<CR>', opt)
-map('n', '<leader>fa', ':DashboardFindWord<CR>', opt)
-map('n', '<leader>fm', ':DashboardJumpMark<CR>', opt)
-map('n', '<leader>ss', ':<C-u>SessionSave<CR>', opt)
-map('n', '<leader>sl', ':<C-u>SessionLoad<CR>', opt)
+map('n', '<leader>fr', ':DashboardFindHistory<CR>')
+map('n', '<leader>fn', ':DashboardNewFile<CR>')
+map('n', '<leader>tc', ':DashboardChangeColorscheme<CR>')
+map('n', '<leader>fa', ':DashboardFindWord<CR>')
+map('n', '<leader>fm', ':DashboardJumpMark<CR>')
+map('n', '<leader>ss', ':<C-u>SessionSave<CR>')
+map('n', '<leader>sl', ':<C-u>SessionLoad<CR>')
 
 local pluginKeys = {}
 
@@ -142,13 +143,13 @@ pluginKeys.maplsp = function(mapbuf)
     mapbuf('n', 'go', '<cmd>lua vim.diagnostic.open_float()<CR>', opt)
     mapbuf('n', 'gp', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opt)
     mapbuf('n', 'gn', '<cmd>lua vim.diagnostic.goto_next()<CR>', opt)
-    -- mapbuf('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opt)
+    -- mapbuf('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>')
     mapbuf('n', '<gk>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opt)
     mapbuf('n', '<leader>=', '<cmd>lua vim.lsp.buf.formatting()<CR>', opt)
-    -- mapbuf('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opt)
-    -- mapbuf('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opt)
-    -- mapbuf('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opt)
-    -- mapbuf('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opt)
+    -- mapbuf('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>')
+    -- mapbuf('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>')
+    -- mapbuf('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>')
+    -- mapbuf('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
 end
 
 -- nvim-cmp 自动补全
