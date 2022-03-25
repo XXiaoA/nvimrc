@@ -27,7 +27,6 @@ vim.keybinds = {
 
 -- {{{"基础
 
-map('n', '<A-k>h', ':noh<cr>')
 map('n', '<A-up>', ':m .-2<cr>')
 map('n', '<A-down>', ':m .+1<cr>')
 map('i', '<A-up>', '<ESC>:m .-2<cr>i')
@@ -81,29 +80,11 @@ map("n", "<C-l>", "<C-w>l")
 
 -- 插件快捷键{{{
 -- nvimTree
-map('n', '<A-m>', ':NvimTreeToggle<CR>')
-
--- bufferline 左右Tab切换
-map("n", "<A-h>", ":BufferLineCyclePrev<CR>")
-map("n", "<A-l>", ":BufferLineCycleNext<CR>")
-map("n", "<A-w>", ":bd<CR>")
+-- map('n', '<A-m>', ':NvimTreeToggle<CR>')
 
 -- nvim-treesitter 代码格式化
 map("n", "<leader>i", "gg=G")
 
-
--- -- dashboard-nvim
--- map('n', '<leader>fr', ':DashboardFindHistory<CR>')
--- map('n', '<leader>fn', ':DashboardNewFile<CR>')
--- map('n', '<leader>tc', ':DashboardChangeColorscheme<CR>')
--- map('n', '<leader>fa', ':DashboardFindWord<CR>')
--- map('n', '<leader>fm', ':DashboardJumpMark<CR>')
-map('n', '<leader>ss', ':<C-u>SessionSave<CR>')
-map('n', '<leader>sl', ':<C-u>SessionLoad<CR>')
-
--- ctrl + /
-map("n", "<C-_>", "gcc", {noremap = false})
-map("v", "<C-_>", "gcc", {noremap = false})
 
 -- lsp 回调函数快捷键设置
 local pluginKeys = {}

@@ -41,12 +41,18 @@ wk.register({
     name = "Buffer",
     c = { ":BufferLinePickClose<CR>", "Close Buffer" },
     e = { ":noh<CR>", "Erase Search Highlights" },
-    l = { ":BufferLineMoveNext<CR>", "Move Buffer Right" },
+    l = { ":BufferLineMoveNext<CR>", "Move buffer Right" },
     h = { ":BufferLineMovePrev<CR>", "Move buffer Left" },
     n = { ":DashboardNewFile<CR>", "New Buffer" },
     f = { ":Format<CR>", "Format Buffer" },
   },
 }, { prefix = "<leader>" })
+
+wk.register({
+    ['<A-h>'] = {':BufferLineCyclePrev<CR>', 'Go to previous buffer'},
+    ['<A-l>'] = {':BufferLineCycleNext<CR>', 'Go to next buffer'},
+    ['<A-w>'] = {':bd<CR>', 'Close current buffer'}
+})
 
 -- NvimTree
 wk.register({
@@ -56,6 +62,10 @@ wk.register({
     f = { ":NvimTreeFocus<CR>", "Focus on NvimTree" },
   },
 }, { prefix = "<leader>" })
+
+wk.register({
+    ['<A-m>'] = {':NvimTreeToggle<CR>', 'Toggle NvimTree'}
+})
 
 -- Finding different stuf.
 wk.register({
@@ -156,3 +166,13 @@ wk.register({
     u = { ':lua require("dapui").toggle()<CR>', "Toggle UI" },
   },
 }, { prefix = "<leader>" })
+
+-- comment
+wk.register({
+    ['<C-_>'] = {'gcc', 'Comment current line'}
+}, {noremap = false})
+
+wk.register({
+    ['<C-_>'] = {'gcc', 'Comment selected line'}
+}, {mode = 'v', noremap = false})
+
