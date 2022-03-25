@@ -127,4 +127,8 @@ return require('packer').startup(function()
     use 'voldikss/vim-translator'
     -- 按键
     use "folke/which-key.nvim"
+    -- Debugging
+    use 'mfussenegger/nvim-dap'
+    use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+    use "Pocco81/DAPInstall.nvim"
 end)

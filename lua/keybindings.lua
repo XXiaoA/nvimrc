@@ -92,12 +92,12 @@ map("n", "<A-w>", ":bd<CR>")
 map("n", "<leader>i", "gg=G")
 
 
--- dashboard-nvim
-map('n', '<leader>fr', ':DashboardFindHistory<CR>')
-map('n', '<leader>fn', ':DashboardNewFile<CR>')
-map('n', '<leader>tc', ':DashboardChangeColorscheme<CR>')
-map('n', '<leader>fa', ':DashboardFindWord<CR>')
-map('n', '<leader>fm', ':DashboardJumpMark<CR>')
+-- -- dashboard-nvim
+-- map('n', '<leader>fr', ':DashboardFindHistory<CR>')
+-- map('n', '<leader>fn', ':DashboardNewFile<CR>')
+-- map('n', '<leader>tc', ':DashboardChangeColorscheme<CR>')
+-- map('n', '<leader>fa', ':DashboardFindWord<CR>')
+-- map('n', '<leader>fm', ':DashboardJumpMark<CR>')
 map('n', '<leader>ss', ':<C-u>SessionSave<CR>')
 map('n', '<leader>sl', ':<C-u>SessionLoad<CR>')
 
