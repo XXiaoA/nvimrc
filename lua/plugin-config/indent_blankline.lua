@@ -2,7 +2,7 @@ local o = vim.opt
 local g = vim.g
 
 o.list = true
--- o.listchars:append("space:⋅")
+o.listchars:append("space:⋅")
 o.listchars:append("eol:↴")
 
 require("indent_blankline").setup {

@@ -17,7 +17,7 @@ require('packer').init({
 return require('packer').startup(function()
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
-    --    -- gruvbox theme 主题1
+   -- 主题1
     use {
        "ellisonleao/gruvbox.nvim",
        requires = {"rktjmp/lush.nvim"}
@@ -100,8 +100,8 @@ return require('packer').startup(function()
     use 'junegunn/vim-easy-align'
     -- 代码生成图片
     -- use 'kristijanhusak/vim-carbon-now-sh'
-    -- surround
-    use 'tpope/vim-surround'
+    -- vim-sandwich
+    use 'machakann/vim-sandwich'
     -- 自动保存
     use 'Pocco81/AutoSave.nvim'
     -- 去除末尾空格/空行
