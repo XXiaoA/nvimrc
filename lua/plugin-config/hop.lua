@@ -1,3 +1,3 @@
-require('hop').setup(
-    -- key ='etovxqpdygfblzhckisuran',
-)
+require "hop".setup({
+        keys = "etovxqpdygfblzhckisuran"
+})
