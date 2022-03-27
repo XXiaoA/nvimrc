@@ -2,8 +2,7 @@
 local fn = vim.fn
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-	 --fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})	--默认地址
-	fn.system({'git', 'clone', '--depth', '1', 'https://hub.fastgit.xyz/wbthomason/packer.nvim.git', install_path})	--csdn加速镜像
+	fn.system({'git', 'clone', '--depth', '1', 'https://hub.fastgit.xyz/wbthomason/packer.nvim.git', install_path})
 	vim.cmd 'packadd packer.nvim'
 end
 
@@ -17,11 +16,8 @@ require('packer').init({
 return require('packer').startup(function()
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
-   -- 主题1
-    use {
-       "ellisonleao/gruvbox.nvim",
-       requires = {"rktjmp/lush.nvim"}
-    }
+   -- 主题
+    use 'sainnhe/gruvbox-material'
     -- nvim-tree
     use {
         'kyazdani42/nvim-tree.lua',
