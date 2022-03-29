@@ -118,4 +118,6 @@ return require('packer').startup(function()
     use "Pocco81/DAPInstall.nvim"
     -- hightlight search
     use 'kevinhwang91/nvim-hlslens'
+    -- code ouline
+    use 'stevearc/aerial.nvim'
 end)

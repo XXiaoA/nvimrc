@@ -174,3 +174,16 @@ wk.register({
 
 wk.register({
     ['<C-_>'] = {'gcc', 'Comment selected line'} }, {mode = 'v', noremap = false})
+
+-- aerial
+wk.register({
+    a = {
+        name = 'Outline',
+        t = {'<cmd>AerialToggle!<CR>', 'Toggle outline'},
+        h = {'<cmd>AerialPrev<CR>', 'Jump to previous symbol'},
+        l = {'<cmd>AerialNext<CR>', 'Jump to next symbol'},
+        u = {'<cmd>AerialPrevUp<CR>', 'Jump up to the tree\'s previous level'},
+        d = {'<cmd>AerialNextUp<CR>', 'Jump up to the tree\'s next level'},
+        s = {'<cmd>Telescope aerial<CR>', 'Use telescope to open outline'}
+    }
+}, { prefix = '<leader>' })
