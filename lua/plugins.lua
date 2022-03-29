@@ -50,7 +50,6 @@ return require('packer').startup(function()
     use 'onsails/lspkind-nvim'
     -- 美化
     use 'folke/lsp-colors.nvim'
-
 	-- 文件搜索 预览 等
 	use {
 	"nvim-telescope/telescope.nvim",
@@ -100,8 +99,6 @@ return require('packer').startup(function()
     use 'machakann/vim-sandwich'
     -- 自动保存
     use 'Pocco81/AutoSave.nvim'
-    -- 去除末尾空格/空行
-    -- use 'McAuleyPenney/tidy.nvim'
     -- 运行时间
     use 'dstein64/vim-startuptime'
     -- 快速转跳
@@ -109,8 +106,6 @@ return require('packer').startup(function()
       'phaazon/hop.nvim',
       branch = 'v1', -- optional but strongly recommended
     }
-    -- 电灯泡
-    use 'kosayoda/nvim-lightbulb'
     -- 中文文档
     use 'yianwillis/vimcdoc'
     -- 格式化代码
@@ -118,9 +113,11 @@ return require('packer').startup(function()
     -- 翻译
     use 'voldikss/vim-translator'
     -- 按键
-    use "folke/which-key.nvim"
+    use 'folke/which-key.nvim'
     -- Debugging
     use 'mfussenegger/nvim-dap'
     use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
     use "Pocco81/DAPInstall.nvim"
+    -- hightlight search
+    use 'kevinhwang91/nvim-hlslens'
 end)

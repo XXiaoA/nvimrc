@@ -1,3 +1,6 @@
+require('lsp/nvim-cmp')
+require('lsp/setup')
+
 require('plugin-config/nvim-tree')
 require('plugin-config/bufferline')
 require('plugin-config/nvim-treesitter')
@@ -12,7 +15,4 @@ require('plugin-config/AutoSave')
 require('plugin-config/hop')
 require('plugin-config/format')
 require('plugin-config/which-key')
-require'impatient'.enable_profile()
-
-require('lsp/setup')
-require('lsp/nvim-cmp')
+require('impatient').enable_profile()

@@ -1,7 +1,7 @@
 -- Function for make mapping easier.
 local function map(mode, lhs, rhs, opts)
     local options = { noremap = true,
-        silent = true}
+    silent = true}
     if opts then
         options = vim.tbl_extend("force", options, opts)
     end
@@ -17,13 +17,6 @@ local opt = {
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-vim.keybinds = {
-    gmap = vim.api.nvim_set_keymap,
-    bmap = vim.api.nvim_buf_set_keymap,
-    dgmap = vim.api.nvim_del_keymap,
-    dbmap = vim.api.nvim_buf_del_keymap,
-    opts = {noremap = true, silent = true}
-}
 
 -- {{{"基础
 
@@ -79,11 +72,18 @@ map("n", "<C-l>", "<C-w>l")
 -- }}}
 
 -- 插件快捷键{{{
--- nvimTree
--- map('n', '<A-m>', ':NvimTreeToggle<CR>')
-
 -- nvim-treesitter 代码格式化
 map("n", "<leader>i", "gg=G")
+
+
+-- hlslens
+map('n', 'n', [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]])
+map('n', 'N', [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]])
+map('n', '*', [[*<Cmd>lua require('hlslens').start()<CR>]])
+map('n', '#', [[#<Cmd>lua require('hlslens').start()<CR>]])
+map('n', 'g*', [[g*<Cmd>lua require('hlslens').start()<CR>]])
+map('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]])
+
 
 
 -- lsp 回调函数快捷键设置

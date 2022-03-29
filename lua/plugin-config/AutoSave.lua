@@ -7,7 +7,7 @@ autosave.setup(
         execution_message = "AutoSave: saved at " .. vim.fn.strftime("%H:%M:%S"),
         events = {"InsertLeave", "TextChanged"},
         conditions = {
-            exists = false, -- save the file although it doesn't exist 
+            exists = true, -- don't save the file if it doesn't exist 
             filename_is_not = {},
             filetype_is_not = {},
             modifiable = true
