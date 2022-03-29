@@ -7,6 +7,7 @@ local servers = {
     sumneko_lua = require "lsp.lua", -- /lua/lsp/lua.lua
     pylsp = require "lsp.python", -- /lua/lsp/python.lua
     clangd = require "lsp.c",
+    vimls = require "lsp.vim"
 }
 
 -- 自动安装 LanguageServers
