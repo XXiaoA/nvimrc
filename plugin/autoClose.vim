@@ -5,12 +5,14 @@ function s:autoClose()
     for i in l:tabwins
         let l:buf = nvim_win_get_buf(i)
         let l:bf = getbufvar(l:buf, '&filetype')
+        echo l:bf
         if index(l:closeFileTypes, l:bf) == -1
             let l:shouldQuit = v:false
         endif
     endfor
     if l:shouldQuit == v:true
-        qall
+        " qall
+        echo l:shouldQuit
     endif
 endfunction
 
