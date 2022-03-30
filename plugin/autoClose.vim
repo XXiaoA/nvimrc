@@ -1,21 +1,29 @@
-function s:autoClose()
-    let l:closeFileTypes = ['NvimTree', 'aerial']
-    let l:shouldQuit = v:true
+" Quit Nvim if we have only one window, and its filetype match our pattern.
+function! s:quit_current_win() abort
+    let l:quit_filetypes = ['NvimTree', 'aerial']
+
+    let l:should_quit = v:true
+
     let l:tabwins = nvim_tabpage_list_wins(0)
-    for i in l:tabwins
-        let l:buf = nvim_win_get_buf(i)
+
+    if len(l:tabwins) != 1
+        let l:tabwins = l:tabwins[:-2]
+    endif
+    for w in l:tabwins
+        let l:buf = nvim_win_get_buf(w)
         let l:bf = getbufvar(l:buf, '&filetype')
-        echo l:bf
-        if index(l:closeFileTypes, l:bf) == -1
-            let l:shouldQuit = v:false
+
+        if index(l:quit_filetypes, l:bf) == -1
+            let l:should_quit = v:false
         endif
     endfor
-    if l:shouldQuit == v:true
-        " qall
-        echo l:shouldQuit
+
+    if l:should_quit
+        qall
     endif
 endfunction
 
-augroup AUTOClose
-    autocmd WinEnter * call s:autoClose()
+augroup auto_close_win
+    autocmd!
+    autocmd BufEnter * call s:quit_current_win()
 augroup END
