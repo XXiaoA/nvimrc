@@ -3,7 +3,7 @@
 
 ## 使用我的配置
 1. 你需要安装neovim，并且确保版本在**0.6**及以上
-2. clone本仓库的内容到你nvim的配置目录，例如Linux的`~/.config/nvim/`。注意是仓库内容，而不是仓库，可以clone仓库到`~/.config/`然后改名为`nvim`
+2. clone本仓库的内容到你nvim的配置目录，例如Linux的`~/.config/nvim/`
 3. 完成第3步后打开nvim，等待安装[Packer.nvim](./docs/plugins/packer.md) ，有报错很正常。一路跳过即可。然后normal模式执行 `:PackerInstall`
 4. 安装[相关依赖](https://github.com/XXiaoA/neovim-configuration#依赖)
 
@@ -47,7 +47,7 @@ cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim && make 
 
 ## 插件列表
 * [Packer.nvim](https://github.com/wbthomason/packer.nvim) 插件管理
-* [gruvbox](https://github.com/ellisonleao/gruvbox.nvim) 主题
+* [gruvbox-material](https://github.com/sainnhe/gruvbox-material) 主题
 * [nvim-tree](https://github.com/kyazdani42/nvim-tree.lua) 目录树
 * [bufferline](https://github.com/akinsho/bufferline.nvim) buffer显示
 * [语法高亮](https://github.com/nvim-treesitter/nvim-treesitter)
@@ -57,33 +57,47 @@ cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim && make 
 * [括号补全](https://github.com/windwp/nvim-autopairs) 
 * [信标](https://github.com/danilamihailov/beacon.nvim) 
 * [搜索转跳提示](https://github.com/inside/vim-search-pulse) 
-* [缩进线显示](https://github.com/lukas-reineke/indent-blankline.nvim) 
+* [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim) 缩进线显示
 * [状态栏](https://github.com/nvim-lualine/lualine.nvim) 
 * [多光标](https://github.com/mg979/vim-visual-multi) 
 * [显示颜色](https://github.com/norcalli/nvim-colorizer.lua) 
 * [命令行窗口](https://github.com/akinsho/toggleterm.nvim) 
-* [制图](https://github.com/jbyuki/venn.nvim) 
 * [彩色括号](https://github.com/luochen1990/rainbow) 
 * [运行代码](https://github.com/michaelb/sniprun)
-* [启动页](https://github.com/glepnir/dashboard-nvim) 
-* [加快启动速度](https://github.com/lewis6991/impatient.nvim) 
-* [自动创建文件夹](https://github.com/DataWraith/auto_mkdir) 
+* [dashboard-nvim](https://github.com/glepnir/dashboard-nvim) 启动页
+* [impatient.nvim](https://github.com/lewis6991/impatient.nvim) 加快启动速度
+* [auto_mkdir](https://github.com/DataWraith/auto_mkdir) 自动创建文件夹
 * [一键对齐](https://github.com/junegunn/vim-easy-align) 
-* [surround](https://github.com/tpope/vim-surround) 
-* [自动保存](https://github.com/Pocco81/AutoSave.nvim) 
-* [计算启动时间](https://github.com/dstein64/vim-startuptime) 
+* [vim-sandwich](https://github.com/machakann/vim-sandwich) 
+* [AutoSave.nvim](https://github.com/Pocco81/AutoSave.nvim) 自动保存
+* [vim-startuptime](https://github.com/dstein64/vim-startuptime) 计算启动时间
 * [快速移动](https://github.com/phaazon/hop.nvim',) 
-* [中文文档](https://github.com/yianwillis/vimcdoc) 
+* [vimcdoc](https://github.com/yianwillis/vimcdoc) 中文文档
 * [翻译](https://github.com/voldikss/vim-translator) 
-* [格式化代码](https://github.com/mhartington/formatter.nvim) 
-* [内容搜索](https://github.com/windwp/nvim-spectre) 
+* [formatter](https://github.com/mhartington/formatter.nvim) 格式化代码
+* [which-key.nvim](https://github.com/folke/which-key.nvim) 映射按键
+* [debugging](https://github.com/mfussenegger/nvim-dap)
+* [nvim-hlslens](https://github.com/kevinhwang91/nvim-hlslens) 高亮搜索
+* [aerial.nvim](https://github.com/stevearc/aerial.nvim) 代码大纲
 
 
 ## 其他
 ### TODO
-- [ ] 完善快捷键说明  
-- [ ] 配置lsp  
-- [ ] 给每个插件加使用指北  
+plugins:
+    - [ ] leaderf
+    - [ ] https://github.com/ahmedkhalf/project.nvim
+    - [ ] https://github.com/ray-x/lsp_signature.nvim
+    - [ ] neo-tree or fern (optional)
+    - [ ] jubnzv/mdeval.nvim (optional)
+    - [ ] xeluxee/competitest.nvim
+- [ ] 配置插件
+配置lsp:
+    - [ ] clangd (c, c++)
+    - [ ] pylsp (python)
+    - [ ] sumneko_lua (lua)
+- [ ] 完善文档
+- [ ] ~~给某些插件加使用指北~~  
+- [ ] https://github.com/leetcode-tools/leetcode-cli
 
 ### 说明：
 感谢：[nshen/learn-neovim-lua](https://github.com/nshen/learn-neovim-lua)
