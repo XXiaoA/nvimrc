@@ -85,8 +85,9 @@ return require('packer').startup(function()
     use { 'michaelb/sniprun', run = 'bash ./install.sh'}
     -- 启动页
     use 'glepnir/dashboard-nvim'
-    -- 加快加载时间
+    -- 加快启动时间
     use 'lewis6991/impatient.nvim'
+    use 'nathom/filetype.nvim'
     -- 保存自动创建文件夹
     use 'DataWraith/auto_mkdir'
     -- 自动对齐
@@ -114,10 +115,12 @@ return require('packer').startup(function()
     use 'folke/which-key.nvim'
     -- Debugging
     use 'mfussenegger/nvim-dap'
-    use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+    use  'rcarriga/nvim-dap-ui'
     use "Pocco81/DAPInstall.nvim"
     -- hightlight search
     use 'kevinhwang91/nvim-hlslens'
     -- code outline
     use 'stevearc/aerial.nvim'
+    -- project
+    use 'ahmedkhalf/project.nvim'
 end)
