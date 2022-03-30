@@ -83,15 +83,15 @@ cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim && make 
 
 ## 其他
 ### TODO
-plugins:
-    - [ ] leaderf
-    - [ ] https://github.com/ahmedkhalf/project.nvim
-    - [ ] https://github.com/ray-x/lsp_signature.nvim
-    - [ ] neo-tree or fern (optional)
-    - [ ] jubnzv/mdeval.nvim (optional)
-    - [ ] xeluxee/competitest.nvim
-- [ ] 配置插件
-配置lsp:
+plugins:  
+    - [ ] leaderf  
+    - [ ] https://github.com/ahmedkhalf/project.nvim  
+    - [ ] https://github.com/ray-x/lsp_signature.nvim  
+    - [ ] neo-tree or fern (optional)  
+    - [ ] jubnzv/mdeval.nvim (optional)  
+    - [ ] xeluxee/competitest.nvim  
+- [ ] 配置插件  
+配置lsp:  
     - [ ] clangd (c, c++)
     - [ ] pylsp (python)
     - [ ] sumneko_lua (lua)
