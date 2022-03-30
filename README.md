@@ -39,11 +39,10 @@ cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim && make 
 
 * neovim版本必须***0.6***以上，建议最新版  
 * 由于大陆被墙的原因，Packer安装插件困难，所以我使用了镜像。如果不需要可以删除[该文件](https://github.com/XXiaoA/neovim-configuration/blob/master/lua/plugins.lua) 的10-14行
-* ~~treesitter插件里的lua高亮和主题冲突，删除`$HOME/.local/share/nvim/site/pack/packer/start/zephyr-nvim/after/queries/lua/highlights.scm`文件即可。[见此](https://github.com/nvim-treesitter/nvim-treesitter/issues/2435)~~
 
 
 ## [插件使用指北](./docs/allPlugins.md)
-各个插件的 **简单** 食用方法
+某些插件的 **简单** 食用方法
 
 ## 插件列表
 * [Packer.nvim](https://github.com/wbthomason/packer.nvim) 插件管理
