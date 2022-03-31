@@ -64,7 +64,7 @@ cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim && make 
 * [彩色括号](https://github.com/luochen1990/rainbow) 
 * [运行代码](https://github.com/michaelb/sniprun)
 * [dashboard-nvim](https://github.com/glepnir/dashboard-nvim) 启动页
-* [impatient.nvim](https://github.com/lewis6991/impatient.nvim) 加快启动速度
+* [impatient.nvim](https://github.com/lewis6991/impatient.nvim); [filetype.nvim](https://github.com/nathom/filetype.nvim)  加快启动速度
 * [auto_mkdir](https://github.com/DataWraith/auto_mkdir) 自动创建文件夹
 * [一键对齐](https://github.com/junegunn/vim-easy-align) 
 * [vim-sandwich](https://github.com/machakann/vim-sandwich) 
