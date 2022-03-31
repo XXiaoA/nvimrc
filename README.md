@@ -54,10 +54,9 @@ cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim && make 
 * [自动补全](https://github.com/hrsh7th/nvim-cmp)  
 * [文件搜索等](https://github.com/nvim-telescope/telescope.nvim)
 * [括号补全](https://github.com/windwp/nvim-autopairs) 
-* [信标](https://github.com/danilamihailov/beacon.nvim) 
-* [搜索转跳提示](https://github.com/inside/vim-search-pulse) 
+* [beacon.nvim](https://github.com/danilamihailov/beacon.nvim) 信标 
 * [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim) 缩进线显示
-* [状态栏](https://github.com/nvim-lualine/lualine.nvim) 
+* [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) 状态栏 
 * [多光标](https://github.com/mg979/vim-visual-multi) 
 * [显示颜色](https://github.com/norcalli/nvim-colorizer.lua) 
 * [命令行窗口](https://github.com/akinsho/toggleterm.nvim) 
@@ -84,10 +83,8 @@ cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim && make 
 ### TODO
 1. plugins:  
     - [ ] leaderf  
-    - [ ] https://github.com/ahmedkhalf/project.nvim  
+    - [x] https://github.com/ahmedkhalf/project.nvim  
     - [ ] https://github.com/ray-x/lsp_signature.nvim  
-    - [ ] neo-tree or fern (optional)  
-    - [ ] jubnzv/mdeval.nvim (optional)  
     - [ ] xeluxee/competitest.nvim  
 2. - [ ] 配置插件  
 3. 配置lsp:  
