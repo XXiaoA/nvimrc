@@ -1,4 +1,4 @@
-" Quit Nvim if we have only one window, and its filetype match our pattern.
+" Exit nvim when we only have the following types of windows 
 function! s:quit_current_win() abort
     let l:quit_filetypes = ['NvimTree', 'aerial']
 

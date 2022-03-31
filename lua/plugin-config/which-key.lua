@@ -187,3 +187,7 @@ wk.register({
         s = {'<cmd>Telescope aerial<CR>', 'Use telescope to open outline'}
     }
 }, { prefix = '<leader>' })
+
+wk.register({
+    ['<leader>P'] = {'<cmd>Telescope projects<CR>', 'Access recently opened projects'}
+})
