@@ -19,7 +19,11 @@ vim.g.maplocalleader = " "
 
 
 -- {{{"基础
+-- 退出终端插入模式
+map('t', '<ESC>', [[<C-\><C-n>]])
+map('t', 'jk', [[<C-\><C-n>]])
 
+-- 移动代码
 map('n', '<A-up>', ':m .-2<cr>')
 map('n', '<A-down>', ':m .+1<cr>')
 map('i', '<A-up>', '<ESC>:m .-2<cr>i')
@@ -27,8 +31,11 @@ map('i', '<A-down>', '<ESC>:m .+1<cr>i')
 map('v', '<A-up>', ":m '<-2<cr>gv")
 map('v', '<A-down>', ":m '>+1<cr>gv")
 
+-- 移动到行首/行末
 map("i", "<C-h>", "<ESC>I")
 map("i", "<C-l>", "<ESC>A")
+
+-- 保存/退出
 map("n", "W", ":w<CR>")
 map("n", "Q", ":q<cr>")
 
@@ -36,10 +43,10 @@ map("n", "Q", ":q<cr>")
 map("n", "<C-u>", "10k")
 map("n", "<C-d>", "10j")
 
--- 输入模式/选择模式 jj/JJ 退出
-map("v", "JJ", "<ESC>")
-map("i", "jj", "<ESC>")
-map("i", "JJ", "<ESC>")
+-- 输入模式/选择模式 jk/JK 退出
+map("v", "JK", "<ESC>")
+map("i", "jk", "<ESC>")
+map("i", "JK", "<ESC>")
 
 -- visual模式下缩进代码
 map("v", "<", "<gv")
@@ -69,6 +76,11 @@ map("n", "<C-h>", "<C-w>h")
 map("n", "<C-j>", "<C-w>j")
 map("n", "<C-k>", "<C-w>k")
 map("n", "<C-l>", "<C-w>l")
+map('t', '<C-h>', [[<C-\><C-n><C-W>h]])
+map('t', '<C-j>', [[<C-\><C-n><C-W>j]])
+map('t', '<C-k>', [[<C-\><C-n><C-W>k]])
+map('t', '<C-l>', [[<C-\><C-n><C-W>l]])
+
 -- }}}
 
 -- 插件快捷键{{{

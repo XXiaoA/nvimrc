@@ -94,7 +94,7 @@ wk.register({
 
 -- ColorScheme keybindings.
 wk.register({
-    t = {
+    s = {
         name = "Theme",
         h = { ":Telescope colorscheme<CR>", "Find Colorscheme" },
         p = { ":Telescope colorscheme enable_preview=true<CR>", "Find Colorscheme with previwer " },
@@ -191,3 +191,14 @@ wk.register({
 wk.register({
     ['<leader>P'] = {'<cmd>Telescope projects<CR>', 'Access recently opened projects'}
 })
+
+-- toggleterm
+wk.register({
+    t = {
+        name = 'terminal',
+        t = { '<cmd>exe v:count."ToggleTerm"<CR>', 'Toggle a common terminal'},
+        f  = { '<cmd>lua require("toggleterm").float_toggle()<CR>', 'Toggle a float terminal'},
+        g = { "<cmd>lua require('toggleterm').lazygit_toggle()<CR>", 'Toggle a lazygit terminal'},
+        a = { '<cmd>ToggleTermToggleAll<CR>', 'Toggle all terminal'},
+    }
+}, { prefix = '<leader>' })
