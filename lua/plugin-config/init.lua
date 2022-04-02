@@ -1,20 +1,15 @@
-require('lsp/nvim-cmp')
-require('lsp/setup')
+local all_files =
+    vim.api.nvim_exec([[echo split(globpath('$XDG_CONFIG_HOME/nvim/lua/plugin-config/', '*'), '\n')]], true)
+all_files = vim.api.nvim_eval(all_files)
 
-require('plugin-config/nvim-tree')
-require('plugin-config/bufferline')
-require('plugin-config/nvim-treesitter')
-require('plugin-config/Comment')
-require('plugin-config/telescope')
-require('plugin-config/nvim-autopairs')
-require('plugin-config/indent_blankline')
-require('plugin-config/nvim-colorizer')
-require('plugin-config/lualine')
-require('plugin-config/toggleterm')
-require('plugin-config/AutoSave')
-require('plugin-config/hop')
-require('plugin-config/format')
-require('plugin-config/aerial')
-require('plugin-config/project')
-require('plugin-config/which-key')
-require('impatient').enable_profile()
+for _, file in pairs(all_files) do
+    local plugin = string.match(file, "plugin.config/(.+).lua")
+    if plugin == "init" then
+        goto continue
+    end
+    require(string.format("plugin-config/%s", plugin))
+    ::continue::
+end
+
+-- Load the cache
+require("impatient").enable_profile()
