@@ -77,6 +77,7 @@ cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim && make 
 * [debugging](https://github.com/mfussenegger/nvim-dap)
 * [nvim-hlslens](https://github.com/kevinhwang91/nvim-hlslens) 高亮搜索
 * [aerial.nvim](https://github.com/stevearc/aerial.nvim) 代码大纲
+* [project.nvim](https://github.com/ahmedkhalf/project.nvim) 近期项目
 
 
 ## 其他

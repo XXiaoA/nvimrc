@@ -36,6 +36,8 @@ map("i", "<C-h>", "<ESC>I")
 map("i", "<C-l>", "<ESC>A")
 
 -- 保存/退出
+map("n", "<C-s>", ":w<CR>")
+map("n", "<C-q>", ":q<cr>")
 map("n", "W", ":w<CR>")
 map("n", "Q", ":q<cr>")
 
