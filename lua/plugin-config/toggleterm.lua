@@ -39,12 +39,12 @@ local floatTerm =
         },
         on_open = function(term)
             vim.cmd("startinsert")
-            -- 浮动终端中 jj 是退出插入模式
-            bmap(term.bufnr, "t", "jj", "<C-\\><C-n>", opt)
+            -- 浮动终端中 jk 是退出插入模式
+            bmap(term.bufnr, "t", "jk", "<C-\\><C-n>", opt)
         end,
         on_close = function()
-            -- 重新映射 jj
-            gmap("t", "jj", "<C-\\><C-n>", opt)
+            -- 重新映射 jk
+            gmap("t", "jk", "<C-\\><C-n>", opt)
         end
     }
 )
@@ -66,7 +66,7 @@ local lazyGit =
         end,
         on_close = function()
             -- 重新映射
-            gmap("t", "jj", "<C-\\><C-n>", opt)
+            gmap("t", "jk", "<C-\\><C-n>", opt)
         end
     }
 )
