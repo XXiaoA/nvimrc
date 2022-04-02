@@ -1,8 +1,10 @@
 -- 基础设置
- require("basic")
+require("basic")
 -- 快捷键映射
- require('keybindings')
+require('keybindings')
 -- Packer插件管理
- require('plugins')
+require('plugins')
 -- 插件配置
- require('plugin-config')
+require('plugin-config')
+-- LSP
+require('lsp')
