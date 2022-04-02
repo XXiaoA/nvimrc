@@ -1,10 +1,16 @@
-require('lualine').setup {
+local ok, lualine = pcall(require, "lualine")
+if not ok then
+    vim.notify('lualine failed to load')
+    return
+end
+
+lualine.setup {
     options = {
         icons_enabled = true,
         theme = 'gruvbox-material',
         component_separators = { left = '', right = ''},
         section_separators = { left = '', right = ''},
-        disabled_filetypes = {},
+        disabled_filetypes = {"NvimTree", "aerial"},
         always_divide_middle = true,
     },
     sections = {
