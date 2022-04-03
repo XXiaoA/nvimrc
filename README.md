@@ -38,13 +38,14 @@ cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim && make 
 **如果你在使用过程中发现问题欢迎提issue，我会尽快回复**
 
 * neovim版本必须***0.6***以上，建议最新版  
-* 由于大陆被墙的原因，Packer安装插件困难，所以我使用了镜像。如果不需要可以删除[该文件](https://github.com/XXiaoA/neovim-configuration/blob/master/lua/plugins.lua) 的10-14行
+* 由于大陆被墙的原因，Packer安装插件困难，所以我使用了镜像。如果不需要可以修改[该文件](https://github.com/XXiaoA/neovim-configuration/blob/master/lua/plugins.lua) 的两个网址
 
 
 ## [插件使用指北](./docs/allPlugins.md)
 某些插件的 **简单** 食用方法
 
 ## 插件列表
+全部请见 [plugins.lua](./lua/plugins.lua#L18)
 * [Packer.nvim](https://github.com/wbthomason/packer.nvim) 插件管理
 * [gruvbox-material](https://github.com/sainnhe/gruvbox-material) 主题
 * [nvim-tree](https://github.com/kyazdani42/nvim-tree.lua) 目录树
@@ -84,16 +85,19 @@ cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim && make 
 ### TODO
 1. plugins:  
     - [ ] leaderf  
-    - [x] https://github.com/ahmedkhalf/project.nvim  
-    - [ ] https://github.com/ray-x/lsp_signature.nvim  
+    - [ ] wfxr/minimap.vim
+    - [x] ahmedkhalf/project.nvim  
+    - [ ] ray-x/lsp_signature.nvim  
     - [ ] xeluxee/competitest.nvim  
 2. - [ ] 配置插件  
 3. 配置lsp:  
     - [ ] clangd (c, c++)
     - [ ] pylsp (python)
     - [ ] sumneko_lua (lua)
-4. - [ ] ~~完善文档~~(maybe)
-5. - [ ] ~~给某些插件加使用指北~~(maybe)  
+    - [ ] vim (vimls)
+4. - [ ] configure nvim-tree's [background](https://www.reddit.com/r/neovim/comments/nwqeqk/how_do_i_change_the_background_color_of_nvimtree/)
+5. - [ ] ~~完善文档~~(maybe)
+6. - [ ] ~~给某些插件加使用指北(maybe)~~  
 
 ### 说明：
 感谢：[nshen/learn-neovim-lua](https://github.com/nshen/learn-neovim-lua)
