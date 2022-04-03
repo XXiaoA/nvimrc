@@ -213,3 +213,15 @@ wk.register({
         a = { '<cmd>ToggleTermToggleAll<CR>', 'Toggle all terminal'},
     }
 }, { prefix = '<leader>' })
+
+-- hop.nvim
+wk.register({
+    h = {
+        name = 'hop',
+        l = { '<cmd>HopLineStart<CR>', 'Line'},
+        w = { '<cmd>HopWord<CR>', 'Word'},
+        p = { '<cmd>HopPattern<CR>', 'Pattern'},
+        a = { '<cmd>HopChar1<CR>', 'One char'},
+        c = { '<cmd>HopChar2<CR>', 'Two char'},
+    }
+}, { prefix = '<leader>'})

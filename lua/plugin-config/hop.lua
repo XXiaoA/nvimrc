@@ -3,6 +3,8 @@ if not ok then
     vim.notify(' hop failed to load')
     return
 end
+
 hop.setup({
-        keys = "etovxqpdygfblzhckisuran"
+        keys = "etovxqpdygfblzhckisuran",
+        jump_on_sole_occurrence = false,
 })
