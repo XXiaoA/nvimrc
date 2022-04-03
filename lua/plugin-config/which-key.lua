@@ -43,6 +43,7 @@ wk.register({
         r = { ":PackerClean<CR>", "Remove any disabled or unused plugins " },
         s = { ":PackerSync<CR>", "Perform `PackerUpdate` and then `PackerCompile`" },
         c = { ":PackerCompile<CR>", "Regenerate compiled loader file" },
+        t = { ":PackerStatus<CR>", "Show packer's status"},
     },
 }, { prefix = "<leader>" })
 
