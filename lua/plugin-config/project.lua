@@ -1,5 +1,15 @@
-require("project_nvim").setup({})
+local ok, project = pcall(require, "project_nvim")
+if not ok then
+    vim.notify(' project_nvim failed to load')
+    return
+end
+project.setup({})
 
 
 -- telescope
-require('telescope').load_extension('projects')
+local ok, telescope = pcall(require, "telescope")
+if not ok then
+    vim.notify(' telescope failed to load')
+    return
+end
+telescope.load_extension('projects')

@@ -1,4 +1,9 @@
-require("formatter").setup(
+local ok, formatter = pcall(require, "formatter")
+if not ok then
+    vim.notify(' formatter failed to load')
+    return
+end
+formatter.setup(
   {
     filetype = {
       lua = {

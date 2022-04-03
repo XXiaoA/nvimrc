@@ -1,14 +1,31 @@
 -- Call the setup function to change the default behavior
-require("aerial").setup({
+local ok, aerial = pcall(require, "aerial")
+if not ok then
+    vim.notify(' aerial failed to load')
+    return
+end
+aerial.setup({
 })
 
 
 -- Set up your LSP clients here, using the aerial on_attach method
-require("lspconfig").vimls.setup{
-    on_attach = require("aerial").on_attach,
+---@diagnostic disable-next-line: redefined-local
+local ok, lspconfig = pcall(require, "lspconfig")
+if not ok then
+    vim.notify(' lspconfig failed to load')
+    return
+end
+lspconfig.vimls.setup{
+    on_attach = aerial.on_attach,
 }
 -- Repeat this for each language server you have configured
 
 
 -- telescope support
-require('telescope').load_extension('aerial')
+---@diagnostic disable-next-line: redefined-local
+local ok, telescope = pcall(require, "telescope")
+if not ok then
+    vim.notify(' telescope failed to load')
+    return
+end
+telescope.load_extension('aerial')

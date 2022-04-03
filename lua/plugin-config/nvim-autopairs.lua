@@ -1,3 +1,8 @@
+local ok, autopairs = pcall(require, "nvim-autopairs")
+if not ok then
+    vim.notify(' nvim-autopairs failed to load')
+    return
+end
 local disable_filetype = { "TelescopePrompt" }
 local disable_in_macro = false  -- disable when recording or executing a macro
 local disable_in_visualblock = false -- disable when insert after visual block mode
@@ -9,14 +14,13 @@ local check_ts = false
 local map_bs = true  -- map the <BS> key
 local map_c_h = false  -- Map the <C-h> key to delete a pair
 local map_c_w = false -- map <c-w> to delete a pair if possible
-require('nvim-autopairs').setup({
+autopairs.setup({
       disable_filetype = { "TelescopePrompt" , "vim" },
 }
 )
 
-local npairs = require("nvim-autopairs")
 
-npairs.setup({
+autopairs.setup({
     check_ts = true,
     ts_config = {
         lua = {'string'},-- it will not add a pair on that treesitter node

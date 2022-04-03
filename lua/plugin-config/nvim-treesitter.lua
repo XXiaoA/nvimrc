@@ -1,4 +1,10 @@
-require'nvim-treesitter.configs'.setup {
+local ok, tsc = pcall(require, "nvim-treesitter.configs")
+if not ok then
+    vim.notify(' nvim-treesitter.configs failed to load')
+    return
+end
+
+tsc.setup {
     -- 安装 language parser
     -- :TSInstallInfo 命令查看支持的语言
     ensure_installed = {"markdown", "vim", "lua","python", "c", 'cpp'},
@@ -30,6 +36,10 @@ require'nvim-treesitter.configs'.setup {
 -- vim.wo.foldlevel = 99
 
 -- 解决和彩色括号冲突
-require "nvim-treesitter.highlight"
+local ok, tsh = pcall(require, "nvim-treesitter.highlight")
+if not ok then
+    vim.notify(' nvim-treesitter.highlight failed to load')
+    return
+end
 local hlmap = vim.treesitter.highlighter.hl_map
 hlmap["punctuation.bracket"] = nil

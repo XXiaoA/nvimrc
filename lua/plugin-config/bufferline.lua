@@ -1,5 +1,11 @@
+local ok, bufferline = pcall(require, "bufferline")
+if not ok then
+    vim.notify(' bufferline failed to load')
+    return
+end
+
 vim.opt.termguicolors = true
-require("bufferline").setup {
+bufferline.setup {
     options = {
         -- 使用 nvim 内置lsp
         diagnostics = "nvim_lsp",

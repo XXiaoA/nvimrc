@@ -1,3 +1,8 @@
-require "hop".setup({
+local ok, hop = pcall(require, "hop")
+if not ok then
+    vim.notify(' hop failed to load')
+    return
+end
+hop.setup({
         keys = "etovxqpdygfblzhckisuran"
 })

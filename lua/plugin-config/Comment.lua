@@ -1,4 +1,9 @@
-require'Comment'.setup{
+local ok, Comment = pcall(require, "Comment")
+if not ok then
+    vim.notify(' Comment failed to load')
+    return
+end
+Comment.setup{
     ---Add a space b/w comment and the line
     ---@type boolean
     padding = true,

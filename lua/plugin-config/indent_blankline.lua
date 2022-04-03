@@ -5,7 +5,12 @@ o.list = true
 o.listchars:append("space:⋅")
 o.listchars:append("eol:↴")
 
-require("indent_blankline").setup {
+local ok, indent_blankline = pcall(require, "indent_blankline")
+if not ok then
+    vim.notify(' indent_blankline failed to load')
+    return
+end
+indent_blankline.setup {
     space_char_blankline = " ",
     show_current_context = true,
     show_current_context_start = true

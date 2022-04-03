@@ -1,7 +1,17 @@
-local presets = require("which-key.plugins.presets")
+local ok, wk = pcall(require, "which-key")
+if not ok then
+    vim.notify(' which-key failed to load')
+    return
+end
+---@diagnostic disable-next-line: redefined-local
+local ok, presets = pcall(require, "which-key.plugins.presets")
+if not ok then
+    vim.notify(' which-key.plugins.presets failed to load')
+    return
+end
+
 presets.operators["v"] = nil
 
-local wk = require("which-key")
 wk.setup({
     key_labels = {
         ["<space>"] = "SPC",

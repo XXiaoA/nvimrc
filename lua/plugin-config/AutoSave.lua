@@ -1,4 +1,8 @@
-local autosave = require("autosave")
+local ok, autosave = pcall(require, "autosave")
+if not ok then
+    vim.notify(' AutoSave failed to load')
+    return
+end
 
 autosave.setup(
     {
