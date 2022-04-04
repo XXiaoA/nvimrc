@@ -13,7 +13,13 @@ tsc.setup {
         enable = true,
         additional_vim_regex_highlighting = true
     },
-    -- 启用增量选择
+    -- 彩色括号
+    rainbow = {
+        enable = true,
+        extended_mode = true,
+        max_file_lines = nil,
+    },
+    -- 增量选择
     incremental_selection = {
         enable = false,
         keymaps = {
@@ -23,9 +29,9 @@ tsc.setup {
             scope_incremental = 'grm',
         }
     },
-    -- 启用基于Treesitter的代码格式化(=) . NOTE: This is an experimental feature.
+    -- 基于Treesitter的代码格式化(=) . NOTE: This is an experimental feature.
     indent = {
-        enable = false
+        enable = false,
     }
 }
 -- 开启 Folding
@@ -34,12 +40,3 @@ tsc.setup {
 -- 默认不要折叠
 -- https://stackoverflow.com/questions/8316139/how-to-set-the-default-to-unfolded-when-you-open-a-file
 -- vim.wo.foldlevel = 99
-
--- 解决和彩色括号冲突
-local ok, tsh = pcall(require, "nvim-treesitter.highlight")
-if not ok then
-    vim.notify(' nvim-treesitter.highlight failed to load')
-    return
-end
-local hlmap = vim.treesitter.highlighter.hl_map
-hlmap["punctuation.bracket"] = nil

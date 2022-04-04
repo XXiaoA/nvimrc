@@ -77,7 +77,7 @@ local all_plugins = {
     -- copilot
     --  'github/copilot.vim'
     -- 彩色括号
-    {"luochen1990/rainbow"},
+    {"p00f/nvim-ts-rainbow"},
     -- 运行片段代码
     {"michaelb/sniprun", run = "bash ./install.sh"},
     -- 启动页

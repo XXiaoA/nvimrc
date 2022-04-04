@@ -59,9 +59,9 @@ cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim && make 
 * [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim) 缩进线显示
 * [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) 状态栏 
 * [多光标](https://github.com/mg979/vim-visual-multi) 
-* [显示颜色](https://github.com/norcalli/nvim-colorizer.lua) 
-* [命令行窗口](https://github.com/akinsho/toggleterm.nvim) 
-* [彩色括号](https://github.com/luochen1990/rainbow) 
+* [nvim-colorizer](https://github.com/norcalli/nvim-colorizer.lua) 显示颜色
+* [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim) 命令行窗口
+* [nvim-ts-rainbow](https://github.com/p00f/nvim-ts-rainbow) 彩色括号
 * [运行代码](https://github.com/michaelb/sniprun)
 * [dashboard-nvim](https://github.com/glepnir/dashboard-nvim) 启动页
 * [impatient.nvim](https://github.com/lewis6991/impatient.nvim); [filetype.nvim](https://github.com/nathom/filetype.nvim)  加快启动速度
@@ -70,7 +70,7 @@ cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim && make 
 * [vim-sandwich](https://github.com/machakann/vim-sandwich) 
 * [AutoSave.nvim](https://github.com/Pocco81/AutoSave.nvim) 自动保存
 * [vim-startuptime](https://github.com/dstein64/vim-startuptime) 计算启动时间
-* [快速移动](https://github.com/phaazon/hop.nvim',) 
+* [hop.nvim](https://github.com/phaazon/hop.nvim) 快速移动
 * [vimcdoc](https://github.com/yianwillis/vimcdoc) 中文文档
 * [翻译](https://github.com/voldikss/vim-translator) 
 * [formatter](https://github.com/mhartington/formatter.nvim) 格式化代码
