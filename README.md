@@ -89,15 +89,18 @@ cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim && make 
     - [x] ahmedkhalf/project.nvim  
     - [ ] ray-x/lsp_signature.nvim  
     - [ ] xeluxee/competitest.nvim  
+    - [ ] neotree
+    - [ ] nvim-neorg/neorg or nvim-orgmode/orgmode
 2. - [ ] 配置插件  
-3. 配置lsp:  
+3. - [ ] lazyload
+4. 配置lsp:  
     - [ ] clangd (c, c++)
     - [ ] pylsp (python)
     - [ ] sumneko_lua (lua)
     - [ ] vim (vimls)
-4. - [ ] configure nvim-tree's [background](https://www.reddit.com/r/neovim/comments/nwqeqk/how_do_i_change_the_background_color_of_nvimtree/)
-5. - [ ] ~~完善文档~~(maybe)
-6. - [ ] ~~给某些插件加使用指北(maybe)~~  
+5. - [ ] configure nvim-tree's [background](https://www.reddit.com/r/neovim/comments/nwqeqk/how_do_i_change_the_background_color_of_nvimtree/)
+6. - [ ] ~~完善文档~~(maybe)
+7. - [ ] ~~给某些插件加使用指北(maybe)~~  
 
 ### 说明：
 感谢：[nshen/learn-neovim-lua](https://github.com/nshen/learn-neovim-lua)
