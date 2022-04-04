@@ -55,7 +55,6 @@ cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim && make 
 * [自动补全](https://github.com/hrsh7th/nvim-cmp)  
 * [文件搜索等](https://github.com/nvim-telescope/telescope.nvim)
 * [括号补全](https://github.com/windwp/nvim-autopairs) 
-* [beacon.nvim](https://github.com/danilamihailov/beacon.nvim) 信标 
 * [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim) 缩进线显示
 * [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) 状态栏 
 * [多光标](https://github.com/mg979/vim-visual-multi) 
@@ -83,24 +82,31 @@ cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim && make 
 
 ## 其他
 ### TODO
-1. plugins:  
-    - [ ] leaderf  
+- [ ] plugins:  
+    - [ ] Yggdroot/LeaderF  
     - [ ] wfxr/minimap.vim
     - [x] ahmedkhalf/project.nvim  
     - [ ] ray-x/lsp_signature.nvim  
     - [ ] xeluxee/competitest.nvim  
-    - [ ] neotree
+    - [ ] nvim-neo-tree/neo-tree.nvim
     - [ ] nvim-neorg/neorg or nvim-orgmode/orgmode
-2. - [ ] 配置插件  
-3. - [ ] lazyload
-4. 配置lsp:  
+- [ ] 配置插件  
+    - [ ] nvim-treesitter/nvim-treesitter
+    - [ ] hrsh7th/nvim-cmp
+    - [ ] nvim-telescope/telescope.nvim
+    - [ ] windwp/nvim-autopairs
+    - [ ] mg979/vim-visual-multi
+    - [ ] michaelb/sniprun
+    - [ ] junegunn/vim-easy-align
+    - [ ] voldikss/vim-translator
+- [ ] lazyload
+- [ ] 配置LSP:  
     - [ ] clangd (c, c++)
     - [ ] pylsp (python)
     - [ ] sumneko_lua (lua)
     - [ ] vim (vimls)
-5. - [ ] configure nvim-tree's [background](https://www.reddit.com/r/neovim/comments/nwqeqk/how_do_i_change_the_background_color_of_nvimtree/)
-6. - [ ] ~~完善文档~~(maybe)
-7. - [ ] ~~给某些插件加使用指北(maybe)~~  
+- [ ] configure nvim-tree's [background](https://www.reddit.com/r/neovim/comments/nwqeqk/how_do_i_change_the_background_color_of_nvimtree/)
+- [ ] 完善文档
 
 ### 说明：
 感谢：[nshen/learn-neovim-lua](https://github.com/nshen/learn-neovim-lua)
