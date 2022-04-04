@@ -59,8 +59,6 @@ local all_plugins = {
     {"nvim-telescope/telescope-fzf-native.nvim", run = "make"},
     -- 自动补全括号
     {"windwp/nvim-autopairs"},
-    -- 信标（转跳
-    {"danilamihailov/beacon.nvim"},
     -- 缩进线
     {"lukas-reineke/indent-blankline.nvim"},
     -- 状态栏
