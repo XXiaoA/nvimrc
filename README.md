@@ -50,7 +50,7 @@ cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim && make 
 * [gruvbox-material](https://github.com/sainnhe/gruvbox-material) 主题
 * [nvim-tree](https://github.com/kyazdani42/nvim-tree.lua) 目录树
 * [bufferline](https://github.com/akinsho/bufferline.nvim) buffer显示
-* [语法高亮](https://github.com/nvim-treesitter/nvim-treesitter)
+* [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) 语法高亮
 * [Comment](https://github.com/numToStr/Comment.nvim) 快捷注释
 * [自动补全](https://github.com/hrsh7th/nvim-cmp)  
 * [文件搜索等](https://github.com/nvim-telescope/telescope.nvim)
