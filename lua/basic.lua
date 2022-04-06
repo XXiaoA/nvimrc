@@ -1,12 +1,11 @@
 -- 禁止鼠标
--- vim.o.mouse = "a"
-vim.o.mouse = ""
+vim.o.mouse = "" -- "a"
 -- 禁止创建备份文件
 vim.o.backup = false
 vim.o.writebackup = false
 vim.o.swapfile = false
 -- F9打开/关闭粘贴模式
-vim.o.pastetoggle="<F9>"
+vim.o.pastetoggle = "<F9>"
 -- 编码设置
 vim.o.encoding = "utf-8"
 -- 加快响应速度
@@ -18,7 +17,7 @@ vim.o.autochdir = true
 -- 显示命令字符
 vim.o.showcmd = true
 -- always show tabline
-vim.o.showtabline =2
+vim.o.showtabline = 2
 -- 允许当前窗口未保存时切换到其他窗口
 vim.o.hidden = true
 -- 启用 24-bit 色
