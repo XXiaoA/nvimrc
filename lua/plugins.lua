@@ -28,7 +28,7 @@ local all_plugins = {
     -- bufferline #buffer
     {"akinsho/bufferline.nvim", requires = "kyazdani42/nvim-web-devicons"},
     -- treesitter 高亮
-    {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate", before = "neorg"},
+    {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"},
     -- Comment 注释
     {"numToStr/Comment.nvim"},
     -- lspconfig
@@ -118,12 +118,6 @@ local all_plugins = {
     {"stevearc/aerial.nvim"},
     -- project
     {"ahmedkhalf/project.nvim"},
-    -- neorg
-    {
-        "nvim-neorg/neorg",
-        -- ft = "norg",
-        -- after = "nvim-treesitter",
-    },
 }
 
 return require("packer").startup(
