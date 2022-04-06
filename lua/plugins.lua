@@ -30,7 +30,7 @@ local all_plugins = {
     -- treesitter 高亮
     {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"},
     -- Comment 注释
-    { "numToStr/Comment.nvim" },
+    {"numToStr/Comment.nvim"},
     -- lspconfig
     {"neovim/nvim-lspconfig", "williamboman/nvim-lsp-installer"},
     -- nvim-cmp
@@ -117,7 +117,9 @@ local all_plugins = {
     -- code outline
     {"stevearc/aerial.nvim"},
     -- project
-    {"ahmedkhalf/project.nvim"}
+    {"ahmedkhalf/project.nvim"},
+    -- orgmdoe
+    {"nvim-orgmode/orgmode"},
 }
 
 return require("packer").startup(
