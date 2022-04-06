@@ -20,6 +20,7 @@ cmp.setup {
   },
   -- 来源
   sources = cmp.config.sources({
+    { name = 'orgmode' },
     { name = 'nvim_lsp' },
     -- For vsnip users.
     { name = 'vsnip' },
