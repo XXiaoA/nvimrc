@@ -88,7 +88,7 @@ cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim && make 
     - [x] ahmedkhalf/project.nvim  
     - [ ] ray-x/lsp_signature.nvim  
     - [ ] xeluxee/competitest.nvim  
-    - [ ] nvim-orgmode/orgmode
+    - [x] ~~nvim-orgmode/orgmode~~
     - [x] ~~nvim-neorg/neorg~~ (maybe try again it in the future)
     - [ ] Compare
         - [ ] between nvim-neo-tree/neo-tree.nvim and nvim-tree

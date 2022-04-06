@@ -118,8 +118,6 @@ local all_plugins = {
     {"stevearc/aerial.nvim"},
     -- project
     {"ahmedkhalf/project.nvim"},
-    -- orgmode
-    {"nvim-orgmode/orgmode"},
 }
 
 return require("packer").startup(
