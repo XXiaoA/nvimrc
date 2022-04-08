@@ -112,9 +112,9 @@ sudo apt-get install lazygit
     - [ ] nvim-telescope/telescope.nvim
     - [ ] windwp/nvim-autopairs
     - [ ] mg979/vim-visual-multi
-    - [ ] michaelb/sniprun
     - [ ] junegunn/vim-easy-align
     - [ ] voldikss/vim-translator
+    - [x] michaelb/sniprun
 - [ ] lazyload
 - [ ] 配置LSP:  
     - [ ] clangd (c, c++)
