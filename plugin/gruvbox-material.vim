@@ -6,6 +6,9 @@ set background=dark
 " option: hard, medium, soft
 let g:gruvbox_material_background = 'hard'
 
+" options: 'grey background', 'green background', 'blue background', 'red background', 'reverse'
+let g:gruvbox_material_visual = 'blue background'
+
 let g:gruvbox_material_better_performance = 1
 let g:gruvbox_material_enable_bold = 1
 let g:gruvbox_material_enable_italic = 1
