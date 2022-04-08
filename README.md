@@ -72,7 +72,7 @@ sudo apt-get install lazygit
 * [nvim-colorizer](https://github.com/norcalli/nvim-colorizer.lua) 显示颜色
 * [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim) 命令行窗口
 * [nvim-ts-rainbow](https://github.com/p00f/nvim-ts-rainbow) 彩色括号
-* [运行代码](https://github.com/michaelb/sniprun)
+* [sniprun](https://github.com/michaelb/sniprun) 运行代码
 * [dashboard-nvim](https://github.com/glepnir/dashboard-nvim) 启动页
 * [impatient.nvim](https://github.com/lewis6991/impatient.nvim); [filetype.nvim](https://github.com/nathom/filetype.nvim)  加快启动速度
 * [auto_mkdir](https://github.com/DataWraith/auto_mkdir) 自动创建文件夹
