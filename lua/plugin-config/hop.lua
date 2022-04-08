@@ -6,5 +6,5 @@ end
 
 hop.setup({
         keys = "etovxqpdygfblzhckisuran",
-        jump_on_sole_occurrence = false,
+        -- jump_on_sole_occurrence = false,
 })

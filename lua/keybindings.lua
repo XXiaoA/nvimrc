@@ -99,7 +99,6 @@ map('n', 'g*', [[g*<Cmd>lua require('hlslens').start()<CR>]])
 map('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]])
 
 
-
 -- lsp 回调函数快捷键设置
 local pluginKeys = {}
 pluginKeys.maplsp = function(mapbuf)

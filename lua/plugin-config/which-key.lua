@@ -225,3 +225,8 @@ wk.register({
         c = { '<cmd>HopChar2<CR>', 'Two char'},
     }
 }, { prefix = '<leader>'})
+
+wk.register({
+    ['f'] = {'<cmd>HopChar1CurrentLineAC<CR>', 'Use hop to move next char'},
+    ['F'] = {'<cmd>HopChar1CurrentLineBC<CR>', 'Use hop to move previous char'},
+})
