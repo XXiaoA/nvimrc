@@ -27,7 +27,18 @@ sudo dpkg -i ripgrep_12.1.1_amd64.deb
 cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim && make clean && make
 ```
 
+* 如果 `sniprun` 运行报错执行以下命令
+```bash
+cd ~/.local/share/nvim/site/pack/packer/start/sniprun
+sh install.sh
+```
+
 * 若想使用toggleterm.nvim的`lazygit`窗口请自行百度查找安装lazygit的教程
+```bash
+udo add-apt-repository ppa:lazygit-team/daily
+sudo apt-get update
+sudo apt-get install lazygit
+```
 
 
 ## 快捷键
@@ -85,15 +96,17 @@ cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim && make 
 - [ ] plugins:  
     - [ ] Yggdroot/LeaderF  
     - [ ] wfxr/minimap.vim
-    - [x] ahmedkhalf/project.nvim  
     - [ ] ray-x/lsp_signature.nvim  
     - [ ] xeluxee/competitest.nvim  
+    - [ ] rcarriga/nvim-notify (with sniprun)  
+    - [x] ahmedkhalf/project.nvim  
     - [x] ~~nvim-orgmode/orgmode~~
     - [x] ~~nvim-neorg/neorg~~ (maybe try again it in the future)
     - [ ] Compare
         - [ ] between nvim-neo-tree/neo-tree.nvim and nvim-tree
         - [ ] between [ggandor/lightspeed.nvim](https://github.com/ggandor/lightspeed.nvim) and hop.nvim
 - [ ] 配置插件  
+    - [ ] mfussenegger/nvim-dap
     - [ ] nvim-treesitter/nvim-treesitter
     - [ ] hrsh7th/nvim-cmp
     - [ ] nvim-telescope/telescope.nvim

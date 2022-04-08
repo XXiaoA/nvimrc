@@ -230,3 +230,16 @@ wk.register({
     ['f'] = {'<cmd>HopChar1CurrentLineAC<CR>', 'Use hop to move next char'},
     ['F'] = {'<cmd>HopChar1CurrentLineBC<CR>', 'Use hop to move previous char'},
 })
+
+-- sniprun
+wk.register({
+    s = {
+        name = 'SnipRun',
+        r = {'<cmd>SnipRun<cr>', 'Run code snippet'},
+        c = {'<cmd>SnipClose<cr>', 'Close SnipRun'},
+    }
+}, { prefix = '<leader>'})
+
+wk.register({
+    ['f'] = {'<Plug>SnipRun', 'Run code snippet'},
+}, {mode = 'v', silent = true})

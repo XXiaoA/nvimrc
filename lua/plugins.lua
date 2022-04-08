@@ -123,6 +123,7 @@ local all_plugins = {
 return require("packer").startup(
     function()
         for _, plugin in ipairs(all_plugins) do
+---@diagnostic disable-next-line: undefined-global
             use(plugin)
         end
     end
