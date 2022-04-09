@@ -88,7 +88,7 @@ sudo apt-get install lazygit
 * [nvim-hlslens](https://github.com/kevinhwang91/nvim-hlslens) 高亮搜索
 * [aerial.nvim](https://github.com/stevearc/aerial.nvim) 代码大纲
 * [project.nvim](https://github.com/ahmedkhalf/project.nvim) 近期项目
-
+* [jubnzv/mdeval.nvim](https://github.com/jubnzv/mdeval.nvim) 在文档运行代码
 
 ## 其他
 ### TODO
@@ -100,9 +100,9 @@ sudo apt-get install lazygit
     - [ ] ray-x/lsp_signature.nvim  
     - [ ] xeluxee/competitest.nvim  
     - [ ] rcarriga/nvim-notify (with sniprun)  
-    - [x] [kevinhwang91/nvim-fFHighlight](https://github.com/kevinhwang91/nvim-fFHighlight)
     - [x] [jubnzv/mdeval.nvim](https://github.com/jubnzv/mdeval.nvim) 
     - [x] ahmedkhalf/project.nvim  
+    - [x] ~~[kevinhwang91/nvim-fFHighlight](https://github.com/kevinhwang91/nvim-fFHighlight)~~
     - [x] ~~nvim-orgmode/orgmode~~
     - [x] ~~nvim-neorg/neorg~~ (maybe try again it in the future)
     - [ ] Compare
