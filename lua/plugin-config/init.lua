@@ -9,3 +9,4 @@ for _, file in pairs(all_files) do
         require(string.format("plugin-config/%s", plugin))
     end
 end
+require("impatient").enable_profile()

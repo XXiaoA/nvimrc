@@ -18,6 +18,9 @@ require("packer").init(
 local all_plugins = {
     -- Packer can manage itself
     {"wbthomason/packer.nvim"},
+    -- 加快启动时间
+   {"lewis6991/impatient.nvim"},
+    {"nathom/filetype.nvim"},
     -- 主题
     {"sainnhe/gruvbox-material"},
     -- nvim-tree
@@ -80,9 +83,6 @@ local all_plugins = {
     {"michaelb/sniprun", run = "bash ./install.sh"},
     -- 启动页
     {"glepnir/dashboard-nvim"},
-    -- 加快启动时间
-    {"lewis6991/impatient.nvim",config = require("impatient").enable_profile()},
-    {"nathom/filetype.nvim"},
     -- 保存自动创建文件夹
     {"DataWraith/auto_mkdir"},
     -- 自动对齐
