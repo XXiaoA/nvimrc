@@ -119,7 +119,7 @@ local all_plugins = {
     -- project
     {"ahmedkhalf/project.nvim"},
     -- evaluates code blocks
-    {"jubnzv/mdeval.nvim", config="require 'mdeval'.setup()"},
+    {"jubnzv/mdeval.nvim"},
 }
 
 return require("packer").startup(

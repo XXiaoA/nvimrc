@@ -6,7 +6,9 @@ end
 
 sniprun.setup {
     display = {
-        "Classic",
+        -- "Classic",
+        -- "NvimNotify",
         "VirtualTextOk",
+        "LongTempFloatingWindow",
     }
 }

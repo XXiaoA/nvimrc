@@ -29,8 +29,7 @@ cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim && make 
 
 * 如果 `sniprun` 运行报错执行以下命令
 ```bash
-cd ~/.local/share/nvim/site/pack/packer/start/sniprun
-sh install.sh
+cd ~/.local/share/nvim/site/pack/packer/start/sniprun && sh install.sh
 ```
 
 * 若想使用toggleterm.nvim的`lazygit`窗口请自行百度查找安装lazygit的教程
@@ -72,7 +71,7 @@ sudo apt-get install lazygit
 * [nvim-colorizer](https://github.com/norcalli/nvim-colorizer.lua) 显示颜色
 * [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim) 命令行窗口
 * [nvim-ts-rainbow](https://github.com/p00f/nvim-ts-rainbow) 彩色括号
-* [sniprun](https://github.com/michaelb/sniprun) 运行代码
+* [sniprun](https://github.com/michaelb/sniprun), [jubnzv/mdeval.nvim](https://github.com/jubnzv/mdeval.nvim) 运行代码
 * [dashboard-nvim](https://github.com/glepnir/dashboard-nvim) 启动页
 * [impatient.nvim](https://github.com/lewis6991/impatient.nvim); [filetype.nvim](https://github.com/nathom/filetype.nvim)  加快启动速度
 * [auto_mkdir](https://github.com/DataWraith/auto_mkdir) 自动创建文件夹
