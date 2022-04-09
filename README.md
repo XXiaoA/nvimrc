@@ -94,12 +94,12 @@ sudo apt-get install lazygit
 ### TODO
 - [ ] plugins:
     - [ ] [chentau/marks.nvim](https://github.com/chentau/marks.nvim) 
-    - [ ] [tversteeg/registers.nvim](https://github.com/tversteeg/registers.nvim) 
     - [ ] Yggdroot/LeaderF  
     - [ ] wfxr/minimap.vim
     - [ ] ray-x/lsp_signature.nvim  
     - [ ] xeluxee/competitest.nvim  
     - [ ] rcarriga/nvim-notify (with sniprun)  
+    - [x] [tversteeg/registers.nvim](https://github.com/tversteeg/registers.nvim) 
     - [x] [jubnzv/mdeval.nvim](https://github.com/jubnzv/mdeval.nvim) 
     - [x] ahmedkhalf/project.nvim  
     - [x] ~~[kevinhwang91/nvim-fFHighlight](https://github.com/kevinhwang91/nvim-fFHighlight)~~
@@ -107,7 +107,7 @@ sudo apt-get install lazygit
     - [x] ~~nvim-neorg/neorg~~ (maybe try again it in the future)
     - [ ] Compare
         - [ ] between nvim-neo-tree/neo-tree.nvim and nvim-tree
-        - [ ] between [ggandor/lightspeed.nvim](https://github.com/ggandor/lightspeed.nvim) and hop.nvim
+        - [x] ~~between [ggandor/lightspeed.nvim](https://github.com/ggandor/lightspeed.nvim) and hop.nvim~~
 - [ ] 配置插件  
     - [ ] mfussenegger/nvim-dap
     - [ ] nvim-treesitter/nvim-treesitter

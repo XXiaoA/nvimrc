@@ -120,6 +120,8 @@ local all_plugins = {
     {"ahmedkhalf/project.nvim"},
     -- evaluates code blocks
     {"jubnzv/mdeval.nvim"},
+    -- register
+    {"tversteeg/registers.nvim", config=[[vim.g.registers_window_border = "single"]]},
 }
 
 return require("packer").startup(
