@@ -118,6 +118,8 @@ local all_plugins = {
     {"stevearc/aerial.nvim"},
     -- project
     {"ahmedkhalf/project.nvim"},
+    -- evaluates code blocks
+    {"jubnzv/mdeval.nvim", config="require 'mdeval'.setup()"},
 }
 
 return require("packer").startup(
