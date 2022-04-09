@@ -9,4 +9,5 @@ for _, file in pairs(all_files) do
         require(string.format("plugin-config/%s", plugin))
     end
 end
+-- Load the cache
 require("impatient").enable_profile()

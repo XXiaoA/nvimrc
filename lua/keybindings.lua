@@ -19,6 +19,12 @@ vim.g.maplocalleader = " "
 
 
 -- {{{"基础
+-- x X不添加进无名寄存器
+map('n', 'x', '"_x')
+map('n', 'X', '"_X')
+map('v', 'x', '"_x')
+map('v', 'X', '"_X')
+
 -- 退出终端插入模式
 map('t', '<ESC>', [[<C-\><C-n>]])
 map('t', 'jj', [[<C-\><C-n>]])
