@@ -81,7 +81,7 @@ local all_plugins = {
     -- 启动页
     {"glepnir/dashboard-nvim"},
     -- 加快启动时间
-    {"lewis6991/impatient.nvim"},
+    {"lewis6991/impatient.nvim", require("impatient").enable_profile() },
     {"nathom/filetype.nvim"},
     -- 保存自动创建文件夹
     {"DataWraith/auto_mkdir"},

@@ -94,6 +94,7 @@ sudo apt-get install lazygit
 ## 其他
 ### TODO
 - [ ] plugins:  
+    - [ ] [kevinhwang91/nvim-fFHighlight](https://github.com/kevinhwang91/nvim-fFHighlight)
     - [ ] Yggdroot/LeaderF  
     - [ ] wfxr/minimap.vim
     - [ ] ray-x/lsp_signature.nvim  
