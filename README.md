@@ -93,6 +93,7 @@ sudo apt-get install lazygit
 ## 其他
 ### TODO
 - [ ] plugins:
+    - [ ] [gelguy/wilder.nvim](https://github.com/gelguy/wilder.nvim) 
     - [ ] [chentau/marks.nvim](https://github.com/chentau/marks.nvim) 
     - [ ] Yggdroot/LeaderF  
     - [ ] wfxr/minimap.vim
