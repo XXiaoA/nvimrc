@@ -76,7 +76,7 @@ local all_plugins = {
     -- 命令行窗口
     {"akinsho/toggleterm.nvim"},
     -- copilot
-    --  'github/copilot.vim'
+    {'github/copilot.vim'},
     -- 彩色括号
     {"p00f/nvim-ts-rainbow"},
     -- 运行片段代码
