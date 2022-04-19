@@ -93,6 +93,7 @@ sudo apt-get install lazygit
 ## 其他
 ### TODO
 - [ ] plugins:
+    - [ ] [dstein64/nvim-scrollview](https://github.com/dstein64/nvim-scrollview)
     - [ ] [chentau/marks.nvim](https://github.com/chentau/marks.nvim) 
     - [ ] [unblevable/quick-scope](https://github.com/unblevable/quick-scope) 
     - [ ] Yggdroot/LeaderF  
