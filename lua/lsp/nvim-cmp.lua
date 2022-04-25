@@ -1,5 +1,13 @@
-local lspkind = require('lspkind')
-local cmp = require'cmp'
+local ok, lspkind = pcall(require, "lspkind")
+if not ok then
+    vim.notify(' lspkind failed to load')
+    return
+end
+local ok, cmp = pcall(require, "cmp")
+if not ok then
+    vim.notify(' cmp failed to load')
+    return
+end
 
 cmp.setup {
     experimental = {
