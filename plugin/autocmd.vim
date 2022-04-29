@@ -1,4 +1,4 @@
-" Exit nvim when we only have the following types of windows 
+" Exit nvim when we only have the following types of windows {{{
 function! s:quit_current_win() abort
     let l:quit_filetypes = ['NvimTree', 'aerial']
 
@@ -23,4 +23,10 @@ endfunction
 augroup auto_close_win
     autocmd!
     autocmd BufEnter * call s:quit_current_win()
-augroup END
+augroup END"}}}
+
+" smart number from https://github.com/jeffkreeftmeijer/vim-numbertoggle{{{
+augroup numbertoggle                                    autocmd!
+    autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
+    autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
+augroup END"}}}
