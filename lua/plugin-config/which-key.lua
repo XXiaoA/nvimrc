@@ -243,3 +243,8 @@ wk.register({
 wk.register({
     ['f'] = {'<Plug>SnipRun', 'Run code snippet'},
 }, {mode = 'v', silent = true})
+
+-- nabla
+wk.register({
+    ['m'] = { '<cmd>lua require("nabla").popup()<CR>', 'Show the LaTeX equations',}
+}, { prefix = '<leader>'})

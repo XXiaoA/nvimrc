@@ -10,7 +10,7 @@ end
 require("packer").init(
     {
         git = {
-            default_url_format = "https://hub.xn--p8jhe.tw/%s"
+            -- default_url_format = "https://hub.xn--p8jhe.tw/%s"
         }
     }
 )
@@ -122,6 +122,8 @@ local all_plugins = {
     {"jubnzv/mdeval.nvim"},
     -- register
     {"tversteeg/registers.nvim", config=[[vim.g.registers_window_border = "single"]]},
+    -- nabla: show the latex equation
+    {"jbyuki/nabla.nvim"},
 }
 
 return require("packer").startup(
