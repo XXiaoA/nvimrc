@@ -73,7 +73,7 @@ sudo apt-get install lazygit
 * [nvim-ts-rainbow](https://github.com/p00f/nvim-ts-rainbow) 彩色括号
 * [sniprun](https://github.com/michaelb/sniprun), [jubnzv/mdeval.nvim](https://github.com/jubnzv/mdeval.nvim) 运行代码
 * [dashboard-nvim](https://github.com/glepnir/dashboard-nvim) 启动页
-* [impatient.nvim](https://github.com/lewis6991/impatient.nvim); [filetype.nvim](https://github.com/nathom/filetype.nvim)  加快启动速度
+* [impatient.nvim](https://github.com/lewis6991/impatient.nvim)
 * [auto_mkdir](https://github.com/DataWraith/auto_mkdir) 自动创建文件夹
 * [一键对齐](https://github.com/junegunn/vim-easy-align) 
 * [vim-sandwich](https://github.com/machakann/vim-sandwich) 
@@ -91,43 +91,5 @@ sudo apt-get install lazygit
 * [jubnzv/mdeval.nvim](https://github.com/jubnzv/mdeval.nvim) 在文档运行代码
 
 ## 其他
-### TODO
-- [ ] plugins:
-    - [ ] [dstein64/nvim-scrollview](https://github.com/dstein64/nvim-scrollview)
-    - [ ] [chentau/marks.nvim](https://github.com/chentau/marks.nvim) 
-    - [ ] [unblevable/quick-scope](https://github.com/unblevable/quick-scope) 
-    - [ ] Yggdroot/LeaderF  
-    - [ ] wfxr/minimap.vim
-    - [ ] ray-x/lsp_signature.nvim  
-    - [ ] xeluxee/competitest.nvim  
-    - [ ] rcarriga/nvim-notify (with sniprun)  
-    - [x] [tversteeg/registers.nvim](https://github.com/tversteeg/registers.nvim) 
-    - [x] [jubnzv/mdeval.nvim](https://github.com/jubnzv/mdeval.nvim) 
-    - [x] ahmedkhalf/project.nvim  
-    - [x] ~~[kevinhwang91/nvim-fFHighlight](https://github.com/kevinhwang91/nvim-fFHighlight)~~
-    - [x] ~~nvim-orgmode/orgmode~~
-    - [x] ~~nvim-neorg/neorg~~ (maybe try again it in the future)
-    - [ ] Compare
-        - [ ] between nvim-neo-tree/neo-tree.nvim and nvim-tree
-        - [x] ~~between [ggandor/lightspeed.nvim](https://github.com/ggandor/lightspeed.nvim) and hop.nvim~~
-- [ ] 配置插件  
-    - [ ] mfussenegger/nvim-dap
-    - [ ] nvim-treesitter/nvim-treesitter
-    - [ ] hrsh7th/nvim-cmp
-    - [ ] nvim-telescope/telescope.nvim
-    - [ ] windwp/nvim-autopairs
-    - [ ] mg979/vim-visual-multi
-    - [ ] junegunn/vim-easy-align
-    - [ ] voldikss/vim-translator
-    - [x] michaelb/sniprun
-- [ ] lazyload
-- [ ] 配置LSP:  
-    - [ ] clangd (c, c++)
-    - [ ] pylsp (python)
-    - [ ] sumneko_lua (lua)
-    - [ ] vim (vimls)
-- [ ] configure nvim-tree's [background](https://www.reddit.com/r/neovim/comments/nwqeqk/how_do_i_change_the_background_color_of_nvimtree/)
-- [ ] 完善文档
-
 ### 说明：
-感谢：[nshen/learn-neovim-lua](https://github.com/nshen/learn-neovim-lua)
+感谢：[nshen/learn-neovim-lua](https://github.com/nshen/learn-neovim-lua/tree/bak)

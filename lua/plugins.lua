@@ -9,9 +9,7 @@ end
 -- Mirror source
 require("packer").init(
     {
-        git = {
-            -- default_url_format = "https://hub.xn--p8jhe.tw/%s"
-        }
+        git = {}
     }
 )
 
@@ -19,7 +17,7 @@ local all_plugins = {
     -- Packer can manage itself
     {"wbthomason/packer.nvim"},
     -- 加快启动时间
-   {"lewis6991/impatient.nvim"},
+    {"lewis6991/impatient.nvim"},
     {"nathom/filetype.nvim"},
     -- 主题
     {"sainnhe/gruvbox-material"},
@@ -76,7 +74,7 @@ local all_plugins = {
     -- 命令行窗口
     {"akinsho/toggleterm.nvim"},
     -- copilot
-    {'github/copilot.vim'},
+    {"github/copilot.vim"},
     -- 彩色括号
     {"p00f/nvim-ts-rainbow"},
     -- 运行片段代码
@@ -121,15 +119,15 @@ local all_plugins = {
     -- evaluates code blocks
     {"jubnzv/mdeval.nvim"},
     -- register
-    {"tversteeg/registers.nvim", config=[[vim.g.registers_window_border = "single"]]},
+    {"tversteeg/registers.nvim", config = [[vim.g.registers_window_border = "single"]]},
     -- nabla: show the latex equation
-    {"jbyuki/nabla.nvim"},
+    {"jbyuki/nabla.nvim"}
 }
 
 return require("packer").startup(
     function()
         for _, plugin in ipairs(all_plugins) do
----@diagnostic disable-next-line: undefined-global
+            ---@diagnostic disable-next-line: undefined-global
             use(plugin)
         end
     end

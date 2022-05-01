@@ -10,6 +10,7 @@ local servers = {
     vimls = require "lsp.vim"
 }
 
+
 -- 自动安装 LanguageServers
 for name, _ in pairs(servers) do
     local server_is_found, server = lsp_installer.get_server(name)
