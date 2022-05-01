@@ -78,3 +78,6 @@ vim.o.foldmethod = "marker"
 -- 折叠的级别（100）
 vim.o.foldlevel = 100
 vim.o.autoindent = true
+-- imporve the StartupTime (insteal of https://github.com/nathom/filetype.nvim)
+vim.g.do_filetype_lua = 1
+vim.g.did_load_filetypes = 0

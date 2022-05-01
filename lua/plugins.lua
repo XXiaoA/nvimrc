@@ -21,7 +21,6 @@ local all_plugins = {
     {"wbthomason/packer.nvim"},
     -- 加快启动时间
     {"lewis6991/impatient.nvim"},
-    {"nathom/filetype.nvim"},
     -- 主题
     {"sainnhe/gruvbox-material"},
     -- nvim-tree
