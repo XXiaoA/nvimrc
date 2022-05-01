@@ -18,6 +18,8 @@ vim.o.autochdir = true
 vim.o.showcmd = true
 -- always show tabline
 vim.o.showtabline = 2
+-- use global line
+vim.o.laststatus = 3
 -- 允许当前窗口未保存时切换到其他窗口
 vim.o.hidden = true
 -- 启用 24-bit 色

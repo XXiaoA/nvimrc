@@ -9,7 +9,10 @@ end
 -- Mirror source
 require("packer").init(
     {
-        git = {}
+        git = {
+            default_url_format = "https://github.com/%s"
+            -- default_url_format = "https://hub.fastgit.xyz/%s"
+        }
     }
 )
 

@@ -6,7 +6,6 @@ end
 vim.g.nvim_tree_respect_buf_cwd = 1
 
 nvim_tree.setup({
-    nvim_tree_auto_close = true,
     update_cwd = true,
     update_focused_file = {
         enable = true,
