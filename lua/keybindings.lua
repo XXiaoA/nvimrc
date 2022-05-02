@@ -43,9 +43,9 @@ map("i", "<C-l>", "<ESC>A")
 
 -- 保存/退出
 map("i", "<C-s>", "<ESC>:w<CR>")
-map("i", "<C-q>", "<ESC>:q<CR>")
+map("i", "<C-q>", "<ESC>:qall<CR>")
 map("n", "W", ":w<CR>")
-map("n", "Q", ":q<cr>")
+map("n", "Q", ":qall<cr>")
 
 -- ctrl u / ctrl + d  只移动10行，默认移动半屏
 map("n", "<C-u>", "10k")
