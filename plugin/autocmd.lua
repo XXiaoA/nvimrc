@@ -10,12 +10,13 @@ local quit_current_win = function()
             should_quit = false
         end
     end
+
     if should_quit then
         vim.cmd("qall")
     end
 end
 
-vim.api.nvim_create_autocmd("BufEnter",{ callback = quit_current_win })
+vim.api.nvim_create_autocmd("BufEnter", {callback = quit_current_win})
 -- }}}
 
 -- smart number from https://github.com/jeffkreeftmeijer/vim-numbertoggle {{{

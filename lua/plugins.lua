@@ -123,7 +123,9 @@ local all_plugins = {
     -- register
     {"tversteeg/registers.nvim", config = [[vim.g.registers_window_border = "single"]]},
     -- nabla: show the latex equation
-    {"jbyuki/nabla.nvim"}
+    {"jbyuki/nabla.nvim"},
+    -- Delete Neovim buffers without losing window layout
+    {"famiu/bufdelete.nvim"}
 }
 
 return require("packer").startup(

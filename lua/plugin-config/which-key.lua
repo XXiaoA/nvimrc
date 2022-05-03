@@ -62,7 +62,7 @@ wk.register({
 wk.register({
     ['<A-h>'] = {':BufferLineCyclePrev<CR>', 'Go to previous buffer'},
     ['<A-l>'] = {':BufferLineCycleNext<CR>', 'Go to next buffer'},
-    ['<A-w>'] = {':bd<CR>', 'Close current buffer'}
+    ['<A-w>'] = {':Bdelete<CR>', 'Close current buffer'}
 })
 
 -- NvimTree
