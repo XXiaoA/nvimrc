@@ -22,7 +22,7 @@
     - [ ] nvim-treesitter/nvim-treesitter
     - [ ] hrsh7th/nvim-cmp
     - [ ] nvim-telescope/telescope.nvim
-    - [ ] windwp/nvim-autopairs
+    - [x] windwp/nvim-autopairs
     - [ ] mg979/vim-visual-multi
     - [ ] junegunn/vim-easy-align
     - [ ] voldikss/vim-translator

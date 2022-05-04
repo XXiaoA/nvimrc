@@ -1,14 +1,5 @@
-local status, actions = pcall(require, "telescope.actions")
-if (not status) then
-    vim.notify(" telescope.actions failed to load")
-    return
-end
-
-local ok, telescope = pcall(require, "telescope")
-if not ok then
-    vim.notify(" telescope failed to load")
-    return
-end
+local actions = require("utils").requirePlugin("telescope.actions")
+local telescope = require("utils").requirePlugin("telescope")
 
 -- Global remapping
 ------------------------------

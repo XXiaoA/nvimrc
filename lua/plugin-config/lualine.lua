@@ -1,8 +1,4 @@
-local ok, lualine = pcall(require, "lualine")
-if not ok then
-    vim.notify(' lualine failed to load')
-    return
-end
+local lualine = require("utils").requirePlugin("lualine")
 
 lualine.setup {
     options = {

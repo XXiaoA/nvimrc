@@ -50,8 +50,6 @@ local all_plugins = {
     {"onsails/lspkind-nvim"},
     -- 自动补全括号
     {"windwp/nvim-autopairs"},
-    -- 美化
-    {"folke/lsp-colors.nvim"},
     -- 文件搜索 预览 等
     {
         "nvim-telescope/telescope.nvim",

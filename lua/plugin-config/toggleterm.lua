@@ -1,13 +1,5 @@
-local ok, tg = pcall(require, "toggleterm")
-if not ok then
-    vim.notify(' toggleterm failed to load')
-    return
-end
-
-local okay, terminal = pcall(require, "toggleterm.terminal")
-if not okay then
-    return
-end
+local tg = require("utils").requirePlugin("toggleterm")
+local terminal = require("utils").requirePlugin("toggleterm.terminal")
 local Terminal = terminal.Terminal
 
 tg.setup {
@@ -21,13 +13,12 @@ tg.setup {
 }
 
 -- 新建终端
-local gmap =  vim.api.nvim_set_keymap
+local gmap = vim.api.nvim_set_keymap
 local bmap = vim.api.nvim_buf_set_keymap
 local opt = {
     noremap = true,
     silent = true
 }
-
 
 -- 新建浮动终端
 local floatTerm =

@@ -1,8 +1,4 @@
-local ok, tsc = pcall(require, "nvim-treesitter.configs")
-if not ok then
-    vim.notify(' nvim-treesitter.configs failed to load')
-    return
-end
+local tsc = require("utils").requirePlugin("nvim-treesitter.configs")
 
 tsc.setup {
     -- 安装 language parser
