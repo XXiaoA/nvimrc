@@ -64,7 +64,7 @@ sudo apt-get install lazygit
 * [Comment](https://github.com/numToStr/Comment.nvim) 快捷注释
 * [自动补全](https://github.com/hrsh7th/nvim-cmp)  
 * [文件搜索等](https://github.com/nvim-telescope/telescope.nvim)
-* [括号补全](https://github.com/windwp/nvim-autopairs) 
+* [windwp/nvim-autopairs](https://github.com/windwp/nvim-autopairs) 括号补全
 * [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim) 缩进线显示
 * [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) 状态栏 
 * [多光标](https://github.com/mg979/vim-visual-multi) 

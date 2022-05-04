@@ -18,14 +18,15 @@
         - [ ] between nvim-neo-tree/neo-tree.nvim and nvim-tree
         - [x] ~~between [ggandor/lightspeed.nvim](https://github.com/ggandor/lightspeed.nvim) and hop.nvim~~
 - [ ] 配置插件  
+    - [ ] [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
     - [ ] mfussenegger/nvim-dap
     - [ ] nvim-treesitter/nvim-treesitter
     - [ ] hrsh7th/nvim-cmp
     - [ ] nvim-telescope/telescope.nvim
-    - [x] windwp/nvim-autopairs
     - [ ] mg979/vim-visual-multi
     - [ ] junegunn/vim-easy-align
     - [ ] voldikss/vim-translator
+    - [x] windwp/nvim-autopairs
     - [x] michaelb/sniprun
 - [ ] lazyload
 - [ ] 配置LSP:  
