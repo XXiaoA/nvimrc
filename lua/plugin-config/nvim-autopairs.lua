@@ -1,30 +1,34 @@
-local ok, autopairs = pcall(require, "nvim-autopairs")
+local ok, npairs = pcall(require, "nvim-autopairs")
 if not ok then
     vim.notify(' nvim-autopairs failed to load')
     return
 end
-local disable_filetype = { "TelescopePrompt" }
-local disable_in_macro = false  -- disable when recording or executing a macro
-local disable_in_visualblock = false -- disable when insert after visual block mode
-local ignored_next_char = string.gsub([[ [%w%%%'%[%"%.] ]],"%s+", "")
-local enable_moveright = true
-local enable_afterquote = true  -- add bracket pairs after quote
-local enable_check_bracket_line = true  --- check bracket in same line
-local check_ts = false
-local map_bs = true  -- map the <BS> key
-local map_c_h = false  -- Map the <C-h> key to delete a pair
-local map_c_w = false -- map <c-w> to delete a pair if possible
-autopairs.setup({
-      disable_filetype = { "TelescopePrompt" , "vim" },
-}
-)
+
+local ok, Rule = pcall(require, "nvim-autopairs.rule")
+if not ok then
+    vim.notify(' nvim-autopairs.rule failed to load')
+    return
+end
+local Rule = require('nvim-autopairs.rule')
 
 
-autopairs.setup({
+npairs.setup({
     check_ts = true,
-    ts_config = {
-        lua = {'string'},-- it will not add a pair on that treesitter node
-        javascript = {'template_string'},
-        java = false,-- don't check treesitter on java
-    }
 })
+
+local ts_conds = require('nvim-autopairs.ts-conds')
+
+
+-- press % => %% only while inside a comment or string
+npairs.add_rules({
+  Rule("%", "%", "lua")
+    :with_pair(ts_conds.is_ts_node({'string','comment'})),
+  Rule("$", "$", "lua")
+    :with_pair(ts_conds.is_not_ts_node({'function'}))
+})
+
+
+-- If you want insert `(` after select function or method item
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+local cmp = require('cmp')
+cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))

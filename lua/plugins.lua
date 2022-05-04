@@ -48,6 +48,8 @@ local all_plugins = {
     {"rafamadriz/friendly-snippets"},
     -- lspkind
     {"onsails/lspkind-nvim"},
+    -- 自动补全括号
+    {"windwp/nvim-autopairs"},
     -- 美化
     {"folke/lsp-colors.nvim"},
     -- 文件搜索 预览 等
@@ -60,8 +62,6 @@ local all_plugins = {
     },
     -- 加速文件搜索速度,如果安装失败需要到插件目录执行make命令手动编译
     {"nvim-telescope/telescope-fzf-native.nvim", run = "make"},
-    -- 自动补全括号
-    {"windwp/nvim-autopairs"},
     -- 缩进线
     {"lukas-reineke/indent-blankline.nvim"},
     -- 状态栏
