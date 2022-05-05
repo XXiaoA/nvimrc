@@ -10,4 +10,4 @@ for _, file in pairs(all_files) do
     end
 end
 -- Load the cache
-require("impatient").enable_profile()
+require("utils").requirePlugin("impatient")

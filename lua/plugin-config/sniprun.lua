@@ -1,10 +1,12 @@
 local sniprun = require("utils").requirePlugin("sniprun")
 
-sniprun.setup {
-    display = {
-        -- "Classic",
-        -- "NvimNotify",
-        "VirtualTextOk",
-        "LongTempFloatingWindow"
+if sniprun and sniprun ~= true then
+    sniprun.setup {
+        display = {
+            -- "Classic",
+            -- "NvimNotify",
+            "VirtualTextOk",
+            "LongTempFloatingWindow"
+        }
     }
-}
+end

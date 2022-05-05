@@ -22,4 +22,4 @@ vim.g.gruvbox_material_statusline_style = "mix"
 -- option: 'material' 'mix' 'original'
 vim.g.gruvbox_material_palette = "original"
 
-vim.cmd("colorscheme gruvbox-material")
+pcall(vim.cmd, "colorscheme gruvbox-material")

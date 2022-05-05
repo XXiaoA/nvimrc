@@ -1,5 +1,7 @@
 local colorizer = require("utils").requirePlugin("colorizer")
 
-colorizer.setup {
-    "*",
-}
+if colorizer then
+    colorizer.setup {
+        "*"
+    }
+end
