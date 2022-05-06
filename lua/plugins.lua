@@ -71,8 +71,6 @@ local all_plugins = {
         "nvim-lualine/lualine.nvim",
         requires = {"kyazdani42/nvim-web-devicons", opt = true}
     },
-    -- 多光标
-    {"mg979/vim-visual-multi"},
     -- 颜色
     {"norcalli/nvim-colorizer.lua"},
     -- 命令行窗口
