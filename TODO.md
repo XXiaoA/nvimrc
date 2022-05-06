@@ -1,14 +1,14 @@
 ### TODO
 - [ ] plugins:
-    - [ ] [stevearc/dressing.nvim](https://github.com/stevearc/dressing.nvim)
     - [ ] [dstein64/nvim-scrollview](https://github.com/dstein64/nvim-scrollview)
     - [ ] [chentau/marks.nvim](https://github.com/chentau/marks.nvim) 
     - [ ] [unblevable/quick-scope](https://github.com/unblevable/quick-scope) 
     - [ ] Yggdroot/LeaderF  
     - [ ] wfxr/minimap.vim
-    - [ ] ray-x/lsp_signature.nvim  
     - [ ] xeluxee/competitest.nvim  
     - [ ] rcarriga/nvim-notify (with sniprun)  
+    - [x] [stevearc/dressing.nvim](https://github.com/stevearc/dressing.nvim)
+    - [x] ray-x/lsp_signature.nvim  
     - [x] [tversteeg/registers.nvim](https://github.com/tversteeg/registers.nvim) 
     - [x] [jubnzv/mdeval.nvim](https://github.com/jubnzv/mdeval.nvim) 
     - [x] ahmedkhalf/project.nvim  
@@ -19,6 +19,7 @@
         - [ ] between nvim-neo-tree/neo-tree.nvim and nvim-tree
         - [x] ~~between [ggandor/lightspeed.nvim](https://github.com/ggandor/lightspeed.nvim) and hop.nvim~~
 - [ ] 配置插件  
+    - [ ] ray-x/lsp_signature.nvim  
     - [ ] [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
     - [ ] mfussenegger/nvim-dap
     - [ ] nvim-treesitter/nvim-treesitter

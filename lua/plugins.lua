@@ -48,6 +48,10 @@ local all_plugins = {
     {"rafamadriz/friendly-snippets"},
     -- lspkind
     {"onsails/lspkind-nvim"},
+    -- dressing.nvim
+    {"stevearc/dressing.nvim"},
+    -- lsp_signature
+    {"ray-x/lsp_signature.nvim"},
     -- 自动补全括号
     {"windwp/nvim-autopairs"},
     -- 文件搜索 预览 等
