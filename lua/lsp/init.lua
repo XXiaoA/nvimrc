@@ -1,2 +1,2 @@
 require("lsp/setup")
-require("lsp/nvim-cmp")
+require("lsp/cmp")
