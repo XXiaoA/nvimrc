@@ -6,7 +6,9 @@ all_files = vim.api.nvim_eval(all_files)
 for _, file in pairs(all_files) do
     local plugin = string.match(file, "plugin.config/(.+).lua")
     if plugin ~= "init" then
-        require(string.format("plugin-config/%s", plugin))
+        if not pcall(require, "plugin-config/" .. plugin) then
+            vim.notify(" Failed to load plugin-config/" .. plugin)
+        end
     end
 end
 -- Load the cache
