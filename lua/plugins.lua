@@ -87,8 +87,6 @@ local all_plugins = {
     {"DataWraith/auto_mkdir"},
     -- 自动对齐
     {"junegunn/vim-easy-align"},
-    -- 代码生成图片
-    --  'kristijanhusak/vim-carbon-now-sh'
     -- vim-sandwich
     {"machakann/vim-sandwich"},
     -- 自动保存
@@ -125,7 +123,9 @@ local all_plugins = {
     -- nabla: show the latex equation
     {"jbyuki/nabla.nvim"},
     -- Delete Neovim buffers without losing window layout
-    {"famiu/bufdelete.nvim"}
+    {"famiu/bufdelete.nvim"},
+    -- marks
+    {"chentau/marks.nvim"}
 }
 
 return require("packer").startup(
