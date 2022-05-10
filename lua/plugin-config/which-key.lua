@@ -115,7 +115,7 @@ if wk and presets then
     -- ColorScheme keybindings.
     wk.register(
         {
-            s = {
+            c = {
                 name = "Theme",
                 h = {":Telescope colorscheme<CR>", "Find Colorscheme"},
                 p = {":Telescope colorscheme enable_preview=true<CR>", "Find Colorscheme with previwer "}
@@ -272,10 +272,11 @@ if wk and presets then
     -- sniprun
     wk.register(
         {
-            s = {
+            r = {
                 name = "SnipRun",
-                r = {"<cmd>SnipRun<cr>", "Run code snippet"},
-                c = {"<cmd>SnipClose<cr>", "Close SnipRun"}
+                s = {"<cmd>SnipRun<cr>", "Run code snippet with SnipRun"},
+                c = {"<cmd>SnipClose<cr>", "Close SnipRun"},
+                r = {"Run file with toggleterm"}
             }
         },
         {prefix = "<leader>"}
@@ -292,6 +293,17 @@ if wk and presets then
     wk.register(
         {
             ["m"] = {'<cmd>lua require("nabla").popup()<CR>', "Show the LaTeX equations"}
+        },
+        {prefix = "<leader>"}
+    )
+
+    wk.register(
+        {
+            s = {
+                name = "Session",
+                s = {"<cmd>SessionSave<CR>", "Save session"},
+                l = {"<cmd>SessionLoad<CR>", "Load session"}
+            }
         },
         {prefix = "<leader>"}
     )
