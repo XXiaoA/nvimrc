@@ -1,27 +1,43 @@
 local formatter = require("utils").requirePlugin("formatter")
 
+local lua_config = {
+    -- luafmt
+    function()
+        return {
+            exe = "luafmt",
+            args = {"--indent-count", 4, "--stdin"},
+            stdin = true
+        }
+    end
+}
+
+local python_config = {
+    function()
+        return {
+            exe = "black",
+            args = {"-"},
+            stdin = true
+        }
+    end
+} 
+
+local cpp_config = {
+    function()
+        return {
+            exe = "clang-format",
+            args = {"--assume-filename", vim.api.nvim_buf_get_name(0)},
+            stdin = true,
+            cwd = vim.fn.expand('%:p:h')  -- Run clang-format in cwd of the file.
+        }
+    end
+}
+
 if formatter then
     formatter.setup {
         filetype = {
-            lua = {
-                -- luafmt
-                function()
-                    return {
-                        exe = "luafmt",
-                        args = {"--indent-count", 4, "--stdin"},
-                        stdin = true
-                    }
-                end
-            },
-            python = {
-                function()
-                    return {
-                        exe = "black",
-                        args = {"-"},
-                        stdin = true
-                    }
-                end
-            }
+            lua = lua_config,
+            python = python_config,
+            cpp = cpp_config
         }
     }
 end
