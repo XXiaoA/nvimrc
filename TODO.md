@@ -1,12 +1,10 @@
-### TODO
+# TODO
 - [ ] plugins:
     - [ ] [dstein64/nvim-scrollview](https://github.com/dstein64/nvim-scrollview)
-    - [ ] [chentau/marks.nvim](https://github.com/chentau/marks.nvim) 
-    - [ ] [unblevable/quick-scope](https://github.com/unblevable/quick-scope) 
     - [ ] Yggdroot/LeaderF  
-    - [ ] wfxr/minimap.vim
     - [ ] xeluxee/competitest.nvim  
     - [ ] rcarriga/nvim-notify (with sniprun)  
+    - [x] [chentau/marks.nvim](https://github.com/chentau/marks.nvim) 
     - [x] [stevearc/dressing.nvim](https://github.com/stevearc/dressing.nvim)
     - [x] ray-x/lsp_signature.nvim  
     - [x] [tversteeg/registers.nvim](https://github.com/tversteeg/registers.nvim) 
@@ -25,9 +23,8 @@
     - [ ] nvim-treesitter/nvim-treesitter
     - [ ] hrsh7th/nvim-cmp
     - [ ] nvim-telescope/telescope.nvim
-    - [ ] mg979/vim-visual-multi
     - [ ] junegunn/vim-easy-align
-    - [ ] voldikss/vim-translator
+    - [x] voldikss/vim-translator
     - [x] windwp/nvim-autopairs
     - [x] michaelb/sniprun
 - [ ] lazyload

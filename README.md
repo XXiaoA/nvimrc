@@ -1,5 +1,8 @@
 # neovim_configuration  
 
+```lua
+print(1)
+```
 
 ## 使用我的配置
 1. 你需要安装neovim，并且确保版本在**0.6**及以上
@@ -15,11 +18,13 @@
 apt install python python3.8-venv g++ gcc make nodejs npm
 # 安装 python-lsp-server
 pip install python-lsp-server  
-# 用npm安装luafmt(可选，格式化lua文件)
-npm i -g lua-fmt
 # 安装 ripgrep
 curl -LO https://github.com/BurntSushi/ripgrep/releases/download/12.1.1/ripgrep_12.1.1_amd64.deb
 sudo dpkg -i ripgrep_12.1.1_amd64.deb
+# 用npm安装luafmt(可选，格式化lua文件)
+npm i -g lua-fmt
+# install black (optional, format the python file)
+pip install black
  ```
 
 * 如果telescope-fzf-native报错fzf未安装尝试执行以下命令
@@ -29,12 +34,12 @@ cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim && make 
 
 * 如果 `sniprun` 运行报错执行以下命令
 ```bash
-cd ~/.local/share/nvim/site/pack/packer/start/sniprun && sh install.sh
+cd ~/.local/share/nvim/site/pack/packer/start/sniprun && bash ./install.sh 1
 ```
 
 * 若想使用toggleterm.nvim的`lazygit`窗口请自行百度查找安装lazygit的教程
 ```bash
-udo add-apt-repository ppa:lazygit-team/daily
+sudo add-apt-repository ppa:lazygit-team/daily
 sudo apt-get update
 sudo apt-get install lazygit
 ```
@@ -67,7 +72,6 @@ sudo apt-get install lazygit
 * [windwp/nvim-autopairs](https://github.com/windwp/nvim-autopairs) 括号补全
 * [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim) 缩进线显示
 * [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) 状态栏 
-* [多光标](https://github.com/mg979/vim-visual-multi) 
 * [nvim-colorizer](https://github.com/norcalli/nvim-colorizer.lua) 显示颜色
 * [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim) 命令行窗口
 * [nvim-ts-rainbow](https://github.com/p00f/nvim-ts-rainbow) 彩色括号
@@ -81,7 +85,7 @@ sudo apt-get install lazygit
 * [vim-startuptime](https://github.com/dstein64/vim-startuptime) 计算启动时间
 * [hop.nvim](https://github.com/phaazon/hop.nvim) 快速移动
 * [vimcdoc](https://github.com/yianwillis/vimcdoc) 中文文档
-* [翻译](https://github.com/voldikss/vim-translator) 
+* [voldikss/vim-translator](https://github.com/voldikss/vim-translator) 翻译
 * [formatter](https://github.com/mhartington/formatter.nvim) 格式化代码
 * [which-key.nvim](https://github.com/folke/which-key.nvim) 映射按键
 * [debugging](https://github.com/mfussenegger/nvim-dap)
@@ -91,5 +95,6 @@ sudo apt-get install lazygit
 * [jubnzv/mdeval.nvim](https://github.com/jubnzv/mdeval.nvim) 在文档运行代码
 
 ## 其他
+### [TODO](./TODO.md)
 ### 说明：
 感谢：[nshen/learn-neovim-lua](https://github.com/nshen/learn-neovim-lua/tree/bak)
