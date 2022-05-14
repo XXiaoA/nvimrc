@@ -7,7 +7,7 @@ for _, file in pairs(all_files) do
     local plugin = string.match(file, "plugin.config/(.+).lua")
     if plugin ~= "init" then
         if not pcall(require, "plugin-config/" .. plugin) then
-            vim.notify(" Failed to load plugin-config/" .. plugin)
+            vim.notify(" Failed to load plugin-config/" .. plugin, vim.log.levels.WARN)
         end
     end
 end
