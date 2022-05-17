@@ -50,7 +50,7 @@ api.nvim_create_autocmd(
 
 -- Disable inserting comment leader after hitting o or O or <Enter>
 api.nvim_create_autocmd(
-    {"BufRead", "BufNewFile"},
+    {"FileType"},
     {
         command = "set formatoptions-=ro"
     }

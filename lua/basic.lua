@@ -34,8 +34,6 @@ vim.o.number = true
 -- vim.o.relativenumber = true
 -- 显示行尾空格
 vim.o.list = true
--- 设置行宽
-vim.o.textwidth = 80
 -- 设置自动折行
 vim.o.wrap = true
 -- 取消自动换行，把textwidth调大
