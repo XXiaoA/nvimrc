@@ -23,6 +23,7 @@ local all_plugins = {
     {"lewis6991/impatient.nvim"},
     -- 主题
     {"sainnhe/gruvbox-material"},
+    {"EdenEast/nightfox.nvim", tag = "v1.0.0"},
     -- nvim-tree
     {
         "kyazdani42/nvim-tree.lua",
