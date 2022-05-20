@@ -9,4 +9,4 @@ require('plugin-config')
 -- LSP
 require('lsp')
 -- colorsheme
-require('colorsheme')
+require('colorscheme')
