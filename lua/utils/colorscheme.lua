@@ -1,11 +1,6 @@
 local M = {}
 
 M.changeColorscheme = function(colorscheme)
-    if vim.g.colors_name == colorscheme then
-        vim.notify("Colorscheme is already " .. colorscheme)
-        return nil
-    end
-
     -- the theme has lualine's colorscheme
     local lualine_theme = {"nightfox", "gruvbox-material"}
 

@@ -117,8 +117,8 @@ if wk and presets then
         {
             c = {
                 name = "Theme",
-                h = {":Telescope colorscheme<CR>", "Find Colorscheme"},
-                p = {":Telescope colorscheme enable_preview=true<CR>", "Find Colorscheme with previwer "}
+                c = {":lua changeColorscheme()<CR>", "Change ColorScheme"},
+                f = {":Telescope colorscheme enable_preview=true<CR>", "Find Colorscheme with previwer "}
             }
         },
         {prefix = "<leader>"}

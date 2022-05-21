@@ -27,7 +27,7 @@ vim.g.dashboard_default_executive = "telescope"
 vim.cmd(
     [[
 let g:dashboard_custom_shortcut={
-    \ 'change_colorscheme' : 'SPC c p',
+    \ 'change_colorscheme' : 'SPC c c',
     \ 'find_word'          : 'SPC f a',
     \ 'book_marks'         : 'SPC f B',
     \ 'find_file'          : 'SPC f f',
