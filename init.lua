@@ -8,5 +8,7 @@ require('plugins')
 require('plugin-config')
 -- LSP
 require('lsp')
--- colorsheme
+-- colorscheme
 require('colorscheme')
+-- global functions
+require("utils.global")
