@@ -1,6 +1,11 @@
 local M = {}
 
-M.change_colorscheme = function(colorscheme)
+M.changeColorscheme = function(colorscheme)
+    if vim.g.colors_name == colorscheme then
+        vim.notify("Colorscheme is already " .. colorscheme)
+        return nil
+    end
+
     -- the theme has lualine's colorscheme
     local lualine_theme = {"nightfox", "gruvbox-material"}
 
@@ -8,13 +13,9 @@ M.change_colorscheme = function(colorscheme)
         local lualine = require("utils").requirePlugin("lualine")
         lualine.setup {options = {theme = colorscheme}}
     end
-    -- vim.g.colors_name = colorscheme
+
     pcall(require, "colorscheme/" .. colorscheme)
     pcall(vim.cmd, "colorscheme " .. colorscheme)
-end
-
-M.change_background = function(background)
-    pcall(vim.cmd, "set background=" .. background)
 end
 
 return M
