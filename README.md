@@ -1,9 +1,5 @@
 # neovim_configuration  
 
-```lua
-print(1)
-```
-
 ## 使用我的配置
 1. 你需要安装neovim，并且确保版本在**0.6**及以上
 2. clone本仓库的内容到你nvim的配置目录，例如Linux的`~/.config/nvim/`
@@ -25,6 +21,8 @@ sudo dpkg -i ripgrep_12.1.1_amd64.deb
 npm i -g lua-fmt
 # install black (optional, format the python file)
 pip install black
+# install clang-format (optional, format the cpp file)
+apt install clang-format
  ```
 
 * 如果telescope-fzf-native报错fzf未安装尝试执行以下命令
