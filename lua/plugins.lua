@@ -126,7 +126,7 @@ local all_plugins = {
     -- Delete Neovim buffers without losing window layout
     {"famiu/bufdelete.nvim"},
     -- marks
-    {"chentau/marks.nvim"}
+    {"chentoast/marks.nvim"}
 }
 
 return require("packer").startup(
