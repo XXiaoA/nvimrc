@@ -8,7 +8,7 @@ if tsc then
         -- 启用代码高亮功能
         highlight = {
             enable = true,
-            additional_vim_regex_highlighting = false
+            additional_vim_regex_highlighting = true
         },
         -- 彩色括号
         rainbow = {
