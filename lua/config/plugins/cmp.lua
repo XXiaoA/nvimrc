@@ -1,5 +1,7 @@
 local lspkind = require("utils").requirePlugin("lspkind")
 local cmp = require("utils").requirePlugin("cmp")
+local luasnip = require("utils").requirePlugin("luasnip")
+
 
 local has_words_before = function()
     local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -10,7 +12,12 @@ local feedkey = function(key, mode)
     vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
 end
 
-if cmp and lspkind then
+
+
+if cmp and lspkind and luasnip then
+    -- load the luasnip
+    require("luasnip.loaders.from_vscode").lazy_load()
+
     cmp.setup {
         experimental = {
             ghost_text = true
@@ -22,17 +29,17 @@ if cmp and lspkind then
         -- 指定 snippet 引擎
         snippet = {
             expand = function(args)
-                vim.fn["vsnip#anonymous"](args.body)
+                require "luasnip".lsp_expand(args.body)
             end
         },
         -- 来源
         sources = cmp.config.sources(
             {
                 {name = "nvim_lsp"},
-                {name = "vsnip"},
                 {name = "buffer"},
                 {name = "path"},
                 {name = "nvim_lua"},
+                {name = "luasnip"},
                 {name = "emoji"}
             }
         ),
@@ -67,22 +74,22 @@ if cmp and lspkind then
 
             ["<Tab>"] = cmp.mapping(
                 function(fallback)
-                    if vim.fn["vsnip#available"](1) == 1 then
-                        feedkey("<Plug>(vsnip-expand-or-jump)", "")
+                    if luasnip.expand_or_jumpable() then
+                        luasnip.expand_or_jump()
                     elseif has_words_before() then
                         cmp.complete()
                     else
-                        fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
+                        fallback()
                     end
                 end,
                 {"i", "s"}
             ),
             ["<S-Tab>"] = cmp.mapping(
-                function()
-                    if cmp.visible() then
-                        cmp.select_prev_item()
-                    elseif vim.fn["vsnip#jumpable"](-1) == 1 then
-                        feedkey("<Plug>(vsnip-jump-prev)", "")
+                function(fallback)
+                    if luasnip.jumpable(-1) then
+                        luasnip.jump(-1)
+                    else
+                        fallback()
                     end
                 end,
                 {"i", "s"}

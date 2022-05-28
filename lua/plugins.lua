@@ -46,12 +46,12 @@ local all_plugins = {
             "hrsh7th/cmp-path",
             "hrsh7th/cmp-cmdline",
             "hrsh7th/cmp-nvim-lua",
-            "hrsh7th/cmp-emoji"
+            "hrsh7th/cmp-emoji",
+            "L3MON4D3/LuaSnip",
+            "saadparwaiz1/cmp_luasnip"
         }
     },
-    -- vsnip
-    {"hrsh7th/cmp-vsnip"}, -- { name = 'vsnip' }
-    {"hrsh7th/vim-vsnip"},
+    -- friendly-snippets
     {"rafamadriz/friendly-snippets"},
     -- lspkind
     {"onsails/lspkind-nvim"},
