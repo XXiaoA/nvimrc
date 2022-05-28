@@ -9,8 +9,10 @@ M.changeColorscheme = function(colorscheme)
         lualine.setup {options = {theme = colorscheme}}
     end
 
-    pcall(require, "colorscheme/" .. colorscheme)
-    pcall(vim.cmd, "colorscheme " .. colorscheme)
+    if colorscheme then
+        pcall(require, "colorscheme/" .. colorscheme)
+        pcall(vim.cmd, "colorscheme " .. colorscheme)
+    end
 end
 
 return M
