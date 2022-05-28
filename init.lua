@@ -5,10 +5,10 @@ require('keybindings')
 -- Packer插件管理
 require('plugins')
 -- 插件配置
-require('plugin-config')
+require('config.plugins')
 -- LSP
-require('lsp')
+require('config.lsp')
 -- colorscheme
-require('colorscheme')
+require('config.colorscheme')
 -- global functions
 require("utils.global")
