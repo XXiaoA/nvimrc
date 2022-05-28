@@ -38,11 +38,17 @@ local all_plugins = {
     -- lspconfig
     {"neovim/nvim-lspconfig", "williamboman/nvim-lsp-installer"},
     -- nvim-cmp
-    {"hrsh7th/cmp-nvim-lsp"}, -- { name = nvim_lsp }
-    {"hrsh7th/cmp-buffer"}, -- { name = 'buffer' },
-    {"hrsh7th/cmp-path"}, -- { name = 'path' }
-    {"hrsh7th/cmp-cmdline"}, -- { name = 'cmdline' }
-    {"hrsh7th/nvim-cmp"},
+    {
+        "hrsh7th/nvim-cmp",
+        requires = {
+            "hrsh7th/cmp-nvim-lsp",
+            "hrsh7th/cmp-buffer",
+            "hrsh7th/cmp-path",
+            "hrsh7th/cmp-cmdline",
+            "hrsh7th/cmp-nvim-lua",
+            "hrsh7th/cmp-emoji"
+        }
+    },
     -- vsnip
     {"hrsh7th/cmp-vsnip"}, -- { name = 'vsnip' }
     {"hrsh7th/vim-vsnip"},
