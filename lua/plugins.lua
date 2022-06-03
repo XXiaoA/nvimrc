@@ -46,8 +46,8 @@ local all_plugins = {
         "hrsh7th/cmp-emoji",
         "L3MON4D3/LuaSnip",
         "saadparwaiz1/cmp_luasnip",
-        "f3fora/cmp-spell",
         "petertriho/cmp-git",
+        "XXiaoA/cmp-events",
     },
     -- friendly-snippets
     { "rafamadriz/friendly-snippets" },
@@ -125,8 +125,6 @@ local all_plugins = {
     { "jubnzv/mdeval.nvim" },
     -- register
     { "tversteeg/registers.nvim", config = [[vim.g.registers_window_border = "single"]] },
-    -- nabla: show the latex equation
-    { "jbyuki/nabla.nvim" },
     -- Delete Neovim buffers without losing window layout
     { "famiu/bufdelete.nvim" },
     -- marks

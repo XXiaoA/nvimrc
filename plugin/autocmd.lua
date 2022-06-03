@@ -1,4 +1,5 @@
 local api = vim.api
+
 -- Exit nvim when we only have the following types of windows {{{
 local quit_current_win = function()
     local quit_filetypes = { "NvimTree", "aerial" }
