@@ -48,7 +48,9 @@ local all_plugins = {
             "hrsh7th/cmp-nvim-lua",
             "hrsh7th/cmp-emoji",
             "L3MON4D3/LuaSnip",
-            "saadparwaiz1/cmp_luasnip"
+            "saadparwaiz1/cmp_luasnip",
+            "f3fora/cmp-spell",
+            "petertriho/cmp-git"
         }
     },
     -- friendly-snippets
