@@ -43,8 +43,10 @@ if cmp and lspkind and luasnip then
         mapping = {
             -- 上一个
             ["<C-k>"] = cmp.mapping.select_prev_item(),
+            ["<UP>"] = cmp.mapping.select_prev_item(),
             -- 下一个
             ["<C-j>"] = cmp.mapping.select_next_item(),
+            ["<DOWN>"] = cmp.mapping.select_next_item(),
             -- 出现/取消补全
             ["<A-.>"] = cmp.mapping(function()
                 if cmp.visible() then

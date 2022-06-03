@@ -284,7 +284,7 @@ if wk and presets then
 
     wk.register(
         {
-            ["f"] = {"<Plug>SnipRun", "Run code snippet"}
+            ["<leader>f"] = {"<Plug>SnipRun", "Run code snippet"}
         },
         {mode = "v", silent = true}
     )
