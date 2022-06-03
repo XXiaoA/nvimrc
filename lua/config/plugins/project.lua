@@ -1,6 +1,6 @@
 local project = require("utils").requirePlugin("project_nvim")
 if project then
-    project.setup {}
+    project.setup({})
 end
 
 -- telescope

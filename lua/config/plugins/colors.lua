@@ -31,6 +31,6 @@ local colors = {
     replacecolor = "#E06C75",
     gitBg = "#304B2E",
     lspBg = "#364463",
-    fileinfoBg = "#5C2C2E"
+    fileinfoBg = "#5C2C2E",
 }
 return colors

@@ -2,7 +2,7 @@
 local function map(mode, lhs, rhs, opts)
     local options = {
         noremap = true,
-        silent = true
+        silent = true,
     }
     if opts then
         options = vim.tbl_extend("force", options, opts)
@@ -12,7 +12,7 @@ end
 
 local opt = {
     noremap = true,
-    silent = true
+    silent = true,
 }
 
 -- leader key 为空格

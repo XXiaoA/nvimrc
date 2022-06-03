@@ -7,11 +7,11 @@ o.listchars:append("eol:↴")
 
 local indent_blankline = require("utils").requirePlugin("indent_blankline")
 if indent_blankline and indent_blankline ~= true then
-    indent_blankline.setup {
+    indent_blankline.setup({
         space_char_blankline = " ",
         show_current_context = true,
-        show_current_context_start = true
-    }
+        show_current_context_start = true,
+    })
 
     g.indent_blankline_filetype_exclude = {
         "help",
@@ -24,7 +24,7 @@ if indent_blankline and indent_blankline ~= true then
         "startuptime",
         "toggleterm",
         "translator",
-        "dashboard"
+        "dashboard",
     }
 
     g.indent_blankline_show_end_of_line = false -- 占用隐藏符号

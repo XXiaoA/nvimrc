@@ -8,7 +8,7 @@ local servers = {
     sumneko_lua = require("config.lsp.config.sumneko_lua"),
     pylsp = require("config.lsp.config.pylsp"),
     clangd = require("config.lsp.config.clangd"),
-    vimls = require("config.lsp.config.vimls")
+    vimls = require("config.lsp.config.vimls"),
 }
 
 -- 自动安装 LanguageServers
@@ -22,22 +22,20 @@ if lsp_installer then
             end
         end
     end
-    lsp_installer.on_server_ready(
-        function(server)
-            local opts = servers[server.name]
-            if opts then
-                opts.on_attach = function(_, bufnr)
-                    local function buf_set_keymap(...)
-                        vim.api.nvim_buf_set_keymap(bufnr, ...)
-                    end
-                    -- 绑定快捷键
-                    require("keybindings").maplsp(buf_set_keymap)
+    lsp_installer.on_server_ready(function(server)
+        local opts = servers[server.name]
+        if opts then
+            opts.on_attach = function(_, bufnr)
+                local function buf_set_keymap(...)
+                    vim.api.nvim_buf_set_keymap(bufnr, ...)
                 end
-                opts.flags = {
-                    debounce_text_changes = 150
-                }
-                server:setup(opts)
+                -- 绑定快捷键
+                require("keybindings").maplsp(buf_set_keymap)
             end
+            opts.flags = {
+                debounce_text_changes = 150,
+            }
+            server:setup(opts)
         end
-    )
+    end)
 end

@@ -2,7 +2,7 @@ local bufferline = require("utils").requirePlugin("bufferline")
 
 vim.opt.termguicolors = true
 if bufferline and bufferline ~= true then
-    bufferline.setup {
+    bufferline.setup({
         options = {
             -- 使用 nvim 内置lsp
             diagnostics = "nvim_lsp",
@@ -12,9 +12,9 @@ if bufferline and bufferline ~= true then
                     filetype = "NvimTree",
                     text = "File Explorer",
                     highlight = "Directory",
-                    text_align = "left"
-                }
-            }
-        }
-    }
+                    text_align = "left",
+                },
+            },
+        },
+    })
 end

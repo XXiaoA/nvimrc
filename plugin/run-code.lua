@@ -2,8 +2,8 @@ local function command(filetype)
     local run_command = {}
     run_command["python"] = "python %"
     run_command["lua"] = "lua %"
-    run_command["c"] = {"gcc % -o %<", "./%<"}
-    run_command["cpp"] = {"g++ % -o %<", "./%<"}
+    run_command["c"] = { "gcc % -o %<", "./%<" }
+    run_command["cpp"] = { "g++ % -o %<", "./%<" }
     if run_command[filetype] then
         return run_command[filetype]
     end

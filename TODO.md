@@ -1,7 +1,6 @@
 # TODO
 - [ ] plugins:
     - [ ] [wellle/targets.vim](https://github.com/wellle/targets.vim) 
-    - [ ] [dstein64/nvim-scrollview](https://github.com/dstein64/nvim-scrollview)
     - [ ] Yggdroot/LeaderF  
     - [ ] xeluxee/competitest.nvim  
     - [ ] rcarriga/nvim-notify (with sniprun)  
@@ -20,12 +19,12 @@
         - [x] ~~between [ggandor/lightspeed.nvim](https://github.com/ggandor/lightspeed.nvim) and hop.nvim~~
 - [ ] 配置插件  
     - [ ] ray-x/lsp_signature.nvim  
-    - [ ] [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
     - [ ] mfussenegger/nvim-dap
     - [ ] nvim-treesitter/nvim-treesitter
-    - [ ] hrsh7th/nvim-cmp
     - [ ] nvim-telescope/telescope.nvim
     - [ ] junegunn/vim-easy-align
+    - [x] hrsh7th/nvim-cmp
+    - [x] [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
     - [x] voldikss/vim-translator
     - [x] windwp/nvim-autopairs
     - [x] michaelb/sniprun

@@ -1,12 +1,12 @@
 local Comment = require("utils").requirePlugin("Comment")
 
 if Comment and Comment ~= true then
-    Comment.setup {
+    Comment.setup({
         -- ignores empty lines
-        ignore = '^$',
+        ignore = "^$",
 
         mappings = {
-            extended = true
-        }
-    }
+            extended = true,
+        },
+    })
 end
