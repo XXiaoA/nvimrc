@@ -1,6 +1,5 @@
 local bufferline = require("utils").requirePlugin("bufferline")
 
-vim.opt.termguicolors = true
 if bufferline and bufferline ~= true then
     bufferline.setup({
         options = {
