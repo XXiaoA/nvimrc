@@ -10,4 +10,19 @@ M.requirePlugin = function(plugin_name)
     end
 end
 
+M.changeColorscheme = function(colorscheme)
+    -- the theme has lualine's colorscheme
+    local lualine_theme = { "nightfox", "gruvbox-material" }
+
+    if vim.tbl_contains(lualine_theme, colorscheme) then
+        local lualine = require("utils").requirePlugin("lualine")
+        lualine.setup({ options = { theme = colorscheme } })
+    end
+
+    if colorscheme then
+        pcall(require, "config/colorscheme/" .. colorscheme)
+        pcall(vim.cmd, "colorscheme " .. colorscheme)
+    end
+end
+
 return M

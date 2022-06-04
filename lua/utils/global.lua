@@ -1,4 +1,4 @@
-local colorscheme = require("utils.colorscheme")
+local utils = require("utils")
 
 function _G.changeColorscheme()
     vim.ui.select({ "nightfox", "gruvbox-material" }, {
@@ -7,6 +7,6 @@ function _G.changeColorscheme()
             return item
         end,
     }, function(choice)
-        colorscheme.changeColorscheme(choice)
+        utils.changeColorscheme(choice)
     end)
 end

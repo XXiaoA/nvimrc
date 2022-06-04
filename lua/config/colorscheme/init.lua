@@ -4,6 +4,6 @@ if has('termguicolors')
 endif
 ]])
 
-local theme = require("utils.colorscheme")
-theme.changeColorscheme("nightfox")
+local utils = require("utils")
+utils.changeColorscheme("nightfox")
 vim.cmd("set background=dark")
