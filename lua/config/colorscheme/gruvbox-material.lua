@@ -1,5 +1,5 @@
 -- option: hard, medium, soft
-vim.g.gruvbox_material_background = "hard"
+vim.g.gruvbox_material_background = "medium"
 
 -- options: 'grey background', 'green background', 'blue background', 'red background', 'reverse'
 vim.g.gruvbox_material_visual = "blue background"
