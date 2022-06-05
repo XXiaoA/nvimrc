@@ -45,11 +45,18 @@ local all_plugins = {
         "hrsh7th/cmp-cmdline",
         "hrsh7th/cmp-nvim-lua",
         "hrsh7th/cmp-emoji",
-        "L3MON4D3/LuaSnip",
         "saadparwaiz1/cmp_luasnip",
         "petertriho/cmp-git",
     },
-    -- friendly-snippets
+    -- snippets
+    {
+        "L3MON4D3/LuaSnip",
+        event = "BufWinEnter",
+        config = function()
+            require("luasnip.loaders.from_vscode").lazy_load()
+            require("luasnip.loaders.from_snipmate").load()
+        end,
+    },
     { "rafamadriz/friendly-snippets" },
     -- lspkind
     { "onsails/lspkind-nvim" },

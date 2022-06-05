@@ -5,6 +5,7 @@ local luasnip = require("utils").requirePlugin("luasnip")
 if cmp and lspkind and luasnip then
     -- load the luasnip
     require("luasnip.loaders.from_vscode").lazy_load()
+    require("luasnip.loaders.from_snipmate").load()
 
     cmp.setup({
         experimental = {
