@@ -112,3 +112,5 @@ if cmp and lspkind and luasnip then
         }),
     })
 end
+
+require("cmp_git").setup({})

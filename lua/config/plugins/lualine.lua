@@ -4,7 +4,7 @@ if lualine and lualine ~= true then
     lualine.setup({
         options = {
             icons_enabled = true,
-            theme = "gruvbox-material",
+            theme = "nightfox",
             component_separators = { left = "", right = "" },
             section_separators = { left = "", right = "" },
             disabled_filetypes = { "NvimTree", "aerial", "toggleterm" },

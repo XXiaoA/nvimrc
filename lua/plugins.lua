@@ -49,14 +49,7 @@ local all_plugins = {
         "petertriho/cmp-git",
     },
     -- snippets
-    {
-        "L3MON4D3/LuaSnip",
-        event = "BufWinEnter",
-        config = function()
-            require("luasnip.loaders.from_vscode").lazy_load()
-            require("luasnip.loaders.from_snipmate").load()
-        end,
-    },
+    { "L3MON4D3/LuaSnip" },
     { "rafamadriz/friendly-snippets" },
     -- lspkind
     { "onsails/lspkind-nvim" },
