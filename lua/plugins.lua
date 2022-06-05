@@ -48,7 +48,6 @@ local all_plugins = {
         "L3MON4D3/LuaSnip",
         "saadparwaiz1/cmp_luasnip",
         "petertriho/cmp-git",
-        "XXiaoA/cmp-events",
     },
     -- friendly-snippets
     { "rafamadriz/friendly-snippets" },

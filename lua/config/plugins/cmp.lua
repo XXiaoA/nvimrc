@@ -2,15 +2,6 @@ local lspkind = require("utils").requirePlugin("lspkind")
 local cmp = require("utils").requirePlugin("cmp")
 local luasnip = require("utils").requirePlugin("luasnip")
 
-local has_words_before = function()
-    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-end
-
-local feedkey = function(key, mode)
-    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
-end
-
 if cmp and lspkind and luasnip then
     -- load the luasnip
     require("luasnip.loaders.from_vscode").lazy_load()
@@ -37,16 +28,11 @@ if cmp and lspkind and luasnip then
             { name = "nvim_lua" },
             { name = "luasnip" },
             { name = "emoji" },
-            { name = "events" },
         }),
         -- 快捷键
         mapping = {
-            -- 上一个
             ["<C-k>"] = cmp.mapping.select_prev_item(),
-            ["<UP>"] = cmp.mapping.select_prev_item(),
-            -- 下一个
             ["<C-j>"] = cmp.mapping.select_next_item(),
-            ["<DOWN>"] = cmp.mapping.select_next_item(),
             -- 出现/取消补全
             ["<A-.>"] = cmp.mapping(function()
                 if cmp.visible() then
@@ -62,7 +48,7 @@ if cmp and lspkind and luasnip then
             ["<CR>"] = cmp.mapping.confirm({
                 select = true,
                 -- behavior = cmp.ConfirmBehavior.Replace
-            }),
+            }, { "i", "c" }),
             -- ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
 
             ["<Tab>"] = cmp.mapping(function(fallback)
@@ -72,6 +58,7 @@ if cmp and lspkind and luasnip then
                     fallback()
                 end
             end, { "i", "s" }),
+
             ["<S-Tab>"] = cmp.mapping(function(fallback)
                 if luasnip.jumpable(-1) then
                     luasnip.jump(-1)
@@ -80,6 +67,7 @@ if cmp and lspkind and luasnip then
                 end
             end, { "i", "s" }),
         },
+
         -- 使用lspkind-nvim显示类型图标
         formatting = {
             format = lspkind.cmp_format({
