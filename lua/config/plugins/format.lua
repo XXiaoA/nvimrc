@@ -5,8 +5,7 @@ local lua_config = {
         return {
             exe = "stylua",
             args = {
-                "--indent-type Spaces",
-                "--",
+                "--config-path " .. os.getenv("XDG_CONFIG_HOME") .. "/nvim/.stylua.toml",
                 "-",
             },
             stdin = true,
