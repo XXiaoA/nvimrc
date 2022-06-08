@@ -28,7 +28,7 @@ local cpp_config = {
         return {
             exe = "clang-format",
             args = {
-                [[-style="{IndentWidth: 4}"]],
+                "-style=file:" .. os.getenv("XDG_CONFIG_HOME") .. "/nvim/.clang-format",
                 "--assume-filename",
                 vim.api.nvim_buf_get_name(0),
             },
