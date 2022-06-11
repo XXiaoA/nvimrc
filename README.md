@@ -1,5 +1,8 @@
 # neovim_configuration  
 
+## Version
+`0.8.0-dev+399-g58323b1fe-0`
+
 ## 使用我的配置
 1. 你需要安装neovim，并且确保版本在**0.6**及以上
 2. clone本仓库的内容到你nvim的配置目录，例如Linux的`~/.config/nvim/`
