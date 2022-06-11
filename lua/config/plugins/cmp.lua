@@ -29,6 +29,7 @@ if cmp and lspkind and luasnip then
             { name = "nvim_lua" },
             { name = "luasnip" },
             { name = "emoji" },
+            { name = "git" },
         }),
         -- 快捷键
         mapping = {
@@ -102,14 +103,6 @@ if cmp and lspkind and luasnip then
             { name = "path" },
             { name = "cmdline" },
         },
-    })
-
-    cmp.setup.filetype("gitcommit", {
-        sources = cmp.config.sources({
-            { name = "git" },
-            { name = "buffer" },
-            { name = "luasnip" },
-        }),
     })
 end
 
