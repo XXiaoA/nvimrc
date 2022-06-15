@@ -236,11 +236,6 @@ if wk and presets then
         ["<leader>f"] = { "<Plug>SnipRun", "Run code snippet" },
     }, { mode = "v", silent = true })
 
-    -- nabla
-    wk.register({
-        ["m"] = { '<cmd>lua require("nabla").popup()<CR>', "Show the LaTeX equations" },
-    }, { prefix = "<leader>" })
-
     wk.register({
         s = {
             name = "Session",

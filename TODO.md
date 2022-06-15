@@ -18,7 +18,6 @@
         - [ ] between nvim-neo-tree/neo-tree.nvim and nvim-tree
         - [x] ~~between [ggandor/lightspeed.nvim](https://github.com/ggandor/lightspeed.nvim) and hop.nvim~~
 - [ ] 配置插件  
-    - [ ] [akinsho/bufferline.nvim](https://github.com/akinsho/bufferline.nvim) 
     - [ ] [kyazdani42/nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua) 
     - [ ] ray-x/lsp_signature.nvim  
     - [ ] mfussenegger/nvim-dap
