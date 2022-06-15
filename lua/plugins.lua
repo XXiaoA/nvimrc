@@ -88,8 +88,6 @@ local all_plugins = {
     { "michaelb/sniprun", run = "bash ./install.sh" },
     -- 启动页
     { "glepnir/dashboard-nvim" },
-    -- 保存自动创建文件夹
-    { "DataWraith/auto_mkdir" },
     -- 自动对齐
     { "junegunn/vim-easy-align" },
     -- vim-sandwich
