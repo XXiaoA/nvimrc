@@ -29,11 +29,9 @@ local cpp_config = {
             exe = "clang-format",
             args = {
                 "-style=file:" .. os.getenv("XDG_CONFIG_HOME") .. "/nvim/.clang-format",
-                "--assume-filename",
-                vim.api.nvim_buf_get_name(0),
+                "-"
             },
             stdin = true,
-            cwd = vim.fn.expand("%:p:h"), -- Run clang-format in cwd of the file.
         }
     end,
 }

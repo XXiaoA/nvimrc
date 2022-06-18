@@ -1,7 +1,12 @@
 # neovim_configuration  
 
 ## Version
-nightly
+```sh
+NVIM v0.7.0
+Build type: Release
+LuaJIT 2.1.0-beta3
+Compiled by builder@e4bc05c9ff63
+```
 
 ## 使用我的配置
 1. 你需要安装neovim，并且确保版本在**0.6**及以上
@@ -20,8 +25,8 @@ pip install python-lsp-server
 # 安装 ripgrep
 curl -LO https://github.com/BurntSushi/ripgrep/releases/download/12.1.1/ripgrep_12.1.1_amd64.deb
 sudo dpkg -i ripgrep_12.1.1_amd64.deb
-# 用npm安装luafmt(可选，格式化lua文件)
-npm i -g lua-fmt
+# install stylua
+apt install stylua
 # install black (optional, format the python file)
 pip install black
 # install clang-format (optional, format the cpp file)
