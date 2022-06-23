@@ -7,7 +7,6 @@ if lualine and lualine ~= true then
             theme = "nightfox",
             component_separators = { left = "", right = "" },
             section_separators = { left = "", right = "" },
-            disabled_filetypes = { "NvimTree", "aerial", "toggleterm" },
             always_divide_middle = true,
         },
         sections = {
