@@ -1,5 +1,10 @@
+local db = require("utils").requirePlugin("dashboard")
+if not db then
+    return
+end
+
 -- 开头文字
-vim.g.dashboard_custom_header = {
+db.custom_header = {
     [[]],
     [[ ⣿⣿⣷⡁⢆⠈⠕⢕⢂⢕⢂⢕⢂⢔⢂⢕⢄⠂⣂⠂⠆⢂⢕⢂⢕⢂⢕⢂⢕⢂ ]],
     [[ ⣿⣿⣿⡷⠊⡢⡹⣦⡑⢂⢕⢂⢕⢂⢕⢂⠕⠔⠌⠝⠛⠶⠶⢶⣦⣄⢂⢕⢂⢕ ]],
@@ -17,24 +22,43 @@ vim.g.dashboard_custom_header = {
     [[ ⠄⠪⣂⠁⢕⠆⠄⠂⠄⠁⡀⠂⡀⠄⢈⠉⢍⢛⢛⢛⢋⢔⢕⢕⢕⣽⣿⣿⠠⠈ ]],
     [[]],
 }
-local plugins_count = vim.fn.len(vim.fn.globpath("~/.local/share/nvim/site/pack/packer/start", "*", 0, 1))
-
-vim.g.dashboard_custom_footer = { "loaded " .. plugins_count .. " plugins" }
-
-vim.g.dashboard_default_executive = "telescope"
 
 --  SPC mean the leaderkey
-vim.cmd([[
-let g:dashboard_custom_shortcut={
-    \ 'change_colorscheme' : 'SPC c c',
-    \ 'find_word'          : 'SPC f a',
-    \ 'book_marks'         : 'SPC f B',
-    \ 'find_file'          : 'SPC f f',
-    \ 'find_history'       : 'SPC f r',
-    \ 'last_session'       : 'SPC s l',
-    \ 'new_file'           : 'SPC b n',
-    \ }
-]])
-
--- 不显示缩进线
-vim.g.indentLine_fileTypeExclude = "dashboard"
+db.custom_center = {
+    {
+        icon = "  ",
+        desc = "Recently latest session                 ",
+        shortcut = "SPC s l",
+        action = "SessionLoad",
+    },
+    {
+        icon = "  ",
+        desc = "Recently opened files                   ",
+        action = "Telescope oldfiles",
+        shortcut = "SPC f r",
+    },
+    {
+        icon = "  ",
+        desc = "Find  File                              ",
+        action = "Telescope find_files find_command=rg,--hidden,--files",
+        shortcut = "SPC f f",
+    },
+    {
+        icon = "  ",
+        desc = "Find  word                              ",
+        action = "Telescope live_grep",
+        shortcut = "SPC f w",
+    },
+    {
+        icon = "  ",
+        desc = "Change Colorscheme                      ",
+        action = "lua changeColorscheme()",
+        shortcut = "SPC c c",
+    },
+    {
+        icon = "  ",
+        desc = "New Buffer                              ",
+        action = "DashboardNewFile",
+        shortcut = "SPC b n",
+    },
+}

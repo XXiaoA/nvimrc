@@ -72,13 +72,11 @@ if wk and presets then
     wk.register({
         f = {
             name = "Find",
-            a = { ":Telescope live_grep<CR>", "Word" },
+            w = { ":Telescope live_grep<CR>", "Word" },
             f = { ":Telescope find_files<CR>", "File" },
             r = { ":Telescope oldfiles<CR>", "Recent File" },
-            d = { ":Telescope find_directories<CR>", "Directory" },
             b = { ":Telescope buffers<CR>", "Buffer" },
             h = { ":Telescope help_tags<CR>", "Help File" },
-            B = { ":DashboardJumpMarks<CR>", "Find BookMark" },
         },
     }, { prefix = "<leader>" })
 
