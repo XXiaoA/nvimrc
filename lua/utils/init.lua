@@ -6,8 +6,11 @@ M.requirePlugin = function(plugin_name)
         vim.notify(" Failed to load: " .. plugin_name, vim.log.levels.WARN)
         return nil
     else
-        return plugin
+        if plugin ~= true then
+            return plugin
+        end
     end
+    return nil
 end
 
 M.changeColorscheme = function(colorscheme)
