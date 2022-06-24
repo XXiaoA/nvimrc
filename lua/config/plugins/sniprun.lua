@@ -1,6 +1,6 @@
 local sniprun = require("utils").requirePlugin("sniprun")
 
-if sniprun and sniprun ~= true then
+if sniprun then
     sniprun.setup({
         display = {
             -- "Classic",

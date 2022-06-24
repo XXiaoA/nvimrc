@@ -1,6 +1,10 @@
 local marks = require("utils").requirePlugin("marks")
 
-local settings = {
+if not marks then
+    return
+end
+
+marks.setup({
     -- whether to map keybinds or not. default true
     default_mappings = true,
     -- which builtin marks to show. default {}
@@ -30,8 +34,4 @@ local settings = {
         virt_text = "hello world",
     },
     mappings = {},
-}
-
-if marks and marks ~= true then
-    marks.setup(settings)
-end
+})

@@ -1,5 +1,9 @@
 local formatter = require("utils").requirePlugin("formatter")
 
+if not formatter then
+    return 
+end
+
 local lua_config = {
     function()
         return {
@@ -29,19 +33,17 @@ local cpp_config = {
             exe = "clang-format",
             args = {
                 "-style=file:" .. os.getenv("XDG_CONFIG_HOME") .. "/nvim/.clang-format",
-                "-"
+                "-",
             },
             stdin = true,
         }
     end,
 }
 
-if formatter then
-    formatter.setup({
-        filetype = {
-            lua = lua_config,
-            python = python_config,
-            cpp = cpp_config,
-        },
-    })
-end
+formatter.setup({
+    filetype = {
+        lua = lua_config,
+        python = python_config,
+        cpp = cpp_config,
+    },
+})
