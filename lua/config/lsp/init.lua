@@ -9,6 +9,7 @@ local servers = {
     pylsp = require("config.lsp.config.pylsp"),
     clangd = require("config.lsp.config.clangd"),
     vimls = require("config.lsp.config.vimls"),
+    marksman = require("config.lsp.config.marksman"),
 }
 
 -- 自动安装 LanguageServers
