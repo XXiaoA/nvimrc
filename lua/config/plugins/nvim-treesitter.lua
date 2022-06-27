@@ -7,7 +7,7 @@ end
 tsc.setup({
     -- 安装 language parser
     -- :TSInstallInfo 命令查看支持的语言
-    ensure_installed = { "markdown", "vim", "lua", "python", "c", "cpp" },
+    ensure_installed = { "markdown", "vim", "lua", "python", "c", "cpp", "fish" },
     -- 启用代码高亮功能
     highlight = {
         enable = true,
