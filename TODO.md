@@ -14,11 +14,10 @@
     - [x] ~~[kevinhwang91/nvim-fFHighlight](https://github.com/kevinhwang91/nvim-fFHighlight)~~
     - [x] ~~nvim-orgmode/orgmode~~
     - [x] ~~nvim-neorg/neorg~~ (maybe try again it in the future)
-    - [ ] Compare
-        - [ ] between nvim-neo-tree/neo-tree.nvim and nvim-tree
+    - [x] Compare
+        - [x] between nvim-neo-tree/neo-tree.nvim and nvim-tree
         - [x] ~~between [ggandor/lightspeed.nvim](https://github.com/ggandor/lightspeed.nvim) and hop.nvim~~
 - [ ] 配置插件  
-    - [ ] [kyazdani42/nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua) 
     - [ ] ray-x/lsp_signature.nvim  
     - [ ] mfussenegger/nvim-dap
     - [ ] nvim-treesitter/nvim-treesitter

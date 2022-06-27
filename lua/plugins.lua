@@ -23,10 +23,15 @@ local all_plugins = {
     -- 主题
     { "sainnhe/gruvbox-material" },
     { "EdenEast/nightfox.nvim", tag = "v1.0.0" },
-    -- nvim-tree
+    -- neo-tree
     {
-        "kyazdani42/nvim-tree.lua",
-        requires = "kyazdani42/nvim-web-devicons",
+        "nvim-neo-tree/neo-tree.nvim",
+        branch = "v2.x",
+        requires = {
+            "nvim-lua/plenary.nvim",
+            "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
+            "MunifTanjim/nui.nvim",
+        },
     },
     -- bufferline #buffer
     { "akinsho/bufferline.nvim", requires = "kyazdani42/nvim-web-devicons" },
