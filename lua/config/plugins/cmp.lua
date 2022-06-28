@@ -107,5 +107,3 @@ cmp.setup.cmdline(":", {
         { name = "cmdline" },
     },
 })
-
-require("cmp_git").setup({})

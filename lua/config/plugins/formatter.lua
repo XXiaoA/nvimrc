@@ -1,7 +1,7 @@
 local formatter = require("utils").requirePlugin("formatter")
 
 if not formatter then
-    return 
+    return
 end
 
 local lua_config = {

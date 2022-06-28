@@ -23,6 +23,7 @@
     - [ ] nvim-treesitter/nvim-treesitter
     - [ ] nvim-telescope/telescope.nvim
     - [ ] junegunn/vim-easy-align
+    - [ ] nvim-neo-tree/neo-tree
     - [x] hrsh7th/nvim-cmp
     - [x] [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
     - [x] voldikss/vim-translator

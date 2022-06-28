@@ -4,8 +4,6 @@ require("basic")
 require("keybindings")
 -- Packer插件管理
 require("plugins")
--- 插件配置
-require("config.plugins")
 -- LSP
 require("config.lsp")
 -- colorscheme
