@@ -14,3 +14,6 @@ vim.g.gruvbox_material_statusline_style = "mix"
 
 -- option: 'material' 'mix' 'original'
 vim.g.gruvbox_material_palette = "original"
+
+-- don't show the eob
+vim.g.gruvbox_material_show_eob = 0
