@@ -28,4 +28,15 @@ M.changeColorscheme = function(colorscheme)
     end
 end
 
+M.readConfig = function(option)
+    local file_path = os.getenv("XDG_CONFIG_HOME") .. "/nvim/.config.yml"
+
+    for line in io.lines(file_path) do
+        value = line:match(option .. ": (.*)")
+        if value then
+            return value
+        end
+    end
+end
+
 return M

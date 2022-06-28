@@ -1,4 +1,5 @@
 local lualine = require("utils").requirePlugin("lualine")
+local utils = require("utils")
 
 if not lualine then
     return
@@ -7,7 +8,7 @@ end
 lualine.setup({
     options = {
         icons_enabled = true,
-        theme = "nightfox",
+        theme = utils.readConfig("lualine_theme"),
         component_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },
         always_divide_middle = true,

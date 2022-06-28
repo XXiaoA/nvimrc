@@ -1,3 +1,5 @@
 local utils = require("utils")
-utils.changeColorscheme("nightfox")
+
+theme = utils.readConfig("color_scheme")
+utils.changeColorscheme(theme)
 vim.cmd("set background=dark")
