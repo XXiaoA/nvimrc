@@ -108,7 +108,11 @@ local all_plugins = {
     -- 加速文件搜索速度,如果安装失败需要到插件目录执行make命令手动编译
     { "nvim-telescope/telescope-fzf-native.nvim", run = "make", after = "telescope.nvim" },
     -- code outline
-    { "stevearc/aerial.nvim", after = "telescope.nvim", config = "require('config.plugins.aerial')" },
+    {
+        "stevearc/aerial.nvim",
+        cmd = "AerialToggle",
+        config = "require('config.plugins.aerial')",
+    },
     -- 颜色
     {
         "norcalli/nvim-colorizer.lua",
