@@ -59,8 +59,14 @@ local all_plugins = {
             "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
             "MunifTanjim/nui.nvim",
         },
-        cmd = "NeoTreeFocusToggle",
+        event = "BufWinEnter",
         config = "require('config.plugins.neo-tree')",
+    },
+    {
+        "s1n7ax/nvim-window-picker",
+        tag = "v1.*",
+        after = "neo-tree.nvim",
+        config = [[require("window-picker").setup() ]],
     },
     -- Comment 注释
     { "numToStr/Comment.nvim", event = "VimEnter", config = "require('config.plugins.comment')" },

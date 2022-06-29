@@ -1,6 +1,6 @@
 -- Exit nvim when we only have the following types of windows {{{
 local quit_current_win = function()
-    local quit_filetypes = { "NvimTree", "aerial" }
+    local quit_filetypes = { "neo-tree", "aerial" }
     local should_quit = true
     local tabwins = vim.api.nvim_tabpage_list_wins(0)
     for _, w in ipairs(tabwins) do
