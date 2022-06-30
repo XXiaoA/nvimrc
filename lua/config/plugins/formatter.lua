@@ -40,10 +40,20 @@ local cpp_config = {
     end,
 }
 
+local fish_config = {
+    function()
+        return {
+            exe = "fish_indent",
+            stdin = true,
+        }
+    end,
+}
+
 formatter.setup({
     filetype = {
         lua = lua_config,
         python = python_config,
         cpp = cpp_config,
+        fish = fish_config,
     },
 })
