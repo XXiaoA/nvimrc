@@ -82,7 +82,6 @@ local all_plugins = {
     { "hrsh7th/cmp-emoji", after = "nvim-cmp" },
     { "petertriho/cmp-git", after = "nvim-cmp", config = [[ require("cmp_git").setup({}) ]] },
     -- snippets
-    { "XXiaoA/friendly-snippets" },
     { "L3MON4D3/LuaSnip", event = "InsertEnter" },
     { "saadparwaiz1/cmp_luasnip", after = { "nvim-cmp", "LuaSnip" } },
     -- 自动补全括号

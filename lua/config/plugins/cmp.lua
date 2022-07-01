@@ -7,8 +7,7 @@ if not cmp or not lspkind or not luasnip then
 end
 
 -- load the luasnip
-require("luasnip.loaders.from_vscode").lazy_load()
-require("luasnip.loaders.from_snipmate").load()
+require("luasnip.loaders.from_lua").load({paths = "./snippets"})
 
 cmp.setup({
     experimental = {
