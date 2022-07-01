@@ -2,11 +2,16 @@
 
 ## Version
 ```sh
-NVIM v0.7.0
+NVIM v0.7.2
 Build type: Release
 LuaJIT 2.1.0-beta3
-Compiled by builder@e4bc05c9ff63
+Compiled by builder@3d0cc98614fd
 ```
+
+<br>
+
+**The following is pretty OUT OF DATE**
+
 
 ## 使用我的配置
 1. 你需要安装neovim，并且确保版本在**0.6**及以上
