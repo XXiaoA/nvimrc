@@ -83,12 +83,10 @@ map("t", "<C-j>", [[<C-\><C-n><C-W>j]])
 map("t", "<C-k>", [[<C-\><C-n><C-W>k]])
 map("t", "<C-l>", [[<C-\><C-n><C-W>l]])
 
+map("n", "<leader>i", "gg=G")
 -- }}}
 
 -- 插件快捷键{{{
--- nvim-treesitter 代码格式化
-map("n", "<leader>i", "gg=G")
-
 -- hlslens
 map("n", "n", [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]])
 map("n", "N", [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]])
@@ -96,6 +94,9 @@ map("n", "*", [[*<Cmd>lua require('hlslens').start()<CR>N]])
 map("n", "#", [[#<Cmd>lua require('hlslens').start()<CR>N]])
 map("n", "g*", [[g*<Cmd>lua require('hlslens').start()<CR>N]])
 map("n", "g#", [[g#<Cmd>lua require('hlslens').start()<CR>N]])
+
+-- luasnip
+map("i", "<c-u>", [[<cmd>lua require("luasnip.extras.select_choice")()<cr>]])
 
 -- lsp 回调函数快捷键设置
 local pluginKeys = {}
