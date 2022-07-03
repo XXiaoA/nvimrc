@@ -7,7 +7,7 @@ local function map(mode, lhs, rhs, opts)
     if opts then
         options = vim.tbl_extend("force", options, opts)
     end
-    vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+    vim.keymap.set(mode, lhs, rhs, options)
 end
 
 local opt = {
@@ -96,7 +96,7 @@ map("n", "g*", [[g*<Cmd>lua require('hlslens').start()<CR>N]])
 map("n", "g#", [[g#<Cmd>lua require('hlslens').start()<CR>N]])
 
 -- luasnip
-map("i", "<c-u>", [[<cmd>lua require("luasnip.extras.select_choice")()<cr>]])
+map({ "i", "s" }, "<c-u>", [[<cmd>lua require("luasnip.extras.select_choice")()<cr>]])
 
 -- lsp 回调函数快捷键设置
 local pluginKeys = {}
