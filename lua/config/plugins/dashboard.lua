@@ -3,6 +3,8 @@ if not db then
     return
 end
 
+db.session_directory = "$HOME/.local/share/nvim/"
+
 -- 开头文字
 db.custom_header = {
     [[]],
