@@ -49,11 +49,21 @@ local fish_config = {
     end,
 }
 
+local rust_config = {
+    function()
+        return {
+            exe = "rustfmt",
+            stdin = true,
+        }
+    end,
+}
+
 formatter.setup({
     filetype = {
         lua = lua_config,
         python = python_config,
         cpp = cpp_config,
         fish = fish_config,
+        rust = rust_config,
     },
 })
