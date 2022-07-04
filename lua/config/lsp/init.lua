@@ -10,6 +10,7 @@ local servers = {
     clangd = require("config.lsp.config.clangd"),
     vimls = require("config.lsp.config.vimls"),
     marksman = require("config.lsp.config.marksman"),
+    rust_analyzer = require("config.lsp.config.rust_analyzer"),
 }
 
 -- 自动安装 LanguageServers
