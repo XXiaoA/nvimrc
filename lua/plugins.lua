@@ -178,6 +178,8 @@ local all_plugins = {
     { "tversteeg/registers.nvim", event = "VimEnter", config = [[vim.g.registers_window_border = "single"]] },
     -- Delete Neovim buffers without losing window layout
     { "famiu/bufdelete.nvim", cmd = "Bdelete" },
+
+    { "nacro90/numb.nvim", event = "BufRead", config = [[require('numb').setup()]] },
 }
 
 return require("packer").startup(function()
