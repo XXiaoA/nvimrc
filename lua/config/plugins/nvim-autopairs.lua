@@ -6,11 +6,6 @@ if npairs and Rule and ts_conds then
     npairs.setup({
         check_ts = true,
     })
-
-    npairs.add_rules({
-        Rule("$", "$", "markdown"),
-        Rule("*", "*", "markdown"),
-    })
 end
 
 -- If you want insert `(` after select function or method item
