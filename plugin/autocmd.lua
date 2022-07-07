@@ -53,3 +53,9 @@ end
 vim.api.nvim_create_autocmd({ "BufWritePre", "FileWritePre" }, {
     callback = mkdir,
 })
+
+-- replace != with ~= in lua file
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "lua",
+    command = "iabbr <buffer> != ~=",
+})
