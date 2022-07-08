@@ -1,8 +1,8 @@
 # TODO
 - [ ] plugins:
-    - [ ] [wellle/targets.vim](https://github.com/wellle/targets.vim) 
-    - [ ] Yggdroot/LeaderF  
-    - [ ] xeluxee/competitest.nvim  
+    - [ ] <https://github.com/glepnir/lspsaga.nvim>
+    - [ ] <https://github.com/jose-elias-alvarez/null-ls.nvim>
+    - [ ] nvim-ufo
     - [ ] rcarriga/nvim-notify (with sniprun)  
     - [x] [EdenEast/nightfox](https://github.com/EdenEast/nightfox.nvim/) 
     - [x] [chentau/marks.nvim](https://github.com/chentau/marks.nvim) 
