@@ -31,7 +31,7 @@ db.custom_center = {
         icon = "  ",
         desc = "Recently latest session                 ",
         shortcut = "SPC s l",
-        action = "SessionLoad",
+        action = "SessionManager load_last_session",
     },
     {
         icon = "  ",

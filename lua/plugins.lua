@@ -49,7 +49,6 @@ local all_plugins = {
         "lukas-reineke/indent-blankline.nvim",
         event = "VimEnter",
         config = "require('config.plugins.indent-blankline')",
-
     },
 
     -- 状态栏
@@ -157,6 +156,13 @@ local all_plugins = {
     -- 启动页
     { "glepnir/dashboard-nvim", event = "VimEnter", config = "require('config.plugins.dashboard')" },
 
+    -- session
+    {
+        "Shatur/neovim-session-manager",
+        event = "VimEnter",
+        config = "require('config.plugins.neovim-session-manager')",
+    },
+
     -- 自动对齐
     { "junegunn/vim-easy-align", event = "VimEnter" },
 
@@ -217,7 +223,6 @@ local all_plugins = {
 
     -- Delete Neovim buffers without losing window layout
     { "famiu/bufdelete.nvim", cmd = "Bdelete" },
-
 
     { "nacro90/numb.nvim", event = "BufRead", config = [[require('numb').setup()]] },
 }

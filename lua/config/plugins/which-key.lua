@@ -240,7 +240,7 @@ wk.register({
 wk.register({
     s = {
         name = "Session",
-        s = { "<cmd>SessionSave<CR>", "Save session" },
-        l = { "<cmd>SessionLoad<CR>", "Load session" },
+        s = { "<cmd>SessionManager save_current_session<CR>", "Save session" },
+        l = { "<cmd>SessionManager load_last_session<CR>", "Load session" },
     },
 }, { prefix = "<leader>" })
