@@ -19,7 +19,9 @@ M.changeColorscheme = function(colorscheme)
 
     if vim.tbl_contains(lualine_theme, colorscheme) then
         local lualine = require("utils").requirePlugin("lualine")
-        lualine.setup({ options = { theme = colorscheme } })
+        if lualine then
+            lualine.setup({ options = { theme = colorscheme } })
+        end
     end
 
     if colorscheme then
