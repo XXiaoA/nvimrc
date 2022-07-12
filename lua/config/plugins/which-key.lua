@@ -58,17 +58,17 @@ wk.register({
     ["<A-w>"] = { ":Bdelete<CR>", "Close current buffer" },
 })
 
--- NvimTree
+-- File Explorer
 wk.register({
     n = {
-        name = "NeoTree",
-        t = { ":NeoTreeFocusToggle<CR>", "Toggle NeoTree" },
-        f = { ":NeoTreeFocus<CR>", "Focus on NeoTree" },
+        name = "File Explorer",
+        t = { ":NeoTreeFocusToggle<CR>", "Toggle File Explorer" },
+        f = { ":NeoTreeFocus<CR>", "Focus on File Explorer" },
     },
 }, { prefix = "<leader>" })
 
 wk.register({
-    ["<A-m>"] = { ":NeoTreeFocusToggle<CR>", "Toggle NvimTree" },
+    ["<A-m>"] = { ":NeoTreeFocusToggle<CR>", "Toggle File Explorer" },
 })
 
 -- Finding different stuf.
