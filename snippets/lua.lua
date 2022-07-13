@@ -24,4 +24,25 @@ return {
     s("rt", {
         t("return "),
     }),
+
+    s("ll", fmt([[
+    local {} = {}
+    ]], { i(1), i(2) } )
+    ),
+
+    s("req", fmt([[
+    require("{}")
+    ]], i(1) )
+    ),
+
+    s("fu", fmt([[
+    function {}({})
+        {}
+    end
+    ]], {
+        i(1, "name"),
+        i(2),
+        i(3)
+        })
+    ),
 }
