@@ -43,7 +43,7 @@ M.readConfig = function(option)
     end
 end
 
--- Function for make mapping easier.
+-- Function for making mapping easier.
 M.map = function(mode, lhs, rhs, opts)
     local options = {
         noremap = true,
@@ -53,6 +53,24 @@ M.map = function(mode, lhs, rhs, opts)
         options = vim.tbl_extend("force", options, opts)
     end
     vim.keymap.set(mode, lhs, rhs, options)
+end
+
+-- Function for make which-key hint
+M.mapDes = function(key, des, opts)
+    local wk = require("utils").requirePlugin("which-key")
+    if not wk then
+        return
+    end
+
+    if opts then
+        wk.register({
+            [key] = { des },
+        }, opts)
+    else
+        wk.register({
+            [key] = { des },
+        })
+    end
 end
 
 return M
