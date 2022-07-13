@@ -1,16 +1,11 @@
 -- Function for make mapping easier.
 local map = require("utils").map
 
-local opt = {
-    noremap = true,
-    silent = true,
-}
 
 -- leader key 为空格
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- {{{"基础
 -- 退出终端插入模式
 map("t", "<ESC>", [[<C-\><C-n>]])
 
@@ -75,46 +70,3 @@ map("t", "<C-k>", [[<C-\><C-n><C-W>k]])
 map("t", "<C-l>", [[<C-\><C-n><C-W>l]])
 
 map("n", "<leader>i", "gg=G")
--- }}}
-
--- 插件快捷键{{{
--- hlslens
-map("n", "n", [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]])
-map("n", "N", [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]])
-map("n", "*", [[*<Cmd>lua require('hlslens').start()<CR>N]])
-map("n", "#", [[#<Cmd>lua require('hlslens').start()<CR>N]])
-map("n", "g*", [[g*<Cmd>lua require('hlslens').start()<CR>N]])
-map("n", "g#", [[g#<Cmd>lua require('hlslens').start()<CR>N]])
-
--- luasnip
-map({ "i", "s" }, "<c-u>", [[<cmd>lua require("luasnip.extras.select_choice")()<cr>]])
-
--- lsp 回调函数快捷键设置
-local pluginKeys = {}
-pluginKeys.maplsp = function(mapbuf)
-    -- rename
-    mapbuf("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opt)
-    -- code action
-    mapbuf("n", "<space>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opt)
-
-    -- go xx
-    mapbuf("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opt)
-    mapbuf("n", "gh", "<cmd>lua vim.lsp.buf.hover()<CR>", opt)
-    mapbuf("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opt)
-    mapbuf("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opt)
-    mapbuf("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opt)
-
-    -- diagnostic
-    mapbuf("n", "go", "<cmd>lua vim.diagnostic.open_float()<CR>", opt)
-    mapbuf("n", "gp", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opt)
-    mapbuf("n", "gn", "<cmd>lua vim.diagnostic.goto_next()<CR>", opt)
-    -- mapbuf('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>')
-    mapbuf("n", "<gk>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opt)
-    mapbuf("n", "<leader>=", "<cmd>lua vim.lsp.buf.formatting()<CR>", opt)
-    -- mapbuf('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>')
-    -- mapbuf('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>')
-    -- mapbuf('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>')
-    -- mapbuf('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
-end
-
-return pluginKeys --}}}

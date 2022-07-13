@@ -55,7 +55,7 @@ M.map = function(mode, lhs, rhs, opts)
     vim.keymap.set(mode, lhs, rhs, options)
 end
 
--- Function for make which-key hint
+-- Function for making which-key hint
 M.mapDes = function(key, des, opts)
     local wk = require("utils").requirePlugin("which-key")
     if not wk then

@@ -58,6 +58,9 @@ local all_plugins = {
         config = "require('config.plugins.lualine')",
     },
 
+    -- 按键
+    { "folke/which-key.nvim", event = "VimEnter", config = "require('config.plugins.which-key')" },
+
     -- neo-tree
     {
         "nvim-neo-tree/neo-tree.nvim",
@@ -204,16 +207,13 @@ local all_plugins = {
     -- 翻译
     { "voldikss/vim-translator", cmd = "Translate" },
 
-    -- 按键
-    { "folke/which-key.nvim", event = "VimEnter", config = "require('config.plugins.which-key')" },
-
     -- Debugging
     { "mfussenegger/nvim-dap" },
     { "rcarriga/nvim-dap-ui" },
     { "Pocco81/DAPInstall.nvim" },
 
     -- hightlight search
-    { "kevinhwang91/nvim-hlslens", event = "VimEnter" },
+    { "kevinhwang91/nvim-hlslens", event = "VimEnter", config = "require('config.plugins.hlslens')" },
 
     -- evaluates code blocks
     { "jubnzv/mdeval.nvim", ft = "markdown", config = "require('config.plugins.mdeval')" },
