@@ -1,6 +1,6 @@
 local M = {}
 
-M.requirePlugin = function(plugin_name, message)
+function M.requirePlugin(plugin_name, message)
     local status_ok, plugin = pcall(require, plugin_name)
     if not status_ok then
         if message ~= false then
@@ -15,7 +15,7 @@ M.requirePlugin = function(plugin_name, message)
     return nil
 end
 
-M.changeColorscheme = function(colorscheme)
+function M.changeColorscheme(colorscheme)
     -- the theme has lualine's colorscheme
     local lualine_theme = { "nightfox", "gruvbox-material" }
 
@@ -32,7 +32,7 @@ M.changeColorscheme = function(colorscheme)
     end
 end
 
-M.readConfig = function(option)
+function M.readConfig(option)
     local file_path = os.getenv("XDG_CONFIG_HOME") .. "/nvim/.config.yml"
 
     for line in io.lines(file_path) do
@@ -44,7 +44,7 @@ M.readConfig = function(option)
 end
 
 -- Function for making mapping easier.
-M.map = function(mode, lhs, rhs, opts)
+function M.map(mode, lhs, rhs, opts)
     local options = {
         noremap = true,
         silent = true,
@@ -55,28 +55,10 @@ M.map = function(mode, lhs, rhs, opts)
     vim.keymap.set(mode, lhs, rhs, options)
 end
 
--- Function for making which-key hint
-M.mapDes = function(key, des, opts)
-    local wk = require("utils").requirePlugin("which-key")
-    if not wk then
-        return
-    end
-
-    if opts then
-        wk.register({
-            [key] = { des },
-        }, opts)
-    else
-        wk.register({
-            [key] = { des },
-        })
-    end
-end
-
 --- Checks whether a given path exists and is a file.
 --@param path (string) path to check
 --@returns (bool)
-M.is_file = function(path)
+function M.is_file(path)
     local stat = vim.loop.fs_stat(path)
     return stat and stat.type == "file" or false
 end
@@ -84,7 +66,7 @@ end
 --- Checks whether a given path exists and is a directory
 --@param path (string) path to check
 --@returns (bool)
-M.is_directory = function(path)
+function M.is_directory(path)
     local stat = vim.loop.fs_stat(path)
     return stat and stat.type == "directory" or false
 end
