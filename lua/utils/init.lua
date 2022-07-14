@@ -73,4 +73,20 @@ M.mapDes = function(key, des, opts)
     end
 end
 
+--- Checks whether a given path exists and is a file.
+--@param path (string) path to check
+--@returns (bool)
+M.is_file = function(path)
+    local stat = vim.loop.fs_stat(path)
+    return stat and stat.type == "file" or false
+end
+
+--- Checks whether a given path exists and is a directory
+--@param path (string) path to check
+--@returns (bool)
+M.is_directory = function(path)
+    local stat = vim.loop.fs_stat(path)
+    return stat and stat.type == "directory" or false
+end
+
 return M

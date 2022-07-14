@@ -1,3 +1,5 @@
+local utils = require("utils")
+
 -- Exit nvim when we only have the following types of windows {{{
 local quit_current_win = function()
     local quit_filetypes = { "neo-tree", "aerial" }
@@ -46,7 +48,7 @@ vim.api.nvim_create_autocmd("FileType", {
 -- When saving a file, automatically create the file's parent
 local function mkdir()
     local dir = vim.fn.expand("<afile>:p:h")
-    if vim.fn.isdirectory(dir) ~= 1 then
+    if not utils.is_directory(dir) then
         vim.fn.mkdir(dir, "p")
     end
 end
