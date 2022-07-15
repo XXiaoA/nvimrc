@@ -40,9 +40,6 @@ map("i", "JJ", "<ESC>")
 map("v", "<", "<gv")
 map("v", ">", ">gv")
 
--- 运行代码
-map("n", "<leader>rr", ":lua RunCode()<cr>")
-
 -- 分屏快捷键
 map("n", "sv", ":vsp<CR>")
 map("n", "sh", ":sp<CR>")
