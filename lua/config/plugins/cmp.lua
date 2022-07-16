@@ -7,10 +7,10 @@ if not cmp or not lspkind or not luasnip then
 end
 
 -- load the luasnip
-require("luasnip.loaders.from_lua").load({paths = "./snippets"})
+require("luasnip.loaders.from_lua").load({ paths = "./snippets" })
 -- keymap for luasnip
-local map = require("utils").map
-map({ "i", "s" }, "<c-u>", [[<cmd>lua require("luasnip.extras.select_choice")()<cr>]])
+local map = require("core.keymap").set_keymap
+map({ "i", "s" })({ "<c-u>", [[<cmd>lua require("luasnip.extras.select_choice")()<cr>]] })
 
 cmp.setup({
     experimental = {
@@ -82,7 +82,11 @@ cmp.setup({
             maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
             before = function(entry, vim_item)
                 -- Source 显示提示来源
-                vim_item.menu = "[" .. string.upper(entry.source.name) .. "]"
+                if entry.source.name == "nvim_lsp" then
+                    vim_item.menu = "[LSP]"
+                else
+                    vim_item.menu = "[" .. string.upper(entry.source.name) .. "]"
+                end
                 return vim_item
             end,
         }),

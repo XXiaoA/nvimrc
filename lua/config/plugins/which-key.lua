@@ -98,8 +98,9 @@ wk.register({
 wk.register({
     c = {
         name = "Theme",
-        c = { ":lua changeColorscheme()<CR>", "Change ColorScheme" },
+        c = { ":lua require('utils').changeColorschemeUI()<CR>", "Change ColorScheme" },
         f = { ":Telescope colorscheme enable_preview=true<CR>", "Find Colorscheme with previwer " },
+
     },
 }, { prefix = "<leader>" })
 

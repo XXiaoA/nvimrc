@@ -1,13 +1,14 @@
-local hlslens = require("utils").requirePlugin("hlslens", false)
+local hlslens = require("utils").requirePlugin("hlslens")
 if not hlslens then
-    return nil
+    return
 end
 
-local map = require("utils").map
+local map = require("core.keymap").set_keymap
+nmap = map("n")
 
-map("n", "n", [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]])
-map("n", "N", [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]])
-map("n", "*", [[*<Cmd>lua require('hlslens').start()<CR>N]])
-map("n", "#", [[#<Cmd>lua require('hlslens').start()<CR>N]])
-map("n", "g*", [[g*<Cmd>lua require('hlslens').start()<CR>N]])
-map("n", "g#", [[g#<Cmd>lua require('hlslens').start()<CR>N]])
+nmap({ "n", [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]] })
+nmap({ "N", [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]] })
+nmap({ "*", [[*<Cmd>lua require('hlslens').start()<CR>N]] })
+nmap({ "#", [[#<Cmd>lua require('hlslens').start()<CR>N]] })
+nmap({ "g*", [[g*<Cmd>lua require('hlslens').start()<CR>N]] })
+nmap({ "g#", [[g#<Cmd>lua require('hlslens').start()<CR>N]] })

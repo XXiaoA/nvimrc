@@ -2,10 +2,8 @@ local M = {}
 
 function M.requirePlugin(plugin_name, message)
     local status_ok, plugin = pcall(require, plugin_name)
-    if not status_ok then
-        if message ~= false then
-            vim.notify(" Failed to load: " .. plugin_name .. " (From requirePlugin)", vim.log.levels.WARN)
-        end
+    if not status_ok and message ~= false then
+        vim.notify(" Failed to load: " .. plugin_name .. " (From requirePlugin)", vim.log.levels.WARN)
         return nil
     else
         if plugin ~= true then
@@ -32,6 +30,17 @@ function M.changeColorscheme(colorscheme)
     end
 end
 
+function M.changeColorschemeUI()
+    vim.ui.select({ "nightfox", "gruvbox-material" }, {
+        prompt = "Select a colorscheme:",
+        format_item = function(item)
+            return item
+        end,
+    }, function(choice)
+        M.changeColorscheme(choice)
+    end)
+end
+
 function M.readConfig(option)
     local file_path = os.getenv("XDG_CONFIG_HOME") .. "/nvim/.config.yml"
 
@@ -41,18 +50,6 @@ function M.readConfig(option)
             return value
         end
     end
-end
-
--- Function for making mapping easier.
-function M.map(mode, lhs, rhs, opts)
-    local options = {
-        noremap = true,
-        silent = true,
-    }
-    if opts then
-        options = vim.tbl_extend("force", options, opts)
-    end
-    vim.keymap.set(mode, lhs, rhs, options)
 end
 
 --- Checks whether a given path exists and is a file.

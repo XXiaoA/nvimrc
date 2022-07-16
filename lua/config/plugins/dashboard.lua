@@ -54,7 +54,7 @@ db.custom_center = {
     {
         icon = "  ",
         desc = "Change Colorscheme                      ",
-        action = "lua changeColorscheme()",
+        action = "lua require('utils').changeColorschemeUI()",
         shortcut = "SPC c c",
     },
     {
