@@ -13,34 +13,6 @@ function M.requirePlugin(plugin_name, message)
     return nil
 end
 
-function M.changeColorscheme(colorscheme)
-    -- the theme has lualine's colorscheme
-    local lualine_theme = { "nightfox", "gruvbox-material" }
-
-    if vim.tbl_contains(lualine_theme, colorscheme) then
-        local lualine = require("utils").requirePlugin("lualine")
-        if lualine then
-            lualine.setup({ options = { theme = colorscheme } })
-        end
-    end
-
-    if colorscheme then
-        pcall(require, "config/colorscheme/" .. colorscheme)
-        pcall(vim.cmd, "colorscheme " .. colorscheme)
-    end
-end
-
-function M.changeColorschemeUI()
-    vim.ui.select({ "nightfox", "gruvbox-material" }, {
-        prompt = "Select a colorscheme:",
-        format_item = function(item)
-            return item
-        end,
-    }, function(choice)
-        M.changeColorscheme(choice)
-    end)
-end
-
 function M.readConfig(option)
     local file_path = os.getenv("XDG_CONFIG_HOME") .. "/nvim/.config.yml"
 
