@@ -1,5 +1,5 @@
--- 禁止鼠标
-vim.o.mouse = "" -- "a"
+-- 鼠标
+vim.o.mouse = "nv" -- "a"
 -- 禁止创建备份文件
 vim.o.backup = false
 vim.o.writebackup = false
