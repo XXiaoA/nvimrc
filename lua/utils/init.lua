@@ -1,5 +1,9 @@
 local M = {}
 
+--- require plugin and check if it exists
+---@param plugin_name (string)
+---@param message (bool)
+---@return nil if plugin doesn't exists
 function M.requirePlugin(plugin_name, message)
     local status_ok, plugin = pcall(require, plugin_name)
     if not status_ok and message ~= false then
@@ -13,6 +17,8 @@ function M.requirePlugin(plugin_name, message)
     return nil
 end
 
+--- read config in .config.yml
+---@param option (string)
 function M.readConfig(option)
     local file_path = os.getenv("XDG_CONFIG_HOME") .. "/nvim/.config.yml"
 
