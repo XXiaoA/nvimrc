@@ -2,7 +2,8 @@ local M = {}
 local colorschemes = {}
 
 --- add_colorscheme
----@param name(table)
+---@param name(string)
+---@param tbl(table)
 function M.add_colorscheme(name, tbl)
     if type(name) == "string" then
         table.insert(colorschemes, name)
