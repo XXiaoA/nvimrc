@@ -203,3 +203,9 @@ use({ "tversteeg/registers.nvim", event = "VimEnter", config = [[vim.g.registers
 use({ "famiu/bufdelete.nvim", cmd = "Bdelete" })
 
 use({ "nacro90/numb.nvim", event = "BufRead", config = [[require('numb').setup()]] })
+
+use({
+    "danymat/neogen",
+    cmd = "Neogen",
+    config = "require('config.plugins.neogen')",
+})

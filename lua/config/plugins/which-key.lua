@@ -62,7 +62,6 @@ wk.register({
 wk.register({
     n = {
         name = "File Explorer",
-        t = { ":NeoTreeFocusToggle<CR>", "Toggle File Explorer" },
         f = { ":NeoTreeFocus<CR>", "Focus on File Explorer" },
     },
 }, { prefix = "<leader>" })
@@ -100,7 +99,6 @@ wk.register({
         name = "Theme",
         c = { ":lua require('core.colorscheme').changeColorschemeUI()<CR>", "Change ColorScheme" },
         f = { ":Telescope colorscheme enable_preview=true<CR>", "Find Colorscheme with previwer " },
-
     },
 }, { prefix = "<leader>" })
 
@@ -245,3 +243,8 @@ wk.register({
         l = { "<cmd>SessionManager load_last_session<CR>", "Load session" },
     },
 }, { prefix = "<leader>" })
+
+-- neogen
+wk.register({
+    ["gcn"] = { ":lua require('neogen').generate()<CR>", "Neogen" },
+})
