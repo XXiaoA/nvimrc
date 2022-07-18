@@ -35,11 +35,6 @@ vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter", "WinLeave"
 })
 -- }}}
 
-vim.api.nvim_create_autocmd("BufWritePost", {
-    pattern = "plugins.lua",
-    command = "source <afile> | PackerCompile",
-})
-
 -- Disable inserting comment leader after hitting o or O or <Enter>
 vim.api.nvim_create_autocmd("FileType", {
     command = "set formatoptions-=ro",
