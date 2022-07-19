@@ -85,9 +85,20 @@ use({ "saadparwaiz1/cmp_luasnip", after = { "nvim-cmp", "LuaSnip" } })
 use({ "windwp/nvim-autopairs", after = "nvim-cmp", config = "require('config.plugins.nvim-autopairs')" })
 
 -- lspconfig
-use({ "neovim/nvim-lspconfig", after = "cmp-nvim-lsp", "williamboman/nvim-lsp-installer" })
+use({
+    "neovim/nvim-lspconfig",
+})
+
+use({
+    "williamboman/mason.nvim",
+    branch = "alpha",
+    config = function()
+        require("config.plugins.mason")
+    end,
+})
+
 -- dressing.nvim
-use({ "stevearc/dressing.nvim", after = "nvim-lspconfig" })
+use({ "stevearc/dressing.nvim", event = "VimEnter" })
 
 -- lsp_signature
 use({ "ray-x/lsp_signature.nvim", config = "require('config.plugins.lsp-signature')" })
