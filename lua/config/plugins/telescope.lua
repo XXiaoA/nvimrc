@@ -7,6 +7,8 @@ if not actions or not telescope then
     return
 end
 
+telescope.load_extension("zoxide")
+
 telescope.setup({
     defaults = {
         mappings = {

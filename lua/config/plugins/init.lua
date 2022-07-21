@@ -109,6 +109,7 @@ use({
     requires = {
         "nvim-lua/plenary.nvim",
         "kyazdani42/nvim-web-devicons",
+        "jvgrootveld/telescope-zoxide",
     },
     cmd = "Telescope",
     config = "require('config.plugins.telescope')",
@@ -119,6 +120,7 @@ use({ "ahmedkhalf/project.nvim", after = "telescope.nvim", config = "require('co
 
 -- 加速文件搜索速度,如果安装失败需要到插件目录执行make命令手动编译
 use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make", after = "telescope.nvim" })
+
 -- code outline
 use({
     "stevearc/aerial.nvim",
