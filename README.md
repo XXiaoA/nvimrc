@@ -56,6 +56,16 @@ sudo apt-get install lazygit
 ```
 
 
+markdwon preview
+```sh
+cd ~/.local/share/nvim/site/pack/packer/opt/
+cd markdown-preview.nvim
+yarn install
+yarn build
+```
+
+
+
 ## 快捷键
 [点此见快捷键](./docs/keybindings.md)  
 
