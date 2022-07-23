@@ -1,10 +1,10 @@
 -- Function for make mapping easier.
 local map = require("core.keymap").set_keymap
 
-nmap = map("n")
-imap = map("i")
-vmap = map("v")
-tmap = map("t")
+local nmap = map("n")
+local imap = map("i")
+local vmap = map("v")
+local tmap = map("t")
 
 -- leader key 为空格
 vim.g.mapleader = " "
@@ -71,3 +71,6 @@ tmap({ "<C-k>", [[<C-\><C-n><C-W>k]] })
 tmap({ "<C-l>", [[<C-\><C-n><C-W>l]] })
 
 nmap({ "<leader>i", "gg=G" })
+
+-- Toggle spelling check
+nmap({ "<leader>sp", ":<C-U>set spell!<CR>" })

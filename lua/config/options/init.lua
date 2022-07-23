@@ -66,7 +66,7 @@ vim.o.ignorecase = true
 -- 智能大小写
 vim.o.smartcase = true
 -- 打开拼写检查
-vim.o.spell = true
+vim.o.spell = false
 -- 设置拼写检查语言
 vim.o.spelllang = "en_us,cjk"
 -- 是否支持折叠
