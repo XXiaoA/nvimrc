@@ -96,6 +96,7 @@ use({
         require("config.plugins.mason")
     end,
 })
+use({ "williamboman/mason-lspconfig.nvim" })
 
 -- dressing.nvim
 use({ "stevearc/dressing.nvim", event = "VimEnter" })

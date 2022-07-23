@@ -1,12 +1,13 @@
 local mason = require("utils").requirePlugin("mason")
-if not mason then
+local mason_lspconfig = require("utils").requirePlugin("mason-lspconfig")
+if not mason or not mason_lspconfig then
     return
 end
 
+mason_lspconfig.setup({})
 mason.setup({
     ui = {
         border = "single",
     },
 })
 
-require("mason-lspconfig").setup({})
