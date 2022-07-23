@@ -223,3 +223,9 @@ use({
     cmd = "Neogen",
     config = "require('config.plugins.neogen')",
 })
+
+use({
+    "iamcco/markdown-preview.nvim",
+    config = "require('config.plugins.markdown-preview')",
+    ft = { "markdown" },
+})
