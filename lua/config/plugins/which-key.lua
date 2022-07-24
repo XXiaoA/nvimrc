@@ -250,5 +250,5 @@ wk.register({
 
 -- neogen
 wk.register({
-    ["gcn"] = { ":lua require('neogen').generate()<CR>", "Neogen" },
+    ["gcn"] = { ":Neogen<CR>", "Neogen" },
 })
