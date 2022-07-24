@@ -21,8 +21,8 @@
     - [ ] ray-x/lsp_signature.nvim  
     - [ ] mfussenegger/nvim-dap
     - [ ] nvim-treesitter/nvim-treesitter
-    - [ ] nvim-telescope/telescope.nvim
     - [ ] junegunn/vim-easy-align
+    - [x] nvim-telescope/telescope.nvim
     - [x] hrsh7th/nvim-cmp
     - [x] [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
     - [x] voldikss/vim-translator

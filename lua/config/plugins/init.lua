@@ -110,7 +110,6 @@ use({
     requires = {
         "nvim-lua/plenary.nvim",
         "kyazdani42/nvim-web-devicons",
-        "jvgrootveld/telescope-zoxide",
     },
     cmd = "Telescope",
     config = "require('config.plugins.telescope')",

@@ -79,9 +79,12 @@ wk.register({
         r = { ":Telescope oldfiles<CR>", "Recent File" },
         b = { ":Telescope buffers<CR>", "Buffer" },
         h = { ":Telescope help_tags<CR>", "Help File" },
-        z = { ":Telescope zoxide list<CR> ", "Zoxide list" },
     },
 }, { prefix = "<leader>" })
+
+wk.register({
+    ["<leader>/"] = { ":Telescope current_buffer_fuzzy_find<CR>", "FInd current buffer" }
+})
 
 -- Git keybinds.
 wk.register({
