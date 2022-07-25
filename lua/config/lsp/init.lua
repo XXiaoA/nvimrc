@@ -15,5 +15,10 @@ use({ "williamboman/mason-lspconfig.nvim" })
 -- lsp_signature
 use({ "ray-x/lsp_signature.nvim", config = "require('config.lsp.lsp-signature')" })
 
+use({
+    "glepnir/lspsaga.nvim",
+    branch = "main",
+    config = [[require("config.lsp.lspsaga")]],
+})
 
 require("config.lsp.setup")
