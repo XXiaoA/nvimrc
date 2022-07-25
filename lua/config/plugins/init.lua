@@ -211,3 +211,9 @@ use({
     config = "require('config.plugins.markdown-preview')",
     ft = { "markdown" },
 })
+
+use({
+    "karb94/neoscroll.nvim",
+    event = "VimEnter",
+    config = [[require('neoscroll').setup()]],
+})
