@@ -17,3 +17,5 @@ vim.g.gruvbox_material_palette = "original"
 
 -- don't show the eob
 vim.g.gruvbox_material_show_eob = 0
+
+vim.g.gruvbox_material_diagnostic_virtual_text = "colored"

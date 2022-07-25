@@ -6,6 +6,6 @@ local use = colorscheme.add_colorscheme
 use("gruvbox-material", { "sainnhe/gruvbox-material" })
 use("nightfox", { "EdenEast/nightfox.nvim", run = ":NightfoxCompile" })
 
-theme = utils.readConfig("color_scheme")
+local theme = utils.readConfig("color_scheme")
 colorscheme.change_colorscheme(theme)
 vim.cmd("set background=dark")
