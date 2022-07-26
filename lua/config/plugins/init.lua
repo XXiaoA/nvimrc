@@ -107,7 +107,7 @@ use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make", after = "telesco
 -- code outline
 use({
     "stevearc/aerial.nvim",
-    cmd = "AerialToggle",
+    event = "VimEnter",
     config = "require('config.plugins.aerial')",
 })
 
