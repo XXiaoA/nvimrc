@@ -14,6 +14,7 @@ end
 function M.load_plugins()
     return require("packer").startup(function()
         for _, plugin in ipairs(plugins) do
+---@diagnostic disable-next-line: undefined-global
             use(plugin)
         end
     end)
