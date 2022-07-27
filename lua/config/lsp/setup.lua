@@ -4,6 +4,33 @@ if not mason_lspconfig or not lspconfig then
     return
 end
 
+vim.diagnostic.config({
+    -- disable virtual text
+    virtual_text = true,
+    -- show signs
+    update_in_insert = false,
+    underline = true,
+    severity_sort = true,
+    float = {
+        focusable = false,
+        style = "minimal",
+        border = "single",
+        source = "always",
+        header = "",
+        prefix = "",
+    },
+})
+
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+    border = "single",
+    width = 60,
+})
+
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+    border = "single",
+    width = 60,
+})
+
 ---@diagnostic disable-next-line: unused-local
 local on_attach = function(client, bufnr)
     local nmap = require("core.keymap").set_keymap("n")
