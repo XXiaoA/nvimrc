@@ -21,4 +21,6 @@ use({
     config = [[require("config.lsp.lspsaga")]],
 })
 
+use({ "ii14/emmylua-nvim" })
+
 require("config.lsp.setup")
