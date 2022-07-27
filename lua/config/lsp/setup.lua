@@ -26,10 +26,18 @@ local on_attach = function(client, bufnr)
     -- nmap({ '<space>D', lua vim.lsp.buf.type_definition, { buffer = bufnr }'})
 end
 
+local settings = {
+    on_attach = on_attach,
+}
+
+local lua_settings = vim.tbl_extend("force", settings, require("config.lsp.config.sumneko_lua"))
+
 mason_lspconfig.setup_handlers({
     function(server_name)
-        lspconfig[server_name].setup({
-            on_attach = on_attach,
-        })
+        lspconfig[server_name].setup(settings)
+    end,
+
+    ["sumneko_lua"] = function()
+        lspconfig.sumneko_lua.setup(lua_settings)
     end,
 })
