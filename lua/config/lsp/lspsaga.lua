@@ -4,4 +4,8 @@ if not saga then
 end
 
 -- use custom config
-saga.init_lsp_saga({})
+saga.init_lsp_saga({
+    code_action_lightbulb = {
+        enable_in_insert = false,
+    },
+})
