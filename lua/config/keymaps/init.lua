@@ -14,12 +14,12 @@ vim.g.maplocalleader = " "
 tmap({ "<ESC>", [[<C-\><C-n>]] })
 
 -- 移动代码
-nmap({ "<A-up>", ":m .-2<cr>" })
-nmap({ "<A-down>", ":m .+1<cr>" })
-imap({ "<A-up>", "<ESC>:m .-2<cr>i" })
-imap({ "<A-down>", "<ESC>:m .+1<cr>i" })
-vmap({ "<A-up>", ":m '<-2<cr>gv" })
-vmap({ "<A-down>", ":m '>+1<cr>gv" })
+nmap({ "<A-k>", ":m .-2<cr>" })
+nmap({ "<A-j>", ":m .+1<cr>" })
+imap({ "<A-k>", "<ESC>:m .-2<cr>i" })
+imap({ "<A-j>", "<ESC>:m .+1<cr>i" })
+vmap({ "<A-k>", ":m '<-2<cr>gv" })
+vmap({ "<A-j>", ":m '>+1<cr>gv" })
 
 -- 移动到行首/行末
 imap({ "<C-h>", "<ESC>I" })

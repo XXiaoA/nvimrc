@@ -18,10 +18,10 @@
         - [x] between nvim-neo-tree/neo-tree.nvim and nvim-tree
         - [x] ~~between [ggandor/lightspeed.nvim](https://github.com/ggandor/lightspeed.nvim) and hop.nvim~~
 - [ ] 配置插件  
-    - [ ] ray-x/lsp_signature.nvim  
     - [ ] mfussenegger/nvim-dap
     - [ ] nvim-treesitter/nvim-treesitter
     - [ ] junegunn/vim-easy-align
+    - [x] ray-x/lsp_signature.nvim  
     - [x] nvim-telescope/telescope.nvim
     - [x] hrsh7th/nvim-cmp
     - [x] [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
@@ -32,7 +32,7 @@
 - [ ] 配置LSP:  
     - [ ] clangd (c, c++)
     - [ ] pylsp (python)
-    - [ ] sumneko_lua (lua)
     - [ ] vim (vimls)
     - [ ] rust_analyzer 
+    - [x] sumneko_lua (lua)
 - [ ] 完善文档
