@@ -109,43 +109,6 @@ wk.register({
     },
 }, { prefix = "<leader>" })
 
--- Lsp
-wk.register({
-    l = {
-        name = "LSP",
-        a = { ":lua vim.lsp.buf.code_action()<CR>", "Code Action" },
-        d = { ":Telescope diagnostics<CR>", "Diagnostics" },
-        i = { ":LspInfo<CR>", "Info" },
-        I = { ":LspInstallInfo<CR>", "Installer Info" },
-        r = { ":lua vim.lsp.buf.rename()<CR>", "Rename" },
-        h = { ":lua vim.lsp.buf.hover()<CR>", "Display Information Of Symbol" },
-        s = { ":lua vim.lsp.buf.signature_help()<CR>", "Signature Help" },
-        g = {
-            name = "GOTO",
-            D = { ":lua vim.lsp.buf.declaration()<CR>", "Go To Declaration" },
-            i = { ":lua vim.lsp.buf.implementation()<CR>", "Go To Implementation" },
-            d = { "::lua vim.lsp.buf.definition()<CR>", "Go to Definition" },
-            j = { ":lua vim.lsp.diagnostic.goto_prev()<CR>", "Go To Previous Diagnostics" },
-            k = { ":lua vim.lsp.diagnostic.goto_next()<CR>", "Go To Next Diagnostics" },
-            t = { ":lua vim.lsp.buf.type_definition()<CR>", "Go To Type Definition" },
-        },
-        w = {
-            name = "Workspace",
-            l = {
-                ":lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>",
-                "List Workspace Folder",
-            },
-            a = { ":lua vim.lsp.buf.add_workspace_folder()<CR>", "Add Workspace Folder" },
-            r = { ":lua vim.lsp.buf.remove_workspace_folder()<CR>", "Remove Workspace Folder" },
-        },
-        l = {
-            name = "List Reference/Diagnostic",
-            d = { ":lua vim.lsp.diagnostic.set_loclist()<CR>", "List Diagnostic" },
-            r = { ":lua vim.lsp.buf.references()<CR>", "Show References" },
-        },
-    },
-}, { prefix = "<leader>" })
-
 -- Dap
 wk.register({
     d = {
