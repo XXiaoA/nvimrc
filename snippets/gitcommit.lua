@@ -1,3 +1,4 @@
+-- stylua: ignore
 return {
 
     s("cc", {

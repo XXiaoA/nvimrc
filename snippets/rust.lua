@@ -1,3 +1,4 @@
+-- stylua: ignore
 return {
     s("p", fmt([[
     println!({});
