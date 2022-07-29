@@ -221,3 +221,22 @@ wk.register({
 wk.register({
     ["gcn"] = { ":Neogen<CR>", "Neogen" },
 })
+
+-- lsp
+wk.register({
+    rn = "Lsp rename",
+    ca = "Lsp code action",
+    ["="] = "Lsp formatting",
+}, { prefix = "<leader>" })
+
+wk.register({
+    h = "Lsp hover",
+    d = "Lsp definition",
+    D = "Lsp declaration",
+    i = "Lsp implementation",
+    r = "Lsp references",
+    o = "Lsp open diagbostic float window",
+    p = "Lsp go to previous diagbostic",
+    n = "Lsp go to next diagbostic",
+    k = "Lsp open signature help",
+}, { prefix = "g" })
