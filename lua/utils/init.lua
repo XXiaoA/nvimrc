@@ -49,4 +49,14 @@ function M.is_directory(path)
     return stat and stat.type == "directory" or false
 end
 
+--- Get the current nvim version
+---@return string
+function M.get_nvim_version()
+    local major = vim.tbl_get(vim.version(), "major")
+    local minor = vim.tbl_get(vim.version(), "minor")
+    local patch = vim.tbl_get(vim.version(), "patch")
+    local version = string.format("%d.%d.%d", major, minor, patch)
+    return version
+end
+
 return M
