@@ -1,3 +1,7 @@
+local utils = require("utils")
+
+local NVIM_VERSION = utils.get_nvim_version()
+
 -- 鼠标
 vim.o.mouse = "nv" -- "a"
 -- 禁止创建备份文件
@@ -76,9 +80,17 @@ vim.o.foldmethod = "marker"
 -- 折叠的级别（100）
 vim.o.foldlevel = 100
 vim.o.autoindent = true
+
 -- imporve the StartupTime (insteal of https://github.com/nathom/filetype.nvim)
-vim.g.do_filetype_lua = 1
-vim.g.did_load_filetypes = 0
+if NVIM_VERSION ~= "0.8.0" then -- the following in 0.8 is default
+    vim.g.do_filetype_lua = 1
+    vim.g.did_load_filetypes = 0
+end
+
 -- Ask for confirmation when handling unsaved or read-only files
 vim.o.confirm = true
 vim.o.signcolumn = "yes"
+
+if NVIM_VERSION == "0.8.0" then
+    vim.o.cmdheight = 0
+end
