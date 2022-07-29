@@ -199,9 +199,8 @@ wk.register({
 wk.register({
     r = {
         name = "SnipRun",
-        s = { "<cmd>SnipRun<cr>", "Run code snippet with SnipRun" },
+        r = { "<cmd>SnipRun<cr>", "Run code snippet with SnipRun" },
         c = { "<cmd>SnipClose<cr>", "Close SnipRun" },
-        r = { "Run file with toggleterm" },
     },
 }, { prefix = "<leader>" })
 
