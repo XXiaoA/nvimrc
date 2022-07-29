@@ -83,7 +83,7 @@ wk.register({
 }, { prefix = "<leader>" })
 
 wk.register({
-    ["<leader>/"] = { ":Telescope current_buffer_fuzzy_find<CR>", "FInd current buffer" }
+    ["<leader>/"] = { ":Telescope current_buffer_fuzzy_find<CR>", "FInd current buffer" },
 })
 
 -- Git keybinds.
@@ -102,7 +102,10 @@ wk.register({
     c = {
         name = "Theme",
         c = { ":lua require('core.colorscheme').changeColorschemeUI()<CR>", "Change ColorScheme" },
-        f = { ":Telescope colorscheme enable_preview=true<CR>", "Find Colorscheme with previwer " },
+        f = {
+            ":Telescope colorscheme enable_preview=true<CR>",
+            "Find Colorscheme with previwer ",
+        },
     },
 }, { prefix = "<leader>" })
 
@@ -128,7 +131,10 @@ wk.register({
         },
         w = {
             name = "Workspace",
-            l = { ":lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", "List Workspace Folder" },
+            l = {
+                ":lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>",
+                "List Workspace Folder",
+            },
             a = { ":lua vim.lsp.buf.add_workspace_folder()<CR>", "Add Workspace Folder" },
             r = { ":lua vim.lsp.buf.remove_workspace_folder()<CR>", "Remove Workspace Folder" },
         },

@@ -7,7 +7,10 @@ local M = {}
 function M.requirePlugin(plugin_name, message)
     local status_ok, plugin = pcall(require, plugin_name)
     if not status_ok and message ~= false then
-        vim.notify(" Failed to load: " .. plugin_name .. " (From requirePlugin)", vim.log.levels.WARN)
+        vim.notify(
+            " Failed to load: " .. plugin_name .. " (From requirePlugin)",
+            vim.log.levels.WARN
+        )
         return nil
     else
         if plugin ~= true then
