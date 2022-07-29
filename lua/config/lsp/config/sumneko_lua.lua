@@ -9,7 +9,7 @@ return {
                 -- Get the language server to recognize the `vim` global
                 globals = { "vim" },
 
-                disable = { "miss-parameter" },
+                disable = { "miss-parameter", "missing-parameter" },
             },
             workspace = {
                 -- Make the server aware of Neovim runtime files

@@ -82,10 +82,18 @@ use({ "L3MON4D3/LuaSnip", event = "InsertEnter" })
 use({ "saadparwaiz1/cmp_luasnip", after = { "nvim-cmp", "LuaSnip" } })
 
 -- 自动补全括号
-use({ "windwp/nvim-autopairs", after = "nvim-cmp", config = "require('config.plugins.nvim-autopairs')" })
+use({
+    "windwp/nvim-autopairs",
+    after = "nvim-cmp",
+    config = "require('config.plugins.nvim-autopairs')",
+})
 
 -- dressing.nvim
-use({ "stevearc/dressing.nvim", event = "VimEnter" })
+use({
+    "stevearc/dressing.nvim",
+    event = "VimEnter",
+    config = "require('config.plugins.dressing')",
+})
 
 -- 文件搜索 预览 等
 use({
@@ -99,7 +107,11 @@ use({
 })
 
 -- recent project
-use({ "ahmedkhalf/project.nvim", after = "telescope.nvim", config = "require('config.plugins.project')" })
+use({
+    "ahmedkhalf/project.nvim",
+    after = "telescope.nvim",
+    config = "require('config.plugins.project')",
+})
 
 -- 加速文件搜索速度,如果安装失败需要到插件目录执行make命令手动编译
 use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make", after = "telescope.nvim" })
@@ -119,7 +131,11 @@ use({
 })
 
 -- 命令行窗口
-use({ "akinsho/toggleterm.nvim", event = "VimEnter", config = "require('config.plugins.toggleterm')" })
+use({
+    "akinsho/toggleterm.nvim",
+    event = "VimEnter",
+    config = "require('config.plugins.toggleterm')",
+})
 
 -- copilot
 use({ "github/copilot.vim" })
@@ -133,7 +149,11 @@ use({
 })
 
 -- 启动页
-use({ "glepnir/dashboard-nvim", event = "VimEnter", config = "require('config.plugins.dashboard')" })
+use({
+    "glepnir/dashboard-nvim",
+    event = "VimEnter",
+    config = "require('config.plugins.dashboard')",
+})
 
 -- session
 use({
@@ -187,13 +207,21 @@ use({ "mfussenegger/nvim-dap" })
 use({ "rcarriga/nvim-dap-ui" })
 use({ "Pocco81/DAPInstall.nvim" })
 -- hightlight search,
-use({ "kevinhwang91/nvim-hlslens", event = "VimEnter", config = "require('config.plugins.hlslens')" })
+use({
+    "kevinhwang91/nvim-hlslens",
+    event = "VimEnter",
+    config = "require('config.plugins.hlslens')",
+})
 
 -- evaluates code blocks
 use({ "jubnzv/mdeval.nvim", ft = "markdown", config = "require('config.plugins.mdeval')" })
 
 -- register
-use({ "tversteeg/registers.nvim", event = "VimEnter", config = [[vim.g.registers_window_border = "single"]] })
+use({
+    "tversteeg/registers.nvim",
+    event = "VimEnter",
+    config = [[vim.g.registers_window_border = "single"]],
+})
 
 -- Delete Neovim buffers without losing window layout
 use({ "famiu/bufdelete.nvim", cmd = "Bdelete" })
