@@ -73,12 +73,17 @@ vim.o.smartcase = true
 vim.o.spell = false
 -- 设置拼写检查语言
 vim.o.spelllang = "en_us,cjk"
+
 -- 是否支持折叠
 vim.o.foldenable = true
 -- 折叠的方式
-vim.o.foldmethod = "marker"
+vim.o.foldmethod = "manual"
 -- 折叠的级别（100）
 vim.o.foldlevel = 100
+vim.o.foldlevelstart = 100
+vim.o.foldcolumn = "1"
+vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+
 vim.o.autoindent = true
 
 -- imporve the StartupTime (insteal of https://github.com/nathom/filetype.nvim)

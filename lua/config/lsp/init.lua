@@ -31,4 +31,11 @@ use({
     config = [[require("config.lsp.lspsaga")]],
 })
 
+use({
+    "kevinhwang91/nvim-ufo",
+    requires = "kevinhwang91/promise-async",
+    event = "VimEnter",
+    config = [[require("config.lsp.ufo")]],
+})
+
 require("config.lsp.setup")

@@ -242,6 +242,6 @@ use({
 
 use({
     "karb94/neoscroll.nvim",
-    event = "VimEnter",
+    keys = { "<C-u>", "<C-d>", "<C-b>", "<C-f>", "<C-y>", "<C-e>", "zt", "zz", "zb" },
     config = [[require('neoscroll').setup()]],
 })

@@ -53,8 +53,17 @@ local on_attach = function(client, bufnr)
     -- nmap({ '<space>D', lua vim.lsp.buf.type_definition, { buffer = bufnr }'})
 end
 
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.foldingRange = {
+    dynamicRegistration = false,
+    lineFoldingOnly = true,
+}
+
 local settings = {
     on_attach = on_attach,
+    capabilities = capabilities,
+    other_fields = ...,
 }
 
 local lua_settings = vim.tbl_extend("force", settings, require("config.lsp.config.sumneko_lua"))
