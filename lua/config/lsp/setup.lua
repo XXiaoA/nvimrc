@@ -5,9 +5,7 @@ if not mason_lspconfig or not lspconfig then
 end
 
 vim.diagnostic.config({
-    -- disable virtual text
     virtual_text = true,
-    -- show signs
     update_in_insert = true,
     underline = true,
     severity_sort = true,
@@ -46,13 +44,35 @@ local on_attach = function(client, bufnr)
     nmap({ "gn", vim.diagnostic.goto_next, { buffer = bufnr } })
     nmap({ "gk", vim.lsp.buf.signature_help, { buffer = bufnr } })
     nmap({ "<leader>=", vim.lsp.buf.formatting, { buffer = bufnr } })
-    -- nmap({ "<leader>q", vim.diagnostic.setloclist, { buffer = bufnr } })
-    -- nmap({ '<space>wa', vim.lsp.buf.add_workspace_folder, { buffer = bufnr }'})
-    -- nmap({ '<space>wr', vim.lsp.buf.remove_workspace_folder, { buffer = bufnr }'})
-    -- nmap({ '<space>wl', print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>, { buffer = bufnr }'})
-    -- nmap({ '<space>D', lua vim.lsp.buf.type_definition, { buffer = bufnr }'})
-end
 
+    -- configure for plugins
+    local ufo = require("utils").requirePlugin("ufo")
+    if not ufo then
+        return
+    end
+    ufo.setup({})
+
+    local saga = require("utils").requirePlugin("lspsaga")
+    if not saga then
+        return
+    end
+    saga.init_lsp_saga({
+        code_action_lightbulb = {
+            enable_in_insert = false,
+        },
+    })
+
+    local lsp_signature = require("utils").requirePlugin("lsp_signature")
+    if not lsp_signature then
+        return
+    end
+    require("lsp_signature").on_attach({
+        bind = true,
+        handler_opts = {
+            border = "single",
+        },
+    }, bufnr)
+end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.foldingRange = {
