@@ -34,8 +34,6 @@ vim.o.syntax = "enable"
 vim.o.cursorline = true
 -- 设置行号
 vim.o.number = true
--- 设置相对行号
--- vim.o.relativenumber = true
 -- 显示行尾空格
 vim.o.list = true
 -- 设置自动折行
@@ -43,8 +41,8 @@ vim.o.wrap = true
 -- 取消自动换行，把textwidth调大
 vim.o.textwidth = 1000
 -- jk移动时光标下上方保留8行
-vim.o.scrolloff = 10
-vim.o.sidescrolloff = 10
+vim.o.scrolloff = 15
+vim.o.sidescrolloff = 15
 -- 使用系统剪切板
 vim.o.clipboard = "unnamedplus"
 -- 设置自动缩进
