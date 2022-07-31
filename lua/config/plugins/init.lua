@@ -169,8 +169,9 @@ use({ "junegunn/vim-easy-align", event = "VimEnter" })
 use({ "machakann/vim-sandwich", event = "VimEnter" })
 -- 自动保存
 use({
-    "Pocco81/AutoSave.nvim",
+    "Pocco81/auto-save.nvim",
     event = "VimEnter",
+    commit = "8df684bcb3c5fff8fa9a772952763fc3f6eb75ad",
     config = function()
         vim.defer_fn(function()
             require("config.plugins.auto-save")
