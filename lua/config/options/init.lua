@@ -93,7 +93,3 @@ end
 -- Ask for confirmation when handling unsaved or read-only files
 vim.o.confirm = true
 vim.o.signcolumn = "yes"
-
-if NVIM_VERSION == "0.8.0" then
-    vim.o.cmdheight = 0
-end
