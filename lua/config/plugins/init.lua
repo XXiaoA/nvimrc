@@ -249,4 +249,5 @@ use({
 
 use({
     "fladson/vim-kitty",
+    ft = "kitty",
 })

@@ -1,10 +1,5 @@
 -- stylua: ignore
 return {
-    s("p", fmt([[
-    println!({});
-    ]], i(1) )
-    ),
-
     s("fn", fmt([[
     fn {}({}) {{
         {}
