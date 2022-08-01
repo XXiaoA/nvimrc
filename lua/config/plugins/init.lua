@@ -246,3 +246,7 @@ use({
     keys = { "<C-u>", "<C-d>", "<C-b>", "<C-f>", "<C-y>", "<C-e>", "zt", "zz", "zb" },
     config = [[require('neoscroll').setup()]],
 })
+
+use({
+    "fladson/vim-kitty",
+})
