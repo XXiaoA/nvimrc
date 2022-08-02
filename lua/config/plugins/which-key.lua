@@ -67,7 +67,7 @@ wk.register({
 }, { prefix = "<leader>" })
 
 wk.register({
-    ["<A-m>"] = { ":NeoTreeFocusToggle<CR>", "Toggle File Explorer" },
+    ["<A-m>"] = { ":NeoTreeShowToggle<CR>", "Toggle File Explorer" },
 })
 
 -- Finding different stuf.
