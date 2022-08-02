@@ -33,12 +33,12 @@ local floatTerm = Terminal:new({
     },
     on_open = function(term)
         vim.cmd("startinsert")
-        -- 浮动终端中 jj 是退出插入模式
-        bmap(term.bufnr, "t", "jj", "<C-\\><C-n>", opt)
+        -- 浮动终端中 <ESC> 是退出插入模式
+        bmap(term.bufnr, "t", "<ESC>", "<C-\\><C-n>", opt)
     end,
     on_close = function()
-        -- 重新映射 jj
-        gmap("t", "jj", "<C-\\><C-n>", opt)
+        -- 重新映射 <ESC>
+        gmap("t", "<ESC>", "<C-\\><C-n>", opt)
     end,
 })
 
@@ -57,7 +57,7 @@ local lazyGit = Terminal:new({
     end,
     on_close = function()
         -- 重新映射
-        gmap("t", "jj", "<C-\\><C-n>", opt)
+        gmap("t", "<ESC>", "<C-\\><C-n>", opt)
     end,
 })
 
