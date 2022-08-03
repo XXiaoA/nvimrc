@@ -27,7 +27,7 @@ use({ "p00f/nvim-ts-rainbow", after = "nvim-treesitter" })
 -- 缩进线
 use({
     "lukas-reineke/indent-blankline.nvim",
-    event = "VimEnter",
+    event = "BufWinEnter",
     config = "require('config.plugins.indent-blankline')",
 })
 
@@ -39,7 +39,7 @@ use({
 })
 
 -- 按键
-use({ "folke/which-key.nvim", event = "VimEnter", config = "require('config.plugins.which-key')" })
+use({ "folke/which-key.nvim", event = "BufWinEnter", config = "require('config.plugins.which-key')" })
 
 -- neo-tree
 use({
@@ -62,10 +62,10 @@ use({
 })
 
 -- Comment 注释
-use({ "numToStr/Comment.nvim", event = "VimEnter", config = "require('config.plugins.comment')" })
+use({ "numToStr/Comment.nvim", event = "BufWinEnter", config = "require('config.plugins.comment')" })
 
 -- lspkind
-use({ "onsails/lspkind-nvim", event = "VimEnter" })
+use({ "onsails/lspkind-nvim", event = "BufWinEnter" })
 
 -- nvim-cmp
 use({ "hrsh7th/nvim-cmp", config = "require('config.plugins.cmp')", after = "lspkind-nvim" })
@@ -119,7 +119,7 @@ use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make", after = "telesco
 -- code outline
 use({
     "stevearc/aerial.nvim",
-    event = "VimEnter",
+    event = "BufWinEnter",
     config = "require('config.plugins.aerial')",
 })
 
@@ -133,7 +133,7 @@ use({
 -- 命令行窗口
 use({
     "akinsho/toggleterm.nvim",
-    event = "VimEnter",
+    event = "BufWinEnter",
     config = "require('config.plugins.toggleterm')",
 })
 
@@ -143,7 +143,7 @@ use({ "github/copilot.vim" })
 -- 运行片段代码
 use({
     "michaelb/sniprun",
-    event = "VimEnter",
+    event = "BufWinEnter",
     run = "bash ./install.sh",
     config = "require('config.plugins.sniprun')",
 })
@@ -151,26 +151,26 @@ use({
 -- 启动页
 use({
     "glepnir/dashboard-nvim",
-    event = "VimEnter",
+    event = "BufWinEnter",
     config = "require('config.plugins.dashboard')",
 })
 
 -- session
 use({
     "Shatur/neovim-session-manager",
-    event = "VimEnter",
+    event = "BufWinEnter",
     config = "require('config.plugins.neovim-session-manager')",
 })
 
 -- 自动对齐
-use({ "junegunn/vim-easy-align", event = "VimEnter" })
+use({ "junegunn/vim-easy-align", event = "BufWinEnter" })
 
 -- vim-sandwich
-use({ "machakann/vim-sandwich", event = "VimEnter" })
+use({ "machakann/vim-sandwich", event = "BufWinEnter" })
 -- 自动保存
 use({
     "Pocco81/auto-save.nvim",
-    event = "VimEnter",
+    event = "BufWinEnter",
     commit = "8df684bcb3c5fff8fa9a772952763fc3f6eb75ad",
     config = function()
         vim.defer_fn(function()
@@ -180,18 +180,18 @@ use({
 })
 
 -- 运行时间
-use({ "dstein64/vim-startuptime", event = "VimEnter" })
+use({ "dstein64/vim-startuptime", event = "BufWinEnter" })
 
 -- 快速转跳
 use({
     "phaazon/hop.nvim",
     branch = "v1", -- optional but strongly recommended
-    event = "VimEnter",
+    event = "BufWinEnter",
     config = "require('config.plugins.hop')",
 })
 
 -- 中文文档
-use({ "yianwillis/vimcdoc", event = "VimEnter" })
+use({ "yianwillis/vimcdoc", event = "BufWinEnter" })
 
 -- 格式化代码
 use({
@@ -210,7 +210,7 @@ use({ "Pocco81/DAPInstall.nvim" })
 -- hightlight search,
 use({
     "kevinhwang91/nvim-hlslens",
-    event = "VimEnter",
+    event = "BufWinEnter",
     config = "require('config.plugins.hlslens')",
 })
 

@@ -12,7 +12,7 @@ use({ "williamboman/mason-lspconfig.nvim" })
 
 use({
     "ii14/emmylua-nvim",
-    event = "VimEnter",
+    event = "BufWinEnter",
 })
 
 -- lsp_signature
