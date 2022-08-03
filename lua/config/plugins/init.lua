@@ -39,7 +39,11 @@ use({
 })
 
 -- 按键
-use({ "folke/which-key.nvim", event = "BufWinEnter", config = "require('config.plugins.which-key')" })
+use({
+    "folke/which-key.nvim",
+    event = "BufWinEnter",
+    config = "require('config.plugins.which-key')",
+})
 
 -- neo-tree
 use({
@@ -62,7 +66,11 @@ use({
 })
 
 -- Comment 注释
-use({ "numToStr/Comment.nvim", event = "BufWinEnter", config = "require('config.plugins.comment')" })
+use({
+    "numToStr/Comment.nvim",
+    event = "BufWinEnter",
+    config = "require('config.plugins.comment')",
+})
 
 -- lspkind
 use({ "onsails/lspkind-nvim", event = "BufWinEnter" })
