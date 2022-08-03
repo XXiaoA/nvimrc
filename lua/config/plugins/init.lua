@@ -88,13 +88,6 @@ use({
     config = "require('config.plugins.nvim-autopairs')",
 })
 
--- dressing.nvim
-use({
-    "stevearc/dressing.nvim",
-    event = "VimEnter",
-    config = "require('config.plugins.dressing')",
-})
-
 -- 文件搜索 预览 等
 use({
     "nvim-telescope/telescope.nvim",
@@ -102,8 +95,15 @@ use({
         "nvim-lua/plenary.nvim",
         "kyazdani42/nvim-web-devicons",
     },
-    cmd = "Telescope",
+    event = "BufWinEnter",
     config = "require('config.plugins.telescope')",
+})
+
+-- dressing.nvim
+use({
+    "stevearc/dressing.nvim",
+    after = "telescope.nvim",
+    config = "require('config.plugins.dressing')",
 })
 
 -- recent project
