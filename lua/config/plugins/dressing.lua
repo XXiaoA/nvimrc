@@ -22,3 +22,17 @@ dressing.setup({
         },
     },
 })
+
+local nmap = require("core.keymap").set_keymap("n")
+
+nmap({
+    "q",
+    function()
+        local bf = vim.api.nvim_get_current_buf()
+        local filetype = vim.api.nvim_buf_get_option(bf, "filetype")
+        if filetype == "TelescopePrompt" then
+            vim.api.nvim_win_close(0, true)
+        end
+    end,
+})
+
