@@ -1,20 +1,27 @@
 local M = {}
-local keymap = {}
 
+M.descriptions = {}
+
+---@param mode string|table
 function M.set_keymap(mode)
-    return function(tbl)
-        local options = {
+    --- set a new keymap
+    ---@param lhs string
+    ---@param rhs string|function
+    ---@param opts table
+    ---@param desc string
+    return function(lhs, rhs, opts, desc)
+        opts = opts or {}
+
+        local options = vim.tbl_extend("force", {
             noremap = true,
             silent = true,
-        }
+        }, opts)
 
-        if #tbl >= 3 then
-            options = vim.tbl_extend("force", options, tbl[3])
-            if type(tbl[4]) == "string" then
-                keymap[tbl[1]] = tbl[4]
-            end
+        if type(desc) == "string" then
+            M.descriptions[lhs] = desc
         end
-        vim.keymap.set(mode, tbl[1], tbl[2], options)
+
+        vim.keymap.set(mode, lhs, rhs, options)
     end
 end
 

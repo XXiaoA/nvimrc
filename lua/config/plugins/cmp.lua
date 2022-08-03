@@ -10,7 +10,7 @@ end
 require("luasnip.loaders.from_lua").load({ paths = "./snippets" })
 -- keymap for luasnip
 local map = require("core.keymap").set_keymap
-map({ "i", "s" })({ "<c-u>", [[<cmd>lua require("luasnip.extras.select_choice")()<cr>]] })
+map({ "i", "s" })("<c-u>", [[<cmd>lua require("luasnip.extras.select_choice")()<cr>]])
 
 cmp.setup({
     experimental = {
