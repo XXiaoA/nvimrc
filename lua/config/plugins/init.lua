@@ -217,13 +217,6 @@ use({
 -- evaluates code blocks
 use({ "jubnzv/mdeval.nvim", ft = "markdown", config = "require('config.plugins.mdeval')" })
 
--- register
-use({
-    "tversteeg/registers.nvim",
-    event = "VimEnter",
-    config = [[vim.g.registers_window_border = "single"]],
-})
-
 -- Delete Neovim buffers without losing window layout
 use({ "famiu/bufdelete.nvim", cmd = "Bdelete" })
 
