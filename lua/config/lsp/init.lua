@@ -21,7 +21,7 @@ use({
 })
 
 use({
-    "glepnir/lspsaga.nvim",
+    "XXiaoA/lspsaga.nvim",
     branch = "main",
 })
 
