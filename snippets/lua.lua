@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 -- stylua: ignore
 return {
     s("p", {
@@ -36,25 +37,5 @@ return {
     ]], i(1) )
     ),
 
-    s("fu", fmt([[
-    function {}({})
-        {}
-    end
-    ]], {
-        i(1, "name"),
-        i(2),
-        i(3, "-- code")
-        })
-    ),
-
-    s("f=", fmt([[
-    {} = function({})
-        {}
-    end
-    ]], {
-        i(1, "name"),
-        i(2),
-        i(3, "-- code")
-        })
-    ),
+    s("l", t("local ")),
 }
