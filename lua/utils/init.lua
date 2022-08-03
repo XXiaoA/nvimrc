@@ -3,14 +3,12 @@ local M = {}
 --- require plugin and check if it exists
 ---@param plugin_name (string)
 ---@param message (boolean)
----@return nil if plugin doesn't exists
+---@return any
 function M.requirePlugin(plugin_name, message)
     local status_ok, plugin = pcall(require, plugin_name)
     if not status_ok and message ~= false then
-        vim.notify(
-            " Failed to load: " .. plugin_name .. " (From requirePlugin)",
-            vim.log.levels.WARN
-        )
+        local hint = string.format("requirePlugin: Failed to load '%s'", plugin_name)
+        vim.notify(hint, vim.log.levels.WARN)
         return nil
     else
         if plugin ~= true then
@@ -20,8 +18,8 @@ function M.requirePlugin(plugin_name, message)
     return nil
 end
 
---- read config in .config.yml
----@param option (string)
+--- read the configuration
+---@param option string
 function M.readConfig(option)
     local file_path = os.getenv("XDG_CONFIG_HOME") .. "/nvim/.config.yml"
 
