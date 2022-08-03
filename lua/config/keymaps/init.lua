@@ -22,18 +22,14 @@ vmap({ "<A-k>", ":m '<-2<cr>gv" })
 vmap({ "<A-j>", ":m '>+1<cr>gv" })
 
 -- 移动到行首/行末
-imap({ "<C-h>", "<ESC>I" })
-imap({ "<C-l>", "<ESC>A" })
+imap({ "<C-h>", "<C-o>I" })
+imap({ "<C-l>", "<C-o>A" })
 
 -- 保存/退出
 imap({ "<C-s>", "<ESC>:w<CR>" })
 imap({ "<C-q>", "<ESC>:qall<CR>" })
 nmap({ "W", ":w<CR>" })
 nmap({ "Q", ":qall<cr>" })
-
--- ctrl u / ctrl + d  只移动10行，默认移动半屏
-nmap({ "<C-u>", "10k" })
-nmap({ "<C-d>", "10j" })
 
 -- 输入模式/选择模式 jj/JJ 退出
 vmap({ "JJ", "<ESC>" })
