@@ -1,9 +1,9 @@
 local M = {}
 local colorschemes = {}
 
---- add_colorscheme
----@param name(string)
----@param tbl(table)
+--- add a new colorscheme
+---@param name string: name of colorscheme
+---@param tbl table: used by packer
 function M.add_colorscheme(name, tbl)
     if type(name) == "string" then
         table.insert(colorschemes, name)
