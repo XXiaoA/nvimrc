@@ -241,3 +241,9 @@ use({
     "fladson/vim-kitty",
     ft = "kitty",
 })
+
+use({
+    "907th/vim-auto-save",
+    event = "BufWinEnter",
+    config = "require('config.plugins.auto-save')",
+})
