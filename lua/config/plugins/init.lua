@@ -176,14 +176,6 @@ use({ "junegunn/vim-easy-align", event = "BufWinEnter" })
 -- vim-sandwich
 use({ "machakann/vim-sandwich", event = "BufWinEnter" })
 
--- 自动保存
-use({
-    "Pocco81/auto-save.nvim",
-    event = "BufWinEnter",
-    branch = "dev",
-    config = [[require("config.plugins.auto-save")]],
-})
-
 -- 运行时间
 use({ "dstein64/vim-startuptime", event = "BufWinEnter" })
 
