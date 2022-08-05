@@ -1,8 +1,6 @@
 local actions = require("utils").requirePlugin("telescope.actions")
 local telescope = require("utils").requirePlugin("telescope")
 
--- Global remapping
-------------------------------
 if not actions or not telescope then
     return
 end
@@ -14,7 +12,7 @@ telescope.setup({
                 ["q"] = actions.close,
             },
         },
-        file_ignore_patterns = { "./node_modules" },
+        file_ignore_patterns = { "./node_modules", ".*~" },
     },
 
     extensions = {
