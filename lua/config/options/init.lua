@@ -1,13 +1,16 @@
 local utils = require("utils")
 
 local NVIM_VERSION = utils.get_nvim_version()
+local cache_dir = os.getenv("HOME") .. "/.cache/nvim/"
 
 -- 鼠标
 vim.o.mouse = "nv" -- "a"
--- 禁止创建备份文件
-vim.o.backup = false
-vim.o.writebackup = false
-vim.o.swapfile = false
+-- open backup
+vim.o.backup = true
+vim.o.writebackup = true
+vim.o.backupdir = cache_dir .. "backup/"
+-- open swap
+vim.o.swapfile = true
 -- F9打开/关闭粘贴模式
 vim.o.pastetoggle = "<F9>"
 -- 编码设置
