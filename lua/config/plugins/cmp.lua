@@ -28,8 +28,8 @@ cmp.setup({
     },
     -- 来源
     sources = cmp.config.sources({
-        { name = "luasnip" },
         { name = "nvim_lsp" },
+        { name = "luasnip" },
         { name = "nvim_lua" },
         { name = "buffer" },
         { name = "path" },
