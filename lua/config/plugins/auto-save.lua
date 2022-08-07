@@ -1,1 +1,6 @@
-vim.g.auto_save = 1
+local as = require("utils").requirePlugin("auto-save")
+if not as then
+    return
+end
+
+as.setup({})

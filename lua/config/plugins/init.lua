@@ -249,7 +249,7 @@ use({
 })
 
 use({
-    "907th/vim-auto-save",
+    "XXiaoA/auto-save.nvim",
     event = "BufWinEnter",
     config = "require('config.plugins.auto-save')",
 })
