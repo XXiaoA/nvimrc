@@ -1,6 +1,3 @@
-local utils = require("utils")
-
-local NVIM_VERSION = utils.get_nvim_version()
 local cache_dir = os.getenv("HOME") .. "/.cache/nvim/"
 
 -- 鼠标
@@ -86,12 +83,6 @@ vim.o.foldcolumn = "1"
 vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 
 vim.o.autoindent = true
-
--- imporve the StartupTime (insteal of https://github.com/nathom/filetype.nvim)
-if NVIM_VERSION ~= "0.8.0" then -- the following in 0.8 is default
-    vim.g.do_filetype_lua = 1
-    vim.g.did_load_filetypes = 0
-end
 
 -- Ask for confirmation when handling unsaved or read-only files
 vim.o.confirm = true

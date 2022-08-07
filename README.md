@@ -2,10 +2,7 @@
 
 ## Version
 ```sh
-NVIM v0.7.2
-Build type: Release
-LuaJIT 2.1.0-beta3
-Compiled by builder@3d0cc98614fd
+nightly
 ```
 
 <br>
