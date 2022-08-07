@@ -1,9 +1,9 @@
 # TODO
 - [ ] plugins:
-    - [ ] <https://github.com/glepnir/lspsaga.nvim>
     - [ ] <https://github.com/jose-elias-alvarez/null-ls.nvim>
-    - [ ] nvim-ufo
     - [ ] rcarriga/nvim-notify (with sniprun)  
+    - [ ] <https://github.com/glepnir/lspsaga.nvim>
+    - [x] nvim-ufo
     - [x] [EdenEast/nightfox](https://github.com/EdenEast/nightfox.nvim/) 
     - [x] [chentau/marks.nvim](https://github.com/chentau/marks.nvim) 
     - [x] [stevearc/dressing.nvim](https://github.com/stevearc/dressing.nvim)
@@ -19,8 +19,8 @@
         - [x] ~~between [ggandor/lightspeed.nvim](https://github.com/ggandor/lightspeed.nvim) and hop.nvim~~
 - [ ] 配置插件  
     - [ ] mfussenegger/nvim-dap
-    - [ ] nvim-treesitter/nvim-treesitter
     - [ ] junegunn/vim-easy-align
+    - [x] nvim-treesitter/nvim-treesitter
     - [x] ray-x/lsp_signature.nvim  
     - [x] nvim-telescope/telescope.nvim
     - [x] hrsh7th/nvim-cmp
@@ -28,11 +28,11 @@
     - [x] voldikss/vim-translator
     - [x] windwp/nvim-autopairs
     - [x] michaelb/sniprun
-- [ ] lazyload
+- [x] lazyload
 - [ ] 配置LSP:  
     - [ ] clangd (c, c++)
     - [ ] pylsp (python)
     - [ ] vim (vimls)
     - [ ] rust_analyzer 
     - [x] sumneko_lua (lua)
-- [ ] 完善文档
+- [ ] ~~完善文档~~
