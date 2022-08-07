@@ -10,7 +10,7 @@ vim.o.backup = true
 vim.o.writebackup = true
 vim.o.backupdir = cache_dir .. "backup/"
 -- open swap
-vim.o.swapfile = true
+vim.o.swapfile = false
 -- F9打开/关闭粘贴模式
 vim.o.pastetoggle = "<F9>"
 -- 编码设置
