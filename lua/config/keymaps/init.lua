@@ -26,8 +26,8 @@ imap("<C-h>", "<C-o>I")
 imap("<C-l>", "<C-o>A")
 
 -- 保存/退出
-imap("<C-s>", "<ESC>:w<CR>")
-imap("<C-q>", "<ESC>:qall<CR>")
+imap("<C-s>", "<C-o>:w<CR>")
+imap("<C-q>", "<C-o>:qall<CR>")
 nmap("W", ":w<CR>")
 nmap("Q", ":qall<cr>")
 
