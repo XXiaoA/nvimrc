@@ -44,7 +44,8 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
 })
 
 ---@diagnostic disable-next-line: unused-local
-local on_attach = function(client, bufnr)
+local function on_attach(client, bufnr)
+    -- keymap
     local nmap = require("core.keymap").set_keymap("n")
     nmap("<leader>rn", vim.lsp.buf.rename, { buffer = bufnr })
     nmap("<space>ca", vim.lsp.buf.code_action, { buffer = bufnr })
@@ -62,33 +63,10 @@ local on_attach = function(client, bufnr)
     nmap("gk", vim.lsp.buf.signature_help, { buffer = bufnr })
     nmap("<leader>=", vim.lsp.buf.formatting, { buffer = bufnr })
 
-    -- configure for plugins
-    local ufo = require("utils").requirePlugin("ufo")
-    if not ufo then
-        return
-    end
-    ufo.setup({})
-
-    local saga = require("utils").requirePlugin("lspsaga")
-    if not saga then
-        return
-    end
-    saga.init_lsp_saga({
-        code_action_lightbulb = {
-            enable_in_insert = false,
-        },
-    })
-
-    local lsp_signature = require("utils").requirePlugin("lsp_signature")
-    if not lsp_signature then
-        return
-    end
-    require("lsp_signature").on_attach({
-        bind = true,
-        handler_opts = {
-            border = "single",
-        },
-    }, bufnr)
+    -- require plugins
+    require("config.lsp.lspsaga")
+    require("config.lsp.ufo")
+    require("config.lsp.signature")
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -104,7 +82,6 @@ local settings = {
 }
 
 local lua_settings = vim.tbl_extend("force", settings, require("config.lsp.settings.sumneko_lua"))
-
 mason_lspconfig.setup_handlers({
     function(server_name)
         lspconfig[server_name].setup(settings)
