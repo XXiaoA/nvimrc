@@ -1,5 +1,7 @@
 local utils = require("utils")
 
+local user_group = vim.api.nvim_create_augroup("user_group", { clear = true })
+
 -- Exit nvim when we only have the following types of windows {{{
 local quit_current_win = function()
     local quit_filetypes = { "neo-tree", "aerial" }
@@ -18,26 +20,26 @@ local quit_current_win = function()
     end
 end
 
-vim.api.nvim_create_autocmd("BufEnter", { callback = quit_current_win })
+vim.api.nvim_create_autocmd("BufEnter", { callback = quit_current_win, group = user_group })
 -- }}}
 
 -- smart number from https://github.com/jeffkreeftmeijer/vim-numbertoggle {{{
-local numbertoggle = vim.api.nvim_create_augroup("numbertoggle", { clear = true })
 
 vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave", "WinEnter" }, {
     command = [[if &nu && mode() != 'i' | set rnu   | endif]],
-    group = numbertoggle,
+    group = user_group,
 })
 
 vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter", "WinLeave" }, {
     command = [[if &nu | set nornu | endif]],
-    group = numbertoggle,
+    group = user_group,
 })
 -- }}}
 
 -- Disable inserting comment leader after hitting o or O or <Enter>
 vim.api.nvim_create_autocmd("FileType", {
     command = "set formatoptions-=ro",
+    group = user_group,
 })
 
 -- When saving a file, automatically create the file's parent
@@ -49,10 +51,12 @@ local function mkdir()
 end
 vim.api.nvim_create_autocmd({ "BufWritePre", "FileWritePre" }, {
     callback = mkdir,
+    group = user_group,
 })
 
 -- replace != with ~= in lua file
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "lua",
     command = "iabbr <buffer> != ~=",
+    group = user_group,
 })
