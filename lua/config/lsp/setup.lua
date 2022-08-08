@@ -61,7 +61,7 @@ local function on_attach(client, bufnr)
     nmap("gp", vim.diagnostic.goto_prev, { buffer = bufnr })
     nmap("gn", vim.diagnostic.goto_next, { buffer = bufnr })
     nmap("gk", vim.lsp.buf.signature_help, { buffer = bufnr })
-    nmap("<leader>=", vim.lsp.buf.formatting, { buffer = bufnr })
+    nmap("<leader>=", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", { buffer = bufnr })
 
     -- require plugins
     require("config.lsp.lspsaga")
@@ -99,5 +99,9 @@ mason_lspconfig.setup_handlers({
 
     ["sumneko_lua"] = function()
         lspconfig.sumneko_lua.setup(lua_settings)
+    end,
+
+    ["rust_analyzer"] = function()
+        lspconfig.rust_analyzer.setup(settings)
     end,
 })
