@@ -30,4 +30,8 @@ use({
     requires = "kevinhwang91/promise-async",
 })
 
+use({
+    "simrat39/rust-tools.nvim",
+})
+
 require("config.lsp.setup")

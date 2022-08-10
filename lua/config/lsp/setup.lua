@@ -102,6 +102,11 @@ mason_lspconfig.setup_handlers({
     end,
 
     ["rust_analyzer"] = function()
-        lspconfig.rust_analyzer.setup(settings)
+        require("rust-tools").setup({
+            server = {
+                on_attach = on_attach
+                -- on_attach = function(_, bufnr) end,
+            },
+        })
     end,
 })
