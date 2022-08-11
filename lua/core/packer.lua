@@ -1,5 +1,7 @@
 local M = {}
-local plugins = {}
+local packer_bootstrap
+
+M.plugins = {}
 
 -- 在没有安装packer的电脑上，自动安装packer插件
 function M.init_packer()
@@ -7,7 +9,7 @@ function M.init_packer()
     local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
     if fn.empty(fn.glob(install_path)) > 0 then
         vim.notify("Start cloning packer.nvim...")
-        fn.system({
+        packer_bootstrap = fn.system({
             "git",
             "clone",
             "--depth",
@@ -15,22 +17,26 @@ function M.init_packer()
             "https://github.com/wbthomason/packer.nvim",
             install_path,
         })
-        vim.cmd("packadd packer.nvim")
+        vim.cmd([[packadd packer.nvim]])
         vim.notify("Clone the packer.nvim successfully")
     end
 end
 
 function M.load_plugins()
-    return require("packer").startup(function()
-        for _, plugin in ipairs(plugins) do
-            ---@diagnostic disable-next-line: undefined-global
+    return require("packer").startup(function(use)
+        for _, plugin in ipairs(M.plugins) do
             use(plugin)
+        end
+
+        -- Put this at the end after all plugins
+        if packer_bootstrap then
+            require("packer").sync()
         end
     end)
 end
 
 function M.add_plugin(repo)
-    table.insert(plugins, repo)
+    table.insert(M.plugins, repo)
 end
 
 return M
