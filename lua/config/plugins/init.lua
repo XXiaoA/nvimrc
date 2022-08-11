@@ -83,7 +83,6 @@ use({ "hrsh7th/cmp-path", after = "nvim-cmp" })
 use({ "hrsh7th/cmp-cmdline", after = "nvim-cmp" })
 use({ "hrsh7th/cmp-nvim-lua", after = "nvim-cmp" })
 use({ "hrsh7th/cmp-emoji", after = "nvim-cmp" })
-use({ "petertriho/cmp-git", after = "nvim-cmp", config = [[ require("cmp_git").setup({}) ]] })
 
 -- snippets
 use({ "L3MON4D3/LuaSnip", event = "InsertEnter" })
