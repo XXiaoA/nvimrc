@@ -36,9 +36,9 @@ use({
 
 use({
     "RRethy/vim-illuminate",
-    config =function ()
+    config = function()
         require("config.lsp.illuminate")
-    end
+    end,
 })
 
 require("config.lsp.setup")

@@ -5,3 +5,4 @@ lsp
 config
 buf
 treesitter
+cmp
