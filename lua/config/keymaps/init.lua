@@ -69,4 +69,4 @@ tmap("<C-l>", [[<C-\><C-n><C-W>l]])
 nmap("<leader>i", "gg=G")
 
 -- Toggle spelling check
-nmap("<leader>sp", ":<C-U>set spell!<CR>", {}, "Toggle spelling check")
+nmap("<leader>sp", ":<C-U>set spell!<CR>", { desc = "Toggle spelling check" })

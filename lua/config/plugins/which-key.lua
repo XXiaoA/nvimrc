@@ -239,11 +239,3 @@ wk.register({
     n = "Lsp go to next diagbostic",
     k = "Lsp open signature help",
 }, { prefix = "g" })
-
--- add description from user's keymap
-local descriptions = require("core.keymap").descriptions
-for lhs, desc in pairs(descriptions) do
-    wk.register({
-        [lhs] = desc,
-    })
-end
