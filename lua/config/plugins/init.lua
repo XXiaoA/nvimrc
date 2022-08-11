@@ -24,12 +24,6 @@ use({
 -- 彩色括号
 use({ "p00f/nvim-ts-rainbow", after = "nvim-treesitter" })
 
-use({
-    "nvim-treesitter/nvim-treesitter-context",
-    after = "nvim-treesitter",
-    config = "require('config.plugins.treesitter-context')",
-})
-
 -- 缩进线
 use({
     "lukas-reineke/indent-blankline.nvim",
