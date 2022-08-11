@@ -66,17 +66,19 @@ local function on_attach(client, bufnr)
     -- require plugins
     require("config.lsp.lspsaga")
     require("config.lsp.ufo")
+
     local lsp_signature = require("utils").requirePlugin("lsp_signature")
     if not lsp_signature then
         return
     end
-
     lsp_signature.on_attach({
         bind = true,
         handler_opts = {
             border = "single",
         },
     }, bufnr)
+
+    require("illuminate").on_attach(client)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -104,7 +106,7 @@ mason_lspconfig.setup_handlers({
     ["rust_analyzer"] = function()
         require("rust-tools").setup({
             server = {
-                on_attach = on_attach
+                on_attach = on_attach,
                 -- on_attach = function(_, bufnr) end,
             },
         })
