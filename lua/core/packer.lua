@@ -6,6 +6,7 @@ function M.init_packer()
     local fn = vim.fn
     local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
     if fn.empty(fn.glob(install_path)) > 0 then
+        vim.notify("Start cloning packer.nvim...")
         fn.system({
             "git",
             "clone",
@@ -15,6 +16,7 @@ function M.init_packer()
             install_path,
         })
         vim.cmd("packadd packer.nvim")
+        vim.notify("Clone the packer.nvim successfully")
     end
 end
 
