@@ -4,5 +4,5 @@ if not as then
 end
 
 as.setup({
-    disabled_patterns = "wezterm.lua",
+    disabled_patterns = { "wezterm.lua" },
 })
