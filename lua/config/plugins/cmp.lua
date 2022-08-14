@@ -38,6 +38,7 @@ cmp.setup({
         { name = "buffer" },
         { name = "path" },
         { name = "emoji" },
+        { name = "nvim_lsp_signature_help" },
     }),
     -- 快捷键
     mapping = {
@@ -90,6 +91,8 @@ cmp.setup({
                 -- Source 显示提示来源
                 if entry.source.name == "nvim_lsp" then
                     vim_item.menu = "[LSP]"
+                elseif entry.source.name == "nvim_lsp_signature_help" then
+                    vim_item.menu = ""
                 else
                     vim_item.menu = "[" .. string.upper(entry.source.name) .. "]"
                 end

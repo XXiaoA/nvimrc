@@ -66,18 +66,6 @@ local function on_attach(client, bufnr)
     -- require plugins
     require("config.lsp.lspsaga")
     require("config.lsp.ufo")
-
-    local lsp_signature = require("utils").requirePlugin("lsp_signature")
-    if not lsp_signature then
-        return
-    end
-    lsp_signature.on_attach({
-        bind = true,
-        handler_opts = {
-            border = "single",
-        },
-    }, bufnr)
-
     require("illuminate").on_attach(client)
 end
 

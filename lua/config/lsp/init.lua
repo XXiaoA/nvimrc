@@ -15,11 +15,6 @@ use({
     event = "BufWinEnter",
 })
 
--- lsp_signature
-use({
-    "ray-x/lsp_signature.nvim",
-})
-
 use({
     "glepnir/lspsaga.nvim",
     branch = "main",
