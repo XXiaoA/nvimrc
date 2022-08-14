@@ -3,4 +3,6 @@ if not as then
     return
 end
 
-as.setup({})
+as.setup({
+    disabled_patterns = "wezterm.lua",
+})
