@@ -8,3 +8,4 @@ treesitter
 cmp
 wezterm
 nvim
+autocmd
