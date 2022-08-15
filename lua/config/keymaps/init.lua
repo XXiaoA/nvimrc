@@ -21,10 +21,6 @@ imap("<A-j>", "<ESC>:m .+1<cr>i")
 vmap("<A-k>", ":m '<-2<cr>gv")
 vmap("<A-j>", ":m '>+1<cr>gv")
 
--- 移动到行首/行末
-imap("<C-h>", "<C-o>I")
-imap("<C-l>", "<C-o>A")
-
 -- 保存/退出
 imap("<C-s>", "<C-o>:w<CR>")
 imap("<C-q>", "<C-o>:qall<CR>")
