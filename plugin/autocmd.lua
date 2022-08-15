@@ -64,6 +64,7 @@ vim.api.nvim_create_autocmd("FileType", {
 -- restore last position
 vim.api.nvim_create_autocmd("BufReadPost", {
     pattern = "*",
+    group = user_group,
     command = [[
   if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
     exe "normal! g`\""

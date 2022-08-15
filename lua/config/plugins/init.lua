@@ -247,5 +247,3 @@ use({
     event = "BufWinEnter",
     config = "require('config.plugins.auto-save')",
 })
-
-use({ "h-hg/fcitx.nvim" })
