@@ -9,3 +9,5 @@ cmp
 wezterm
 nvim
 autocmd
+keymaps
+utf
