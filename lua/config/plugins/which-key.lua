@@ -62,7 +62,7 @@ wk.register({
 wk.register({
     n = {
         name = "File Explorer",
-        f = { ":NeoTreeFocus<CR>", "Focus on File Explorer" },
+        n = { ":NeoTreeFocusToggle<CR>", "Focus on File Explorer" },
     },
 }, { prefix = "<leader>" })
 
