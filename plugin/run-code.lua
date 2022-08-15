@@ -13,4 +13,4 @@ local function run_code()
     end
 end
 
-nmap("<F5>", run_code)
+nmap("<F5>", run_code, { desc = "Run code" })

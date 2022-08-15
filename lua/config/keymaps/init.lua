@@ -30,7 +30,6 @@ nmap("Q", ":qall<cr>")
 -- 输入模式/选择模式 jj/JJ 退出
 vmap("JJ", "<ESC>")
 imap("jj", "<ESC>")
-imap("JJ", "<ESC>")
 
 -- visual模式下缩进代码
 vmap("<", "<gv")
@@ -53,10 +52,10 @@ nmap("sj", ":resize +10<CR>")
 nmap("sk", ":resize -10<CR>")
 
 -- ctrl + hjkl  窗口之间跳转
-nmap("<C-h>", "<C-w>h")
-nmap("<C-j>", "<C-w>j")
-nmap("<C-k>", "<C-w>k")
-nmap("<C-l>", "<C-w>l")
+nmap("<C-h>", "<C-w>h", { desc = "Jump to left window" })
+nmap("<C-j>", "<C-w>j", { desc = "Jump to below window" })
+nmap("<C-k>", "<C-w>k", { desc = "Jump to above window" })
+nmap("<C-l>", "<C-w>l", { desc = "Jump to right window" })
 tmap("<C-h>", [[<C-\><C-n><C-W>h]])
 tmap("<C-j>", [[<C-\><C-n><C-W>j]])
 tmap("<C-k>", [[<C-\><C-n><C-W>k]])
