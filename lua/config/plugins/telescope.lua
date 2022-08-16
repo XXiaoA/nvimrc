@@ -17,6 +17,7 @@ telescope.setup({
             ".*~",
             "vimcdoc",
             "/usr/share/nvim/runtime/doc",
+            "COMMIT_EDITMSG",
         },
     },
 
