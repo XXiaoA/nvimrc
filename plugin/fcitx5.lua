@@ -1,6 +1,5 @@
 -- check fcitx5-remote
 if vim.fn.executable("fcitx5-remote") ~= 1 then
-    vim.notify("You have no fcitx5-remote", vim.log.levels.ERROR)
     return
 end
 
