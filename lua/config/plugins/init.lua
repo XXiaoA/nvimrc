@@ -204,7 +204,7 @@ use({ "voldikss/vim-translator", cmd = "Translate" })
 use({ "mfussenegger/nvim-dap" })
 use({ "rcarriga/nvim-dap-ui" })
 use({ "Pocco81/DAPInstall.nvim" })
--- hightlight search,
+-- highlight search,
 use({
     "kevinhwang91/nvim-hlslens",
     event = "BufWinEnter",
