@@ -82,7 +82,6 @@ use({ "hrsh7th/cmp-buffer", after = "nvim-cmp" })
 use({ "hrsh7th/cmp-path", after = "nvim-cmp" })
 use({ "hrsh7th/cmp-cmdline", after = "nvim-cmp" })
 use({ "hrsh7th/cmp-nvim-lua", after = "nvim-cmp" })
-use({ "hrsh7th/cmp-emoji", after = "nvim-cmp" })
 use({ "hrsh7th/cmp-nvim-lsp-signature-help", after = "nvim-cmp" })
 
 -- snippets

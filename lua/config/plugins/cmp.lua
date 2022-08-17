@@ -37,7 +37,6 @@ cmp.setup({
         { name = "nvim_lua" },
         { name = "buffer" },
         { name = "path" },
-        { name = "emoji" },
         { name = "nvim_lsp_signature_help" },
     }),
     -- 快捷键
