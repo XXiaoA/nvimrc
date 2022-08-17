@@ -237,11 +237,6 @@ use({
 })
 
 use({
-    "fladson/vim-kitty",
-    ft = "kitty",
-})
-
-use({
     "XXiaoA/auto-save.nvim",
     event = "BufWinEnter",
     config = "require('config.plugins.auto-save')",
