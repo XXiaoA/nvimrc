@@ -29,8 +29,4 @@ use({
     "simrat39/rust-tools.nvim",
 })
 
-use({
-    "RRethy/vim-illuminate",
-})
-
 require("config.lsp.setup")
