@@ -91,4 +91,9 @@ return {
         i(2, "text")
     })
     ),
+
+    s( "underline", fmt([[
+    <u>{}</u>
+    ]], i(1))
+    ),
 }
