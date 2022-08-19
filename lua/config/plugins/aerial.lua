@@ -4,7 +4,6 @@ if not aerial then
     return
 end
 
-
 aerial.setup({
     backends = { "lsp", "treesitter", "markdown" },
     filter_kind = {
