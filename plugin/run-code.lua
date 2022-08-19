@@ -10,6 +10,8 @@ local function run_code()
         vim.cmd("RustRun")
     elseif file_type == "python" then
         vim.notify(vim.fn.system("python3 " .. file))
+    elseif file_type == "fish" then
+        vim.notify(vim.fn.system("fish " .. file))
     end
 end
 
