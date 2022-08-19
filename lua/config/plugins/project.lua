@@ -1,10 +1,11 @@
-local project = require("utils").requirePlugin("project_nvim")
+local requirePlugin = require("utils").requirePlugin
+local project = requirePlugin("project_nvim")
 if project then
     project.setup({})
 end
 
 -- telescope
-local telescope = require("utils").requirePlugin("telescope")
+local telescope = requirePlugin("telescope")
 if telescope then
     telescope.load_extension("projects")
 end
