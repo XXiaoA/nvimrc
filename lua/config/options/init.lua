@@ -79,7 +79,7 @@ vim.o.foldmethod = "manual"
 -- 折叠的级别（100）
 vim.o.foldlevel = 100
 vim.o.foldlevelstart = 100
-vim.o.foldcolumn = "1"
+-- vim.o.foldcolumn = "1"
 vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 
 vim.o.autoindent = true
