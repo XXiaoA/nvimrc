@@ -65,7 +65,7 @@ cmp.setup({
         -- ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
 
         ["<Tab>"] = cmp.mapping(function(fallback)
-            if luasnip.expand_or_jumpable() then
+            if luasnip.expand_or_locally_jumpable() then
                 luasnip.expand_or_jump()
             else
                 fallback()
