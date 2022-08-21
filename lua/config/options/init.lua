@@ -87,6 +87,3 @@ vim.o.autoindent = true
 -- Ask for confirmation when handling unsaved or read-only files
 vim.o.confirm = true
 vim.o.signcolumn = "yes"
-
--- winbar
-vim.o.winbar = "%f"
