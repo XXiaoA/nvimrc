@@ -11,9 +11,11 @@ require("catppuccin").setup({
             show_root = true,
             transparent_panel = false,
         },
+        lsp_saga = true,
         which_key = true,
         dashboard = true,
         ts_rainbow = true,
         hop = true,
+        aerial = true,
     },
 })
