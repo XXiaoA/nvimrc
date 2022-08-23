@@ -241,3 +241,15 @@ use({
     event = "BufWinEnter",
     config = "require('config.plugins.auto-save')",
 })
+
+use({
+    "aserowy/tmux.nvim",
+    config = function()
+        require("tmux").setup({
+            navigation = {
+                -- enables default keybindings (C-hjkl) for normal mode
+                enable_default_keybindings = true,
+            },
+        })
+    end,
+})
