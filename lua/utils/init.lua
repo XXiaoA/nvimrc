@@ -24,7 +24,7 @@ function M.readConfig(option)
     local file_path = os.getenv("XDG_CONFIG_HOME") .. "/nvim/.config.yml"
 
     for line in io.lines(file_path) do
-        local value = line:match(option .. ": (.*)")
+        local value = line:match(option .. [[%s*:%s*([^%s]*)]])
         if value then
             return value
         end
