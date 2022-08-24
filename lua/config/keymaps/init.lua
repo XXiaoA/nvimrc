@@ -65,3 +65,5 @@ nmap("<leader>i", "gg=G")
 
 -- Toggle spelling check
 nmap("<leader>sp", ":<C-U>set spell!<CR>", { desc = "Toggle spelling check" })
+
+nmap("/", [[/\v]])

@@ -17,3 +17,5 @@ nvim
 luasnip
 tmux
 init
+yaml
+toml
