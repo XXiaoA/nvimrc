@@ -55,7 +55,3 @@ npairs.add_rules({
         :with_del(cond.none())
         :use_key("]"),
 })
-
-npairs.add_rules({
-    Rule(">", ">"):with_pair(cond.none()):with_move(cond.done()),
-})

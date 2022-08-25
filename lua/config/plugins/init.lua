@@ -244,6 +244,7 @@ use({
 
 use({
     "aserowy/tmux.nvim",
+    event = "BufWinEnter",
     config = function()
         require("tmux").setup({
             navigation = {
@@ -252,4 +253,11 @@ use({
             },
         })
     end,
+})
+
+use({
+    "folke/todo-comments.nvim",
+    requires = "nvim-lua/plenary.nvim",
+    after = "nvim-cmp",
+    config = [[require("config.plugins.todo-comments")]]
 })
