@@ -24,6 +24,11 @@ use({
 -- 彩色括号
 use({ "p00f/nvim-ts-rainbow", after = "nvim-treesitter" })
 
+use({
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    after = "nvim-treesitter",
+})
+
 -- 缩进线
 use({
     "lukas-reineke/indent-blankline.nvim",
@@ -170,7 +175,7 @@ use({
 })
 
 -- 自动对齐
-use({ "junegunn/vim-easy-align", event = "BufWinEnter" })
+use({ "junegunn/vim-easy-align", cmd = "EasyAlign" })
 
 -- vim-sandwich
 use({ "machakann/vim-sandwich", event = "BufWinEnter" })
@@ -259,5 +264,5 @@ use({
     "folke/todo-comments.nvim",
     requires = "nvim-lua/plenary.nvim",
     after = "nvim-cmp",
-    config = [[require("config.plugins.todo-comments")]]
+    config = [[require("config.plugins.todo-comments")]],
 })
