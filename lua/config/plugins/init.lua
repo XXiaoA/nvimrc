@@ -24,11 +24,6 @@ use({
 -- 彩色括号
 use({ "p00f/nvim-ts-rainbow", after = "nvim-treesitter" })
 
-use({
-    "nvim-treesitter/nvim-treesitter-textobjects",
-    after = "nvim-treesitter",
-})
-
 -- 缩进线
 use({
     "lukas-reineke/indent-blankline.nvim",
@@ -265,4 +260,10 @@ use({
     requires = "nvim-lua/plenary.nvim",
     after = "nvim-cmp",
     config = [[require("config.plugins.todo-comments")]],
+})
+
+use({
+    "mfussenegger/nvim-treehopper",
+    event = "BufWinEnter",
+    config = [[require("config.plugins.treehopper")]],
 })

@@ -31,33 +31,4 @@ tsc.setup({
     },
     -- 基于Treesitter的代码格式化(=) . This is an experimental feature.
     indent = { enable = false },
-
-    -- https://github.com/nvim-treesitter/nvim-treesitter-textobjects
-    textobjects = {
-        select = {
-            enable = true,
-            lookahead = true,
-            keymaps = {
-                ["af"] = "@function.outer",
-                ["if"] = "@function.inner",
-                ["ac"] = "@class.outer",
-                ["ic"] = "@class.inner",
-            },
-            selection_modes = {
-                ["@parameter.outer"] = "v",
-                ["@function.outer"] = "V",
-                ["@class.outer"] = "<c-v>",
-            },
-
-            include_surrounding_whitespace = true,
-        },
-
-        lsp_interop = {
-            enable = true,
-            border = "single",
-            peek_definition_code = {
-                ["<leader>df"] = "@function.outer",
-            },
-        },
-    },
 })
