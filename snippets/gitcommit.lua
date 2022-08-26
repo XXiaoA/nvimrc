@@ -1,6 +1,5 @@
 -- stylua: ignore
 return {
-
     s("cc", {
         i(1, "type"),
         t("("),

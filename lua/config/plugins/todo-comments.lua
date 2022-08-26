@@ -49,27 +49,27 @@ _G.luasnip.vars = {
 
 --- Options for marks to be used in a TODO comment
 local marks = {
-    signature = function()
+    function()
+        return t("")
+    end,
+    function()
+        return fmt("<{}>", i(1, os.date("%d-%m-%y")))
+    end,
+    function()
         return fmt("<{}>", i(1, _G.luasnip.vars.username))
     end,
-    signature_with_email = function()
+    function()
+        return fmt("<{}{}>", { i(1, os.date("%d-%m-%y")), i(2, ", " .. _G.luasnip.vars.username) })
+    end,
+    function()
         return fmt("<{}{}>", { i(1, _G.luasnip.vars.username), i(2, " " .. _G.luasnip.vars.email) })
     end,
-    date_signature_with_email = function()
+    function()
         return fmt("<{}{}{}>", {
             i(1, os.date("%d-%m-%y")),
             i(2, ", " .. _G.luasnip.vars.username),
             i(3, " " .. _G.luasnip.vars.email),
         })
-    end,
-    date_signature = function()
-        return fmt("<{}{}>", { i(1, os.date("%d-%m-%y")), i(2, ", " .. _G.luasnip.vars.username) })
-    end,
-    date = function()
-        return fmt("<{}>", i(1, os.date("%d-%m-%y")))
-    end,
-    empty = function()
-        return t("")
     end,
 }
 
@@ -83,7 +83,6 @@ local todo_snippet_nodes = function(aliases, opts)
     end
     -- format them into the actual snippet
     local comment_node = fmta("<> <>: <> <> <><>", {
-        -- TODO:  <26-08-22, kunzaatko martinkunz@email.cz>
         f(function()
             return get_cstring(opts.ctype)[1] -- get <comment-string[1]>
         end),
