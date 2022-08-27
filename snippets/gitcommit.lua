@@ -1,85 +1,35 @@
--- stylua: ignore
-return {
-    s("cc", {
-        i(1, "type"),
-        t("("),
-        i(2, "scope"),
-        t("): "),
-        i(3, "title"),
-    }),
-
-    s("fix", {
-        t("fix("),
-        i(1, "scope"),
-        t("): "),
-        i(2, "title"),
-    }),
-
-    s("feat", {
-        t("feat("),
-        i(1, "scope"),
-        t("): "),
-        i(2, "title"),
-    }),
-
-    s("build", {
-        t("build("),
-        i(1, "scope"),
-        t("): "),
-        i(2, "title"),
-    }),
-
-    s("chore", {
-        t("chore("),
-        i(1, "scope"),
-        t("): "),
-        i(2, "title"),
-    }),
-
-    s("ci", {
-        t("ci("),
-        i(1, "scope"),
-        t("): "),
-        i(2, "title"),
-    }),
-
-    s("docs", {
-        t("docs("),
-        i(1, "scope"),
-        t("): "),
-        i(2, "title"),
-    }),
-
-    s("style", {
-        t("style("),
-        i(1, "scope"),
-        t("): "),
-        i(2, "title"),
-    }),
-
-    s("refactor", {
-        t("refactor("),
-        i(1, "scope"),
-        t("): "),
-        i(2, "title"),
-    }),
-
-    s("perf", {
-        t("perf("),
-        i(1, "scope"),
-        t("): "),
-        i(2, "title"),
-    }),
-
-    s("test", {
-        t("test("),
-        i(1, "scope"),
-        t("): "),
-        i(2, "title"),
-    }),
-
-    s("BREAK", {
-        t("BREAKING CHANGE: "),
-        i(1),
-    }),
+local types = {
+    "feat",
+    "fix",
+    "docs",
+    "style",
+    "refactor",
+    "perf",
+    "test",
+    "build",
+    "ci",
+    "chore",
+    "revert",
 }
+local snippets = {}
+
+for _, type in ipairs(types) do
+    table.insert(
+        snippets,
+        s(
+            type,
+            fmt([[{}: {}]], {
+                c(1, {
+                    i(1, type),
+                    fmt([[{}({})]], {
+                        t(type),
+                        i(1, "scope"),
+                    }),
+                }),
+                i(2, "title"),
+            })
+        )
+    )
+end
+
+return snippets
