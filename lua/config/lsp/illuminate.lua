@@ -14,6 +14,7 @@ illuminate.configure({
         "neo-tree",
         "aerial",
         "dashboard",
+        "markdown",
     },
     modes_allowlist = { "n" },
 })
