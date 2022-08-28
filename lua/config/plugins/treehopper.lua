@@ -6,3 +6,7 @@ local xmap = map("v")
 omap("m", ":<C-U>lua require('tsht').nodes()<CR>")
 xmap("m", ":lua require('tsht').nodes()<CR>")
 
+vim.cmd([[
+hi! link TSNodeKey HopNextKey
+hi! link TSNodeUnmatched HopUnmatched
+]])
