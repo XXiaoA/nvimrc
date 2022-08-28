@@ -140,4 +140,16 @@ for _, v in ipairs(todo_snippet_specs) do
     table.insert(todo_comment_snippets, todo_snippet(v[1], v[2], v[3]))
 end
 
-ls.add_snippets("all", todo_comment_snippets, { type = "snippets", key = "todo_comments" })
+-- https://github.com/L3MON4D3/LuaSnip/issues/554
+ls.add_snippets("commentable", todo_comment_snippets, { key = "todo_comments" })
+vim.api.nvim_create_autocmd("BufEnter", {
+    pattern = "*",
+    callback = function(arg)
+        local bufnr = arg.buf
+        local buf_ft = vim.api.nvim_buf_get_option(bufnr, "filetype")
+        if buf_ft == "gitcommit" then
+            return
+        end
+        ls.filetype_extend(buf_ft, { "commentable" })
+    end,
+})
