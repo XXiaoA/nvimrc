@@ -36,6 +36,10 @@ aerial.setup({
     },
 })
 
+local nmap = require("core.keymap").set_keymap("n")
+nmap("[f", "<cmd>AerialPrev<CR>")
+nmap("]f", "<cmd>AerialNext<CR>")
+
 -- telescope support
 local telescope = require("utils").requirePlugin("telescope")
 if telescope then
