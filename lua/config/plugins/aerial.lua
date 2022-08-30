@@ -44,4 +44,5 @@ nmap("]f", "<cmd>AerialNext<CR>")
 local telescope = require("utils").requirePlugin("telescope")
 if telescope then
     telescope.load_extension("aerial")
+    nmap("<leader>fa", "<cmd>Telescope aerial<cr>")
 end
