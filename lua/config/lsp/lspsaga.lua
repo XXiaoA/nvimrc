@@ -9,4 +9,5 @@ saga.init_lsp_saga({
         sign = true,
         virtual_text = false,
     },
+    rename_action_quit = "q",
 })

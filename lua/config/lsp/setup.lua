@@ -47,7 +47,8 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
 local function on_attach(client, bufnr)
     -- keymap
     local nmap = require("core.keymap").set_keymap("n")
-    nmap("<leader>rn", vim.lsp.buf.rename, { buffer = bufnr })
+    nmap("<leader>rn", "<cmd>Lspsaga rename<CR>", { buffer = bufnr })
+    -- nmap("<leader>rn", vim.lsp.buf.rename, { buffer = bufnr })
     nmap("<space>ca", vim.lsp.buf.code_action, { buffer = bufnr })
     nmap("gh", vim.lsp.buf.hover, { buffer = bufnr })
     -- nmap("gd", vim.lsp.buf.definition, { buffer = bufnr })

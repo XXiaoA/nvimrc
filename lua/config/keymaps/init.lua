@@ -71,3 +71,6 @@ imap("<M-O>", "<C-O>O")
 imap("<M-i>", "<Left>")
 imap("<M-I>", "<C-O>^")
 imap("<M-A>", "<C-O>$")
+
+nmap("H", "^")
+nmap("L", "$")
