@@ -10,3 +10,9 @@ vim.cmd([[
 hi! link TSNodeKey HopNextKey
 hi! link TSNodeUnmatched HopUnmatched
 ]])
+vim.api.nvim_create_autocmd("ColorScheme", {
+    command = [[
+hi! link TSNodeKey HopNextKey
+hi! link TSNodeUnmatched HopUnmatched
+    ]],
+})

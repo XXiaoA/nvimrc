@@ -17,18 +17,6 @@ map({ "i", "s" })("<C-l>", function()
 end)
 
 cmp.setup({
-    enabled = function()
-        -- disable completion in comments
-        local context = require("cmp.config.context")
-        -- keep command mode completion enabled when cursor is in a comment
-        if vim.api.nvim_get_mode().mode == "c" then
-            return true
-        else
-            return not context.in_treesitter_capture("comment")
-                and not context.in_syntax_group("Comment")
-        end
-    end,
-
     experimental = {
         ghost_text = true,
     },
@@ -74,6 +62,7 @@ cmp.setup({
             select = true,
             -- behavior = cmp.ConfirmBehavior.Replace
         }, { "i", "c" }),
+
         -- ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
 
         ["<Tab>"] = cmp.mapping(function(fallback)

@@ -16,6 +16,9 @@ vim.o.encoding = "utf-8"
 vim.o.updatetime = 100
 -- 连击频率
 vim.o.timeoutlen = 500
+vim.o.timeout = true
+vim.o.ttimeout = true
+vim.o.ttimeoutlen = 10
 -- 总是在当前目录下执行命令
 vim.o.autochdir = true
 -- 显示命令字符

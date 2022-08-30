@@ -153,3 +153,5 @@ vim.api.nvim_create_autocmd("BufEnter", {
         ls.filetype_extend(buf_ft, { "commentable" })
     end,
 })
+
+require("core.keymap").set_keymap("n")("<leader>ft", ":TodoTelescope<CR>")

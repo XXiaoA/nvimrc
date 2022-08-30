@@ -66,8 +66,6 @@ nmap("<leader>i", "gg=G")
 -- Toggle spelling check
 nmap("<leader>sp", ":<C-U>set spell!<CR>", { desc = "Toggle spelling check" })
 
-nmap("/", [[/\v]])
-
 imap("<M-o>", "<C-O>o")
 imap("<M-O>", "<C-O>O")
 imap("<M-i>", "<Left>")
