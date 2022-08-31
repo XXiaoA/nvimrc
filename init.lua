@@ -1,7 +1,7 @@
 local utils = require("utils")
 
 local NVIM_VERSION = utils.get_nvim_version()
-local EXPECTED_VERSION = { "0.7.2", "0.8.0" }
+local EXPECTED_VERSION = { "0.8.0" }
 
 require("core")
 
