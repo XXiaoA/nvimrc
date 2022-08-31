@@ -62,7 +62,7 @@ use({
     "s1n7ax/nvim-window-picker",
     tag = "v1.*",
     after = "neo-tree.nvim",
-    config = [[require("window-picker").setup() ]],
+    config = "require('config.plugins.window-picker')",
 })
 
 -- Comment 注释
@@ -215,8 +215,6 @@ use({ "jubnzv/mdeval.nvim", ft = "markdown", config = "require('config.plugins.m
 
 -- Delete Neovim buffers without losing window layout
 use({ "famiu/bufdelete.nvim", cmd = "Bdelete" })
-
-use({ "nacro90/numb.nvim", event = "BufRead", config = [[require('numb').setup()]] })
 
 use({
     "danymat/neogen",
