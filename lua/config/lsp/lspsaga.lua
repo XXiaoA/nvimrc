@@ -9,4 +9,7 @@ saga.init_lsp_saga({
         sign = true,
         virtual_text = false,
     },
+    show_outline = {
+        jump_key = "<CR>",
+    },
 })
