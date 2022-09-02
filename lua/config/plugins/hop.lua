@@ -8,7 +8,7 @@ if hop then
 end
 
 -- https://github.com/phaazon/hop.nvim/wiki/Advanced-Hop
-local map = require("core.keymap").set_keymap({ "n", "v", "s", "o" })
+local map = require("core.keymap").set_keymap({ "n", "x", "o" })
 map("f", function()
     hop.hint_char1({
         direction = require("hop.hint").HintDirection.AFTER_CURSOR,
