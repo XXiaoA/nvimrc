@@ -3,8 +3,9 @@ local map = require("core.keymap").set_keymap
 
 local nmap = map("n")
 local imap = map("i")
-local vmap = map("v")
+local xmap = map("x")
 local tmap = map("t")
+local omap = map("o")
 
 -- leader key 为空格
 vim.g.mapleader = " "
@@ -18,8 +19,8 @@ nmap("<A-k>", ":m .-2<cr>")
 nmap("<A-j>", ":m .+1<cr>")
 imap("<A-k>", "<ESC>:m .-2<cr>i")
 imap("<A-j>", "<ESC>:m .+1<cr>i")
-vmap("<A-k>", ":m '<-2<cr>gv")
-vmap("<A-j>", ":m '>+1<cr>gv")
+xmap("<A-k>", ":m '<-2<cr>gv")
+xmap("<A-j>", ":m '>+1<cr>gv")
 
 -- 保存/退出
 imap("<C-s>", "<C-o>:w<CR>")
@@ -28,12 +29,12 @@ nmap("W", ":w<CR>")
 nmap("Q", ":qall<cr>")
 
 -- 输入模式/选择模式 jj/JJ 退出
-vmap("JJ", "<ESC>")
+xmap("JJ", "<ESC>")
 imap("jj", "<ESC>")
 
 -- visual模式下缩进代码
-vmap("<", "<gv")
-vmap(">", ">gv")
+xmap("<", "<gv")
+xmap(">", ">gv")
 
 -- 分屏快捷键
 nmap("sv", ":vsp<CR>")
@@ -74,3 +75,7 @@ imap("<M-A>", "<C-O>$")
 
 nmap("H", "^")
 nmap("L", "$")
+omap("H", "^")
+omap("L", "$")
+xmap("H", "^")
+xmap("L", "$")

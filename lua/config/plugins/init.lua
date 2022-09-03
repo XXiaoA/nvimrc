@@ -265,3 +265,8 @@ use({
     event = "BufWinEnter",
     config = [[require("config.plugins.treehopper")]],
 })
+
+use({
+    "gpanders/editorconfig.nvim",
+    event = "BufWinEnter",
+})
