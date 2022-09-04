@@ -6,14 +6,6 @@ use({ "lewis6991/impatient.nvim", config = "require('impatient')" })
 -- Packer can manage itself
 use({ "wbthomason/packer.nvim" })
 
--- bufferline #buffer
-use({
-    "akinsho/bufferline.nvim",
-    requires = "kyazdani42/nvim-web-devicons",
-    event = "BufWinEnter",
-    config = "require('config.plugins.bufferline')",
-})
-
 -- treesitter 高亮
 use({
     "nvim-treesitter/nvim-treesitter",
@@ -24,38 +16,11 @@ use({
 -- 彩色括号
 use({ "p00f/nvim-ts-rainbow", after = "nvim-treesitter" })
 
--- 缩进线
-use({
-    "lukas-reineke/indent-blankline.nvim",
-    event = "BufWinEnter",
-    config = "require('config.plugins.indent-blankline')",
-})
-
--- 状态栏
-use({
-    "nvim-lualine/lualine.nvim",
-    requires = { "kyazdani42/nvim-web-devicons", opt = true },
-    config = "require('config.plugins.lualine')",
-})
-
 -- 按键
 use({
     "folke/which-key.nvim",
     event = "BufWinEnter",
     config = "require('config.plugins.which-key')",
-})
-
--- neo-tree
-use({
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v2.x",
-    requires = {
-        "nvim-lua/plenary.nvim",
-        "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
-        "MunifTanjim/nui.nvim",
-    },
-    event = "BufWinEnter",
-    config = "require('config.plugins.neo-tree')",
 })
 
 use({
@@ -106,13 +71,6 @@ use({
     config = "require('config.plugins.telescope')",
 })
 
--- dressing.nvim
-use({
-    "stevearc/dressing.nvim",
-    after = "telescope.nvim",
-    config = "require('config.plugins.dressing')",
-})
-
 -- recent project
 use({
     "ahmedkhalf/project.nvim",
@@ -153,13 +111,6 @@ use({
     event = "BufWinEnter",
     run = "bash ./install.sh",
     config = "require('config.plugins.sniprun')",
-})
-
--- 启动页
-use({
-    "glepnir/dashboard-nvim",
-    event = "BufWinEnter",
-    config = "require('config.plugins.dashboard')",
 })
 
 -- session

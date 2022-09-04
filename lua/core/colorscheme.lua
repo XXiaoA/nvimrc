@@ -20,7 +20,7 @@ end
 
 function M.change_colorscheme(colorscheme)
     if colorscheme then
-        pcall(require, "config.ui." .. colorscheme)
+        pcall(require, "config.ui.colorschemes." .. colorscheme)
         pcall(vim.cmd, "colorscheme " .. colorscheme)
     end
 end
