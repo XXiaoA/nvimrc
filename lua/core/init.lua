@@ -7,8 +7,8 @@ require("config.keymaps")
 
 packer.init_packer()
 
--- colorscheme
-require("config.colorscheme")
+-- UI
+require("config.ui")
 -- Packer插件管理
 require("config.plugins")
 -- LSP

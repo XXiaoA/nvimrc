@@ -3,6 +3,31 @@ if not ufo then
     return
 end
 
+local ftMap = {
+    -- lsp treesitter indent
+    vim = "indent",
+    python = { "indent" },
+    git = "", -- disable
+}
+
+local function customizeSelector(bufnr)
+    local function handleFallbackException(err, providerName)
+        if type(err) == "string" and err:match("UfoFallbackException") then
+            return ufo.getFolds(providerName, bufnr)
+        else
+            return require("promise").reject(err)
+        end
+    end
+
+    return ufo.getFolds("lsp", bufnr)
+        :catch(function(err)
+            return handleFallbackException(err, "treesitter")
+        end)
+        :catch(function(err)
+            return handleFallbackException(err, "indent")
+        end)
+end
+
 ufo.setup({
     open_fold_hl_timeout = 150,
     close_fold_kinds = { "imports", "comment" },
@@ -17,6 +42,10 @@ ufo.setup({
             scrollD = "<C-d>",
         },
     },
+    ---@diagnostic disable-next-line: unused-local
+    provider_selector = function(bufnr, filetype, buftype)
+        return ftMap[filetype] or customizeSelector
+    end,
 })
 
 vim.keymap.set("n", "zR", require("ufo").openAllFolds)
