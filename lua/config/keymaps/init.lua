@@ -26,7 +26,14 @@ xmap("<A-j>", ":m '>+1<cr>gv")
 imap("<C-s>", "<C-o>:w<CR>")
 imap("<C-q>", "<C-o>:qall<CR>")
 nmap("W", ":w<CR>")
-nmap("Q", ":qall<cr>")
+nmap("Q", function()
+    local ft = vim.api.nvim_buf_get_option(0, "ft")
+    if ft == "TelescopePrompt" then
+        vim.cmd("qall!")
+    else
+        vim.cmd.qall()
+    end
+end, { desc = "Quit the nvim" })
 
 -- 输入模式/选择模式 jj/JJ 退出
 xmap("JJ", "<ESC>")
