@@ -13,11 +13,15 @@ local theme = utils.readConfig("color_scheme")
 colorscheme.change_colorscheme(theme)
 vim.cmd("set background=dark")
 
--- 状态栏
-use({ "kyazdani42/nvim-web-devicons" })
+use({
+    "kyazdani42/nvim-web-devicons",
+    event = "BufEnter",
+})
 
+-- 状态栏
 use({
     "nvim-lualine/lualine.nvim",
+    event = "BufWinEnter",
     config = "require('config.ui.lualine')",
 })
 
