@@ -90,3 +90,5 @@ vim.o.autoindent = true
 -- Ask for confirmation when handling unsaved or read-only files
 vim.o.confirm = true
 vim.o.signcolumn = "yes"
+
+vim.g.ts_highlight_lua = true

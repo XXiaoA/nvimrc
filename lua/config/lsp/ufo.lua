@@ -40,6 +40,7 @@ ufo.setup({
         mappings = {
             scrollU = "<C-u>",
             scrollD = "<C-d>",
+            switch = "K"
         },
     },
     ---@diagnostic disable-next-line: unused-local

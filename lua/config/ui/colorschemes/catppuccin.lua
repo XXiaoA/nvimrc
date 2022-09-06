@@ -1,4 +1,4 @@
-vim.g.catppuccin_flavour = "macchiato" -- latte, frappe, macchiato, mocha
+vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
 
 require("catppuccin").setup({
     compile = {
@@ -9,8 +9,8 @@ require("catppuccin").setup({
         comments = { "italic" },
         conditionals = { "italic" },
         loops = {},
-        functions = { "bold" },
-        keywords = { "italic" },
+        -- functions = { "bold" },
+        -- keywords = { "italic" },
         strings = {},
         variables = {},
         numbers = {},

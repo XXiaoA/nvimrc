@@ -21,7 +21,7 @@ end
 --- read the configuration
 ---@param option string
 function M.readConfig(option)
-    local file_path = os.getenv("XDG_CONFIG_HOME") .. "/nvim/.config.yml"
+    local file_path = vim.fn.stdpath("config") .. "/config.yml"
 
     for line in io.lines(file_path) do
         local value = line:match(option .. [[%s*:%s*([^%s]*)]])
