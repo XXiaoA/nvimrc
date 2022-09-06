@@ -41,13 +41,18 @@ use({
 use({ "onsails/lspkind-nvim", event = "BufWinEnter" })
 
 -- nvim-cmp
-use({ "hrsh7th/nvim-cmp", config = "require('config.plugins.cmp')", after = "lspkind-nvim" })
-use({ "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" })
-use({ "hrsh7th/cmp-buffer", after = "nvim-cmp" })
-use({ "hrsh7th/cmp-path", after = "nvim-cmp" })
-use({ "hrsh7th/cmp-cmdline", after = "nvim-cmp" })
-use({ "hrsh7th/cmp-nvim-lua", after = "nvim-cmp" })
-use({ "hrsh7th/cmp-nvim-lsp-signature-help", after = "nvim-cmp" })
+use({
+    "hrsh7th/nvim-cmp",
+    requires = {
+        { "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" },
+        { "hrsh7th/cmp-buffer", after = "nvim-cmp" },
+        { "hrsh7th/cmp-path", after = "nvim-cmp" },
+        { "hrsh7th/cmp-cmdline", after = "nvim-cmp" },
+        { "hrsh7th/cmp-nvim-lsp-signature-help", after = "nvim-cmp" },
+    },
+    config = "require('config.plugins.cmp')",
+    after = "lspkind-nvim",
+})
 
 -- snippets
 use({ "L3MON4D3/LuaSnip", event = "InsertEnter" })

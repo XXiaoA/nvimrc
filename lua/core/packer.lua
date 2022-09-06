@@ -23,16 +23,26 @@ function M.init_packer()
 end
 
 function M.load_plugins()
-    return require("packer").startup(function(use)
-        for _, plugin in ipairs(M.plugins) do
-            use(plugin)
-        end
+    return require("packer").startup({
+        function(use)
+            for _, plugin in ipairs(M.plugins) do
+                use(plugin)
+            end
 
-        -- Put this at the end after all plugins
-        if packer_bootstrap then
-            require("packer").sync()
-        end
-    end)
+            -- Put this at the end after all plugins
+            if packer_bootstrap then
+                require("packer").sync()
+            end
+        end,
+
+        config = {
+            display = {
+                open_fn = function()
+                    return require("packer.util").float({ border = "single" })
+                end,
+            },
+        },
+    })
 end
 
 function M.add_plugin(repo)

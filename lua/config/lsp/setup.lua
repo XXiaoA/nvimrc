@@ -72,7 +72,6 @@ local function on_attach(client, bufnr)
 
     -- require plugins
     require("config.lsp.lspsaga")
-    require("config.lsp.ufo")
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()

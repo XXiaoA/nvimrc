@@ -12,7 +12,7 @@ use({ "williamboman/mason-lspconfig.nvim" })
 
 use({
     "ii14/emmylua-nvim",
-    event = "BufWinEnter",
+    ft = "lua",
 })
 
 use({
@@ -23,6 +23,7 @@ use({
 use({
     "kevinhwang91/nvim-ufo",
     requires = "kevinhwang91/promise-async",
+    config = [[require("config.lsp.ufo")]]
 })
 
 use({
