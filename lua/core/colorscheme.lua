@@ -1,15 +1,15 @@
 local M = {}
-local colorschemes = {}
+local all_colorschemes = {}
 
 --- add a new colorscheme
 ---@param name string: name of colorscheme
 ---@param tbl table: used by packer
 function M.add_colorscheme(name, tbl)
     if type(name) == "string" then
-        table.insert(colorschemes, name)
+        table.insert(all_colorschemes, name)
     elseif type(name) == "table" then
         for _, v in pairs(name) do
-            table.insert(colorschemes, v)
+            table.insert(all_colorschemes, v)
         end
     end
 
@@ -20,13 +20,17 @@ end
 
 function M.change_colorscheme(colorscheme)
     if colorscheme then
+        if colorscheme == "random" then
+            local random_index = (vim.fn.rand() % #all_colorschemes) + 1
+            colorscheme = all_colorschemes[random_index]
+        end
         pcall(require, "config.ui.colorschemes." .. colorscheme)
         pcall(vim.cmd.colorscheme, colorscheme)
     end
 end
 
 function M.changeColorschemeUI()
-    vim.ui.select(colorschemes, {
+    vim.ui.select(all_colorschemes, {
         prompt = "Select a colorscheme:",
         format_item = function(item)
             return item
