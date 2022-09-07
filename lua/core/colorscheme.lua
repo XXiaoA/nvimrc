@@ -18,7 +18,7 @@ function M.add_colorscheme(name, tbl)
     end
 end
 
-function M.change_colorscheme(colorscheme)
+function M.load_colorscheme(colorscheme)
     if colorscheme then
         if colorscheme == "random" then
             local random_index = (vim.fn.rand() % #all_colorschemes) + 1
@@ -26,17 +26,18 @@ function M.change_colorscheme(colorscheme)
         end
         pcall(require, "config.ui.colorschemes." .. colorscheme)
         pcall(vim.cmd.colorscheme, colorscheme)
+        vim.notify("Load colorscheme: " .. colorscheme)
     end
 end
 
-function M.change_colorscheme_ui()
+function M.load_colorscheme_ui()
     vim.ui.select(all_colorschemes, {
         prompt = "Select a colorscheme:",
         format_item = function(item)
             return item
         end,
     }, function(choice)
-        M.change_colorscheme(choice)
+        M.load_colorscheme(choice)
     end)
 end
 

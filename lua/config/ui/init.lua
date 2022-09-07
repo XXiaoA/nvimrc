@@ -10,7 +10,7 @@ add_colorscheme("duskfox")
 add_colorscheme("catppuccin", { "catppuccin/nvim", as = "catppuccin" })
 
 local theme = utils.readConfig("color_scheme")
-colorscheme.change_colorscheme(theme)
+colorscheme.load_colorscheme(theme)
 vim.cmd("set background=dark")
 
 use({
