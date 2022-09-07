@@ -2,7 +2,7 @@
 - [ ] plugins:
     - [ ] <https://github.com/jose-elias-alvarez/null-ls.nvim>
     - [ ] rcarriga/nvim-notify (with sniprun)  
-    - [ ] <https://github.com/glepnir/lspsaga.nvim>
+    - [x] <https://github.com/glepnir/lspsaga.nvim>
     - [x] nvim-ufo
     - [x] [EdenEast/nightfox](https://github.com/EdenEast/nightfox.nvim/) 
     - [x] [chentau/marks.nvim](https://github.com/chentau/marks.nvim) 

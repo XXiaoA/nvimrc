@@ -3,7 +3,6 @@ local use = require("core.packer").add_plugin
 -- lspconfig
 use({
     "neovim/nvim-lspconfig",
-    event = "BufEnter",
     config = function()
         require("config.lsp.setup")
     end,
@@ -12,13 +11,9 @@ use({
 use({
     "williamboman/mason.nvim",
     branch = "main",
-    after = "nvim-lspconfig",
     config = [[require("config.lsp.mason")]],
 })
-use({
-    "williamboman/mason-lspconfig.nvim",
-    after = "mason.nvim",
-})
+use({ "williamboman/mason-lspconfig.nvim" })
 
 use({
     "ii14/emmylua-nvim",

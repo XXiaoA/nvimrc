@@ -29,7 +29,7 @@ function M.change_colorscheme(colorscheme)
     end
 end
 
-function M.changeColorschemeUI()
+function M.change_colorscheme_ui()
     vim.ui.select(all_colorschemes, {
         prompt = "Select a colorscheme:",
         format_item = function(item)
