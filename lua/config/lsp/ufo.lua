@@ -4,10 +4,39 @@ if not ufo then
 end
 
 local ftMap = {
-    -- lsp treesitter indent
+    -- option: lsp treesitter indent ""
     vim = "indent",
     python = { "indent" },
-    git = "", -- disable
+    git = function(bufnr)
+        local res = {}
+        local fileStart, hunkStart
+        local lines = vim.api.nvim_buf_get_lines(bufnr, 0, -1, true)
+        for i, line in ipairs(lines) do
+            if line:match("^diff %-%-") then
+                if hunkStart then
+                    table.insert(res, { startLine = hunkStart - 1, endLine = i - 2 })
+                end
+                if fileStart then
+                    table.insert(res, { startLine = fileStart - 1, endLine = i - 2 })
+                end
+                hunkStart, fileStart = nil, nil
+            elseif line:match("^@@ %-%d+,%d+ %+%d+,%d+") then
+                if hunkStart then
+                    table.insert(res, { startLine = hunkStart - 1, endLine = i - 2 })
+                end
+                hunkStart = i
+            elseif line:match("^%-%-%- %S") then
+                fileStart = i
+            end
+        end
+        if hunkStart then
+            table.insert(res, { startLine = hunkStart - 1, endLine = #lines - 2 })
+        end
+        if fileStart then
+            table.insert(res, { startLine = fileStart - 1, endLine = #lines - 2 })
+        end
+        return res
+    end,
 }
 
 local function customizeSelector(bufnr)
@@ -40,7 +69,7 @@ ufo.setup({
         mappings = {
             scrollU = "<C-u>",
             scrollD = "<C-d>",
-            switch = "K"
+            switch = "K",
         },
     },
     ---@diagnostic disable-next-line: unused-local
