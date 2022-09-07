@@ -110,14 +110,6 @@ use({
 -- copilot
 use({ "github/copilot.vim" })
 
--- 运行片段代码
-use({
-    "michaelb/sniprun",
-    event = "BufWinEnter",
-    run = "bash ./install.sh",
-    config = "require('config.plugins.sniprun')",
-})
-
 -- session
 use({
     "Shatur/neovim-session-manager",
