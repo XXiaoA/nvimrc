@@ -50,9 +50,6 @@ _G.luasnip.vars = {
 --- Options for marks to be used in a TODO comment
 local marks = {
     function()
-        return t("")
-    end,
-    function()
         return fmt("<{}>", i(1, os.date("%d-%m-%y")))
     end,
     function()
@@ -82,17 +79,21 @@ local todo_snippet_nodes = function(aliases, opts)
         table.insert(sigmark_nodes, mark())
     end
     -- format them into the actual snippet
-    local comment_node = fmta("<> <>: <> <> <><>", {
+    local comment_node = fmta("<> <>: <><>", {
         f(function()
             return get_cstring(opts.ctype)[1] -- get <comment-string[1]>
         end),
         c(1, aliases_nodes), -- [name-of-comment]
-        i(3), -- {comment-text}
-        c(2, sigmark_nodes), -- [comment-mark]
+        c(2, {
+            i(1), -- {comment-text}
+            fmta("<> <>", {
+                i(2),
+                c(1, sigmark_nodes), -- [comment-mark]
+            }),
+        }),
         f(function()
             return get_cstring(opts.ctype)[2] -- get <comment-string[2]>
         end),
-        i(0),
     })
     return comment_node
 end

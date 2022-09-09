@@ -26,7 +26,6 @@ function M.load_colorscheme(colorscheme)
         end
         pcall(require, "config.ui.colorschemes." .. colorscheme)
         pcall(vim.cmd.colorscheme, colorscheme)
-        vim.notify("Load colorscheme: " .. colorscheme)
     end
 end
 
