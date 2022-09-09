@@ -15,6 +15,11 @@ for _, sign in ipairs(signs) do
     vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
 end
 
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+    vim.lsp.diagnostic.on_publish_diagnostics,
+    { underline = true, update_in_insert = false }
+)
+
 vim.diagnostic.config({
     virtual_text = true,
     update_in_insert = false,
