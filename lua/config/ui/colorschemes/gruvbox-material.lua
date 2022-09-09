@@ -5,7 +5,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     group = grpid,
     pattern = "gruvbox-material",
     -- floating popups
-    command =  "hi FloatBorder guibg=#282828",
+    command = "hi FloatBorder guibg=#282828",
 })
 
 local g = vim.g
