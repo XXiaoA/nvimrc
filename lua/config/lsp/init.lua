@@ -23,8 +23,6 @@ use({
 
 use({
     "glepnir/lspsaga.nvim",
-    after = "nvim-lspconfig",
-    branch = "main",
 })
 
 use({
