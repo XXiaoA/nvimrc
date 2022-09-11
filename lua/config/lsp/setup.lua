@@ -74,9 +74,6 @@ local function on_attach(client, bufnr)
     nmap("gn", vim.diagnostic.goto_next, { buffer = bufnr })
     nmap("gk", vim.lsp.buf.signature_help, { buffer = bufnr })
     nmap("<leader>=", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", { buffer = bufnr })
-
-    -- require plugins
-    require("config.lsp.lspsaga")
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()

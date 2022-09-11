@@ -23,6 +23,11 @@ use({
 
 use({
     "glepnir/lspsaga.nvim",
+    after = "nvim-lspconfig",
+    event = "BufWinEnter",
+    config = function()
+        require("config.lsp.lspsaga")
+    end,
 })
 
 use({
