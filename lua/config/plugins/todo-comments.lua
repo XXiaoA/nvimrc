@@ -1,4 +1,4 @@
-local tc = require("utils").requirePlugin("todo-comments")
+local tc = require("utils").require_plugin("todo-comments")
 if not tc then
     return
 end
@@ -10,7 +10,7 @@ tc.setup({
 })
 
 -- https://github.com/L3MON4D3/LuaSnip/wiki/Cool-Snippets#all---todo-commentsnvim-snippets
-local ls = require("utils").requirePlugin("luasnip")
+local ls = require("utils").require_plugin("luasnip")
 if not ls then
     return
 end
@@ -22,7 +22,7 @@ local c = ls.choice_node
 local fmt = require("luasnip.extras.fmt").fmt
 local fmta = require("luasnip.extras.fmt").fmta
 
-local utils = require("utils").requirePlugin("Comment.utils")
+local utils = require("utils").require_plugin("Comment.utils")
 if not utils then
     return
 end

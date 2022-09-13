@@ -1,4 +1,4 @@
-local requirePlugin = require("utils").requirePlugin
+local requirePlugin = require("utils").require_plugin
 local project = requirePlugin("project_nvim")
 if project then
     project.setup({})

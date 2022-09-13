@@ -1,4 +1,4 @@
-local tsc = require("utils").requirePlugin("nvim-treesitter.configs")
+local tsc = require("utils").require_plugin("nvim-treesitter.configs")
 
 if not tsc then
     return

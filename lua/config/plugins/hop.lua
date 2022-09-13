@@ -1,4 +1,4 @@
-local hop = require("utils").requirePlugin("hop")
+local hop = require("utils").require_plugin("hop")
 
 if hop then
     hop.setup({
@@ -8,7 +8,7 @@ if hop then
 end
 
 -- https://github.com/phaazon/hop.nvim/wiki/Advanced-Hop
-local map = require("core.keymap").set_keymap({ "n", "x", "o" })
+local map = require("core.keymap").set_keymap({ "n", "x" })
 map("f", function()
     hop.hint_char1({
         direction = require("hop.hint").HintDirection.AFTER_CURSOR,

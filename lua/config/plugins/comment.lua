@@ -1,4 +1,4 @@
-local Comment = require("utils").requirePlugin("Comment")
+local Comment = require("utils").require_plugin("Comment")
 
 if not Comment then
     return

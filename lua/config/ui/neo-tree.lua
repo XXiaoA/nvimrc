@@ -1,4 +1,4 @@
-local nt = require("utils").requirePlugin("neo-tree")
+local nt = require("utils").require_plugin("neo-tree")
 
 if not nt then
     return

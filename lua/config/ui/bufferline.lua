@@ -1,4 +1,4 @@
-local bufferline = require("utils").requirePlugin("bufferline")
+local bufferline = require("utils").require_plugin("bufferline")
 
 if not bufferline then
     return

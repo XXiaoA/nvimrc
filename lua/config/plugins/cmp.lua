@@ -1,6 +1,6 @@
-local lspkind = require("utils").requirePlugin("lspkind")
-local cmp = require("utils").requirePlugin("cmp")
-local luasnip = require("utils").requirePlugin("luasnip")
+local lspkind = require("utils").require_plugin("lspkind")
+local cmp = require("utils").require_plugin("cmp")
+local luasnip = require("utils").require_plugin("luasnip")
 
 if not cmp or not lspkind or not luasnip then
     return

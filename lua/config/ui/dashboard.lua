@@ -1,4 +1,4 @@
-local db = require("utils").requirePlugin("dashboard")
+local db = require("utils").require_plugin("dashboard")
 if not db then
     return
 end

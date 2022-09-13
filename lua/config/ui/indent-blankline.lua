@@ -5,7 +5,7 @@ o.list = true
 o.listchars:append("space:⋅")
 o.listchars:append("eol:↴")
 
-local indent_blankline = require("utils").requirePlugin("indent_blankline")
+local indent_blankline = require("utils").require_plugin("indent_blankline")
 if not indent_blankline then
     return
 end

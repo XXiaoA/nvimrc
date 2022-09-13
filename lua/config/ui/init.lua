@@ -4,12 +4,11 @@ local add_colorscheme = colorscheme.add_colorscheme
 local use = require("core.packer").add_plugin
 
 -- colorscheme
-add_colorscheme("gruvbox-material", { "sainnhe/gruvbox-material" })
-add_colorscheme("nightfox", { "EdenEast/nightfox.nvim", run = ":NightfoxCompile" })
-add_colorscheme("duskfox")
+add_colorscheme("gruvbox-material", "sainnhe/gruvbox-material")
+add_colorscheme({ "duskfox", "nightfox" }, { "EdenEast/nightfox.nvim", run = ":NightfoxCompile" })
 add_colorscheme("catppuccin", { "catppuccin/nvim", as = "catppuccin" })
 
-local theme = utils.readConfig("color_scheme")
+local theme = utils.read_config("color_scheme")
 colorscheme.load_colorscheme(theme)
 vim.cmd("set background=dark")
 

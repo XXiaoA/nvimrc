@@ -1,5 +1,5 @@
-local actions = require("utils").requirePlugin("telescope.actions")
-local telescope = require("utils").requirePlugin("telescope")
+local actions = require("utils").require_plugin("telescope.actions")
+local telescope = require("utils").require_plugin("telescope")
 
 if not actions or not telescope then
     return

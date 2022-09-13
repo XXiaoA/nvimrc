@@ -1,4 +1,4 @@
-local as = require("utils").requirePlugin("auto-save")
+local as = require("utils").require_plugin("auto-save")
 if not as then
     return
 end

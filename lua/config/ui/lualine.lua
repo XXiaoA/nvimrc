@@ -1,4 +1,4 @@
-local lualine = require("utils").requirePlugin("lualine")
+local lualine = require("utils").require_plugin("lualine")
 local utils = require("utils")
 
 if not lualine then
@@ -8,17 +8,19 @@ end
 lualine.setup({
     options = {
         icons_enabled = true,
-        theme = utils.readConfig("lualine_theme"),
-        component_separators = { left = "", right = "" },
-        section_separators = { left = "", right = "" },
+        theme = utils.read_config("lualine_theme"),
+        -- component_separators = { left = "", right = "" },
+        -- section_separators = { left = "", right = "" },
+        component_separators = "",
+        section_separators = "",
         always_divide_middle = true,
     },
     sections = {
         lualine_a = { "mode" },
-        lualine_b = { "branch", "diff", "diagnostics" },
+        lualine_b = { "diff", "diagnostics" }, -- "branch"
         lualine_c = { "filename" },
-        lualine_x = { "encoding", "fileformat", "filetype" },
-        lualine_y = { "progress" },
+        lualine_x = { "filetype" }, -- "encoding", "fileformat"
+        lualine_y = { "" }, -- "progress"
         lualine_z = { "location" },
     },
     inactive_sections = {

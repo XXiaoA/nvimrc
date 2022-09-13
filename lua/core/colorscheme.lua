@@ -2,9 +2,9 @@ local M = {}
 local all_colorschemes = {}
 
 --- add a new colorscheme
----@param name string: name of colorscheme
----@param tbl table: used by packer
-function M.add_colorscheme(name, tbl)
+---@param name string|table: name of colorscheme
+---@param plugin table|string: used by packer
+function M.add_colorscheme(name, plugin)
     if type(name) == "string" then
         table.insert(all_colorschemes, name)
     elseif type(name) == "table" then
@@ -13,8 +13,8 @@ function M.add_colorscheme(name, tbl)
         end
     end
 
-    if type(tbl) == "table" then
-        require("core.packer").add_plugin(tbl)
+    if plugin then
+        require("core.packer").add_plugin(plugin)
     end
 end
 

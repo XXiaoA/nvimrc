@@ -37,9 +37,7 @@ use({
     config = [[require("config.lsp.ufo")]],
 })
 
-use({
-    "simrat39/rust-tools.nvim",
-})
+use({ "simrat39/rust-tools.nvim" })
 
 use({
     "RRethy/vim-illuminate",

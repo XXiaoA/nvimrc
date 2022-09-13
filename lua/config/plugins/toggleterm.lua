@@ -1,5 +1,5 @@
-local tg = require("utils").requirePlugin("toggleterm")
-local terminal = require("utils").requirePlugin("toggleterm.terminal")
+local tg = require("utils").require_plugin("toggleterm")
+local terminal = require("utils").require_plugin("toggleterm.terminal")
 
 if not tg or not terminal then
     return

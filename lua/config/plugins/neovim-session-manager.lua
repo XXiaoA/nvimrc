@@ -1,4 +1,4 @@
-local session_manager = require("utils").requirePlugin("session_manager")
+local session_manager = require("utils").require_plugin("session_manager")
 
 if session_manager then
     session_manager.setup({

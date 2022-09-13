@@ -4,10 +4,14 @@ local M = {}
 ---@param plugin_name (string)
 ---@param message (boolean)
 ---@return any
-function M.requirePlugin(plugin_name, message)
+function M.require_plugin(plugin_name, message)
     local status_ok, plugin = pcall(require, plugin_name)
     if not status_ok and message ~= false then
-        local hint = string.format("requirePlugin: Failed to load '%s'", plugin_name)
+        local info = debug.getinfo(2, "Sl")
+        local file = info.short_src
+        local line = info.currentline
+        local _hint = "require_plugin: Failed to load '%s'\n(%s: %d)"
+        local hint = _hint:format(plugin_name, file, line)
         vim.notify(hint, vim.log.levels.WARN)
         return nil
     else
@@ -20,7 +24,7 @@ end
 
 --- read the configuration
 ---@param option string
-function M.readConfig(option)
+function M.read_config(option)
     local file_path = vim.fn.stdpath("config") .. "/config.yml"
 
     for line in io.lines(file_path) do
