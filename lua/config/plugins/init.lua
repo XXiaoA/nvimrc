@@ -95,7 +95,7 @@ use({
 
 -- 颜色
 use({
-    "norcalli/nvim-colorizer.lua",
+    "NvChad/nvim-colorizer.lua",
     event = "BufWinEnter",
     config = "require('config.plugins.nvim-colorizer')",
 })
