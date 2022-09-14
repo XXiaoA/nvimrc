@@ -161,9 +161,6 @@ use({
 -- evaluates code blocks
 use({ "jubnzv/mdeval.nvim", ft = "markdown", config = "require('config.plugins.mdeval')" })
 
--- Delete Neovim buffers without losing window layout
-use({ "famiu/bufdelete.nvim", cmd = "Bdelete" })
-
 use({
     "danymat/neogen",
     cmd = "Neogen",
