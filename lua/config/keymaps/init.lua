@@ -77,6 +77,7 @@ nmap("<leader>sp", ":<C-U>set spell!<CR>", { desc = "Toggle spelling check" })
 imap("<M-o>", "<C-O>o")
 imap("<M-O>", "<C-O>O")
 imap("<M-i>", "<Left>")
+imap("<M-a>", "<Right>")
 imap("<M-I>", "<C-O>^")
 imap("<M-A>", "<C-O>$")
 

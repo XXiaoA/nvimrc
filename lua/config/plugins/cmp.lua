@@ -47,7 +47,7 @@ cmp.setup({
         ["<C-u>"] = cmp.mapping.scroll_docs(-4),
 
         -- 出现/取消补全
-        ["<A-.>"] = cmp.mapping(function()
+        ["<C-e>"] = cmp.mapping(function()
             if cmp.visible() then
                 cmp.abort()
             else
