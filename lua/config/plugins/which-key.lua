@@ -53,8 +53,8 @@ wk.register({
 }, { prefix = "<leader>" })
 
 wk.register({
-    ["<A-h>"] = { ":BufferLineCyclePrev<CR>", "Go to previous buffer" },
-    ["<A-l>"] = { ":BufferLineCycleNext<CR>", "Go to next buffer" },
+    ["<A-,>"] = { ":BufferLineCyclePrev<CR>", "Go to previous buffer" },
+    ["<A-.>"] = { ":BufferLineCycleNext<CR>", "Go to next buffer" },
     ["<A-w>"] = { ":Bdelete<CR>", "Close current buffer" },
 })
 
