@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 local types = {
     "feat",
     "fix",
@@ -31,5 +32,22 @@ for _, type in ipairs(types) do
         )
     )
 end
+
+table.insert(
+    snippets,
+    s(
+        "cc",
+        fmt([[{}: {}]], {
+            c(1, {
+                i(1, "cc"),
+                fmt([[{}({})]], {
+                    i(1, "cc"),
+                    i(2, "scope"),
+                }),
+            }),
+            i(2, "title"),
+        })
+    )
+)
 
 return snippets
