@@ -58,19 +58,6 @@ wk.register({
     ["<A-w>"] = { ":Bdelete<CR>", "Close current buffer" },
 })
 
--- File Explorer
-wk.register({
-    n = {
-        name = "File Explorer",
-        n = { ":NeoTreeFocus<CR>", "Focus on File Explorer" },
-        f = { ":NeoTreeFloatToggle<CR>", "Open float File Explorer" },
-    },
-}, { prefix = "<leader>" })
-
-wk.register({
-    ["<A-m>"] = { ":NeoTreeShowToggle<CR>", "Toggle File Explorer" },
-})
-
 -- Finding different stuf.
 wk.register({
     f = {

@@ -23,13 +23,6 @@ use({
     config = "require('config.plugins.which-key')",
 })
 
-use({
-    "s1n7ax/nvim-window-picker",
-    tag = "v1.*",
-    after = "neo-tree.nvim",
-    config = "require('config.plugins.window-picker')",
-})
-
 -- Comment 注释
 use({
     "numToStr/Comment.nvim",

@@ -11,7 +11,7 @@ bufferline.setup({
         -- 左侧让出 File Explorer 的位置
         offsets = {
             {
-                filetype = "neo-tree",
+                filetype = "NvimTree",
                 text = "File Explorer",
                 highlight = "Directory",
                 text_align = "left",

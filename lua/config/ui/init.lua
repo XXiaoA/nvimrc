@@ -31,16 +31,13 @@ use({
     config = "require('config.ui.indent-blankline')",
 })
 
--- neo-tree
+-- file explorer
 use({
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v2.x",
-    requires = {
-        "nvim-lua/plenary.nvim",
-        "MunifTanjim/nui.nvim",
-    },
+    "kyazdani42/nvim-tree.lua",
     event = "BufWinEnter",
-    config = "require('config.ui.neo-tree')",
+    config = function()
+        require("config.ui.nvim-tree")
+    end,
 })
 
 -- 启动页
