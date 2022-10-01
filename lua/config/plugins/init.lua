@@ -100,13 +100,10 @@ use({
     config = "require('config.plugins.toggleterm')",
 })
 
--- copilot
-use({ "github/copilot.vim" })
-
 -- session
 use({
     "Shatur/neovim-session-manager",
-    event = "BufWinEnter",
+    cmd = "SessionManager",
     config = "require('config.plugins.neovim-session-manager')",
 })
 
@@ -140,10 +137,12 @@ use({
 -- 翻译
 use({ "voldikss/vim-translator", cmd = "Translate" })
 
+-- TODO: configure it!
 -- Debugging
 use({ "mfussenegger/nvim-dap" })
 use({ "rcarriga/nvim-dap-ui" })
 use({ "Pocco81/DAPInstall.nvim" })
+
 -- highlight search,
 use({
     "kevinhwang91/nvim-hlslens",
@@ -174,13 +173,13 @@ use({
 
 use({
     "XXiaoA/auto-save.nvim",
-    event = "BufWinEnter",
+    event = { "InsertLeave", "TextChanged" },
     config = "require('config.plugins.auto-save')",
 })
 
 use({
     "aserowy/tmux.nvim",
-    event = "BufWinEnter",
+    keys = { "<C-h>", "<C-j>", "<C-k>", "<C-l>", "<A-h>", "<A-j>", "<A-k>", "<A-l>" },
     config = function()
         require("tmux").setup({
             navigation = {
@@ -200,7 +199,7 @@ use({
 
 use({
     "mfussenegger/nvim-treehopper",
-    event = "BufWinEnter",
+    keys = "m",
     config = [[require("config.plugins.treehopper")]],
 })
 

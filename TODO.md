@@ -1,38 +1,5 @@
 # TODO
-- [ ] plugins:
-    - [ ] <https://github.com/jose-elias-alvarez/null-ls.nvim>
-    - [ ] rcarriga/nvim-notify (with sniprun)  
-    - [x] <https://github.com/glepnir/lspsaga.nvim>
-    - [x] nvim-ufo
-    - [x] [EdenEast/nightfox](https://github.com/EdenEast/nightfox.nvim/) 
-    - [x] [chentau/marks.nvim](https://github.com/chentau/marks.nvim) 
-    - [x] [stevearc/dressing.nvim](https://github.com/stevearc/dressing.nvim)
-    - [x] ray-x/lsp_signature.nvim  
-    - [x] [tversteeg/registers.nvim](https://github.com/tversteeg/registers.nvim) 
-    - [x] [jubnzv/mdeval.nvim](https://github.com/jubnzv/mdeval.nvim) 
-    - [x] ahmedkhalf/project.nvim  
-    - [x] ~~[kevinhwang91/nvim-fFHighlight](https://github.com/kevinhwang91/nvim-fFHighlight)~~
-    - [x] ~~nvim-orgmode/orgmode~~
-    - [x] ~~nvim-neorg/neorg~~ (maybe try again it in the future)
-    - [x] Compare
-        - [x] between nvim-neo-tree/neo-tree.nvim and nvim-tree
-        - [x] ~~between [ggandor/lightspeed.nvim](https://github.com/ggandor/lightspeed.nvim) and hop.nvim~~
-- [ ] 配置插件  
+- [ ] Configuration
     - [ ] mfussenegger/nvim-dap
-    - [ ] junegunn/vim-easy-align
-    - [x] nvim-treesitter/nvim-treesitter
-    - [x] ray-x/lsp_signature.nvim  
-    - [x] nvim-telescope/telescope.nvim
-    - [x] hrsh7th/nvim-cmp
-    - [x] [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
-    - [x] voldikss/vim-translator
-    - [x] windwp/nvim-autopairs
-    - [x] michaelb/sniprun
-- [x] lazyload
-- [ ] 配置LSP:  
-    - [ ] clangd (c, c++)
-    - [ ] pylsp (python)
-    - [ ] vim (vimls)
-    - [ ] rust_analyzer 
-    - [x] sumneko_lua (lua)
-- [ ] ~~完善文档~~
+- [ ] write docs
+- [ ] don't load the colorscheme if it's unnecessary
