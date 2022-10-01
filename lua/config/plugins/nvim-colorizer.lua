@@ -6,7 +6,7 @@ end
 colorizer.setup({
     user_default_options = {
         -- Available modes for `mode`: foreground, background,  virtualtext
-        mode = "foreground", -- Set the display mode.
+        mode = "background", -- Set the display mode.
         -- Available methods are false / true / "normal" / "lsp" / "both"
         -- True is same as normal
         tailwind = false, -- Enable tailwind colors

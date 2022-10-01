@@ -2,7 +2,8 @@ local cache_dir = os.getenv("HOME") .. "/.cache/nvim/"
 local o = vim.o
 local g = vim.g
 
---disable_distribution_plugins
+-- https://github.com/glepnir/nvim/blob/6bb5e515289171fe197f248ee64206b10d0dbd71/lua/core/init.lua
+-- disable_distribution_plugins
 g.loaded_gzip = 1
 g.loaded_tar = 1
 g.loaded_tarPlugin = 1
