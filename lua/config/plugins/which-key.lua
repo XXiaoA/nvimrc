@@ -47,7 +47,7 @@ wk.register({
         e = { ":noh<CR>", "Erase Search Highlights" },
         l = { ":BufferLineMoveNext<CR>", "Move buffer Right" },
         h = { ":BufferLineMovePrev<CR>", "Move buffer Left" },
-        n = { ":DashboardNewFile<CR>", "New Buffer" },
+        n = { ":enew<CR>", "New Buffer" },
         f = { ":Format<CR>", "Format Buffer" },
     },
 }, { prefix = "<leader>" })

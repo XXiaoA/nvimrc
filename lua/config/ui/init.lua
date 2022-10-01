@@ -40,13 +40,6 @@ use({
     end,
 })
 
--- 启动页
-use({
-    "glepnir/dashboard-nvim",
-    event = "BufWinEnter",
-    config = "require('config.ui.dashboard')",
-})
-
 -- bufferline
 use({
     "akinsho/bufferline.nvim",
