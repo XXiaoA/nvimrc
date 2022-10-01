@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 -- stylua: ignore
 return {
     s( "main", fmt([[

@@ -5,6 +5,7 @@ end
 
 local nmap = require("core.keymap").set_keymap("n")
 nmap("<leader>nn", "<cmd>NvimTreeFocus<CR>")
+nmap("<leader>nf", "<cmd>NvimTreeFindFile<CR>")
 nmap("<A-m>", "<cmd>NvimTreeToggle<cr>")
 nmap("<leader>nt", function()
     return require("nvim-tree").toggle(false, true)
