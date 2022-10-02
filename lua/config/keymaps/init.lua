@@ -52,12 +52,12 @@ nmap("sc", "<C-w>c")
 -- close others
 nmap("so", "<C-w>o")
 
--- 比例控制
-nmap("s.", ":vertical resize +20<CR>")
-nmap("s,", ":vertical resize -20<CR>")
-nmap("s=", "<C-w>=")
-nmap("sj", ":resize +10<CR>")
-nmap("sk", ":resize -10<CR>")
+-- resize
+nmap("<A-l>", ":vertical resize +2<CR>")
+nmap("<A-h>", ":vertical resize -2<CR>")
+nmap("<A-j>", ":resize +1<CR>")
+nmap("<A-k>", ":resize -1<CR>")
+nmap("<A-=>", "<C-w>=")
 
 -- ctrl + hjkl  窗口之间跳转
 nmap("<C-h>", "<C-w>h", { desc = "Jump to left window" })

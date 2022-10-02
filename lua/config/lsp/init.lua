@@ -3,6 +3,12 @@ local use = require("core.packer").add_plugin
 -- lspconfig
 use({
     "neovim/nvim-lspconfig",
+    ft = {
+        "lua",
+        "python",
+        "rust",
+        "vim",
+    },
     config = function()
         require("config.lsp.setup")
     end,
@@ -10,10 +16,14 @@ use({
 
 use({
     "williamboman/mason.nvim",
+    after = "nvim-lspconfig",
     branch = "main",
+})
+use({
+    "williamboman/mason-lspconfig.nvim",
+    after = "mason.nvim",
     config = [[require("config.lsp.mason")]],
 })
-use({ "williamboman/mason-lspconfig.nvim" })
 
 use({
     "ii14/emmylua-nvim",
@@ -24,7 +34,6 @@ use({
 use({
     "glepnir/lspsaga.nvim",
     after = "nvim-lspconfig",
-    event = "BufWinEnter",
     config = function()
         require("config.lsp.lspsaga")
     end,
@@ -32,15 +41,17 @@ use({
 
 use({
     "kevinhwang91/nvim-ufo",
+    after = "nvim-lspconfig",
     requires = "kevinhwang91/promise-async",
-    event = "BufWinEnter",
     config = [[require("config.lsp.ufo")]],
 })
 
-use({ "simrat39/rust-tools.nvim" })
+use({
+    "simrat39/rust-tools.nvim",
+})
 
 use({
     "RRethy/vim-illuminate",
-    event = "BufWinEnter",
+    after = "nvim-lspconfig",
     config = [[require("config.lsp.illuminate")]],
 })

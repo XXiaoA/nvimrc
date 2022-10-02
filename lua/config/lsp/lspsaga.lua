@@ -12,4 +12,7 @@ saga.init_lsp_saga({
     show_outline = {
         jump_key = "<CR>",
     },
+    symbol_in_winbar = {
+        enable = false,
+    },
 })

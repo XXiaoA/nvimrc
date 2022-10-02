@@ -54,7 +54,7 @@ use({ "saadparwaiz1/cmp_luasnip", after = { "nvim-cmp", "LuaSnip" } })
 -- 自动补全括号
 use({
     "windwp/nvim-autopairs",
-    after = "nvim-cmp",
+    event = "InsertEnter",
     config = "require('config.plugins.nvim-autopairs')",
 })
 
@@ -114,7 +114,7 @@ use({ "junegunn/vim-easy-align", cmd = "EasyAlign" })
 use({ "machakann/vim-sandwich", event = "BufWinEnter" })
 
 -- 运行时间
-use({ "dstein64/vim-startuptime", event = "BufWinEnter" })
+use({ "dstein64/vim-startuptime", cmd = "StartupTime" })
 
 -- 快速转跳
 use({
@@ -137,11 +137,11 @@ use({
 -- 翻译
 use({ "voldikss/vim-translator", cmd = "Translate" })
 
--- TODO: configure it!
+-- TODO: configure it! (with rust-tools)
 -- Debugging
-use({ "mfussenegger/nvim-dap" })
-use({ "rcarriga/nvim-dap-ui" })
-use({ "Pocco81/DAPInstall.nvim" })
+-- use({ "mfussenegger/nvim-dap" })
+-- use({ "rcarriga/nvim-dap-ui" })
+-- use({ "Pocco81/DAPInstall.nvim" })
 
 -- highlight search,
 use({
