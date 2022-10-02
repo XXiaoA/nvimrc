@@ -1,3 +1,8 @@
+vim.api.nvim_create_autocmd("ColorScheme", {
+    pattern = "nightfox",
+    command = "hi NvimSurroundHighlight guibg=#4b4673",
+})
+
 require("nightfox").setup({
     options = {
         styles = {
