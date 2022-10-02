@@ -1,14 +1,30 @@
 local colorscheme = require("core.colorscheme")
-local utils = require("utils")
 local add_colorscheme = colorscheme.add_colorscheme
+local utils = require("utils")
+local theme = utils.read_config("color_scheme")
 local use = require("core.packer").add_plugin
 
 -- colorscheme
-add_colorscheme("gruvbox-material", "sainnhe/gruvbox-material")
-add_colorscheme({ "duskfox", "nightfox" }, { "EdenEast/nightfox.nvim", run = ":NightfoxCompile" })
-add_colorscheme("catppuccin", { "catppuccin/nvim", as = "catppuccin" })
+use({
+    "sainnhe/gruvbox-material",
+    opt = true,
+})
+add_colorscheme("gruvbox-material")
 
-local theme = utils.read_config("color_scheme")
+use({
+    "EdenEast/nightfox.nvim",
+    run = ":NightfoxCompile",
+    opt = true,
+})
+add_colorscheme({ "duskfox", "nightfox" }, "nightfox.nvim")
+
+use({
+    "catppuccin/nvim",
+    as = "catppuccin",
+    opt = true,
+})
+add_colorscheme("catppuccin")
+
 colorscheme.load_colorscheme(theme)
 vim.cmd("set background=dark")
 
