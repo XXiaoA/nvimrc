@@ -110,8 +110,13 @@ use({
 -- 自动对齐
 use({ "junegunn/vim-easy-align", cmd = "EasyAlign" })
 
--- vim-sandwich
-use({ "machakann/vim-sandwich", event = "BufWinEnter" })
+use({
+    "kylechui/nvim-surround",
+    keys = { "<C-g>s", "<C-g>S", "sa", "ssa", "sA", "ssA", "sa", "sA", "sd", "sr" },
+    config = function()
+        require("config.plugins.surround")
+    end,
+})
 
 -- 运行时间
 use({ "dstein64/vim-startuptime", cmd = "StartupTime" })

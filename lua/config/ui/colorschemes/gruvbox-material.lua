@@ -31,3 +31,5 @@ g.gruvbox_material_palette = "mix"
 g.gruvbox_material_show_eob = 0
 
 g.gruvbox_material_diagnostic_virtual_text = "colored"
+
+g.gruvbox_material_current_word = "underline"
