@@ -1,16 +1,16 @@
 local M = {}
-local all_colorschemes = {}
+M.all_colorschemes = {}
 
---- add a new colorscheme
----@param name string|table: name of colorscheme
----@param plugin table|string: used by packer
+--- Add a new colorscheme
+---@param colorscheme string|table Name of colorscheme
+---@param repo_name string Used by packadd
 function M.add_colorscheme(colorscheme, repo_name)
     repo_name = repo_name or colorscheme
     if type(colorscheme) == "string" then
-        all_colorschemes[colorscheme] = repo_name
+        M.all_colorschemes[colorscheme] = repo_name
     elseif type(colorscheme) == "table" then
         for _, each_colorscheme in pairs(colorscheme) do
-            all_colorschemes[each_colorscheme] = repo_name
+            M.all_colorschemes[each_colorscheme] = repo_name
         end
     end
 end
@@ -18,10 +18,10 @@ end
 function M.load_colorscheme(colorscheme)
     if colorscheme then
         if colorscheme == "random" then
-            local random_index = (vim.fn.rand() % vim.tbl_count(all_colorschemes)) + 1
-            colorscheme = vim.tbl_keys(all_colorschemes)[random_index]
+            local random_index = (vim.fn.rand() % vim.tbl_count(M.all_colorschemes)) + 1
+            colorscheme = vim.tbl_keys(M.all_colorschemes)[random_index]
         end
-        local colorscheme_repo_name = all_colorschemes[colorscheme]
+        local colorscheme_repo_name = M.all_colorschemes[colorscheme]
 
         pcall(vim.cmd.packadd, colorscheme_repo_name)
         pcall(require, "config.ui.colorschemes." .. colorscheme)
@@ -30,7 +30,7 @@ function M.load_colorscheme(colorscheme)
 end
 
 function M.load_colorscheme_ui()
-    vim.ui.select(vim.tbl_keys(all_colorschemes), {
+    vim.ui.select(vim.tbl_keys(M.all_colorschemes), {
         prompt = "Select a colorscheme:",
         format_item = function(item)
             return item

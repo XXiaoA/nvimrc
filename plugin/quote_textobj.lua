@@ -2,13 +2,10 @@
 -- the quote refers to nvim-surround's aliases (', ", ` in default)
 
 local api = vim.api
-local map = require("core.keymap").set_keymap
+local map = require("core.keymap").set_keymap({ "x", "o" })
 local utils = require("nvim-surround.utils")
 local buffer = require("nvim-surround.buffer")
 local config = require("nvim-surround.config")
-
-local xmap = map("x")
-local omap = map("o")
 
 -- Gets the nearest two selections for the left and right surrounding pair.
 ---@param char string? A character representing what kind of surrounding pair is to be selected.
@@ -48,11 +45,18 @@ end
 --- quote textobject
 ---@param mode 'i'|'a' Inside or around
 local function quote_textobj(mode)
+    -- note the cursor position of end point and start point
+    -- so that we can restore the visual mode if fail to find quotes
+    local start_curpos, end_curpos
     local is_visual
+
     if api.nvim_get_mode().mode == "v" then
-        vim.cmd.normal("v")
+        vim.cmd.normal("o")
+        start_curpos = buffer.get_curpos()
+        vim.cmd.normal("ov")
         is_visual = true
     end
+
     local nearest_selections = get_nearest_selections("q", mode)
     if nearest_selections then
         local right_pos = nearest_selections.right.first_pos
@@ -63,17 +67,16 @@ local function quote_textobj(mode)
             buffer.set_curpos({ right_pos[1], right_pos[2] - 1 })
         end
     elseif is_visual then
-        -- FIX: the cursor position will be change to the beginning, if move the cursor up in visual mode and then press `iq`|`aq` but find no selection
-        vim.cmd.normal("gv")
+        end_curpos = buffer.get_curpos()
+        buffer.set_curpos(start_curpos)
+        vim.cmd.normal("v")
+        buffer.set_curpos(end_curpos)
     end
 end
 
-xmap("aq", function()
+map("aq", function()
     quote_textobj("a")
 end, { desc = "around the quote" })
-omap("aq", ":normal vaq<CR>", { desc = "around the quote" })
-
-xmap("iq", function()
+map("iq", function()
     quote_textobj("i")
 end, { desc = "inside the quote" })
-omap("iq", ":normal viq<CR>", { desc = "inside the quote" })
