@@ -22,14 +22,19 @@ function M.require_plugin(plugin_name, message)
     return nil
 end
 
---- read the configuration
+--- Read the config from `config.yml`
 ---@param option string
+---@return nil|boolean|string
 function M.read_config(option)
     local file_path = vim.fn.stdpath("config") .. "/config.yml"
 
     for line in io.lines(file_path) do
         local value = line:match(option .. [[%s*:%s*([^%s]*)]])
         if value then
+            value = value == "true" or value
+            if value == "false" then
+                value = false
+            end
             return value
         end
     end
