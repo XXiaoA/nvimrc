@@ -51,9 +51,10 @@ local function quote_textobj(mode)
     local is_visual
 
     if api.nvim_get_mode().mode == "v" then
+        end_curpos = buffer.get_curpos()
         vim.cmd.normal("o")
         start_curpos = buffer.get_curpos()
-        vim.cmd.normal("ov")
+        vim.cmd.normal("v")
         is_visual = true
     end
 
@@ -67,7 +68,6 @@ local function quote_textobj(mode)
             buffer.set_curpos({ right_pos[1], right_pos[2] - 1 })
         end
     elseif is_visual then
-        end_curpos = buffer.get_curpos()
         buffer.set_curpos(start_curpos)
         vim.cmd.normal("v")
         buffer.set_curpos(end_curpos)
