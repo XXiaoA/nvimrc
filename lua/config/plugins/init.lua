@@ -26,7 +26,7 @@ use({
 -- Comment 注释
 use({
     "numToStr/Comment.nvim",
-    event = "BufWinEnter",
+    keys = { "gc", "gb" },
     config = "require('config.plugins.comment')",
 })
 
@@ -82,14 +82,15 @@ use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make", after = "telesco
 -- code outline
 use({
     "stevearc/aerial.nvim",
-    event = "BufWinEnter",
+    after = "telescope.nvim",
     config = "require('config.plugins.aerial')",
 })
 
 -- 颜色
 use({
     "NvChad/nvim-colorizer.lua",
-    event = "BufWinEnter",
+    -- should run the command twice to enable the plugin
+    cmd = "ColorizerToggle",
     config = "require('config.plugins.nvim-colorizer')",
 })
 
