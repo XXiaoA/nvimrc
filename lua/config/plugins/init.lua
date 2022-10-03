@@ -112,8 +112,7 @@ use({ "junegunn/vim-easy-align", cmd = "EasyAlign" })
 
 use({
     "kylechui/nvim-surround",
-    -- keys = { "<C-g>s", "<C-g>S", "sa", "ssa", "sA", "ssA", "sd", "sr" },
-    event = "BufWinEnter",
+    keys = { "<C-g>s", "<C-g>S", "sa", "ssa", "sA", "ssA", "sd", "sr" },
     config = function()
         require("config.plugins.surround")
     end,
@@ -152,7 +151,7 @@ use({ "voldikss/vim-translator", cmd = "Translate" })
 -- highlight search,
 use({
     "kevinhwang91/nvim-hlslens",
-    event = "BufWinEnter",
+    keys = { "n", "N", "*", "#", "g*", "g#" },
     config = "require('config.plugins.hlslens')",
 })
 
@@ -212,4 +211,16 @@ use({
 use({
     "gpanders/editorconfig.nvim",
     event = "BufWinEnter",
+})
+
+use({
+    "kana/vim-textobj-user",
+    event = "BufWinEnter",
+})
+use({
+    "beloglazov/vim-textobj-quotes",
+    after = "vim-textobj-user",
+    config = function()
+        vim.keymap.set({ "x", "o" }, "q", "iq", { noremap = false, remap = true })
+    end,
 })
