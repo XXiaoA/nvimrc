@@ -112,7 +112,8 @@ use({ "junegunn/vim-easy-align", cmd = "EasyAlign" })
 
 use({
     "kylechui/nvim-surround",
-    keys = { "<C-g>s", "<C-g>S", "sa", "ssa", "sA", "ssA", "sd", "sr" },
+    -- keys = { "<C-g>s", "<C-g>S", "sa", "ssa", "sA", "ssA", "sd", "sr" },
+    event = "BufWinEnter",
     config = function()
         require("config.plugins.surround")
     end,

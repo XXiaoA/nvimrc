@@ -125,7 +125,7 @@ local todo_snippet_specs = {
     { { trig = "warn" }, { "WARN", "WARNING", "XXX" } },
     { { trig = "perf" }, { "PERF", "PERFORMANCE", "OPTIM", "OPTIMIZE" } },
     { { trig = "note" }, { "NOTE", "INFO" } },
-    -- NOTE: Block commented todo-comments <kunzaatko>
+    -- Block commented todo-comments
     { { trig = "todob" }, "TODO", { ctype = 2 } },
     { { trig = "fixb" }, { "FIX", "BUG", "ISSUE", "FIXIT" }, { ctype = 2 } },
     { { trig = "hackb" }, "HACK", { ctype = 2 } },
@@ -136,7 +136,7 @@ local todo_snippet_specs = {
 
 local todo_comment_snippets = {}
 for _, v in ipairs(todo_snippet_specs) do
-    -- NOTE: 3rd argument accepts nil
+    -- 3rd argument accepts nil
     table.insert(todo_comment_snippets, todo_snippet(v[1], v[2], v[3]))
 end
 
