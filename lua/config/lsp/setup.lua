@@ -48,8 +48,11 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
     width = 60,
 })
 
----@diagnostic disable-next-line: unused-local
 local function on_attach(client, bufnr)
+    -- disable format
+    client.server_capabilities.documentFormattingProvider = false
+    client.server_capabilities.documentRangeFormattingProvider = false
+
     -- keymap
     local nmap = require("core.keymap").set_keymap("n")
     -- nmap("<leader>rn", vim.lsp.buf.rename, { buffer = bufnr })
@@ -73,7 +76,6 @@ local function on_attach(client, bufnr)
     nmap("gp", vim.diagnostic.goto_prev, { buffer = bufnr })
     nmap("gn", vim.diagnostic.goto_next, { buffer = bufnr })
     nmap("gk", vim.lsp.buf.signature_help, { buffer = bufnr })
-    nmap("<leader>=", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", { buffer = bufnr })
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -85,7 +87,6 @@ capabilities.textDocument.foldingRange = {
 local settings = {
     on_attach = on_attach,
     capabilities = capabilities,
-    other_fields = ...,
 }
 
 local lua_settings = vim.tbl_extend("force", settings, require("config.lsp.settings.sumneko_lua"))
@@ -102,7 +103,6 @@ mason_lspconfig.setup_handlers({
         require("rust-tools").setup({
             server = {
                 on_attach = on_attach,
-                -- on_attach = function(_, bufnr) end,
             },
         })
     end,
