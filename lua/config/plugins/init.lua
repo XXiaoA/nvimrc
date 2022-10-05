@@ -168,6 +168,7 @@ use({
 use({
     "iamcco/markdown-preview.nvim",
     config = "require('config.plugins.markdown-preview')",
+    run = "cd app && npm install",
     ft = { "markdown" },
 })
 
@@ -224,5 +225,13 @@ use({
     config = function()
         vim.keymap.set({ "x", "o" }, "q", "iq", { remap = true })
         vim.keymap.set({ "x", "o" }, "Q", "aq", { remap = true })
+    end,
+})
+
+use({
+    "lewis6991/gitsigns.nvim",
+    event = "BufWinEnter",
+    config = function()
+        require("gitsigns").setup()
     end,
 })
