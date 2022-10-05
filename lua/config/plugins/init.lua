@@ -222,6 +222,7 @@ use({
     "beloglazov/vim-textobj-quotes",
     after = "vim-textobj-user",
     config = function()
-        vim.keymap.set({ "x", "o" }, "q", "iq", { noremap = false, remap = true })
+        vim.keymap.set({ "x", "o" }, "q", "iq", { remap = true })
+        vim.keymap.set({ "x", "o" }, "Q", "aq", { remap = true })
     end,
 })
