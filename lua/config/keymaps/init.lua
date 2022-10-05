@@ -72,7 +72,7 @@ tmap("<C-l>", [[<C-\><C-n><C-W>l]])
 nmap("<leader>i", "gg=G")
 
 -- Toggle spelling check
-nmap("<leader>sp", ":<C-U>set spell!<CR>", { desc = "Toggle spelling check" })
+nmap("<leader>sp", "<cmd>set spell!<CR>", { desc = "Toggle spelling check" })
 
 imap("<M-o>", "<C-O>o")
 imap("<M-O>", "<C-O>O")
@@ -87,3 +87,12 @@ omap("H", "^")
 omap("L", "$")
 xmap("H", "^")
 xmap("L", "$")
+
+xmap("ir", 'i[')
+xmap("ar", 'a[')
+xmap("ia", 'i<')
+xmap("aa", 'a<')
+omap("ir", 'i[')
+omap("ar", 'a[')
+omap("ia", 'i<')
+omap("aa", 'a<')

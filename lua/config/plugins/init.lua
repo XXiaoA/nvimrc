@@ -205,7 +205,7 @@ use({
 })
 
 use({
-    "mfussenegger/nvim-treehopper",
+    "XXiaoA/nvim-treehopper",
     keys = "m",
     config = [[require("config.plugins.treehopper")]],
 })
