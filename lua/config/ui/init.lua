@@ -25,6 +25,7 @@ use({
 })
 add_colorscheme("catppuccin")
 
+require("config.ui.autocmd")
 colorscheme.load_colorscheme(theme)
 vim.cmd("set background=dark")
 
