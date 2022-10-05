@@ -81,7 +81,6 @@ wk.register({
         s = { ":Telescope git_status<CR>", "Status + Git Diff" },
         c = { ":Telescope git_commits<CR>", "Commit History" },
         C = { ":Telescope git_bcommits<CR>", "Buffer Commit History" },
-        b = { ":Telescope git_branches<CR>", "Branches history" },
     },
 }, { prefix = "<leader>" })
 
