@@ -1,3 +1,5 @@
+-- modified from https://github.com/h-hg/fcitx.nvim/
+
 -- check fcitx5-remote
 if vim.fn.executable("fcitx5-remote") ~= 1 then
     return

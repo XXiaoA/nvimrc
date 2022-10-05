@@ -1,8 +1,9 @@
+-- inspired by https://github.com/famiu/bufdelete.nvim
 local api = vim.api
 local bo = vim.bo
 
 local function Bdelete(bufnr, bang)
-    -- bufnr maybe is '' because of `args` of user command is nil
+    -- bufnr is string from user command and it's maybe nil
     bufnr = tonumber(bufnr) or 0
     bufnr = bufnr == 0 and api.nvim_get_current_buf() or bufnr
     bang = bang or false
