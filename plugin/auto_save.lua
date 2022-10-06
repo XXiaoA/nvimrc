@@ -1,7 +1,6 @@
 local api = vim.api
 local fn = vim.fn
 
-local block = false
 local delay = 500 -- ms
 
 local autosave = api.nvim_create_augroup("autosave", { clear = true })
@@ -9,35 +8,40 @@ local autosave = api.nvim_create_augroup("autosave", { clear = true })
 api.nvim_create_autocmd("BufRead", {
     pattern = "*",
     group = autosave,
-    callback = function()
-        api.nvim_buf_set_var(0, "queued", false)
+    callback = function(ctx)
+        api.nvim_buf_set_var(ctx.buf, "autosave_queued", false)
+        api.nvim_buf_set_var(ctx.buf, "autosave_block", false)
     end,
 })
 
 api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
     pattern = "*",
     group = autosave,
-    callback = function()
-        local _, queued = pcall(api.nvim_buf_get_var, 0, "queued")
+    callback = function(ctx)
+        local ok, queued = pcall(api.nvim_buf_get_var, ctx.buf, "autosave_queued")
+        if not ok then
+            return
+        end
+
         if not queued then
-            -- conditions to save
-            local file = fn.expand("<afile>:p")
             if
+                -- conditions to save
                 vim.bo.modified
-                and fn.findfile(file, ".") ~= ""
-                and not file:match("wezterm.lua")
+                and fn.findfile(ctx.file, ".") ~= ""
+                and not ctx.file:match("wezterm.lua")
             then
                 vim.cmd("silent w")
-                api.nvim_buf_set_var(0, "queued", true)
+                api.nvim_buf_set_var(ctx.buf, "autosave_queued", true)
                 vim.notify("Saved at " .. os.date("%H:%M:%S"))
             end
         end
 
+        local block = api.nvim_buf_get_var(ctx.buf, "autosave_block")
         if not block then
-            block = true
+            api.nvim_buf_set_var(ctx.buf, "autosave_block", true)
             vim.defer_fn(function()
-                api.nvim_buf_set_var(0, "queued", false)
-                block = false
+                api.nvim_buf_set_var(ctx.buf, "autosave_queued", false)
+                api.nvim_buf_set_var(ctx.buf, "autosave_block", false)
             end, delay)
         end
     end,
