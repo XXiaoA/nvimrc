@@ -207,7 +207,7 @@ require("config.plugins.treehopper")
 
 use({
     "gpanders/editorconfig.nvim",
-    event = "BufWinEnter",
+    ft = { "lua" },
 })
 
 use({

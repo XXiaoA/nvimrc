@@ -1,8 +1,8 @@
 local api = vim.api
 local fn = vim.fn
 
-local block
-local delay = 1000 -- ms
+local block = false
+local delay = 500 -- ms
 
 local autosave = api.nvim_create_augroup("autosave", { clear = true })
 -- Initialization
@@ -11,7 +11,6 @@ api.nvim_create_autocmd("BufRead", {
     group = autosave,
     callback = function()
         api.nvim_buf_set_var(0, "queued", false)
-        block = false
     end,
 })
 
