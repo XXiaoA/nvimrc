@@ -21,11 +21,16 @@ api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
     callback = function()
         local _, queued = pcall(api.nvim_buf_get_var, 0, "queued")
         if not queued then
-            local file = fn.expand("%:p")
-            if vim.bo.modified and fn.findfile(file, ".") ~= "" then
+            -- conditions to save
+            local file = fn.expand("<afile>:p")
+            if
+                vim.bo.modified
+                and fn.findfile(file, ".") ~= ""
+                and not file:match("wezterm.lua")
+            then
                 vim.cmd("silent w")
                 api.nvim_buf_set_var(0, "queued", true)
-                vim.notify("saved at " .. vim.fn.strftime("%H:%M:%S"))
+                vim.notify("Saved at " .. os.date("%H:%M:%S"))
             end
         end
 
