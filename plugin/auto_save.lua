@@ -19,7 +19,7 @@ api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
     pattern = "*",
     group = autosave,
     callback = function()
-        local queued = api.nvim_buf_get_var(0, "queued")
+        local _, queued = pcall(api.nvim_buf_get_var, 0, "queued")
         if not queued then
             local file = fn.expand("%:p")
             if vim.bo.modified and fn.findfile(file, ".") ~= "" then
