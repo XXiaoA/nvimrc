@@ -59,10 +59,12 @@ end
 --- Get the current nvim version
 ---@return string
 function M.get_nvim_version()
-    local major = vim.tbl_get(vim.version(), "major")
-    local minor = vim.tbl_get(vim.version(), "minor")
-    local patch = vim.tbl_get(vim.version(), "patch")
+    local version = vim.version()
+    local major = version.major
+    local minor = version.minor
+    local patch = version.patch
     local version = string.format("%d.%d.%d", major, minor, patch)
+
     return version
 end
 
