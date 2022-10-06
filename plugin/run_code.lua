@@ -1,8 +1,11 @@
 local nmap = require("core.keymap").set_keymap("n")
 
 local function run_code()
-    local file = vim.api.nvim_buf_get_name(0)
+    local file = vim.fn.expand("%:p")
     local file_type = vim.api.nvim_buf_get_option(0, "filetype")
+    if vim.bo.modified and vim.fn.findfile(file, ".") ~= "" then
+        vim.cmd("silent w")
+    end
 
     if file_type == "lua" then
         vim.cmd("so")

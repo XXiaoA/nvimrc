@@ -179,12 +179,6 @@ use({
 })
 
 use({
-    "XXiaoA/auto-save.nvim",
-    event = { "InsertLeave", "TextChanged" },
-    config = "require('config.plugins.auto-save')",
-})
-
-use({
     "aserowy/tmux.nvim",
     keys = { "<C-h>", "<C-j>", "<C-k>", "<C-l>", "<A-h>", "<A-j>", "<A-k>", "<A-l>" },
     config = function()
