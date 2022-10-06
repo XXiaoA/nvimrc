@@ -199,10 +199,11 @@ use({
 })
 
 use({
-    "XXiaoA/nvim-treehopper",
-    keys = "m",
-    config = [[require("config.plugins.treehopper")]],
+    "mfussenegger/nvim-treehopper",
+    opt = true,
 })
+-- packadd manually
+require("config.plugins.treehopper")
 
 use({
     "gpanders/editorconfig.nvim",
