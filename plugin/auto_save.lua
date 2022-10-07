@@ -40,8 +40,10 @@ api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
         if not block then
             api.nvim_buf_set_var(ctx.buf, "autosave_block", true)
             vim.defer_fn(function()
-                api.nvim_buf_set_var(ctx.buf, "autosave_queued", false)
-                api.nvim_buf_set_var(ctx.buf, "autosave_block", false)
+                if api.nvim_buf_is_valid(ctx.buf) then
+                    api.nvim_buf_set_var(ctx.buf, "autosave_queued", false)
+                    api.nvim_buf_set_var(ctx.buf, "autosave_block", false)
+                end
             end, delay)
         end
     end,
