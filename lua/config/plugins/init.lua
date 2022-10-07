@@ -89,8 +89,7 @@ use({
 -- 颜色
 use({
     "NvChad/nvim-colorizer.lua",
-    -- should run the command twice to enable the plugin
-    cmd = "ColorizerToggle",
+    cmd = "ColorizerAttachToBuffer",
     config = "require('config.plugins.nvim-colorizer')",
 })
 
