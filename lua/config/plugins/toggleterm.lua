@@ -1,3 +1,4 @@
+-- TODO: Configure it
 local tg = require("utils").require_plugin("toggleterm")
 local terminal = require("utils").require_plugin("toggleterm.terminal")
 
@@ -69,3 +70,9 @@ end
 tg.lazygit_toggle = function()
     lazyGit:toggle()
 end
+
+local nmap = require("core.keymap").nmap
+nmap("<leader>tt", '<cmd>exe v:count."ToggleTerm"<CR>', { desc = "Toggle a common terminal" })
+nmap("<leader>tf", tg.float_toggle, { desc = "Toggle a float terminal" })
+nmap("<leader>tg", tg.lazygit_toggle, { desc = "Toggle a lazygit terminal" })
+nmap("<leader>ta", "<cmd>ToggleTermToggleAll<CR>", { desc = "Toggle all terminal" })

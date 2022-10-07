@@ -3,6 +3,7 @@ local add_colorscheme = colorscheme.add_colorscheme
 local utils = require("utils")
 local theme = utils.read_config("color_scheme")
 local use = require("core.packer").add_plugin
+local nmap = require("core.keymap").nmap
 
 -- colorscheme
 use({
@@ -29,6 +30,7 @@ add_colorscheme("catppuccin")
 require("config.ui.autocmd")
 colorscheme.load_colorscheme(theme)
 vim.cmd("set background=dark")
+nmap("<leader>cc", colorscheme.load_colorscheme_ui, { desc = "Change ColorScheme" })
 
 use({
     "kyazdani42/nvim-web-devicons",

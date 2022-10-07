@@ -62,20 +62,28 @@ local function on_attach(client, bufnr)
         nmap("q", function()
             lsprename:close_rename_win()
         end, { buffer = 0 })
-    end, { buffer = bufnr })
-    nmap("<space>ca", vim.lsp.buf.code_action, { buffer = bufnr })
-    nmap("gh", vim.lsp.buf.hover, { buffer = bufnr })
-    -- nmap("gd", vim.lsp.buf.definition, { buffer = bufnr })
-    nmap("gd", "<cmd>Telescope lsp_definitions<CR>", { buffer = bufnr })
-    nmap("gD", vim.lsp.buf.declaration, { buffer = bufnr })
-    -- nmap("gi", vim.lsp.buf.implementation, { buffer = bufnr })
-    nmap("gi", "<cmd>Telescope lsp_implementations<CR>", { buffer = bufnr })
-    -- nmap("gr", vim.lsp.buf.references, { buffer = bufnr })
-    nmap("gr", "<cmd>Telescope lsp_references<CR>", { buffer = bufnr })
-    nmap("go", vim.diagnostic.open_float, { buffer = bufnr })
-    nmap("gp", vim.diagnostic.goto_prev, { buffer = bufnr })
-    nmap("gn", vim.diagnostic.goto_next, { buffer = bufnr })
-    nmap("gk", vim.lsp.buf.signature_help, { buffer = bufnr })
+    end, { buffer = bufnr, desc = "Lsp rename" })
+    nmap("<space>ca", vim.lsp.buf.code_action, { buffer = bufnr, desc = "Lsp code action" })
+    nmap("gh", vim.lsp.buf.hover, { buffer = bufnr, desc = "Lsp hover" })
+    -- nmap("gd", vim.lsp.buf.definition, { buffer = bufnr, desc = "Lsp definition" })
+    nmap("gd", "<cmd>Telescope lsp_definitions<CR>", { buffer = bufnr, desc = "Lsp definition" })
+    nmap("gD", vim.lsp.buf.declaration, { buffer = bufnr, desc = "Lsp declaration" })
+    -- nmap("gi", vim.lsp.buf.implementation, { buffer = bufnr, desc = "Lsp implementation" })
+    nmap(
+        "gi",
+        "<cmd>Telescope lsp_implementations<CR>",
+        { buffer = bufnr, desc = "Lsp implementation" }
+    )
+    -- nmap("gr", vim.lsp.buf.references, { buffer = bufnr, desc = "Lsp references" })
+    nmap("gr", "<cmd>Telescope lsp_references<CR>", { buffer = bufnr, desc = "Lsp references" })
+    nmap(
+        "go",
+        vim.diagnostic.open_float,
+        { buffer = bufnr, desc = "Lsp open diagbostic float window" }
+    )
+    nmap("gp", vim.diagnostic.goto_prev, { buffer = bufnr, desc = "Lsp go to previous diagbostic" })
+    nmap("gn", vim.diagnostic.goto_next, { buffer = bufnr, desc = "Lsp go to next diagbostic" })
+    nmap("gk", vim.lsp.buf.signature_help, { buffer = bufnr, desc = "Lsp open signature help" })
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()

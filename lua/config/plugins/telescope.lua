@@ -5,6 +5,18 @@ if not actions or not telescope then
     return
 end
 
+local nmap = require("core.keymap").nmap
+nmap("<leader>/", ":Telescope current_buffer_fuzzy_find<CR>", { desc = "find current buffer" })
+nmap("<leader>gs", ":Telescope git_status<CR>", { desc = "git status and diff" })
+nmap("<leader>gc", ":Telescope git_commits<CR>", { desc = "commit history" })
+nmap("<leader>gC", ":Telescope git_bcommits<CR>", { desc = "buffer commit history" })
+
+nmap("<leader>fw", ":Telescope live_grep<CR>", { desc = "search words" })
+nmap("<leader>ff", ":Telescope find_files<CR>", { desc = "search files" })
+nmap("<leader>fr", ":Telescope oldfiles<CR>", { desc = "search recent files" })
+nmap("<leader>fb", ":Telescope buffers<CR>", { desc = "search buffers" })
+nmap("<leader>fh", ":Telescope help_tags<CR>", { desc = "search help tags" })
+
 telescope.setup({
     defaults = {
         mappings = {

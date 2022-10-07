@@ -82,7 +82,7 @@ use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make", after = "telesco
 -- code outline
 use({
     "stevearc/aerial.nvim",
-    after = "telescope.nvim",
+    keys = { "[f", "]f", "[F", "]F", "<leader>aa", "<leader>fa" },
     config = "require('config.plugins.aerial')",
 })
 
@@ -96,14 +96,14 @@ use({
 -- 命令行窗口
 use({
     "akinsho/toggleterm.nvim",
-    event = "BufWinEnter",
+    keys = { "<leader>tt", "<leader>tf", "<leader>tg", "<leader>ta" },
     config = "require('config.plugins.toggleterm')",
 })
 
 -- session
 use({
     "Shatur/neovim-session-manager",
-    cmd = "SessionManager",
+    keys = { "<leader>ss", "<leader>sl", "<leader>sc", "<leader>sd" },
     config = "require('config.plugins.neovim-session-manager')",
 })
 
@@ -124,8 +124,7 @@ use({ "dstein64/vim-startuptime", cmd = "StartupTime" })
 -- 快速转跳
 use({
     "phaazon/hop.nvim",
-    branch = "v1", -- optional but strongly recommended
-    event = "BufWinEnter",
+    keys = { "<leader>hw", "<leader>hl", "<leader>hp", "t", "T", "f", "F" },
     config = "require('config.plugins.hop')",
 })
 
@@ -135,7 +134,7 @@ use({ "yianwillis/vimcdoc", event = "BufWinEnter" })
 -- 格式化代码
 use({
     "mhartington/formatter.nvim",
-    cmd = "Format",
+    keys = "<leader>bf",
     config = "require('config.plugins.formatter')",
 })
 
@@ -160,7 +159,7 @@ use({ "jubnzv/mdeval.nvim", ft = "markdown", config = "require('config.plugins.m
 
 use({
     "danymat/neogen",
-    cmd = "Neogen",
+    keys = "gcn",
     config = "require('config.plugins.neogen')",
 })
 
@@ -199,10 +198,11 @@ use({
 
 use({
     "mfussenegger/nvim-treehopper",
-    opt = true,
+    event = "BufWinEnter",
+    config = function()
+        require("config.plugins.treehopper")
+    end,
 })
--- packadd manually
-require("config.plugins.treehopper")
 
 use({
     "gpanders/editorconfig.nvim",

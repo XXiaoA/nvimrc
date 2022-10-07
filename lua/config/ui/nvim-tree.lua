@@ -4,6 +4,7 @@ if not tr then
 end
 
 local nmap = require("core.keymap").set_keymap("n")
+nmap("<leader>nm", "<cmd>NvimTreeFocus<CR>")
 nmap("<leader>nn", "<cmd>NvimTreeToggle<CR>")
 nmap("<A-m>", function()
     return require("nvim-tree").toggle(false, true)

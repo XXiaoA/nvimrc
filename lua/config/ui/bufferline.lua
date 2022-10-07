@@ -4,6 +4,13 @@ if not bufferline then
     return
 end
 
+local nmap = require("core.keymap").nmap
+nmap("<leader>bc", ":BufferLinePickClose<CR>", { desc = "Close Buffer" })
+nmap("<leader>bh", ":BufferLineMovePrev<CR>", { desc = "Move buffer Left" })
+nmap("<leader>bl", ":BufferLineMoveNext<CR>", { desc = "Move buffer Right" })
+nmap("<A-,>", ":BufferLineCyclePrev<CR>", { desc = "Go to previous buffer" })
+nmap("<A-.>", ":BufferLineCycleNext<CR>", { desc = "Go to next buffer" })
+
 bufferline.setup({
     options = {
         -- 使用 nvim 内置lsp

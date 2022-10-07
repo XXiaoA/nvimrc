@@ -3,6 +3,9 @@ if not formatter then
     return
 end
 
+local nmap = require("core.keymap").nmap
+nmap("<leader>bf", ":Format<CR>", { desc = "Format Buffer" })
+
 formatter.setup({
     logging = true,
     log_level = vim.log.levels.WARN,

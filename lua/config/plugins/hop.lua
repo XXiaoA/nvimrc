@@ -7,8 +7,12 @@ if hop then
     })
 end
 
+local map = require("core.keymap").set_keymap({ "o", "n", "x" })
+map("<leader>hl", hop.hint_lines_skip_whitespace)
+map("<leader>hw", hop.hint_words)
+map("<leader>hp", hop.hint_patterns)
+
 -- https://github.com/phaazon/hop.nvim/wiki/Advanced-Hop
-local map = require("core.keymap").set_keymap({ "n", "x" })
 map("f", function()
     hop.hint_char1({
         direction = require("hop.hint").HintDirection.AFTER_CURSOR,
@@ -35,6 +39,6 @@ map("T", function()
     hop.hint_char1({
         direction = require("hop.hint").HintDirection.BEFORE_CURSOR,
         current_line_only = true,
-        hint_offset = -1,
+        hint_offset = 1,
     })
 end)

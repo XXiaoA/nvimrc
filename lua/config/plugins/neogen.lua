@@ -3,6 +3,9 @@ if not neogen then
     return
 end
 
+local nmap = require("core.keymap").nmap
+nmap("gcn", "<cmd>Neogen<CR>", { desc = "generate annotation" })
+
 neogen.setup({
     snippet_engine = "luasnip",
 })

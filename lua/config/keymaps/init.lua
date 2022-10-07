@@ -1,11 +1,11 @@
 -- Function for make mapping easier.
-local map = require("core.keymap").set_keymap
+local keymap = require("core.keymap")
 
-local nmap = map("n")
-local imap = map("i")
-local xmap = map("x")
-local tmap = map("t")
-local omap = map("o")
+local nmap = keymap.nmap
+local imap = keymap.imap
+local xmap = keymap.xmap
+local tmap = keymap.tmap
+local omap = keymap.omap
 
 -- leader key 为空格
 vim.g.mapleader = " "
@@ -99,3 +99,6 @@ omap("aa", "a<")
 
 nmap("<A-p>", "<cmd>pu<CR>")
 nmap("<A-P>", "<cmd>pu!<CR>")
+
+nmap("<leader>be", ":noh<CR>", { desc = "Erase Search Highlights" })
+nmap("<leader>bn", ":enew<CR>", { desc = "New Buffer" })
