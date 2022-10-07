@@ -7,7 +7,7 @@ xmap("m", function()
     if vim.api.nvim_buf_get_option(0, "ft") ~= "gitcommit" then
         if not init then
             vim.cmd.packadd("nvim-treehopper")
-            require("tsht").config.hint_keys = { "h", "j", "f", "d", "n", "v", "s", "l", "a" }
+            require("tsht").config.hint_keys = { "h", "j", "f", "d", "g", "k", "l", "s", "a" }
             init = true
         end
         vim.cmd.normal("v")
@@ -20,7 +20,7 @@ omap("m", function()
     if vim.api.nvim_buf_get_option(0, "ft") ~= "gitcommit" then
         if not init then
             vim.cmd.packadd("nvim-treehopper")
-            require("tsht").config.hint_keys = { "h", "j", "f", "d", "n", "v", "s", "l", "a" }
+            require("tsht").config.hint_keys = { "h", "j", "f", "d", "g", "k", "l", "s", "a" }
             init = true
         end
         require("tsht").nodes()

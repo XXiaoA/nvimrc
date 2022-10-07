@@ -2,7 +2,7 @@ local hop = require("utils").require_plugin("hop")
 
 if hop then
     hop.setup({
-        keys = "etovxqpdygfblzhckisuran",
+        keys = "hjfdgklsa",
         -- jump_on_sole_occurrence = false,
     })
 end
