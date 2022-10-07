@@ -21,6 +21,7 @@ add_colorscheme({ "duskfox", "nightfox" }, "nightfox.nvim")
 use({
     "catppuccin/nvim",
     as = "catppuccin",
+    run = ":CatppuccinCompile",
     opt = true,
 })
 add_colorscheme("catppuccin")
