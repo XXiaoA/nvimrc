@@ -96,3 +96,6 @@ omap("ir", "i[")
 omap("ar", "a[")
 omap("ia", "i<")
 omap("aa", "a<")
+
+nmap("<A-p>", "<cmd>pu<CR>")
+nmap("<A-P>", "<cmd>pu!<CR>")
