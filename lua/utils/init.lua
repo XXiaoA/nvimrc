@@ -15,7 +15,7 @@ function M.require_plugin(plugin_name, message)
         vim.notify(hint, vim.log.levels.WARN)
         return nil
     else
-        if plugin ~= true then
+        if status_ok and plugin ~= true then
             return plugin
         end
     end
