@@ -1,15 +1,16 @@
 vim.api.nvim_create_autocmd("ColorScheme", {
+    pattern = "*",
     command = [[
     hi! link TSNodeKey HopNextKey
     hi! link TSNodeUnmatched HopUnmatched
     ]],
 })
 
--- vim.api.nvim_create_autocmd("ColorScheme", {
---     pattern = "*",
---     command = [[
---     hi GitSignsChangeInline guibg=fg guifg=bg
---     hi GitSignsAddInline guibg=fg guifg=bg
---     hi GitSignsDeleteInline guibg=fg guifg=bg
---     ]],
--- })
+vim.api.nvim_create_autocmd("ColorScheme", {
+    pattern = "*",
+    command = [[
+    hi GitSignsAddInline guibg=#81b29a guifg=bg
+    hi GitSignsChangeInline guibg=#dbc074 guifg=bg
+    hi GitSignsDeleteInline guibg=#c94f6d guifg=bg
+    ]],
+})
