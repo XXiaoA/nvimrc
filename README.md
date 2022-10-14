@@ -8,7 +8,7 @@ nightly
 
 ## Install
 ```bash
-git clone https://github.com/jesseduffield/lazygit.git ~/.config/nvim
+git clone https://github.com/XXiaoA/nvimrc ~/.config/nvim
 ```
 
 
