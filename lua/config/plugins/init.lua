@@ -26,7 +26,7 @@ use({
 -- Comment 注释
 use({
     "numToStr/Comment.nvim",
-    keys = { "gc", "gb" },
+    event = "BufWinEnter",
     config = "require('config.plugins.comment')",
 })
 
@@ -37,6 +37,7 @@ use({ "onsails/lspkind-nvim", event = "BufWinEnter" })
 use({
     "hrsh7th/nvim-cmp",
     requires = {
+        { "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" },
         { "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" },
         { "hrsh7th/cmp-buffer", after = "nvim-cmp" },
         { "hrsh7th/cmp-path", after = "nvim-cmp" },
@@ -48,8 +49,13 @@ use({
 })
 
 -- snippets
-use({ "L3MON4D3/LuaSnip", event = "InsertEnter" })
-use({ "saadparwaiz1/cmp_luasnip", after = { "nvim-cmp", "LuaSnip" } })
+use({
+    "L3MON4D3/LuaSnip",
+    event = "InsertEnter",
+    config = function()
+        require("config.plugins.luasnip")
+    end,
+})
 
 -- 自动补全括号
 use({
@@ -112,9 +118,18 @@ use({ "junegunn/vim-easy-align", cmd = "EasyAlign" })
 
 use({
     "kylechui/nvim-surround",
-    keys = { "<C-g>s", "<C-g>S", "sa", "ssa", "sA", "ssA", "sd", "sr" },
+    event = "BufWinEnter",
+    -- keys = { "<C-g>s", "<C-g>S", "sa", "ssa", "sA", "ssA", "sd", "sr" },
     config = function()
         require("config.plugins.surround")
+    end,
+})
+
+use({
+    "~/repos/ns-textobject.nvim/",
+    after = "nvim-surround",
+    config = function()
+        require("config.plugins.ns-textobject")
     end,
 })
 
@@ -207,19 +222,6 @@ use({
 use({
     "gpanders/editorconfig.nvim",
     ft = { "lua" },
-})
-
-use({
-    "kana/vim-textobj-user",
-    event = "BufWinEnter",
-})
-use({
-    "beloglazov/vim-textobj-quotes",
-    after = "vim-textobj-user",
-    config = function()
-        vim.keymap.set({ "x", "o" }, "q", "iq", { remap = true })
-        vim.keymap.set({ "x", "o" }, "Q", "aq", { remap = true })
-    end,
 })
 
 use({

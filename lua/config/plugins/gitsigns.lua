@@ -36,7 +36,7 @@ gitsigns.setup({
             linehl = "GitSignsChangeLn",
         },
     },
-    word_diff = true,
+    word_diff = false,
     on_attach = function()
         local map = require("core.keymap").set_keymap
         local nmap = map("n")

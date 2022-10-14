@@ -1,10 +1,12 @@
--- TODO: Configure it
 local tg = require("utils").require_plugin("toggleterm")
 local terminal = require("utils").require_plugin("toggleterm.terminal")
-
 if not tg or not terminal then
     return
 end
+
+local keymap = require("core.keymap")
+local tmap = keymap.tmap
+local imap = keymap.imap
 
 local Terminal = terminal.Terminal
 tg.setup({
@@ -17,14 +19,6 @@ tg.setup({
     direction = "horizontal",
 })
 
--- 新建终端
-local gmap = vim.api.nvim_set_keymap
-local bmap = vim.api.nvim_buf_set_keymap
-local opt = {
-    noremap = true,
-    silent = true,
-}
-
 -- 新建浮动终端
 local floatTerm = Terminal:new({
     hidden = true,
@@ -35,11 +29,11 @@ local floatTerm = Terminal:new({
     on_open = function(term)
         vim.cmd("startinsert")
         -- 浮动终端中 <ESC> 是退出插入模式
-        bmap(term.bufnr, "t", "<ESC>", "<C-\\><C-n>", opt)
+        tmap("<ESC>", "<C-\\><C-n>", { buffer = term.bufnr })
     end,
     on_close = function()
         -- 重新映射 <ESC>
-        gmap("t", "<ESC>", "<C-\\><C-n>", opt)
+        tmap("<ESC>", "<C-\\><C-n>")
     end,
 })
 
@@ -54,11 +48,11 @@ local lazyGit = Terminal:new({
     on_open = function(term)
         vim.cmd("startinsert")
         -- lazygit 中 q 是退出
-        bmap(term.bufnr, "i", "q", "<cmd>close<CR>", opt)
+        imap("q", "<cmd>close<CR>", { buffer = term.bufnr })
     end,
     on_close = function()
         -- 重新映射
-        gmap("t", "<ESC>", "<C-\\><C-n>", opt)
+        tmap("<ESC>", "<C-\\><C-n>")
     end,
 })
 

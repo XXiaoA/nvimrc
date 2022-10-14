@@ -7,8 +7,4 @@ end
 Comment.setup({
     -- ignores empty lines
     ignore = "^$",
-
-    mappings = {
-        extended = true,
-    },
 })

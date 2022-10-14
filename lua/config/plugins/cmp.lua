@@ -6,16 +6,6 @@ if not cmp or not lspkind or not luasnip then
     return
 end
 
--- load the luasnip
-require("luasnip.loaders.from_lua").load({ paths = "./snippets" })
--- keymap for luasnip
-local map = require("core.keymap").set_keymap
-map({ "i", "s" })("<C-l>", function()
-    if luasnip.choice_active() then
-        luasnip.change_choice(1)
-    end
-end)
-
 cmp.setup({
     experimental = {
         ghost_text = true,
@@ -27,7 +17,7 @@ cmp.setup({
     -- 指定 snippet 引擎
     snippet = {
         expand = function(args)
-            require("luasnip").lsp_expand(args.body)
+            luasnip.lsp_expand(args.body)
         end,
     },
     -- 来源

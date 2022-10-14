@@ -88,15 +88,6 @@ omap("L", "$")
 xmap("H", "^")
 xmap("L", "$")
 
-xmap("ir", "i[")
-xmap("ar", "a[")
-xmap("ia", "i<")
-xmap("aa", "a<")
-omap("ir", "i[")
-omap("ar", "a[")
-omap("ia", "i<")
-omap("aa", "a<")
-
 nmap("<A-p>", "<cmd>pu<CR>")
 nmap("<A-P>", "<cmd>pu!<CR>")
 
