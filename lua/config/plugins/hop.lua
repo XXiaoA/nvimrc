@@ -13,21 +13,21 @@ map("<leader>hw", hop.hint_words)
 map("<leader>hp", hop.hint_patterns)
 
 -- https://github.com/phaazon/hop.nvim/wiki/Advanced-Hop
-map("f", function()
+map("sf", function()
     hop.hint_char1({
         direction = require("hop.hint").HintDirection.AFTER_CURSOR,
         current_line_only = true,
     })
 end)
 
-map("F", function()
+map("sF", function()
     hop.hint_char1({
         direction = require("hop.hint").HintDirection.BEFORE_CURSOR,
         current_line_only = true,
     })
 end)
 
-map("t", function()
+map("st", function()
     hop.hint_char1({
         direction = require("hop.hint").HintDirection.AFTER_CURSOR,
         current_line_only = true,
@@ -35,7 +35,7 @@ map("t", function()
     })
 end)
 
-map("T", function()
+map("sT", function()
     hop.hint_char1({
         direction = require("hop.hint").HintDirection.BEFORE_CURSOR,
         current_line_only = true,
