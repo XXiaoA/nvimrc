@@ -8,6 +8,7 @@ use({
         "python",
         "rust",
         "vim",
+        "cpp",
     },
     config = function()
         require("config.lsp.setup")

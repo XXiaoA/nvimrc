@@ -10,6 +10,7 @@ mason_lspconfig.setup({
         "pylsp",
         "rust_analyzer",
         "vimls",
+        "clangd",
     },
 })
 
