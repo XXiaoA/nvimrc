@@ -30,9 +30,6 @@ use({
     config = "require('config.plugins.comment')",
 })
 
--- lspkind
-use({ "onsails/lspkind-nvim", event = "BufWinEnter" })
-
 -- nvim-cmp
 use({
     "hrsh7th/nvim-cmp",
@@ -45,7 +42,7 @@ use({
         { "hrsh7th/cmp-nvim-lsp-signature-help", after = "nvim-cmp" },
     },
     config = "require('config.plugins.cmp')",
-    after = "lspkind-nvim",
+    event = "BufWinEnter",
 })
 
 -- snippets

@@ -1,10 +1,37 @@
-local lspkind = require("utils").require_plugin("lspkind")
 local cmp = require("utils").require_plugin("cmp")
 local luasnip = require("utils").require_plugin("luasnip")
-
-if not cmp or not lspkind or not luasnip then
+if not cmp or not luasnip then
     return
 end
+
+local nerd_icons = {
+    Text = "",
+    Method = "",
+    Function = "",
+    Constructor = "",
+    Field = "ﰠ",
+    Variable = "",
+    Class = "ﴯ",
+    Interface = "",
+    Module = "",
+    Property = "ﰠ",
+    Unit = "塞",
+    Value = "",
+    Enum = "",
+    Keyword = "",
+    Snippet = "",
+    Color = "",
+    File = "",
+    Reference = "",
+    Folder = "",
+    EnumMember = "",
+    Constant = "",
+    Struct = "פּ",
+    Event = "",
+    Operator = "",
+    TypeParameter = "",
+}
+
 
 cmp.setup({
     experimental = {
@@ -74,15 +101,17 @@ cmp.setup({
     -- 使用lspkind-nvim显示类型图标
     formatting = {
         fields = { "kind", "abbr", "menu" },
-        format = lspkind.cmp_format({
-            with_text = false, -- do not show text alongside icons
-            maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
-            menu = {
+        format = function(entry, vim_item)
+            -- Kind icons
+            vim_item.kind = nerd_icons[vim_item.kind] or ""
+            -- Source
+            vim_item.menu = ({
                 buffer = "[Buffer]",
                 nvim_lsp = "[LSP]",
                 luasnip = "[LuaSnip]",
-            },
-        }),
+            })[entry.source.name]
+            return vim_item
+        end,
     },
 })
 
