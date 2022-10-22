@@ -171,7 +171,7 @@ use({ "jubnzv/mdeval.nvim", ft = "markdown", config = "require('config.plugins.m
 
 use({
     "danymat/neogen",
-    keys = "gcn",
+    keys = "<C-_>",
     config = "require('config.plugins.neogen')",
 })
 
