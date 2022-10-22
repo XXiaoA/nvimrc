@@ -32,7 +32,6 @@ local nerd_icons = {
     TypeParameter = "",
 }
 
-
 cmp.setup({
     experimental = {
         ghost_text = true,

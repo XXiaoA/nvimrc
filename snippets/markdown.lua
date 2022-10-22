@@ -76,7 +76,7 @@ return {
 
     s( "detail", fmt([[
     <details>
-    <summary><font size="2" color="red">{}</font></summary>
+    <summary><font size="" color="red">{}</font></summary>
 
     {}
     </details>
