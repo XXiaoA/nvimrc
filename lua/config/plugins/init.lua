@@ -136,7 +136,7 @@ use({ "dstein64/vim-startuptime", cmd = "StartupTime" })
 -- 快速转跳
 use({
     "phaazon/hop.nvim",
-    keys = { "<leader>hw", "<leader>hl", "<leader>hp", "st", "sT", "sf", "sF" },
+    keys = { "<leader>hw", "<leader>hl", "<leader>hp", "t", "T", "f", "F" },
     config = "require('config.plugins.hop')",
 })
 

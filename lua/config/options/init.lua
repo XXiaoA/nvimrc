@@ -23,9 +23,7 @@ g.loaded_netrwFileHandlers = 1
 
 -- 鼠标
 o.mouse = "nv" -- "a"
--- open backup
-o.backup = true
-o.writebackup = true
+-- backup dir
 o.backupdir = cache_dir .. "backup/"
 -- open swap
 o.swapfile = false
