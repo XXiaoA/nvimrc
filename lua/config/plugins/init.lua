@@ -231,6 +231,7 @@ use({
 
 use({
     "s1n7ax/nvim-window-picker",
+    keys = { ",w", ",W" },
     config = function()
         require("config.plugins.window-picker")
     end,

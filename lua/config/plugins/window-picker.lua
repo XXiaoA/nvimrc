@@ -1,4 +1,5 @@
 -- https://www.lunarvim.org/docs/plugins/extra-plugins#nvim-window-picker
+
 require("window-picker").setup({
     autoselect_one = true,
     include_current = false,
