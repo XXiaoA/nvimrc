@@ -228,3 +228,10 @@ use({
         require("config.plugins.gitsigns")
     end,
 })
+
+use({
+    "s1n7ax/nvim-window-picker",
+    config = function()
+        require("config.plugins.window-picker")
+    end,
+})
