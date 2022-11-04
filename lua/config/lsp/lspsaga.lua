@@ -9,6 +9,7 @@ saga.init_lsp_saga({
         sign = true,
         virtual_text = false,
     },
+    diagnostic_header = { " ", " ", " ", " " },
     show_outline = {
         jump_key = "<CR>",
     },

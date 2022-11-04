@@ -49,13 +49,14 @@ ufo.setup({
     end,
 })
 
-vim.keymap.set("n", "zR", require("ufo").openAllFolds)
-vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
-vim.keymap.set("n", "zr", require("ufo").openFoldsExceptKinds)
-vim.keymap.set("n", "zm", require("ufo").closeFoldsWith) -- closeAllFolds == closeFoldsWith(0)
-vim.keymap.set("n", "K", function()
+local nmap = require("core.keymap").nmap
+nmap("zR", require("ufo").openAllFolds)
+nmap("zM", require("ufo").closeAllFolds)
+nmap("zr", require("ufo").openFoldsExceptKinds)
+nmap("zm", require("ufo").closeFoldsWith) -- closeAllFolds == closeFoldsWith(0)
+nmap("K", function()
     local winid = require("ufo").peekFoldedLinesUnderCursor()
     if not winid then
-        vim.lsp.buf.hover()
+        vim.cmd("Lspsaga hover_doc")
     end
 end)

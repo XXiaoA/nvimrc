@@ -40,12 +40,10 @@ vim.diagnostic.config({
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
     border = "single",
-    width = 60,
 })
 
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
     border = "single",
-    width = 60,
 })
 
 local function on_attach(client, bufnr)
@@ -54,8 +52,7 @@ local function on_attach(client, bufnr)
     client.server_capabilities.documentRangeFormattingProvider = false
 
     -- keymap
-    local nmap = require("core.keymap").set_keymap("n")
-    -- nmap("<leader>rn", vim.lsp.buf.rename, { buffer = bufnr })
+    local nmap = require("core.keymap").nmap
     nmap("<leader>rn", function()
         local lsprename = require("lspsaga.rename")
         lsprename:lsp_rename()
@@ -64,25 +61,25 @@ local function on_attach(client, bufnr)
         end, { buffer = 0 })
     end, { buffer = bufnr, desc = "Lsp rename" })
     nmap("<space>ca", vim.lsp.buf.code_action, { buffer = bufnr, desc = "Lsp code action" })
-    nmap("gh", vim.lsp.buf.hover, { buffer = bufnr, desc = "Lsp hover" })
-    -- nmap("gd", vim.lsp.buf.definition, { buffer = bufnr, desc = "Lsp definition" })
     nmap("gd", "<cmd>Telescope lsp_definitions<CR>", { buffer = bufnr, desc = "Lsp definition" })
     nmap("gD", vim.lsp.buf.declaration, { buffer = bufnr, desc = "Lsp declaration" })
-    -- nmap("gi", vim.lsp.buf.implementation, { buffer = bufnr, desc = "Lsp implementation" })
     nmap(
         "gi",
         "<cmd>Telescope lsp_implementations<CR>",
         { buffer = bufnr, desc = "Lsp implementation" }
     )
-    -- nmap("gr", vim.lsp.buf.references, { buffer = bufnr, desc = "Lsp references" })
     nmap("gr", "<cmd>Telescope lsp_references<CR>", { buffer = bufnr, desc = "Lsp references" })
-    nmap(
-        "go",
-        vim.diagnostic.open_float,
-        { buffer = bufnr, desc = "Lsp open diagbostic float window" }
-    )
-    nmap("gp", vim.diagnostic.goto_prev, { buffer = bufnr, desc = "Lsp go to previous diagbostic" })
-    nmap("gn", vim.diagnostic.goto_next, { buffer = bufnr, desc = "Lsp go to next diagbostic" })
+
+    nmap("[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true })
+    nmap("]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
+    nmap("[e", function()
+        require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR })
+    end)
+    nmap("]e", function()
+        require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
+    end)
+    nmap("go", "<cmd>Lspsaga show_line_diagnostics<CR>")
+
     nmap("gk", vim.lsp.buf.signature_help, { buffer = bufnr, desc = "Lsp open signature help" })
 end
 
