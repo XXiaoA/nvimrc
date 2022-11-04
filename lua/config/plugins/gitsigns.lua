@@ -42,7 +42,7 @@ gitsigns.setup({
         local nmap = map("n")
 
         -- Navigation
-        nmap("]c", function()
+        map({ "n", "v" })("]c", function()
             if vim.wo.diff then
                 return "]c"
             end
@@ -52,7 +52,7 @@ gitsigns.setup({
             return "<Ignore>"
         end, { expr = true, desc = "next hunk" })
 
-        nmap("[c", function()
+        map({ "n", "v" })("[c", function()
             if vim.wo.diff then
                 return "[c"
             end
