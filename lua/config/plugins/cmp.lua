@@ -1,9 +1,9 @@
 local cmp = require("utils").require_plugin("cmp")
-local luasnip = require("utils").require_plugin("luasnip")
-if not cmp or not luasnip then
+if not cmp then
     return
 end
 
+local luasnip = require("utils").require_plugin("luasnip")
 local nerd_icons = {
     Text = "",
     Method = "",

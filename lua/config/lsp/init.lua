@@ -10,9 +10,6 @@ use({
         "vim",
         "cpp",
     },
-    config = function()
-        require("config.lsp.setup")
-    end,
 })
 
 use({
@@ -23,7 +20,10 @@ use({
 use({
     "williamboman/mason-lspconfig.nvim",
     after = "mason.nvim",
-    config = [[require("config.lsp.mason")]],
+    config = function()
+        require("config.lsp.mason")
+        require("config.lsp.setup")
+    end,
 })
 
 use({
@@ -42,13 +42,18 @@ use({
 
 use({
     "kevinhwang91/nvim-ufo",
-    after = "nvim-lspconfig",
-    requires = "kevinhwang91/promise-async",
+    after = "promise-async",
     config = [[require("config.lsp.ufo")]],
 })
 
 use({
+    "kevinhwang91/promise-async",
+    after = "nvim-lspconfig",
+})
+
+use({
     "simrat39/rust-tools.nvim",
+    after = "nvim-lspconfig",
 })
 
 use({

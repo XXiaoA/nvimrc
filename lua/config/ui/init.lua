@@ -75,3 +75,19 @@ use({
     after = "telescope.nvim",
     config = "require('config.ui.dressing')",
 })
+
+use({
+    "folke/twilight.nvim",
+    cmd = "Twilight",
+    config = function()
+        require("twilight").setup({})
+    end,
+})
+
+use({
+    "folke/zen-mode.nvim",
+    cmd = "ZenMode",
+    config = function()
+        require("config.ui.zen-mode")
+    end,
+})

@@ -1,7 +1,7 @@
 local use = require("core.packer").add_plugin
 
 -- 加快启动时间
-use({ "lewis6991/impatient.nvim", config = "require('impatient')" })
+-- use({ "lewis6991/impatient.nvim", config = "require('impatient')" })
 
 -- Packer can manage itself
 use({ "wbthomason/packer.nvim" })
@@ -30,6 +30,15 @@ use({
     config = "require('config.plugins.comment')",
 })
 
+-- snippets
+use({
+    "L3MON4D3/LuaSnip",
+    after = "Comment.nvim",
+    config = function()
+        require("config.plugins.luasnip")
+    end,
+})
+
 -- nvim-cmp
 use({
     "hrsh7th/nvim-cmp",
@@ -42,16 +51,7 @@ use({
         { "hrsh7th/cmp-nvim-lsp-signature-help", after = "nvim-cmp" },
     },
     config = "require('config.plugins.cmp')",
-    event = "BufWinEnter",
-})
-
--- snippets
-use({
-    "L3MON4D3/LuaSnip",
-    event = "InsertEnter",
-    config = function()
-        require("config.plugins.luasnip")
-    end,
+    after = "LuaSnip",
 })
 
 -- 自动补全括号
