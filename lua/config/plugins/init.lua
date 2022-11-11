@@ -236,3 +236,10 @@ use({
         require("config.plugins.window-picker")
     end,
 })
+
+use({
+    "skywind3000/asyncrun.vim",
+    config = function ()
+        require("config.plugins.asyncrun")
+    end
+})

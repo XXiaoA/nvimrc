@@ -1,5 +1,4 @@
 local fn = vim.fn
-
 local nmap = require("core.keymap").set_keymap("n")
 
 local function run_code()
@@ -17,8 +16,13 @@ local function run_code()
     elseif file_type == "fish" then
         vim.notify(fn.system("fish " .. file))
     elseif file_type == "cpp" then
-        vim.cmd("!g++ % -o %<.out")
-        vim.notify(fn.system("./" .. fn.expand("%:r") .. ".out"))
+        local exe_dir = (fn.expand("%:p:h") .. "/build")
+        if fn.isdirectory(exe_dir) == 0 then
+            fn.system("mkdir -p " .. exe_dir)
+        end
+        vim.cmd([[
+            AsyncRun -mode=term -focus=0 g++ -O3 "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/build/$(VIM_FILENOEXT)" -lpthread && "$(VIM_FILEDIR)/build/$(VIM_FILENOEXT)"
+            ]])
     end
 end
 
