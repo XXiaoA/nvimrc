@@ -239,7 +239,7 @@ use({
 
 use({
     "skywind3000/asyncrun.vim",
-    config = function ()
+    config = function()
         require("config.plugins.asyncrun")
-    end
+    end,
 })
