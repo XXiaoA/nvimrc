@@ -53,7 +53,6 @@ use({
 
 use({
     "simrat39/rust-tools.nvim",
-    after = "nvim-lspconfig",
 })
 
 use({

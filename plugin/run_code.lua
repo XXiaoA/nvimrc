@@ -21,7 +21,7 @@ local function run_code()
             fn.system("mkdir -p " .. exe_dir)
         end
         vim.cmd([[
-            AsyncRun -mode=term -focus=0 g++ -O3 "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/build/$(VIM_FILENOEXT)" -lpthread && "$(VIM_FILEDIR)/build/$(VIM_FILENOEXT)"
+            AsyncRun -mode=term -focus=0 g++ "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/build/$(VIM_FILENOEXT)" -lpthread && "$(VIM_FILEDIR)/build/$(VIM_FILENOEXT)"
             ]])
     end
 end

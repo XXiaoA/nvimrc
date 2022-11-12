@@ -2,7 +2,7 @@ local hlslens = require("utils").require_plugin("hlslens")
 if not hlslens then
     return
 end
-require('hlslens').setup()
+require("hlslens").setup()
 
 local map = require("core.keymap").set_keymap
 local nmap = map("n")
