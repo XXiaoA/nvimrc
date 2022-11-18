@@ -63,6 +63,7 @@ local function on_attach(client, bufnr)
     nmap("<space>ca", vim.lsp.buf.code_action, { buffer = bufnr, desc = "Lsp code action" })
     nmap("gd", "<cmd>Telescope lsp_definitions<CR>", { buffer = bufnr, desc = "Lsp definition" })
     nmap("gD", vim.lsp.buf.declaration, { buffer = bufnr, desc = "Lsp declaration" })
+    nmap("gp", "<cmd>Lspsaga peek_definition<CR>")
     nmap(
         "gi",
         "<cmd>Telescope lsp_implementations<CR>",
