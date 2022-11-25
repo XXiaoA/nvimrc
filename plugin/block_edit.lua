@@ -14,27 +14,12 @@ local function get_lines(start, stop)
     return content
 end
 
---- Slice a table
----@param tbl table
----@param first integer
----@param last integer
----@param step integer
----@return table
-local function slice(tbl, first, last, step)
-    local sliced = {}
-    for i = first or 1, last or #tbl, step or 1 do
-        sliced[#sliced + 1] = tbl[i]
-    end
-
-    return sliced
-end
-
 local function edit()
     local start_row = fn.searchpos([[\s*```]], [[bnW]])
     local end_row = fn.searchpos([[\s*```]], [[nW]])
     local block_ft = get_lines(start_row[1])[1]:match("%s*```%s*(.*)")
     local block_content = get_lines(start_row[1], end_row[1])
-    block_content = slice(block_content, 2, vim.tbl_count(block_content) - 1)
+    block_content = vim.list_slice(block_content, 2, vim.tbl_count(block_content) - 1)
 
     api.nvim_open_win(0, true, {
         relative = "win",
@@ -51,6 +36,7 @@ local function edit()
     vim.api.nvim_buf_set_lines(0, 0, -1, false, block_content)
     api.nvim_buf_set_option(0, "ft", block_ft)
     nmap("sc", function()
+        -- TODO: clsoe the LSP
         local new_content = get_lines(1, -1)
         api.nvim_buf_delete(0, { force = true })
         api.nvim_buf_set_lines(0, start_row[1], end_row[1] - 1, true, new_content)
