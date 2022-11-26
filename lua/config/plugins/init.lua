@@ -239,6 +239,7 @@ use({
 
 use({
     "skywind3000/asyncrun.vim",
+    cmd = "AsyncRun",
     config = function()
         require("config.plugins.asyncrun")
     end,

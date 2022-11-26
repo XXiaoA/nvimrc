@@ -5,7 +5,7 @@ end
 
 local nmap = require("core.keymap").nmap
 
-nmap('<A-N>', illuminate.goto_prev_reference, { desc = "Move to previous reference" })
+nmap("<A-N>", illuminate.goto_prev_reference, { desc = "Move to previous reference" })
 
 illuminate.configure({
     delay = 100,
