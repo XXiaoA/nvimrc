@@ -3,18 +3,45 @@ if not saga then
     return
 end
 
-saga.init_lsp_saga({
-    code_action_lightbulb = {
-        enable_in_insert = false,
-        sign = true,
-        virtual_text = false,
-    },
-    diagnostic_header = { " ", " ", " ", " " },
-    show_outline = {
-        jump_key = "<CR>",
-    },
-    symbol_in_winbar = {
-        enable = false,
+local winbar_config
+local enable_winbar = require("utils").read_config("enable_winbar")
+
+if enable_winbar then
+    local function config_winbar_or_statusline()
+        local exclude = {
+            ["terminal"] = true,
+            ["toggleterm"] = true,
+            ["prompt"] = true,
+            ["NvimTree"] = true,
+            ["help"] = true,
+        } -- Ignore float windows and exclude filetype
+        if vim.api.nvim_win_get_config(0).zindex or exclude[vim.bo.filetype] then
+            vim.wo.winbar = ""
+        else
+            local lspsaga_sym = require("lspsaga.symbolwinbar")
+            local sym = lspsaga_sym.get_symbol_node()
+            if type(sym) == "string" then
+                sym = sym:match([[%#LspSagaWinbarSep# (.*)]])
+            end
+            vim.wo.winbar = sym or " "
+        end
+    end
+
+    vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter", "CursorMoved" }, {
+        pattern = "*",
+        callback = function()
+            config_winbar_or_statusline()
+        end,
+    })
+
+    vim.api.nvim_create_autocmd("User", {
+        pattern = "LspsagaUpdateSymbol",
+        callback = function()
+            config_winbar_or_statusline()
+        end,
+    })
+
+    winbar_config = {
         in_custom = true,
         click_support = function(node, clicks, button, modifiers)
             -- To see all avaiable details: vim.pretty_print(node)
@@ -22,7 +49,7 @@ saga.init_lsp_saga({
             local en = node.range["end"]
             if button == "l" then
                 if clicks == 2 then
-                -- double left click to do nothing
+                    -- double left click to do nothing
                 else -- jump to node's starting line+char
                     vim.fn.cursor(st.line + 1, st.character + 1)
                 end
@@ -38,39 +65,22 @@ saga.init_lsp_saga({
                 vim.fn.cursor(en.line + 1, en.character + 1)
             end
         end,
-    },
-})
-
-local function config_winbar_or_statusline()
-    local exclude = {
-        ["terminal"] = true,
-        ["toggleterm"] = true,
-        ["prompt"] = true,
-        ["NvimTree"] = true,
-        ["help"] = true,
-    } -- Ignore float windows and exclude filetype
-    if vim.api.nvim_win_get_config(0).zindex or exclude[vim.bo.filetype] then
-        vim.wo.winbar = ""
-    else
-        local lspsaga_sym = require("lspsaga.symbolwinbar")
-        local sym = lspsaga_sym.get_symbol_node()
-        if type(sym) == "string" then
-            sym = sym:match([[%#LspSagaWinbarSep# (.*)]])
-        end
-        vim.wo.winbar = sym or " "
-    end
+    }
+else
+    winbar_config = {}
 end
 
-vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter", "CursorMoved" }, {
-    pattern = "*",
-    callback = function()
-        config_winbar_or_statusline()
-    end,
-})
+local configuration = {
+    code_action_lightbulb = {
+        enable_in_insert = false,
+        sign = true,
+        virtual_text = false,
+    },
+    diagnostic_header = { " ", " ", " ", " " },
+    show_outline = {
+        jump_key = "<CR>",
+    },
+    symbol_in_winbar = winbar_config,
+}
 
-vim.api.nvim_create_autocmd("User", {
-    pattern = "LspsagaUpdateSymbol",
-    callback = function()
-        config_winbar_or_statusline()
-    end,
-})
+saga.init_lsp_saga(configuration)
