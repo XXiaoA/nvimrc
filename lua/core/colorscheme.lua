@@ -17,9 +17,16 @@ end
 
 function M.load_colorscheme(colorscheme)
     if colorscheme then
-        if colorscheme == "random" then
+        local function get_random_colorscheme()
             local random_index = (vim.fn.rand() % vim.tbl_count(M.all_colorschemes)) + 1
-            colorscheme = vim.tbl_keys(M.all_colorschemes)[random_index]
+            local random_colorscheme = vim.tbl_keys(M.all_colorschemes)[random_index]
+            if random_colorscheme == "random" then
+                return get_random_colorscheme()
+            end
+            return random_colorscheme
+        end
+        if colorscheme == "random" then
+            colorscheme = get_random_colorscheme()
         end
         local colorscheme_repo_name = M.all_colorschemes[colorscheme]
 
