@@ -4,8 +4,6 @@ if not cmp then
 end
 
 local luasnip = require("utils").require_plugin("luasnip")
-local icons = require("utils.lspkind").icons
-local nerd_icons = icons
 
 cmp.setup({
     experimental = {
@@ -77,6 +75,7 @@ cmp.setup({
         fields = { "kind", "abbr", "menu" },
         format = function(entry, vim_item)
             -- Kind icons
+            local nerd_icons = require("utils.lspkind").icons
             vim_item.kind = nerd_icons[vim_item.kind] or ""
             -- Source
             vim_item.menu = ({

@@ -3,7 +3,10 @@ if not illuminate then
     return
 end
 
--- default configuration
+local nmap = require("core.keymap").nmap
+
+nmap('<A-N>', illuminate.goto_prev_reference, { desc = "Move to previous reference" })
+
 illuminate.configure({
     delay = 100,
     filetypes_denylist = {

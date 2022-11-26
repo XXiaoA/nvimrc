@@ -1,10 +1,5 @@
 local M = {}
 
--- M.icons2 = {
--- }
---
---
-
 M.icons = {
     File = "",
     Module = "", -- ""
@@ -41,5 +36,10 @@ M.icons = {
     Reference = "",
     Folder = "",
 }
+
+M.icons_with_whitespaces = {}
+for name, icon in pairs(M.icons) do
+    M.icons_with_whitespaces[name] = icon .. " "
+end
 
 return M

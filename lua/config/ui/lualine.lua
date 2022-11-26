@@ -4,22 +4,20 @@ if not lualine then
 end
 
 local utils = require("utils")
+
 local function spell()
     return vim.o.spell and "[SPELL]" or ""
 end
 
-local function diff()
-    local git_status = vim.b.gitsigns_status_dict
-    if git_status == nil then
-        return
+local function diff_source()
+    local gitsigns = vim.b.gitsigns_status_dict
+    if gitsigns then
+        return {
+            added = gitsigns.added,
+            modified = gitsigns.changed,
+            removed = gitsigns.removed,
+        }
     end
-
-    local modify_num = git_status.changed
-    local remove_num = git_status.removed
-    local add_num = git_status.added
-
-    local info = { added = add_num, modified = modify_num, removed = remove_num }
-    return info
 end
 
 lualine.setup({
@@ -37,7 +35,7 @@ lualine.setup({
         lualine_b = {
             {
                 "diff",
-                source = diff,
+                source = diff_source,
             },
             "diagnostics",
         },

@@ -86,7 +86,7 @@ use({
 
 use({
     "folke/zen-mode.nvim",
-    cmd = "ZenMode",
+    keys = "<leader>z",
     config = function()
         require("config.ui.zen-mode")
     end,

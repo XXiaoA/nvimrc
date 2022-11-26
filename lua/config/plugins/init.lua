@@ -210,7 +210,7 @@ use({
 
 use({
     "mfussenegger/nvim-treehopper",
-    event = "BufWinEnter",
+    keys = "m",
     config = function()
         require("config.plugins.treehopper")
     end,

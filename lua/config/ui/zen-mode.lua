@@ -3,6 +3,9 @@ if not zm then
     return
 end
 
+local nmap = require("core.keymap").nmap
+nmap("<leader>z", "<CMD>ZenMode<CR>")
+
 zm.setup({
     plugins = {
         options = {

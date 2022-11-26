@@ -3,11 +3,10 @@ local aerial = require("utils").require_plugin("aerial")
 if not aerial then
     return
 end
-local lspkind = require("utils.lspkind")
 
 aerial.setup({
     backends = { "lsp", "treesitter", "markdown" },
-    icons = lspkind.icons,
+    icons = require("utils.lspkind").icons,
     filter_kind = {
         "Array",
         "Boolean",

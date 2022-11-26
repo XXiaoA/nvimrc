@@ -1,7 +1,6 @@
 local map = require("core.keymap").set_keymap
 local omap = map("o")
 local xmap = map("x")
-local init = false
 
 require("tsht").config.hint_keys = { "h", "j", "f", "d", "g", "k", "l", "s", "a" }
 xmap("m", function()

@@ -112,3 +112,5 @@ o.confirm = true
 o.signcolumn = "yes"
 
 g.ts_highlight_lua = true
+
+o.undofile = true
