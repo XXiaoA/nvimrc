@@ -14,6 +14,6 @@ zm.setup({
         },
         twilight = { enabled = true },
         gitsigns = { enabled = true },
-        -- tmux = { enabled = true },
+        tmux = { enabled = true },
     },
 })
