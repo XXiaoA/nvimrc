@@ -35,6 +35,8 @@ aerial.setup({
         "TypeParameter",
         "Variable",
     },
+
+    show_guides = true,
 })
 
 local nmap = require("core.keymap").set_keymap("n")

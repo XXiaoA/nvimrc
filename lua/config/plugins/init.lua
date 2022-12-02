@@ -151,7 +151,7 @@ use({
 })
 
 -- 翻译
-use({ "voldikss/vim-translator", cmd = "Translate" })
+use({ "voldikss/vim-translator", cmd = { "Translate", "TranslateW" } })
 
 -- TODO: configure it! (with rust-tools)
 -- Debugging

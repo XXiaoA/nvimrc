@@ -78,16 +78,17 @@ use({
 
 use({
     "folke/twilight.nvim",
-    cmd = "Twilight",
+    opt = true,
     config = function()
         require("twilight").setup({})
     end,
 })
 
 use({
-    "folke/zen-mode.nvim",
+    "XXiaoA/zen-mode.nvim",
     keys = "<leader>z",
     config = function()
+        vim.cmd("PackerLoad twilight.nvim")
         require("config.ui.zen-mode")
     end,
 })

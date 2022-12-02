@@ -21,7 +21,7 @@ local picker = require("window-picker")
 vim.keymap.set("n", ",w", function()
     local picked_window_id = picker.pick_window({
         include_current_win = false,
-        autoselect_one = false,
+        autoselect_one = true,
     }) or vim.api.nvim_get_current_win()
     vim.api.nvim_set_current_win(picked_window_id)
 end, { desc = "Pick a window" })
@@ -30,7 +30,7 @@ end, { desc = "Pick a window" })
 local function swap_windows()
     local window = picker.pick_window({
         include_current_win = false,
-        autoselect_one = false,
+        autoselect_one = true,
     })
     local target_buffer = vim.fn.winbufnr(window)
     -- Set the target window to contain current buffer
