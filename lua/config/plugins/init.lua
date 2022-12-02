@@ -244,3 +244,8 @@ use({
         require("config.plugins.asyncrun")
     end,
 })
+
+use({
+    "simnalamburt/vim-mundo",
+    cmd = "MundoToggle",
+})
