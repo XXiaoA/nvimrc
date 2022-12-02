@@ -114,3 +114,8 @@ o.signcolumn = "yes"
 g.ts_highlight_lua = true
 
 o.undofile = true
+
+o.hidden = true
+o.magic = true
+o.virtualedit = "block"
+o.showmode = false
