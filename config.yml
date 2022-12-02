@@ -1,5 +1,5 @@
-# run `:lua=vim.tbl_keys(require("core.colorscheme").all_colorschemes)` to see all colorschemes
-color_scheme: duskfox
+# run `XXiaoA all_colorschemes` to see all colorschemes
+color_scheme: gruvbox-material
 
 lualine_theme: auto
 

@@ -7,13 +7,11 @@ buf
 treesitter
 cmp
 wezterm
-nvim
 autocmd
 keymaps
 utf
 README
 formatter
-nvim
 luasnip
 tmux
 init
@@ -23,3 +21,5 @@ keymap
 nvim
 cmd
 lua
+colorsheme
+XXiaoA
