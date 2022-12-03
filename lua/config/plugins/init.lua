@@ -1,8 +1,5 @@
 local use = require("core.packer").add_plugin
 
--- 加快启动时间
--- use({ "lewis6991/impatient.nvim", config = "require('impatient')" })
-
 -- Packer can manage itself
 use({ "wbthomason/packer.nvim" })
 
@@ -192,12 +189,7 @@ use({
     "aserowy/tmux.nvim",
     keys = { "<C-h>", "<C-j>", "<C-k>", "<C-l>", "<A-h>", "<A-j>", "<A-k>", "<A-l>" },
     config = function()
-        require("tmux").setup({
-            navigation = {
-                -- enables default keybindings (C-hjkl) for normal mode
-                enable_default_keybindings = true,
-            },
-        })
+        require("tmux").setup({})
     end,
 })
 
