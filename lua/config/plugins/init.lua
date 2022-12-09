@@ -76,9 +76,6 @@ use({
     config = "require('config.plugins.project')",
 })
 
--- 加速文件搜索速度,如果安装失败需要到插件目录执行make命令手动编译
-use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make", after = "telescope.nvim" })
-
 -- code outline
 use({
     "stevearc/aerial.nvim",
