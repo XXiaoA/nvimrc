@@ -9,7 +9,16 @@ end
 
 local map = require("core.keymap").set_keymap({ "o", "n", "x" })
 map("<leader>hl", hop.hint_lines_skip_whitespace)
-map("<leader>hw", hop.hint_words)
+map("<leader>hw", function()
+    hop.hint_words({
+        direction = require("hop.hint").HintDirection.AFTER_CURSOR,
+    })
+end)
+map("<leader>hW", function()
+    hop.hint_words({
+        direction = require("hop.hint").HintDirection.BEFORE_CURSOR,
+    })
+end)
 map("<leader>hp", hop.hint_patterns)
 
 -- https://github.com/phaazon/hop.nvim/wiki/Advanced-Hop
