@@ -18,7 +18,6 @@ nmap("<leader>fb", ":Telescope buffers<CR>", { desc = "search buffers" })
 nmap("<leader>fh", ":Telescope help_tags<CR>", { desc = "search help tags" })
 nmap("<leader>fu", ":Telescope resume<CR>", { desc = "resume last picker" })
 
-
 telescope.setup({
     defaults = {
         vimgrep_arguments = {
