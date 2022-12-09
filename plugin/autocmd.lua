@@ -72,3 +72,32 @@ api.nvim_create_autocmd("BufReadPost", {
     endif
     ]],
 })
+
+-- highlight after yanking the text
+api.nvim_create_autocmd("TextYankPost", {
+    group = xxiaoa_group,
+    pattern = "*",
+    callback = function()
+        vim.highlight.on_yank({ higroup = "IncSearch", timeout = 300 })
+    end,
+})
+
+-- automatically set cursorline
+api.nvim_create_autocmd({ "WinEnter", "BufEnter", "InsertLeave" }, {
+    group = xxiaoa_group,
+    pattern = "*",
+    callback = function()
+        if not vim.opt_local.cursorline:get() then
+            vim.opt_local.cursorline = true
+        end
+    end,
+})
+api.nvim_create_autocmd({ "WinLeave", "BufLeave", "InsertEnter" }, {
+    group = xxiaoa_group,
+    pattern = "*",
+    callback = function()
+        if vim.opt_local.cursorline:get() then
+            vim.opt_local.cursorline = false
+        end
+    end,
+})
