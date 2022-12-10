@@ -1,5 +1,12 @@
 local use = require("core.packer").add_plugin
 
+use({
+    "lewis6991/impatient.nvim",
+    config = function()
+        require("impatient")
+    end,
+})
+
 -- Packer can manage itself
 use({ "wbthomason/packer.nvim" })
 
