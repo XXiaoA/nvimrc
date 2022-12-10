@@ -1,5 +1,5 @@
 local fn = vim.fn
-local nmap = require("core.keymap").set_keymap("n")
+local nmap = require("core.keymap").nmap
 
 local function run_code()
     local file = fn.expand("%:p")
@@ -12,7 +12,7 @@ local function run_code()
     elseif file_type == "rust" then
         vim.cmd("RustRun")
     elseif file_type == "python" then
-        vim.notify(fn.system("python3 " .. file))
+        vim.cmd([[ AsyncRun -mode=term -reuse -listed=0 -focus=0 -rows=6 python "$(VIM_FILEPATH)" ]])
     elseif file_type == "fish" then
         vim.notify(fn.system("fish " .. file))
     elseif file_type == "cpp" then
@@ -21,7 +21,7 @@ local function run_code()
             fn.system("mkdir -p " .. exe_dir)
         end
         vim.cmd([[
-            AsyncRun -mode=term -reuse -listed=0 -focus=0 g++ -O3 "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/build/$(VIM_FILENOEXT)" -lpthread && "$(VIM_FILEDIR)/build/$(VIM_FILENOEXT)"
+            AsyncRun -mode=term -reuse -listed=0 -focus=0 -rows=6 g++ -O3 "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/build/$(VIM_FILENOEXT)" -lpthread && "$(VIM_FILEDIR)/build/$(VIM_FILENOEXT)"
             ]])
     end
 end
