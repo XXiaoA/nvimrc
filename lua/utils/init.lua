@@ -60,12 +60,7 @@ end
 ---@return string
 function M.get_nvim_version()
     local version = vim.version()
-    local major = version.major
-    local minor = version.minor
-    local patch = version.patch
-    local version = string.format("%d.%d.%d", major, minor, patch)
-
-    return version
+    return string.format("%d.%d.%d", version.major, version.minor, version.patch)
 end
 
 return M
