@@ -1,8 +1,8 @@
 local M = {}
 
 --- require plugin and check if it exists
----@param plugin_name (string)
----@param message (boolean)
+---@param plugin_name string
+---@param message boolean
 ---@return any
 function M.require_plugin(plugin_name, message)
     local status_ok, plugin = pcall(require, plugin_name)
@@ -41,16 +41,16 @@ function M.read_config(option)
 end
 
 --- Checks whether a given path exists and is a file.
---@param path (string) path to check
---@returns (bool)
+---@param path string path to check
+---@return boolean
 function M.is_file(path)
     local stat = vim.loop.fs_stat(path)
     return stat and stat.type == "file" or false
 end
 
 --- Checks whether a given path exists and is a directory
---@param path (string) path to check
---@returns (bool)
+---@param path string path to check
+---@return  boolean
 function M.is_directory(path)
     local stat = vim.loop.fs_stat(path)
     return stat and stat.type == "directory" or false
