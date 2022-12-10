@@ -6,7 +6,6 @@ end
 
 local keymap = require("core.keymap")
 local tmap = keymap.tmap
-local imap = keymap.imap
 
 local Terminal = terminal.Terminal
 tg.setup({
@@ -37,36 +36,13 @@ local floatTerm = Terminal:new({
     end,
 })
 
--- 新建 lazygit 终端
-local lazyGit = Terminal:new({
-    cmd = "lazygit",
-    hidden = true,
-    direction = "float",
-    float_opts = {
-        border = "single",
-    },
-    on_open = function(term)
-        vim.cmd("startinsert")
-        -- lazygit 中 q 是退出
-        imap("q", "<cmd>close<CR>", { buffer = term.bufnr })
-    end,
-    on_close = function()
-        -- 重新映射
-        tmap("<ESC>", "<C-\\><C-n>")
-    end,
-})
 
 -- 定义新的方法
 tg.float_toggle = function()
     floatTerm:toggle()
 end
 
-tg.lazygit_toggle = function()
-    lazyGit:toggle()
-end
-
 local nmap = require("core.keymap").nmap
 nmap("<leader>tt", '<cmd>exe v:count."ToggleTerm"<CR>', { desc = "Toggle a common terminal" })
 nmap("<leader>tf", tg.float_toggle, { desc = "Toggle a float terminal" })
-nmap("<leader>tg", tg.lazygit_toggle, { desc = "Toggle a lazygit terminal" })
 nmap("<leader>ta", "<cmd>ToggleTermToggleAll<CR>", { desc = "Toggle all terminal" })
