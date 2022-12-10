@@ -86,7 +86,7 @@ use({
 
 use({
     "XXiaoA/zen-mode.nvim",
-    keys = "<leader>z",
+    keys = "<leader>zz",
     config = function()
         vim.cmd("PackerLoad twilight.nvim")
         require("config.ui.zen-mode")

@@ -4,7 +4,8 @@ if not zm then
 end
 
 local nmap = require("core.keymap").nmap
-nmap("<leader>z", "<CMD>ZenMode<CR>")
+nmap("<leader>zz", "<CMD>ZenMode<CR>")
+nmap("<leader>zt", "<CMD>Twilight<CR>")
 
 zm.setup({
     plugins = {
