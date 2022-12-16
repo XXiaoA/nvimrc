@@ -5,6 +5,9 @@ end
 
 local luasnip = require("utils").require_plugin("luasnip")
 
+-- limit the max height of windows
+vim.o.pumheight = 14
+
 cmp.setup({
     experimental = {
         ghost_text = true,
@@ -73,17 +76,25 @@ cmp.setup({
     -- 使用lspkind-nvim显示类型图标
     formatting = {
         fields = { "kind", "abbr", "menu" },
-        format = function(entry, vim_item)
+        format = function(entry, item)
+            -- limit the max width of windows
+            local ELLIPSIS_CHAR = "…"
+            local MAX_LABEL_WIDTH = 25
+            local content = item.abbr
+            if #content > MAX_LABEL_WIDTH then
+                item.abbr = vim.fn.strcharpart(content, 0, MAX_LABEL_WIDTH) .. ELLIPSIS_CHAR
+            end
+
             -- Kind icons
             local nerd_icons = require("utils.lspkind").icons
-            vim_item.kind = nerd_icons[vim_item.kind] or ""
+            item.kind = nerd_icons[item.kind] or ""
             -- Source
-            vim_item.menu = ({
+            item.menu = ({
                 buffer = "[Buffer]",
                 nvim_lsp = "[LSP]",
                 luasnip = "[LuaSnip]",
             })[entry.source.name]
-            return vim_item
+            return item
         end,
     },
 })
