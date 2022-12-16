@@ -146,7 +146,7 @@ for _, v in ipairs(todo_snippet_specs) do
 end
 
 -- https://github.com/L3MON4D3/LuaSnip/issues/554
-vim.api.nvim_create_autocmd("InsertEnter", {
+vim.api.nvim_create_autocmd("BufEnter", {
     pattern = "*",
     callback = function(ctx)
         local bufnr = ctx.buf

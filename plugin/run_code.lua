@@ -12,7 +12,9 @@ local function run_code()
     elseif file_type == "rust" then
         vim.cmd("RustRun")
     elseif file_type == "python" then
-        vim.cmd([[ AsyncRun -mode=term -reuse -listed=0 -focus=0 -rows=6 python "$(VIM_FILEPATH)" ]])
+        vim.cmd(
+            [[ AsyncRun -mode=term -reuse -listed=0 -focus=0 -rows=6 python "$(VIM_FILEPATH)" ]]
+        )
     elseif file_type == "fish" then
         vim.notify(fn.system("fish " .. file))
     elseif file_type == "cpp" then

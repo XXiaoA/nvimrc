@@ -100,7 +100,7 @@ use({
 -- 命令行窗口
 use({
     "akinsho/toggleterm.nvim",
-    keys = { "<leader>tt", "<leader>tf", "<leader>tg", "<leader>ta" },
+    keys = { "<leader>tt", "<leader>tf", "<leader>ta" },
     config = "require('config.plugins.toggleterm')",
 })
 

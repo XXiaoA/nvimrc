@@ -36,7 +36,6 @@ local floatTerm = Terminal:new({
     end,
 })
 
-
 -- 定义新的方法
 tg.float_toggle = function()
     floatTerm:toggle()
