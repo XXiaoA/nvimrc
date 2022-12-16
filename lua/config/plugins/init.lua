@@ -137,7 +137,24 @@ use({ "dstein64/vim-startuptime", cmd = "StartupTime" })
 -- 快速转跳
 use({
     "phaazon/hop.nvim",
-    keys = { "<leader>hw", "<leader>hW", "<leader>hl", "<leader>hp", "t", "T", "f", "F" },
+    keys = {
+        "<leader>hw",
+        "<leader>hW",
+        "<leader>hl",
+        "<leader>hp",
+        { "o", "t" },
+        { "o", "T" },
+        { "o", "f" },
+        { "o", "F" },
+        { "x", "t" },
+        { "x", "T" },
+        { "x", "f" },
+        { "x", "F" },
+        { "n", "t" },
+        { "n", "T" },
+        { "n", "f" },
+        { "n", "F" },
+    },
     config = "require('config.plugins.hop')",
 })
 
@@ -163,7 +180,26 @@ use({ "voldikss/vim-translator", cmd = { "Translate", "TranslateW" } })
 -- highlight search,
 use({
     "kevinhwang91/nvim-hlslens",
-    keys = { "n", "N", "*", "#", "g*", "g#" },
+    keys = {
+        { "x", "n" },
+        { "x", "N" },
+        { "x", "*" },
+        { "x", "#" },
+        { "x", "g*" },
+        { "x", "g#" },
+        { "o", "n" },
+        { "o", "N" },
+        { "o", "*" },
+        { "o", "#" },
+        { "o", "g*" },
+        { "o", "g#" },
+        { "n", "n" },
+        { "n", "N" },
+        { "n", "*" },
+        { "n", "#" },
+        { "n", "g*" },
+        { "n", "g#" },
+    },
     config = "require('config.plugins.hlslens')",
 })
 
@@ -206,7 +242,7 @@ use({
 
 use({
     "mfussenegger/nvim-treehopper",
-    keys = "m",
+    keys = { { "o", "m" }, { "x", "m" } },
     config = function()
         require("config.plugins.treehopper")
     end,
