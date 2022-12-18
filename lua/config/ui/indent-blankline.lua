@@ -2,8 +2,6 @@ local o = vim.opt
 local g = vim.g
 
 o.list = true
-o.listchars:append("space:⋅")
-o.listchars:append("eol:↴")
 
 local indent_blankline = require("utils").require_plugin("indent_blankline")
 if not indent_blankline then

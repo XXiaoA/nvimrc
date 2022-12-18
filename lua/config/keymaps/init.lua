@@ -93,3 +93,7 @@ nmap("<A-P>", "<cmd>pu!<CR>")
 
 nmap("<leader>be", ":noh<CR>", { desc = "Erase Search Highlights" })
 nmap("<leader>bn", ":enew<CR>", { desc = "New Buffer" })
+
+-- Remap for dealing with word wrap
+nmap("k", "v:count == 0 ? 'gk' : 'k'", { expr = true })
+nmap("j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
