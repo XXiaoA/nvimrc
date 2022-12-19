@@ -60,3 +60,11 @@ use({
     after = "nvim-lspconfig",
     config = [[require("config.lsp.illuminate")]],
 })
+
+use({
+    "j-hui/fidget.nvim",
+    after = "nvim-lspconfig",
+    config = function()
+        require("fidget").setup({})
+    end,
+})
