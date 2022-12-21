@@ -1,5 +1,7 @@
 local utils = require("utils")
 local api = vim.api
+local keymap = require("core.keymap")
+local nmap = keymap.nmap
 
 local xxiaoa_group = api.nvim_create_augroup("xxiaoa_group", { clear = true })
 
@@ -131,4 +133,13 @@ api.nvim_create_autocmd("CursorMoved", {
         start_hl()
     end,
     desc = "Auto hlsearch",
+})
+
+api.nvim_create_autocmd("FileType", {
+    group = xxiaoa_group,
+    pattern = { "qf", "help", "man", "startuptime" },
+    callback = function(ctx)
+        nmap("q", "<cmd>close<CR>", { buffer = ctx.buf })
+        vim.opt_local.buflisted = false
+    end,
 })

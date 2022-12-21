@@ -20,6 +20,7 @@ map("<leader>hW", function()
     })
 end)
 map("<leader>hp", hop.hint_patterns)
+map("se", hop.hint_char2)
 
 -- https://github.com/phaazon/hop.nvim/wiki/Advanced-Hop
 map("f", function()

@@ -55,3 +55,17 @@ npairs.add_rules({
         :with_del(cond.none())
         :use_key("]"),
 })
+
+-- Move past some specific character
+for _, punct in pairs({ ",", ";" }) do
+    npairs.add_rules({
+        Rule("", punct)
+            :with_move(function(opts)
+                return opts.char == punct
+            end)
+            :with_pair(cond.none())
+            :with_del(cond.none())
+            :with_cr(cond.none())
+            :use_key(punct),
+    })
+end
