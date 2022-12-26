@@ -3,7 +3,5 @@ color_scheme: gruvbox-material
 
 lualine_theme: auto
 
-enable_winbar: false
-
 # Only load the configuration if user's nvim version is expectable if it's true
 strict_version: true
