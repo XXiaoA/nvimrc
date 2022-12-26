@@ -15,12 +15,12 @@ vim.g.maplocalleader = " "
 tmap("<ESC>", [[<C-\><C-n>]])
 
 -- 移动代码
-nmap("<A-up>", ":m .-2<cr>")
-nmap("<A-down>", ":m .+1<cr>")
-imap("<A-up>", "<ESC>:m .-2<cr>i")
-imap("<A-down>", "<ESC>:m .+1<cr>i")
-xmap("<A-up>", ":m '<-2<cr>gv")
-xmap("<A-down>", ":m '>+1<cr>gv")
+nmap("<A-up>", ":m .-2<cr>==")
+nmap("<A-down>", ":m .+1<cr>==")
+imap("<A-up>", "<ESC>:m .-2<cr>==a")
+imap("<A-down>", "<ESC>:m .+1<cr>==a")
+xmap("<A-up>", ":m '<-2<cr>gv=gv")
+xmap("<A-down>", ":m '>+1<cr>gv=gv")
 
 -- 保存/退出
 imap("<C-s>", "<C-o>:w<CR>")
