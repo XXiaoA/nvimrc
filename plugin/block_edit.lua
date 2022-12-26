@@ -23,11 +23,10 @@ local function edit()
     local block_content = get_lines(start_row[1], end_row[1])
     block_content = vim.list_slice(block_content, 2, vim.tbl_count(block_content) - 1)
 
-    -- TODO: use suitable position and size of float window
     api.nvim_open_win(0, true, {
         relative = "win",
-        width = 110,
-        height = 20,
+        width = math.floor(api.nvim_get_option("columns") * 0.7),
+        height = math.floor(vim.o.lines * 0.7),
         title = "XXiaoA",
         title_pos = "center",
         border = "single",
@@ -44,19 +43,32 @@ local function edit()
         file:close()
     end
 
+    --- the original lsp clients
+    local client_ids = {}
+    for _, client in ipairs(vim.lsp.get_active_clients()) do
+        table.insert(client_ids, client.id)
+    end
+
     vim.cmd("e! " .. cache_file)
     api.nvim_buf_set_option(0, "ft", block_ft)
+    api.nvim_buf_set_option(0, "buflisted", false)
 
     -- mappings for quitting float window
     for _, lhs in ipairs({ "sc", "q" }) do
         nmap(lhs, function()
-            -- TODO: clsoe the LSP
+            -- only close the new lsp client
+            local lsp_client = vim.lsp.get_active_clients({ bufnr = api.nvim_get_current_buf() })
+            if #lsp_client == 1 and not vim.tbl_contains(client_ids, lsp_client[1].id) then
+                vim.lsp.stop_client(lsp_client)
+            end
+
             local new_content = get_lines(1, -1)
             api.nvim_buf_delete(0, { force = true })
             -- if new content is empty, set the line of block none instead of one empty line
             if #new_content == 1 and new_content[1] == "" then
-                api.nvim_buf_set_lines(0, start_row[1], end_row[1] - 1, true, {})
-            else
+                new_content = {}
+            end
+            if not utils.table_is_equal(block_content, new_content) then
                 api.nvim_buf_set_lines(0, start_row[1], end_row[1] - 1, true, new_content)
             end
 
