@@ -20,6 +20,13 @@ use({
 add_colorscheme({ "duskfox", "nightfox" }, "nightfox.nvim")
 
 use({
+    'rose-pine/neovim',
+    as = 'rose-pine',
+    opt = true,
+})
+add_colorscheme("rose-pine")
+
+use({
     "catppuccin/nvim",
     as = "catppuccin",
     run = ":CatppuccinCompile",
