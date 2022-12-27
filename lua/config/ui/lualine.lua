@@ -3,7 +3,7 @@ if not lualine then
     return
 end
 
-local utils = require("utils")
+local get_value = require("utils.yamler").get_value
 
 local function spell()
     return vim.o.spell and "[SPELL]" or ""
@@ -23,7 +23,7 @@ end
 lualine.setup({
     options = {
         icons_enabled = true,
-        theme = utils.read_config("lualine_theme"),
+        theme = get_value("lualine_theme"),
         -- component_separators = { left = "", right = "" },
         -- section_separators = { left = "", right = "" },
         component_separators = "",

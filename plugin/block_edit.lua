@@ -68,7 +68,7 @@ local function edit()
             if #new_content == 1 and new_content[1] == "" then
                 new_content = {}
             end
-            if not utils.table_is_equal(block_content, new_content) then
+            if not utils.tbl_isequal(block_content, new_content) then
                 api.nvim_buf_set_lines(0, start_row[1], end_row[1] - 1, true, new_content)
             end
 

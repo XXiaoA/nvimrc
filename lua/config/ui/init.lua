@@ -1,7 +1,6 @@
 local colorscheme = require("core.colorscheme")
 local add_colorscheme = colorscheme.add_colorscheme
-local utils = require("utils")
-local theme = utils.read_config("color_scheme")
+local get_value = require("utils.yamler").get_value
 local use = require("core.packer").add_plugin
 local nmap = require("core.keymap").nmap
 
@@ -37,7 +36,7 @@ add_colorscheme("catppuccin")
 add_colorscheme("random")
 
 require("config.ui.autocmd")
-colorscheme.load_colorscheme(theme)
+colorscheme.load_colorscheme(get_value("color_scheme"))
 vim.cmd("set background=dark")
 nmap("<leader>cc", colorscheme.load_colorscheme_ui, { desc = "Change ColorScheme" })
 
