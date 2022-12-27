@@ -1,3 +1,5 @@
+local yamler = require("utils.yamler")
+local utils = require("utils")
 local M = {}
 M.all_colorschemes = {}
 
@@ -17,22 +19,19 @@ end
 
 function M.load_colorscheme(colorscheme)
     if colorscheme then
-        local function get_random_colorscheme()
-            local random_index = (vim.fn.rand() % vim.tbl_count(M.all_colorschemes)) + 1
-            local random_colorscheme = vim.tbl_keys(M.all_colorschemes)[random_index]
-            if random_colorscheme == "random" then
-                return get_random_colorscheme()
-            end
-            return random_colorscheme
-        end
         if colorscheme == "random" then
-            colorscheme = get_random_colorscheme()
+            local _all_colorschemes = utils.tbl_copy(M.all_colorschemes)
+            _all_colorschemes["random"] = nil
+            _all_colorschemes[yamler.get_value("color_scheme")] = nil
+            local random_index = (vim.fn.rand() % vim.tbl_count(_all_colorschemes)) + 1
+            colorscheme = vim.tbl_keys(_all_colorschemes)[random_index]
         end
         local colorscheme_repo_name = M.all_colorschemes[colorscheme]
 
         pcall(vim.cmd.packadd, colorscheme_repo_name)
         pcall(require, "config.ui.colorschemes." .. colorscheme)
         pcall(vim.cmd.colorscheme, colorscheme)
+        yamler.modify_value("color_scheme", colorscheme)
     end
 end
 
