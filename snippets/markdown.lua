@@ -1,7 +1,7 @@
 ---@diagnostic disable: undefined-global
 -- stylua: ignore
 return {
-    s( "task", fmt([[
+    s("task", fmt([[
     - [{}] {}
     ]], {
         c(1, {
@@ -11,49 +11,49 @@ return {
         i(2, "text") })
     ),
 
-    s( "l" , fmt([[
+    s("l" , fmt([[
     [{}]({})
     ]], { i(1), i(2) })
     ),
 
-    s( "u", fmt([[
+    s("u", fmt([[
     <{}>
     ]], i(1) )
     ),
 
-    s( "img" , fmt([[
+    s("img" , fmt([[
     ![{}]({})
     ]], { i(1), i(2) })
     ),
 
-    s( "strikethrough", fmt([[
+    s("strikethrough", fmt([[
     ~~{}~~
     ]], i(1) )
     ),
 
-    s( "i", fmt([[
+    s("i", fmt([[
     *{}*
     ]], i(1) )
     ),
 
-    s( "b", fmt([[
+    s("b", fmt([[
     **{}**
     ]], i(1) )
     ),
 
-    s( "bi", fmt([[
+    s("bi", fmt([[
     ***{}***
     ]], i(1) )
     ),
 
-    s( "quote", t("> ")),
+    s("quote", t("> ")),
 
-    s( "code", fmt([[
+    s("code", fmt([[
     `{}`
     ]], i(1) )
     ),
 
-    s( "codeblock", fmt([[
+    s("codeblock", fmt([[
     ```{}
     {}
     ```
@@ -63,18 +63,18 @@ return {
     } )
     ),
 
-    s( "h1", t("# ")),
-    s( "h2", t("## ")),
-    s( "h3", t("### ")),
-    s( "h4", t("#### ")),
-    s( "h5", t("##### ")),
-    s( "h6", t("###### ")),
+    s("h1", t("# ")),
+    s("h2", t("## ")),
+    s("h3", t("### ")),
+    s("h4", t("#### ")),
+    s("h5", t("##### ")),
+    s("h6", t("###### ")),
 
-    s( "br", t("<br>")),
+    s("br", t("<br>")),
 
-    s( "more", t("<!--more-->")),
+    s("more", t("<!--more-->")),
 
-    s( "detail", fmt([[
+    s("detail", fmt([[
     <details>
     <summary><font size="" color="red">{}</font></summary>
 
@@ -86,7 +86,7 @@ return {
         })
     ),
 
-    s( "font", fmt([[
+    s("font", fmt([[
     <font {}>{}</font>
     ]], {
         c(1, {
@@ -98,7 +98,7 @@ return {
     })
     ),
 
-    s( "underline", fmt([[
+    s("underline", fmt([[
     <u>{}</u>
     ]], i(1))
     ),

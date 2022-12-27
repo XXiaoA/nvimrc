@@ -7,6 +7,6 @@ return {
 
         return 0;
     }
-    ]], i(1), {delimiters = "<>"})
+    ]], i(0), {delimiters = "<>"})
     ),
 }

@@ -38,4 +38,22 @@ return {
     ),
 
     s("l", t("local ")),
+
+    s("class", fmta([[
+    local <> = {}
+    <class>.__index = <class>
+
+    function <class>:new(<>)
+        local <> = self ~= <class> and self or setmetatable({}, self)
+        <>
+        return <>
+    end
+    ]], {
+        i(1, "Class"),
+        class = f(function(args) return args[1] end, { 1 }),
+        i(2),
+        i(3, "o"),
+        i(0),
+        f(function(args) return args[1] end, { 3 }),
+    })),
 }
