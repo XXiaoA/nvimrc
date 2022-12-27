@@ -31,7 +31,7 @@ use({
     run = ":CatppuccinCompile",
     opt = true,
 })
-add_colorscheme("catppuccin")
+add_colorscheme({ "catppuccin-mocha", "catppuccin-macchiato" }, "catppuccin")
 
 add_colorscheme("random")
 
