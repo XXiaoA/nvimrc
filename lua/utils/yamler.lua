@@ -72,6 +72,7 @@ function M.modify_value(opt, value)
 
         local f = assert(io.open(M.file_path, "w"))
         f:write(table.concat(M.data, "\n"))
+        f:close()
     end
 end
 
