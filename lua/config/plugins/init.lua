@@ -86,7 +86,7 @@ use({
 -- code outline
 use({
     "stevearc/aerial.nvim",
-    keys = { "[f", "]f", "[F", "]F", "<leader>aa", "<leader>fa" },
+    keys = { "[f", "]f", "<leader>aa", "<leader>fa" },
     config = "require('config.plugins.aerial')",
 })
 
@@ -211,7 +211,7 @@ use({ "jubnzv/mdeval.nvim", ft = "markdown", config = "require('config.plugins.m
 
 use({
     "danymat/neogen",
-    keys = "<C-_>",
+    keys = "<leader>/",
     config = "require('config.plugins.neogen')",
 })
 
