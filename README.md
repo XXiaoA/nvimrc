@@ -35,7 +35,7 @@ Run `:checkhealth` in neovim
 ## Notice
 for formatting feature (optional): [formatters](./lua/config/plugins/formatter.lua) <br>
 
-If you fail to use markdwon preview, run:
+If you fail to use markdown preview, run:
 ```bash
 cd ~/.local/share/nvim/site/pack/packer/opt/markdown-preview.nvim/app/
 npm install

@@ -27,3 +27,10 @@ lazyload
 utils
 https
 github
+md
+colorschemes
+formatters
+WAYLAND
+TTY
+fcitx5
+fcitx

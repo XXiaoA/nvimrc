@@ -57,9 +57,12 @@ local function edit()
     for _, lhs in ipairs({ "sc", "q" }) do
         nmap(lhs, function()
             -- only close the new lsp client
-            local lsp_client = vim.lsp.get_active_clients({ bufnr = api.nvim_get_current_buf() })
-            if #lsp_client == 1 and not vim.tbl_contains(client_ids, lsp_client[1].id) then
-                vim.lsp.stop_client(lsp_client)
+            local current_clients =
+                vim.lsp.get_active_clients({ bufnr = api.nvim_get_current_buf() })
+            for _, client in ipairs(current_clients) do
+                if not vim.tbl_contains(client_ids, client.id) then
+                    vim.lsp.stop_client(client.id)
+                end
             end
 
             local new_content = get_lines(1, -1)
