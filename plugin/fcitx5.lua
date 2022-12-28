@@ -43,7 +43,7 @@ local function fcitx5_to_nonlatin(buf, mode)
     end
 end
 
-local fcitx5 = api.nvim_create_augroup("autosave", { clear = true })
+local fcitx5 = api.nvim_create_augroup("fcitx5", { clear = true })
 
 -- Initialization
 api.nvim_create_autocmd("BufRead", {
