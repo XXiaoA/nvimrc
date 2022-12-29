@@ -5,7 +5,7 @@ if project then
 end
 
 local nmap = require("core.keymap").nmap
-nmap("<leader>P", "<cmd>Telescope projects<CR>", { desc = "Access recently opened projects" })
+nmap("<leader>p", "<cmd>Telescope projects<CR>", { desc = "Access recently opened projects" })
 
 local telescope = require_plugin("telescope")
 if telescope then

@@ -137,7 +137,7 @@ api.nvim_create_autocmd("CursorMoved", {
 
 api.nvim_create_autocmd("FileType", {
     group = xxiaoa_group,
-    pattern = { "qf", "help", "man", "startuptime" },
+    pattern = { "qf", "help", "man", "startuptime", "checkhealth" },
     callback = function(ctx)
         nmap("q", "<cmd>close<CR>", { buffer = ctx.buf })
         vim.opt_local.buflisted = false

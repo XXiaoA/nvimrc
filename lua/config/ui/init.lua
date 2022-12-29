@@ -1,44 +1,32 @@
-local colorscheme = require("core.colorscheme")
-local add_colorscheme = colorscheme.add_colorscheme
-local get_value = require("utils.yamler").get_value
-local use = require("core.packer").add_plugin
-local nmap = require("core.keymap").nmap
+local add_colorscheme = require("core.colorscheme").add_colorscheme
+local use = require("core.pack").add_plugin
 
 -- colorscheme
 use({
     "sainnhe/gruvbox-material",
-    opt = true,
 })
 add_colorscheme("gruvbox-material")
 
 use({
     "EdenEast/nightfox.nvim",
-    run = ":NightfoxCompile",
-    opt = true,
+    build = ":NightfoxCompile",
 })
-add_colorscheme({ "duskfox", "nightfox" }, "nightfox.nvim")
+add_colorscheme("duskfox", "nightfox")
 
 use({
     "rose-pine/neovim",
-    as = "rose-pine",
-    opt = true,
+    name = "rose-pine",
 })
 add_colorscheme("rose-pine")
 
 use({
     "catppuccin/nvim",
-    as = "catppuccin",
-    run = ":CatppuccinCompile",
-    opt = true,
+    name = "catppuccin",
+    build = ":CatppuccinCompile",
 })
-add_colorscheme({ "catppuccin-mocha", "catppuccin-macchiato" }, "catppuccin")
+add_colorscheme("catppuccin-mocha", "catppuccin-macchiato")
 
 add_colorscheme("random")
-
-require("config.ui.autocmd")
-colorscheme.load_colorscheme(get_value("color_scheme"))
-vim.cmd("set background=dark")
-nmap("<leader>cc", colorscheme.load_colorscheme_ui, { desc = "Change ColorScheme" })
 
 use({
     "kyazdani42/nvim-web-devicons",
@@ -48,21 +36,27 @@ use({
 -- 状态栏
 use({
     "nvim-lualine/lualine.nvim",
-    event = "BufWinEnter",
-    config = "require('config.ui.lualine')",
+    event = "BufEnter",
+    dependencies = "nvim-web-devicons",
+    config = function()
+        require("config.ui.lualine")
+    end,
 })
 
 -- 缩进线
 use({
     "lukas-reineke/indent-blankline.nvim",
-    event = "BufWinEnter",
-    config = "require('config.ui.indent-blankline')",
+    event = "BufReadPre",
+    config = function()
+        require("config.ui.indent-blankline")
+    end,
 })
 
 -- file explorer
 use({
     "kyazdani42/nvim-tree.lua",
-    event = "BufWinEnter",
+    event = "BufEnter",
+    dependencies = "nvim-web-devicons",
     config = function()
         require("config.ui.nvim-tree")
     end,
@@ -71,30 +65,42 @@ use({
 -- bufferline
 use({
     "akinsho/bufferline.nvim",
-    event = "BufWinEnter",
-    config = "require('config.ui.bufferline')",
+    event = "BufEnter",
+    dependencies = "nvim-web-devicons",
+    config = function()
+        require("config.ui.bufferline")
+    end,
 })
 
 -- dressing.nvim
 use({
     "stevearc/dressing.nvim",
-    after = "telescope.nvim",
-    config = "require('config.ui.dressing')",
+    dependencies = { "telescope.nvim" },
+    init = function()
+        vim.ui.select = function(...)
+            require("lazy").load({ plugins = { "dressing.nvim" } })
+            return vim.ui.select(...)
+        end
+        vim.ui.input = function(...)
+            require("lazy").load({ plugins = { "dressing.nvim" } })
+            return vim.ui.input(...)
+        end
+    end,
+    config = function()
+        require("config.ui.dressing")
+    end,
 })
 
 use({
     "folke/twilight.nvim",
-    opt = true,
-    config = function()
-        require("twilight").setup({})
-    end,
+    config = true,
 })
 
 use({
     "XXiaoA/zen-mode.nvim",
     keys = "<leader>zz",
+    dev = false,
     config = function()
-        vim.cmd("PackerLoad twilight.nvim")
         require("config.ui.zen-mode")
     end,
 })

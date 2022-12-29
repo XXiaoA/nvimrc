@@ -37,7 +37,7 @@ for formatting feature (optional): [formatters](./lua/config/plugins/formatter.l
 
 If you fail to use markdown preview, run:
 ```bash
-cd ~/.local/share/nvim/site/pack/packer/opt/markdown-preview.nvim/app/
+cd ~/.local/share/nvim/lazy/markdown-preview.nvim/app/
 npm install
 ```
 

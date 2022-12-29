@@ -11,7 +11,7 @@ return {
             },
             workspace = {
                 library = {
-                    vim.fn.stdpath("data") .. "/site/pack/packer/opt/emmylua-nvim",
+                    vim.fn.stdpath("data") .. "/lazy/emmylua-nvim",
                 },
             },
             telemetry = {

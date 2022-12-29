@@ -11,6 +11,6 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     command = [[
     hi GitSignsAddInline guibg=#81b29a guifg=bg
     hi GitSignsChangeInline guibg=#dbc074 guifg=bg
-    hi GitSignsDeleteInline guibg=#c94f6d guifg=bg
+    hi GitSign guibg=#c94f6d guifg=bg
     ]],
 })

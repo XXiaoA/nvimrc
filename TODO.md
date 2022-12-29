@@ -9,5 +9,5 @@
 - [ ] feature auto hint for fuzzy file after enter new file
 - [ ] [firenvim](https://github.com/glacambre/firenvim)
 - [ ] highlights for markdown, etc. like [headlines.nvim](https://github.com/lukas-reineke/headlines.nvim) and [md-nanny](https://github.com/nvim-zh/md-nanny)
-- [ ] [lazy.nvim](https://github.com/folke/lazy.nvim)
+- [ ] configure lsp by yaml
 - [ ] improve move line. [nvim-gomove](https://github.com/booperlv/nvim-gomove)

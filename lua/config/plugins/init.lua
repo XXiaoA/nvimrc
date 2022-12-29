@@ -1,43 +1,45 @@
-local use = require("core.packer").add_plugin
-
-use({
-    "lewis6991/impatient.nvim",
-    config = function()
-        require("impatient")
-    end,
-})
-
--- Packer can manage itself
-use({ "wbthomason/packer.nvim" })
+local use = require("core.pack").add_plugin
 
 -- treesitter 高亮
 use({
     "nvim-treesitter/nvim-treesitter",
-    run = ":TSUpdate",
-    config = "require('config.plugins.nvim-treesitter')",
+    build = ":TSUpdate",
+    event = "BufReadPre",
+    config = function()
+        require("config.plugins.nvim-treesitter")
+    end,
 })
 
 -- 彩色括号
-use({ "p00f/nvim-ts-rainbow", after = "nvim-treesitter" })
+use({
+    "p00f/nvim-ts-rainbow",
+    event = "BufReadPre",
+    dependencies = "nvim-treesitter",
+})
 
 -- 按键
 use({
     "folke/which-key.nvim",
-    event = "BufWinEnter",
-    config = "require('config.plugins.which-key')",
+    event = "VeryLazy",
+    config = function()
+        require("config.plugins.which-key")
+    end,
 })
 
 -- Comment 注释
 use({
     "numToStr/Comment.nvim",
-    event = "BufWinEnter",
-    config = "require('config.plugins.comment')",
+    keys = { { "gc", mode = { "n", "v" } }, "gb", mode = { "n", "v" } },
+    config = function()
+        require("config.plugins.comment")
+    end,
 })
 
 -- snippets
 use({
     "L3MON4D3/LuaSnip",
-    after = "Comment.nvim",
+    event = "InsertEnter",
+    dependencies = "Comment.nvim",
     config = function()
         require("config.plugins.luasnip")
     end,
@@ -46,69 +48,88 @@ use({
 -- nvim-cmp
 use({
     "hrsh7th/nvim-cmp",
-    requires = {
-        { "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" },
-        { "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" },
-        { "hrsh7th/cmp-buffer", after = "nvim-cmp" },
-        { "hrsh7th/cmp-path", after = "nvim-cmp" },
-        { "hrsh7th/cmp-cmdline", after = "nvim-cmp" },
-        { "hrsh7th/cmp-nvim-lsp-signature-help", after = "nvim-cmp" },
+    event = { "InsertEnter", "CmdlineEnter" },
+    dependencies = {
+        "saadparwaiz1/cmp_luasnip",
+        "hrsh7th/cmp-nvim-lsp",
+        "hrsh7th/cmp-buffer",
+        "hrsh7th/cmp-path",
+        "hrsh7th/cmp-cmdline",
+        "hrsh7th/cmp-nvim-lsp-signature-help",
+        "LuaSnip",
     },
-    config = "require('config.plugins.cmp')",
-    after = "LuaSnip",
+    config = function()
+        require("config.plugins.cmp")
+    end,
 })
 
 -- 自动补全括号
 use({
     "windwp/nvim-autopairs",
     event = "InsertEnter",
-    config = "require('config.plugins.nvim-autopairs')",
+    dependencies = "nvim-cmp",
+    config = function()
+        require("config.plugins.nvim-autopairs")
+    end,
 })
 
 -- 文件搜索 预览 等
 use({
     "nvim-telescope/telescope.nvim",
-    requires = {
+    dependencies = {
         "nvim-lua/plenary.nvim",
         "kyazdani42/nvim-web-devicons",
     },
-    event = "BufWinEnter",
-    config = "require('config.plugins.telescope')",
+    cmd = "Telescope",
+    config = function()
+        require("config.plugins.telescope")
+    end,
 })
 
 -- recent project
 use({
     "ahmedkhalf/project.nvim",
-    after = "telescope.nvim",
-    config = "require('config.plugins.project')",
+    event = "VeryLazy",
+    dependencies = "telescope.nvim",
+    config = function()
+        require("config.plugins.project")
+    end,
 })
 
 -- code outline
 use({
     "stevearc/aerial.nvim",
     keys = { "[f", "]f", "<leader>aa", "<leader>fa" },
-    config = "require('config.plugins.aerial')",
+    config = function()
+        require("config.plugins.aerial")
+    end,
 })
 
 -- 颜色
 use({
     "NvChad/nvim-colorizer.lua",
     cmd = "ColorizerAttachToBuffer",
-    config = "require('config.plugins.nvim-colorizer')",
+    config = function()
+        require("config.plugins.nvim-colorizer")
+    end,
 })
 
 -- 命令行窗口
 use({
     "akinsho/toggleterm.nvim",
     keys = { "<leader>tt", "<leader>tf", "<leader>ta" },
-    config = "require('config.plugins.toggleterm')",
+    config = function()
+        require("config.plugins.toggleterm")
+    end,
 })
 
 -- session
 use({
     "Shatur/neovim-session-manager",
     keys = { "<leader>ss", "<leader>sl", "<leader>sc", "<leader>sd" },
-    config = "require('config.plugins.neovim-session-manager')",
+    config = function()
+        require("config.plugins.neovim-session-manager")
+    end,
 })
 
 -- 自动对齐
@@ -116,19 +137,18 @@ use({ "junegunn/vim-easy-align", cmd = "EasyAlign" })
 
 use({
     "kylechui/nvim-surround",
-    event = "BufWinEnter",
-    -- keys = { "<C-g>s", "<C-g>S", "sa", "ssa", "sA", "ssA", "sd", "sr" },
+    keys = { "<C-g>s", "<C-g>S", "sa", "ssa", "sA", "ssA", "sa", "sA", "sd", "sr" },
     config = function()
         require("config.plugins.surround")
     end,
 })
 
 use({
-    "~/repos/ns-textobject.nvim/",
-    after = "nvim-surround",
-    config = function()
-        require("config.plugins.ns-textobject")
-    end,
+    "XXiaoA/ns-textobject.nvim",
+    -- Operator-pending mode
+    event = "ModeChanged",
+    dependencies = "nvim-surround",
+    config = true,
 })
 
 -- 运行时间
@@ -142,33 +162,27 @@ use({
         "<leader>hW",
         "<leader>hl",
         "<leader>hp",
-        { "o", "t" },
-        { "o", "T" },
-        { "o", "f" },
-        { "o", "F" },
-        { "o", "se" },
-        { "x", "t" },
-        { "x", "T" },
-        { "x", "f" },
-        { "x", "F" },
-        { "x", "se" },
-        { "n", "t" },
-        { "n", "T" },
-        { "n", "f" },
-        { "n", "F" },
-        { "n", "se" },
+        { "t", mode = { "n", "x", "o" } },
+        { "T", mode = { "n", "x", "o" } },
+        { "f", mode = { "n", "x", "o" } },
+        { "F", mode = { "n", "x", "o" } },
+        { "se", mode = { "n", "x", "o" } },
     },
-    config = "require('config.plugins.hop')",
+    config = function()
+        require("config.plugins.hop")
+    end,
 })
 
 -- 中文文档
-use({ "yianwillis/vimcdoc", event = "BufWinEnter" })
+use({ "yianwillis/vimcdoc", event = "VeryLazy" })
 
 -- 格式化代码
 use({
     "mhartington/formatter.nvim",
     keys = "<leader>bf",
-    config = "require('config.plugins.formatter')",
+    config = function()
+        require("config.plugins.formatter")
+    end,
 })
 
 -- 翻译
@@ -184,68 +198,79 @@ use({ "voldikss/vim-translator", cmd = { "Translate", "TranslateW" } })
 use({
     "kevinhwang91/nvim-hlslens",
     keys = {
-        { "x", "n" },
-        { "x", "N" },
-        { "x", "*" },
-        { "x", "#" },
-        { "x", "g*" },
-        { "x", "g#" },
-        { "o", "n" },
-        { "o", "N" },
-        { "o", "*" },
-        { "o", "#" },
-        { "o", "g*" },
-        { "o", "g#" },
-        { "n", "n" },
-        { "n", "N" },
-        { "n", "*" },
-        { "n", "#" },
-        { "n", "g*" },
-        { "n", "g#" },
+        { "n", mode = { "n", "x", "o" } },
+        { "N", mode = { "n", "x", "o" } },
+        { "*", mode = { "n", "x", "o" } },
+        { "#", mode = { "n", "x", "o" } },
+        { "g*", mode = { "n", "x", "o" } },
+        { "g#", mode = { "n", "x", "o" } },
     },
-    config = "require('config.plugins.hlslens')",
+    config = function()
+        require("config.plugins.hlslens")
+    end,
 })
 
 -- evaluates code blocks
-use({ "jubnzv/mdeval.nvim", ft = "markdown", config = "require('config.plugins.mdeval')" })
+use({
+    "jubnzv/mdeval.nvim",
+    cmd = "MdEval",
+    config = function()
+        require("config.plugins.mdeval")
+    end,
+})
 
 use({
     "danymat/neogen",
     keys = "<leader>/",
-    config = "require('config.plugins.neogen')",
+    config = function()
+        require("config.plugins.neogen")
+    end,
 })
 
 use({
     "iamcco/markdown-preview.nvim",
-    config = "require('config.plugins.markdown-preview')",
-    run = "cd app && npm install",
-    ft = { "markdown" },
+    config = function()
+        require("config.plugins.markdown-preview")
+    end,
+    build = "cd app && npm install",
+    cmd = "MarkdownPreview",
 })
 
 use({
     "karb94/neoscroll.nvim",
-    keys = { "<C-u>", "<C-d>", "<C-b>", "<C-f>", "<C-y>", "<C-e>", "zt", "zz", "zb" },
-    config = [[require('neoscroll').setup()]],
+    keys = {
+        { "<C-u>", mode = { "n", "x" } },
+        { "<C-d>", mode = { "n", "x" } },
+        { "<C-b>", mode = { "n", "x" } },
+        { "<C-f>", mode = { "n", "x" } },
+        { "<C-y>", mode = { "n", "x" } },
+        { "<C-e>", mode = { "n", "x" } },
+        { "zt", mode = { "n", "x" } },
+        { "zz", mode = { "n", "x" } },
+        { "zb", mode = { "n", "x" } },
+    },
+    config = true,
 })
 
 use({
     "aserowy/tmux.nvim",
     keys = { "<C-h>", "<C-j>", "<C-k>", "<C-l>", "<A-h>", "<A-j>", "<A-k>", "<A-l>" },
-    config = function()
-        require("tmux").setup({})
-    end,
+    config = true,
 })
 
 use({
     "folke/todo-comments.nvim",
-    requires = "nvim-lua/plenary.nvim",
-    after = "nvim-cmp",
-    config = [[require("config.plugins.todo-comments")]],
+    event = "VeryLazy",
+    dependencies = { "telescope.nvim", "nvim-lua/plenary.nvim" },
+    config = function()
+        require("config.plugins.todo-comments")
+    end,
 })
 
 use({
     "mfussenegger/nvim-treehopper",
-    keys = { { "o", "m" }, { "x", "m" } },
+    keys = { { "m", mode = { "o", "x" } } },
+    dependencies = "hop.nvim",
     config = function()
         require("config.plugins.treehopper")
     end,
@@ -253,12 +278,13 @@ use({
 
 use({
     "gpanders/editorconfig.nvim",
+    enabled = false,
     ft = { "lua" },
 })
 
 use({
     "lewis6991/gitsigns.nvim",
-    event = "BufWinEnter",
+    event = "BufReadPre",
     config = function()
         require("config.plugins.gitsigns")
     end,

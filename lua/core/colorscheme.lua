@@ -1,18 +1,16 @@
 local yamler = require("utils.yamler")
-local utils = require("utils")
 local M = {}
+--- string[]
 M.all_colorschemes = {}
 
---- Add a new colorscheme
----@param colorscheme string|table Name of colorscheme
----@param repo_name string Used by packadd
-function M.add_colorscheme(colorscheme, repo_name)
-    repo_name = repo_name or colorscheme
-    if type(colorscheme) == "string" then
-        M.all_colorschemes[colorscheme] = repo_name
-    elseif type(colorscheme) == "table" then
-        for _, each_colorscheme in pairs(colorscheme) do
-            M.all_colorschemes[each_colorscheme] = repo_name
+--- Add new colorschemes
+---@vararg string colorschemes
+function M.add_colorscheme(...)
+    if #... == 1 then
+        table.insert(M.all_colorschemes, ...)
+    else
+        for _, colorscheme in ipairs({ ... }) do
+            table.insert(M.all_colorschemes, colorscheme)
         end
     end
 end
@@ -20,15 +18,15 @@ end
 function M.load_colorscheme(colorscheme)
     if colorscheme then
         if colorscheme == "random" then
-            local _all_colorschemes = utils.tbl_copy(M.all_colorschemes)
-            _all_colorschemes["random"] = nil
-            _all_colorschemes[yamler.get_value("color_scheme")] = nil
-            local random_index = (vim.fn.rand() % vim.tbl_count(_all_colorschemes)) + 1
-            colorscheme = vim.tbl_keys(_all_colorschemes)[random_index]
+            local _all_colorschemes = vim.tbl_filter(function(value)
+                if value ~= "random" and value ~= yamler.get_value("color_scheme") then
+                    return true
+                end
+            end, M.all_colorschemes)
+            local random_index = (vim.fn.rand() % #_all_colorschemes) + 1
+            colorscheme = _all_colorschemes[random_index]
         end
-        local colorscheme_repo_name = M.all_colorschemes[colorscheme]
 
-        pcall(vim.cmd.packadd, colorscheme_repo_name)
         pcall(require, "config.ui.colorschemes." .. colorscheme)
         pcall(vim.cmd.colorscheme, colorscheme)
         yamler.modify_value("color_scheme", colorscheme)
@@ -36,7 +34,7 @@ function M.load_colorscheme(colorscheme)
 end
 
 function M.load_colorscheme_ui()
-    vim.ui.select(vim.tbl_keys(M.all_colorschemes), {
+    vim.ui.select(M.all_colorschemes, {
         prompt = "Select a colorscheme:",
         format_item = function(item)
             return item
@@ -44,6 +42,17 @@ function M.load_colorscheme_ui()
     }, function(choice)
         M.load_colorscheme(choice)
     end)
+end
+
+function M.init()
+    require("config.ui.autocmd")
+    vim.o.background = "dark"
+    M.load_colorscheme(yamler.get_value("color_scheme"))
+    require("core.keymap").nmap(
+        "<leader>cc",
+        M.load_colorscheme_ui,
+        { desc = "Change ColorScheme" }
+    )
 end
 
 return M

@@ -1,8 +1,9 @@
-local use = require("core.packer").add_plugin
+local use = require("core.pack").add_plugin
 
 -- lspconfig
 use({
     "neovim/nvim-lspconfig",
+    event = "BufReadPre",
     ft = {
         "lua",
         "python",
@@ -10,16 +11,19 @@ use({
         "vim",
         "cpp",
     },
+    dependencies = {
+        "mason.nvim",
+        "mason-lspconfig.nvim",
+        "rust-tools.nvim",
+    },
 })
 
 use({
     "williamboman/mason.nvim",
-    after = "nvim-lspconfig",
     branch = "main",
 })
 use({
     "williamboman/mason-lspconfig.nvim",
-    after = "mason.nvim",
     config = function()
         require("config.lsp.mason")
         require("config.lsp.setup")
@@ -27,14 +31,13 @@ use({
 })
 
 use({
+    -- workspace library for sumneko_lua
     "ii14/emmylua-nvim",
-    after = "nvim-lspconfig",
-    ft = "lua",
 })
 
 use({
     "glepnir/lspsaga.nvim",
-    after = "nvim-lspconfig",
+    event = "VeryLazy",
     config = function()
         require("config.lsp.lspsaga")
     end,
@@ -42,29 +45,32 @@ use({
 
 use({
     "kevinhwang91/nvim-ufo",
-    after = "promise-async",
-    config = [[require("config.lsp.ufo")]],
+    event = "VeryLazy",
+    dependencies = "promise-async",
+    config = function()
+        require("config.lsp.ufo")
+    end,
 })
 
 use({
     "kevinhwang91/promise-async",
-    after = "nvim-lspconfig",
 })
 
 use({
     "simrat39/rust-tools.nvim",
+    ft = "rust",
 })
 
 use({
     "RRethy/vim-illuminate",
-    after = "nvim-lspconfig",
-    config = [[require("config.lsp.illuminate")]],
+    event = "VeryLazy",
+    config = function()
+        require("config.lsp.illuminate")
+    end,
 })
 
 use({
     "j-hui/fidget.nvim",
-    after = "nvim-lspconfig",
-    config = function()
-        require("fidget").setup({})
-    end,
+    event = "VeryLazy",
+    config = true,
 })
