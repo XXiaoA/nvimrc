@@ -1,5 +1,5 @@
 # run `XXiaoA all_colorschemes` to see all colorschemes
-color_scheme: catppuccin-macchiato
+colorscheme: catppuccin-macchiato
 
 lualine_theme: auto
 
