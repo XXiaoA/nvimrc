@@ -74,3 +74,9 @@ use({
     event = "VeryLazy",
     config = true,
 })
+
+use({
+    "smjonas/inc-rename.nvim",
+    cmd = "IncRename",
+    config = true,
+})
