@@ -57,6 +57,7 @@ api.nvim_create_autocmd({ "BufWritePre", "FileWritePre" }, {
     group = xxiaoa_group,
 })
 
+-- BUG: doesn't work
 -- replace != with ~= in lua file
 api.nvim_create_autocmd("FileType", {
     pattern = "lua",

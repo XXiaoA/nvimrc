@@ -97,3 +97,19 @@ nmap("<leader>bn", ":enew<CR>", { desc = "New Buffer" })
 -- Remap for dealing with word wrap
 nmap("k", "v:count == 0 ? 'gk' : 'k'", { expr = true })
 nmap("j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
+
+-- BUG: doesn't work
+imap(",", ",<c-g>u")
+imap(".", ".<c-g>u")
+imap(";", ";<c-g>u")
+
+-- https://github.com/mhinz/vim-galore#quickly-edit-your-macros
+-- Quickly edit your macros
+nmap(
+    "<leader>m",
+    [[:<c-u><c-r><c-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><c-f><left>]]
+)
+
+-- Quickly add empty lines
+nmap("[<space>", ":<c-u>put! =repeat(nr2char(10), v:count1)<cr>")
+nmap("]<space>", ":<c-u>put =repeat(nr2char(10), v:count1)<cr>")
