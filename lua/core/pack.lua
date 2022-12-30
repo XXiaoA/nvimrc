@@ -1,3 +1,4 @@
+local colorscheme = require "core.colorscheme"
 local M = {}
 
 M.plugins = {}
@@ -29,6 +30,9 @@ function M.load_plugins()
             patterns = { "XXiaoA", "xxiaoa" },
         },
         ui = { border = "single" },
+        install = {
+            colorscheme = { colorscheme.current_colorscheme(), "habamax" },
+        },
     }
     lazy.setup(M.plugins, opts)
     require("core.keymap").nmap("<leader>l", "<cmd>Lazy<cr>", { desc = lazy })
