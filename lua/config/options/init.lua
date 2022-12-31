@@ -1,5 +1,5 @@
 local cache_dir = os.getenv("HOME") .. "/.cache/nvim/"
-local o = vim.o
+local o = vim.opt
 local g = vim.g
 
 -- https://github.com/glepnir/nvim/blob/6bb5e515289171fe197f248ee64206b10d0dbd71/lua/core/init.lua
@@ -13,6 +13,8 @@ g.loaded_getscript = 1
 g.loaded_getscriptPlugin = 1
 g.loaded_vimball = 1
 g.loaded_vimballPlugin = 1
+g.loaded_matchit = 1
+g.loaded_matchparen = 1
 g.loaded_2html_plugin = 1
 g.loaded_logiPat = 1
 g.loaded_rrhelper = 1
@@ -92,7 +94,7 @@ o.smartcase = true
 -- 打开拼写检查
 o.spell = false
 -- 设置拼写检查语言
-o.spelllang = "en_us,cjk"
+o.spelllang = { "en_us", "cjk" }
 o.spelloptions = "camel"
 
 -- 是否支持折叠
@@ -103,7 +105,7 @@ o.foldmethod = "manual"
 o.foldlevel = 100
 o.foldlevelstart = 100
 -- o.foldcolumn = "1"
-o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+o.fillchars = { eob = " ", fold = " ", foldopen = "", foldsep = " ", foldclose = "" }
 
 o.autoindent = true
 
@@ -119,3 +121,4 @@ o.hidden = true
 o.magic = true
 o.virtualedit = "block"
 o.showmode = false
+o.splitkeep = "screen"
