@@ -1,6 +1,14 @@
 # run `XXiaoA all_colorschemes` to see all colorschemes
 colorscheme: catppuccin-macchiato
 
+# TODO: add support
+lsp:
+  cpp: clangd
+  lua: sumneko_lua
+  python: pylsp
+  rust: rust_analyzer
+  vim: vimls
+
 lualine_theme: auto
 
 # Only load the configuration if user's nvim version is expectable if it's true

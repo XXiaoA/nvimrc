@@ -19,7 +19,7 @@ tr.setup({
             },
         },
         float = {
-            enable = true,
+            enable = false,
             open_win_config = function()
                 local columns = vim.o.columns
                 local lines = vim.o.lines

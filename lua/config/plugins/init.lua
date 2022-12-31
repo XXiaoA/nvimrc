@@ -233,7 +233,7 @@ use({
         require("config.plugins.markdown-preview")
     end,
     build = "cd app && npm install",
-    cmd = "MarkdownPreview",
+    ft = "markdown",
 })
 
 use({

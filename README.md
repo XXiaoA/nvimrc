@@ -29,7 +29,8 @@ git clone https://github.com/XXiaoA/nvimrc ~/.config/nvim
 
 
 ## Dependencies
-Run `:checkhealth` in neovim
+> ❗Run `:checkhealth` in neovim
+- [ripgrep](https://github.com/BurntSushi/ripgrep) for fuzzy find
 
 
 ## Notice
