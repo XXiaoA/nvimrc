@@ -35,4 +35,9 @@ tsc.setup({
     },
     -- 基于Treesitter的代码格式化(=) . This is an experimental feature.
     indent = { enable = false },
+    matchup = {
+        enable = true, -- mandatory, false will disable the whole extension
+        include_match_words = true,
+        -- disable = { "c", "ruby" },
+    },
 })

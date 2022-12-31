@@ -284,7 +284,7 @@ use({
 
 use({
     "lewis6991/gitsigns.nvim",
-    event = "BufReadPre",
+    event = "VeryLazy",
     config = function()
         require("config.plugins.gitsigns")
     end,
@@ -309,4 +309,12 @@ use({
 use({
     "simnalamburt/vim-mundo",
     cmd = "MundoToggle",
+})
+
+use({
+    "andymass/vim-matchup",
+    event = "BufReadPost",
+    config = function()
+        vim.g.matchup_matchparen_offscreen = { method = "status_manual" }
+    end,
 })
