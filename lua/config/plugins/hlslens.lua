@@ -28,4 +28,3 @@ end)
 map("*", [[*<Cmd>lua require('hlslens').start()<CR>N]])
 map("#", [[#<Cmd>lua require('hlslens').start()<CR>N]])
 map("g*", [[g*<Cmd>lua require('hlslens').start()<CR>N]])
-

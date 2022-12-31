@@ -1,4 +1,4 @@
-local colorscheme = require "core.colorscheme"
+local colorscheme = require("core.colorscheme")
 local M = {}
 
 M.plugins = {}

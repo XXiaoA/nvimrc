@@ -12,5 +12,5 @@
 - [ ] configure lsp by yaml
 - [ ] improve move line. [nvim-gomove](https://github.com/booperlv/nvim-gomove)
 - [ ] windwp/nvim-spectre; ThePrimeagen/refactoring.nvim; cshuaimin/ssr.nvim
-- [ ] andymass/vim-matchup
+- [x] andymass/vim-matchup
 - [ ] echasnovski/mini.nvim,
