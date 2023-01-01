@@ -25,12 +25,10 @@ function M.convert_yaml(data)
         M.read_data()
     end
     for line, content in ipairs(M.data) do
-        -- ignore the comment
-        if content:match([[%s*#]]) then
-            goto continue
-        end
+        -- remove the content after #
+        content = utils.trim(content:sub(1, (content:find("#") or 0) - 1), "tail")
 
-        if content:match([[%s*[^%s]*:%s*%a*]]) then
+        if content:match([[%s*[^%s]*:%s[^%s]+]]) then
             local opt = content:match([[([^%s]*):]])
             local value = content:match([[:%s*([^%s]*)]])
             -- if value is `true` or `false`, return the boolean

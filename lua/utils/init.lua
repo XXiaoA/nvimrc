@@ -100,4 +100,14 @@ function M.tbl_copy(orig)
     return copy
 end
 
+--- Remove string trim
+---@param str string
+---@param mode "all"|"head"|"tail"?
+---@return string
+function M.trim(str, mode)
+    mode = mode or "all"
+    regex = mode == "all" and "^%s*(.-)%s*$" or ( mode == "tail" and "(.-)%s*$" or "^%s*(.-)" )
+    return str:match(regex)
+end
+
 return M
