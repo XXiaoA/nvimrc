@@ -1,4 +1,4 @@
-local hop = require("utils").require_plugin("hop")
+local hop = require("utils").require("hop")
 
 if hop then
     hop.setup({

@@ -1,4 +1,4 @@
-local surround = require("utils").require_plugin("nvim-surround")
+local surround = require("utils").require("nvim-surround")
 if not surround then
     return
 end

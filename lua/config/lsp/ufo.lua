@@ -1,4 +1,4 @@
-local ufo = require("utils").require_plugin("ufo")
+local ufo = require("utils").require("ufo")
 if not ufo then
     return
 end

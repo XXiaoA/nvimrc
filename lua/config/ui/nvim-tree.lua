@@ -1,4 +1,4 @@
-local tr = require("utils").require_plugin("nvim-tree")
+local tr = require("utils").require("nvim-tree")
 if not tr then
     return
 end

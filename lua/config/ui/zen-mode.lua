@@ -1,4 +1,4 @@
-local zm = require("utils").require_plugin("zen-mode")
+local zm = require("utils").require("zen-mode")
 if not zm then
     return
 end

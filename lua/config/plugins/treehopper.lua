@@ -1,4 +1,4 @@
-local tsht = require("utils").require_plugin("tsht")
+local tsht = require("utils").require("tsht")
 if not tsht then
     return
 end

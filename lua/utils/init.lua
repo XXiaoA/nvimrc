@@ -2,9 +2,9 @@ local M = {}
 
 --- require plugin and check if it exists
 ---@param plugin_name string
----@param message boolean
----@return any
-function M.require_plugin(plugin_name, message)
+---@param message boolean?
+---@return table?
+function M.require(plugin_name, message)
     local status_ok, plugin = pcall(require, plugin_name)
     if not status_ok and message ~= false then
         local info = debug.getinfo(2, "Sl")
@@ -48,7 +48,7 @@ end
 --- compare two table
 ---@param t1 table
 ---@param t2 table
----@param ignore_mt boolean if ignore metatable or not ( default is false )
+---@param ignore_mt boolean? if ignore metatable or not ( default is false )
 ---@return boolean
 --- from https://web.archive.org/web/20131225070434/http://snippets.luacode.org/snippets/Deep_Comparison_of_Two_Values_3
 function M.tbl_isequal(t1, t2, ignore_mt)

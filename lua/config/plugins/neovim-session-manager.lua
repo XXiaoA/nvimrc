@@ -1,4 +1,4 @@
-local session_manager = require("utils").require_plugin("session_manager")
+local session_manager = require("utils").require("session_manager")
 
 local nmap = require("core.keymap").nmap
 nmap("<leader>ss", "<cmd>SessionManager save_current_session<CR>", { desc = "save session" })

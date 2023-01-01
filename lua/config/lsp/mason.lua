@@ -1,5 +1,5 @@
-local mason = require("utils").require_plugin("mason")
-local mason_lspconfig = require("utils").require_plugin("mason-lspconfig")
+local mason = require("utils").require("mason")
+local mason_lspconfig = require("utils").require("mason-lspconfig")
 if not mason or not mason_lspconfig then
     return
 end

@@ -1,5 +1,5 @@
 -- Call the setup function to change the default behavior
-local aerial = require("utils").require_plugin("aerial")
+local aerial = require("utils").require("aerial")
 if not aerial then
     return
 end
@@ -45,7 +45,7 @@ nmap("]f", "<cmd>AerialNext<CR>", { desc = "Jump to next symbol" })
 nmap("<leader>aa", "<cmd>AerialToggle<CR>", { desc = "Toggle outline" })
 
 -- telescope support
-local telescope = require("utils").require_plugin("telescope")
+local telescope = require("utils").require("telescope")
 if telescope then
     telescope.load_extension("aerial")
     nmap("<leader>fa", "<cmd>Telescope aerial<cr>", { desc = "search document symbols" })

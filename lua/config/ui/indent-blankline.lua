@@ -1,6 +1,6 @@
 local g = vim.g
 
-local indent_blankline = require("utils").require_plugin("indent_blankline")
+local indent_blankline = require("utils").require("indent_blankline")
 if not indent_blankline then
     return
 end

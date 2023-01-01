@@ -1,4 +1,4 @@
-local hlslens = require("utils").require_plugin("hlslens")
+local hlslens = require("utils").require("hlslens")
 if not hlslens then
     return
 end

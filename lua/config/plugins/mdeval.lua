@@ -1,4 +1,4 @@
-local mdeval = require("utils").require_plugin("mdeval")
+local mdeval = require("utils").require("mdeval")
 
 if not mdeval then
     return
