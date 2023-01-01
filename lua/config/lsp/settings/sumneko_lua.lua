@@ -7,7 +7,7 @@ return {
             diagnostics = {
                 globals = { "vim" },
 
-                disable = { "miss-parameter", "missing-parameter" },
+                -- disable = { "miss-parameter", "missing-parameter" },
             },
             workspace = {
                 library = {

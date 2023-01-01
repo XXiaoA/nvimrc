@@ -1,4 +1,4 @@
-local dressing = require("utils").require_plugin("dressing")
+local dressing = require("utils").require("dressing")
 if not dressing then
     return
 end

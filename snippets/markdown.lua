@@ -16,14 +16,34 @@ return {
     ]], { i(1), i(2) })
     ),
 
+    postfix(".l" , fmt([[
+    [{}]({})
+    ]], {
+          l(l.POSTFIX_MATCH),
+          i(1)
+        })
+    ),
+
     s("u", fmt([[
     <{}>
     ]], i(1) )
     ),
 
+    postfix({ trig = ".u", match_pattern = [[https?://[^ >,;]*]] }, {
+      l("<" .. l.POSTFIX_MATCH .. ">"),
+    }),
+
     s("img" , fmt([[
     ![{}]({})
     ]], { i(1), i(2) })
+    ),
+
+    postfix(".img" , fmt([[
+    ![{}]({})
+    ]], {
+          l(l.POSTFIX_MATCH),
+          i(1)
+        })
     ),
 
     s("strikethrough", fmt([[
@@ -31,20 +51,36 @@ return {
     ]], i(1) )
     ),
 
+    postfix(".strikethrough", {
+      l("~~" .. l.POSTFIX_MATCH .. "~~"),
+    }),
+
     s("i", fmt([[
     *{}*
     ]], i(1) )
     ),
+
+    postfix(".i", {
+      l("*" .. l.POSTFIX_MATCH .. "*"),
+    }),
 
     s("b", fmt([[
     **{}**
     ]], i(1) )
     ),
 
+    postfix(".b", {
+      l("**" .. l.POSTFIX_MATCH .. "**"),
+    }),
+
     s("bi", fmt([[
     ***{}***
     ]], i(1) )
     ),
+
+    postfix(".bi", {
+      l("***" .. l.POSTFIX_MATCH .. "***"),
+    }),
 
     s("quote", t("> ")),
 
@@ -52,6 +88,10 @@ return {
     `{}`
     ]], i(1) )
     ),
+
+    postfix(".i", {
+      l("`" .. l.POSTFIX_MATCH .. "`"),
+    }),
 
     s("codeblock", fmt([[
     ```{}
@@ -102,4 +142,9 @@ return {
     <u>{}</u>
     ]], i(1))
     ),
+
+    postfix(".underline", {
+      l("<u>" .. l.POSTFIX_MATCH .. "</u>"),
+    }),
+
 }

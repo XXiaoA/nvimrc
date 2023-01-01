@@ -1,4 +1,4 @@
-local colorizer = require("utils").require_plugin("colorizer")
+local colorizer = require("utils").require("colorizer")
 
 if not colorizer then
     return

@@ -1,5 +1,5 @@
-local wk = require("utils").require_plugin("which-key")
-local presets = require("utils").require_plugin("which-key.plugins.presets")
+local wk = require("utils").require("which-key")
+local presets = require("utils").require("which-key.plugins.presets")
 
 if not wk or not presets then
     return

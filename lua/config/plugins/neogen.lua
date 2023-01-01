@@ -1,4 +1,4 @@
-local neogen = require("utils").require_plugin("neogen")
+local neogen = require("utils").require("neogen")
 if not neogen then
     return
 end

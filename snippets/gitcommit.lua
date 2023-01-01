@@ -22,13 +22,27 @@ for _, type in ipairs(types) do
             fmt([[{}: {}]], {
                 c(1, {
                     i(1, type),
+
                     fmt([[{}({})]], {
                         t(type),
-                        i(1, "scope"),
+                        r(1, "scope"),
+                    }),
+
+                    { i(1, type), t("!") },
+
+                    fmt([[{}({})!]], {
+                        -- t(type),
+                        t(type),
+                        r(1, "scope"),
                     }),
                 }),
                 i(2, "title"),
-            })
+            }),
+            {
+                stored = {
+                    ["scope"] = i(1),
+                },
+            }
         )
     )
 end
@@ -39,14 +53,28 @@ table.insert(
         "cc",
         fmt([[{}: {}]], {
             c(1, {
-                i(1, "cc"),
+                r(1, "type"),
+
                 fmt([[{}({})]], {
-                    i(1, "cc"),
-                    i(2, "scope"),
+                    r(1, "type"),
+                    r(2, "scope"),
+                }),
+
+                { r(1, "type"), t("!") },
+
+                fmt([[{}({})!]], {
+                    r(1, "type"),
+                    r(2, "scope"),
                 }),
             }),
-            i(2, "title"),
-        })
+            i(2, "type"),
+        }),
+        {
+            stored = {
+                ["type"] = i(1, "cc"),
+                ["scope"] = i(1),
+            },
+        }
     )
 )
 

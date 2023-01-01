@@ -14,3 +14,4 @@
 - [ ] windwp/nvim-spectre; ThePrimeagen/refactoring.nvim; cshuaimin/ssr.nvim
 - [x] andymass/vim-matchup
 - [ ] echasnovski/mini.nvim,
+- [ ] leap.nvim

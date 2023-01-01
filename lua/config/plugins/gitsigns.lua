@@ -1,4 +1,4 @@
-local gitsigns = require("utils").require_plugin("gitsigns")
+local gitsigns = require("utils").require("gitsigns")
 if not gitsigns then
     return
 end

@@ -1,9 +1,9 @@
-local cmp = require("utils").require_plugin("cmp")
+local cmp = require("utils").require("cmp")
 if not cmp then
     return
 end
 
-local luasnip = require("utils").require_plugin("luasnip")
+local luasnip = require("utils").require("luasnip")
 
 -- limit the max height of windows
 vim.o.pumheight = 14

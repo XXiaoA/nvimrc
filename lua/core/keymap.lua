@@ -5,7 +5,7 @@ function M.set_keymap(mode)
     --- set a new keymap
     ---@param lhs string
     ---@param rhs string|function
-    ---@param opts table
+    ---@param opts table?
     return function(lhs, rhs, opts)
         opts = opts or {}
 

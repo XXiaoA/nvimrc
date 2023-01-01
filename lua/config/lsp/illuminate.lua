@@ -1,4 +1,4 @@
-local illuminate = require("utils").require_plugin("illuminate")
+local illuminate = require("utils").require("illuminate")
 if not illuminate then
     return
 end

@@ -1,4 +1,4 @@
-local saga = require("utils").require_plugin("lspsaga")
+local saga = require("utils").require("lspsaga")
 if not saga then
     return
 end

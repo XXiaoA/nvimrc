@@ -1,4 +1,4 @@
-local tc = require("utils").require_plugin("todo-comments")
+local tc = require("utils").require("todo-comments")
 if not tc then
     return
 end

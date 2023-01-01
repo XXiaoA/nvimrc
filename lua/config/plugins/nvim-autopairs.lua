@@ -1,4 +1,4 @@
-local npairs = require("utils").require_plugin("nvim-autopairs")
+local npairs = require("utils").require("nvim-autopairs")
 if not npairs then
     return
 end
@@ -8,7 +8,7 @@ npairs.setup({
 })
 
 -- If you want insert `(` after select function or method item
-local cmp = require("utils").require_plugin("cmp")
+local cmp = require("utils").require("cmp")
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 if not cmp then
     return

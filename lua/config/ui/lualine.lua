@@ -1,4 +1,4 @@
-local lualine = require("utils").require_plugin("lualine")
+local lualine = require("utils").require("lualine")
 if not lualine then
     return
 end

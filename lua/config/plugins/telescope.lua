@@ -1,12 +1,12 @@
-local actions = require("utils").require_plugin("telescope.actions")
-local telescope = require("utils").require_plugin("telescope")
+local actions = require("utils").require("telescope.actions")
+local telescope = require("utils").require("telescope")
 
 if not actions or not telescope then
     return
 end
 
 local nmap = require("core.keymap").nmap
-nmap("<C-f>", ":Telescope current_buffer_fuzzy_find<CR>", { desc = "find current buffer" })
+nmap("<C-p>", ":Telescope current_buffer_fuzzy_find<CR>", { desc = "find current buffer" })
 nmap("<leader>gs", ":Telescope git_status<CR>", { desc = "git status and diff" })
 nmap("<leader>gc", ":Telescope git_commits<CR>", { desc = "commit history" })
 nmap("<leader>gC", ":Telescope git_bcommits<CR>", { desc = "buffer commit history" })

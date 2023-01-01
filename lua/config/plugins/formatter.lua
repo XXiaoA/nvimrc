@@ -1,4 +1,4 @@
-local formatter = require("utils").require_plugin("formatter")
+local formatter = require("utils").require("formatter")
 if not formatter then
     return
 end
