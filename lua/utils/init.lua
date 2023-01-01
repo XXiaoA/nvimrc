@@ -106,7 +106,7 @@ end
 ---@return string
 function M.trim(str, mode)
     mode = mode or "all"
-    regex = mode == "all" and "^%s*(.-)%s*$" or ( mode == "tail" and "(.-)%s*$" or "^%s*(.-)" )
+    local regex = mode == "all" and "^%s*(.-)%s*$" or (mode == "tail" and "(.-)%s*$" or "^%s*(.-)")
     return str:match(regex)
 end
 
