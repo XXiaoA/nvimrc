@@ -45,4 +45,14 @@ function M.get_nvim_version()
     return string.format("%d.%d.%d", version.major, version.minor, version.patch)
 end
 
+--- Remove string trim
+---@param str string
+---@param mode "all"|"head"|"tail"?
+---@return string
+function M.trim(str, mode)
+    mode = mode or "all"
+    local regex = mode == "all" and "^%s*(.-)%s*$" or (mode == "tail" and "(.-)%s*$" or "^%s*(.-)")
+    return str:match(regex)
+end
+
 return M

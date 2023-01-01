@@ -1,4 +1,5 @@
 local M = {}
+local utils = require("utils")
 local fn = vim.fn
 
 M.file_path = vim.fn.stdpath("config") .. "/config.yml"
@@ -24,30 +25,67 @@ function M.convert_yaml(data)
     if vim.tbl_isempty(data) then
         M.read_data()
     end
+    local _skip = 0
     for line, content in ipairs(M.data) do
-        -- ignore the comment
-        if content:match([[%s*#]]) then
-            goto continue
+        while _skip > 0 do
+            _skip = _skip - 1
+            goto countine
         end
+        -- remove the content after #
+        content = utils.trim(content:sub(1, (content:find("#") or 0) - 1), "tail")
 
-        if content:match([[%s*[^%s]*:%s*%a*]]) then
-            local opt = content:match([[([^%s]*):]])
-            local value = content:match([[:%s*([^%s]*)]])
+        -- something likes `a:` maybe is a nested mapping
+        if content:match([[^([^%s]*):%s*$]]) then
+            --- all content inside nested mapping
+            local contents = {}
+            local _, next_content = next(M.data, line)
+            table.insert(contents, utils.trim(next_content))
+            --- count how many lines inside nest
+            local count = 0
+            while true do
+                count = count + 1
+                local indent_count = next_content:find("[^%s]") - 1
+                local _, new_next_content = next(M.data, line + count)
+                if not new_next_content:match([[^%s*[^%s]*:%s+[^%s]+%s*$]]) then
+                    break
+                end
+                -- without indent or empty string
+                if indent_count == 0 or new_next_content:match("^$") then
+                    break
+                -- is a comment
+                elseif new_next_content:match("^%s*#") then
+                    goto countine
+                end
+                local new_indent_count = new_next_content:find("[^%s]") - 1
+                -- indent changed
+                if new_indent_count ~= indent_count then
+                    break
+                end
+                table.insert(contents, utils.trim(new_next_content))
+                ::countine::
+            end
+
+            local father = content:match("^(%s*[^%s]*):%s*$")
+            M.config[father] = {}
+            for _, _content in ipairs(contents) do
+                local opt, value = _content:match([[^%s*([^%s]*):%s+([^%s]+)%s*$]])
+                M.config[father][opt] = value
+            end
+            _skip = count
+        elseif content:match([[^%s*[^%s]*:%s+[^%s]+%s*$]]) then
+            local opt, value = content:match([[^%s*([^%s]*):%s+([^%s]+)%s*$]])
             -- if value is `true` or `false`, return the boolean
             value = value == "true" or value
-            if value == "false" then
-                value = false
-            end
+            value = (value == "false" and { false } or { value })[1]
             M.config[opt] = { value = value, line = line }
         end
-
-        ::continue::
+        ::countine::
     end
 end
 
 --- get the value of configuration
 ---@param opt string
----@return string|boolean|nil
+---@return string|boolean|table|nil
 function M.get_value(opt)
     if vim.tbl_isempty(M.config) then
         M.convert_yaml(M.data)

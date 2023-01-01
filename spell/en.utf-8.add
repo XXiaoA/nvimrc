@@ -38,3 +38,4 @@ colorscheme
 textobject
 desc
 param
+boolean
