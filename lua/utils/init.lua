@@ -1,17 +1,17 @@
 local M = {}
 
 --- require plugin and check if it exists
----@param plugin_name string
+---@param name string
 ---@param message boolean?
----@return table?
-function M.require(plugin_name, message)
-    local status_ok, plugin = pcall(require, plugin_name)
+---@return any
+function M.require(name, message)
+    local status_ok, plugin = pcall(require, name)
     if not status_ok and message ~= false then
         local info = debug.getinfo(2, "Sl")
         local file = info.short_src
         local line = info.currentline
         local _hint = "require_plugin: Failed to load '%s'\n(%s: %d)"
-        local hint = _hint:format(plugin_name, file, line)
+        local hint = _hint:format(name, file, line)
         vim.notify(hint, vim.log.levels.WARN)
         return nil
     else
