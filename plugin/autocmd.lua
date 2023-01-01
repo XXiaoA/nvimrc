@@ -152,6 +152,9 @@ api.nvim_create_autocmd("User", {
         -- (...) to get first result (root path)
         -- or another means to get root path
         -- https://www.reddit.com/r/neovim/comments/zy5s0l/you_dont_need_vimrooter_usually_or_how_to_set_up/
-        api.nvim_set_current_dir((require("project_nvim.project").get_project_root()))
+        local root_path = (require("project_nvim.project").get_project_root())
+        if root_path then
+            api.nvim_set_current_dir(root_path)
+        end
     end,
 })
