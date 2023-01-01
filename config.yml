@@ -1,8 +1,8 @@
 # run `XXiaoA all_colorschemes` to see all colorschemes
 colorscheme: catppuccin-macchiato
 
-# TODO: add support
 lsp:
+  # filetype: server
   cpp: clangd
   lua: sumneko_lua
   python: pylsp

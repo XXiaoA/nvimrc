@@ -38,7 +38,17 @@ function M.convert_yaml(data)
         if content:match([[^([^%s]*):%s*$]]) then
             --- all content inside nested mapping
             local contents = {}
-            local _, next_content = next(M.data, line)
+            local next_content
+            while true do
+                _, next_content = next(M.data, line)
+                next_content =
+                    utils.trim(next_content:sub(1, (next_content:find("#") or 0) - 1), "tail")
+                if next_content:match("^$") then
+                    line = line + 1
+                else
+                    break
+                end
+            end
             table.insert(contents, utils.trim(next_content))
             --- count how many lines inside nest
             local count = 0
@@ -46,14 +56,14 @@ function M.convert_yaml(data)
                 count = count + 1
                 local indent_count = next_content:find("[^%s]") - 1
                 local _, new_next_content = next(M.data, line + count)
-                if not new_next_content:match([[^%s*[^%s]*:%s+[^%s]+%s*$]]) then
+                if not new_next_content:match([[%s*[^%s]*:%s+[^%s]+%s*]]) then
                     break
                 end
                 -- without indent or empty string
                 if indent_count == 0 or new_next_content:match("^$") then
                     break
                 -- is a comment
-                elseif new_next_content:match("^%s*#") then
+                elseif new_next_content:match("%s*#") then
                     goto countine
                 end
                 local new_indent_count = new_next_content:find("[^%s]") - 1
@@ -65,15 +75,15 @@ function M.convert_yaml(data)
                 ::countine::
             end
 
-            local father = content:match("^(%s*[^%s]*):%s*$")
+            local father = content:match("(%s*[^%s]*):%s*")
             M.config[father] = {}
             for _, _content in ipairs(contents) do
-                local opt, value = _content:match([[^%s*([^%s]*):%s+([^%s]+)%s*$]])
+                local opt, value = _content:match([[%s*([^%s]*):%s+([^%s]+)%s*]])
                 M.config[father][opt] = value
             end
             _skip = count
-        elseif content:match([[^%s*[^%s]*:%s+[^%s]+%s*$]]) then
-            local opt, value = content:match([[^%s*([^%s]*):%s+([^%s]+)%s*$]])
+        elseif content:match([[%s*[^%s]*:%s+[^%s]+%s*]]) then
+            local opt, value = content:match([[%s*([^%s]*):%s+([^%s]+)%s*]])
             -- if value is `true` or `false`, return the boolean
             value = value == "true" or value
             value = (value == "false" and { false } or { value })[1]
@@ -91,7 +101,7 @@ function M.get_value(opt)
         M.convert_yaml(M.data)
     end
     if M.config[opt] then
-        return M.config[opt].value
+        return M.config[opt].value or M.config[opt]
     end
 end
 

@@ -1,16 +1,12 @@
 local use = require("core.pack").add_plugin
+local yamler = require("utils.yamler")
 
 -- lspconfig
 use({
     "neovim/nvim-lspconfig",
-    event = "BufReadPre",
-    ft = {
-        "lua",
-        "python",
-        "rust",
-        "vim",
-        "cpp",
-    },
+    -- event = "BufReadPre",
+    ---@diagnostic disable-next-line: param-type-mismatch
+    ft = vim.tbl_keys(yamler.get_value("lsp")),
     dependencies = {
         "mason.nvim",
         "mason-lspconfig.nvim",
