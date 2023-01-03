@@ -55,6 +55,7 @@ use({
 -- file explorer
 use({
     "kyazdani42/nvim-tree.lua",
+    enabled = false,
     event = "BufEnter",
     dependencies = "nvim-web-devicons",
     config = function()
@@ -102,5 +103,14 @@ use({
     dev = false,
     config = function()
         require("config.ui.zen-mode")
+    end,
+})
+
+use({
+    "stevearc/oil.nvim",
+    lazy = false,
+    config = function()
+        require("oil").setup()
+        vim.keymap.set("n", "-", require("oil").open, { desc = "Open parent directory" })
     end,
 })
