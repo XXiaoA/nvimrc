@@ -7,7 +7,7 @@ local nmap = require("core.keymap").nmap
 
 -- Gets a set of lines from the buffer, inclusive and 1-indexed.
 ---@param start integer The starting line.
----@param stop integer The final line.
+---@param stop integer? The final line.
 ---@return string[] @A table consisting of the lines from the buffer.
 local function get_lines(start, stop)
     stop = stop or start

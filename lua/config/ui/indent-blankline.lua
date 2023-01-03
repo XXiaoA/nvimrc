@@ -1,29 +1,22 @@
-local g = vim.g
-
-local indent_blankline = require("utils").require("indent_blankline")
-if not indent_blankline then
-    return
-end
-
-indent_blankline.setup({
-    space_char_blankline = " ",
-    show_current_context = true,
-    show_current_context_start = true,
-})
-
-g.indent_blankline_filetype_exclude = {
-    "help",
-    "startify",
-    "TERMINAL",
-    "terminal",
-    "packer",
-    "lsp-installer",
-    "",
-    "startuptime",
-    "toggleterm",
-    "translator",
-    "dashboard",
+return {
+    "lukas-reineke/indent-blankline.nvim",
+    event = "BufReadPre",
+    config = function()
+        local indent_blankline = require("utils").require("indent_blankline")
+        if indent_blankline then
+            indent_blankline.setup({
+                space_char_blankline = " ",
+                show_current_context = true,
+                show_current_context_start = true,
+            })
+        end
+        vim.g.indent_blankline_filetype_exclude = {
+            "help",
+            "TERMINAL",
+            "terminal",
+            "startuptime",
+            "toggleterm",
+            "translator",
+        }
+    end,
 }
-
-g.indent_blankline_show_end_of_line = false -- 占用隐藏符号
-g.indent_blankline_show_trailing_blankline_indent = false -- 删除多余的缩进线

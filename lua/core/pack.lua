@@ -20,7 +20,41 @@ function M.boot_strap()
     vim.opt.runtimepath:prepend(lazypath)
 end
 
-function M.load_plugins()
+--- add plugin
+---@param plugins string|string[]|table[]
+function M.add_plugin(plugins)
+    if type(plugins) == "string" or type(plugins) == "table" then
+        if #plugins > 1 and type(plugins[2]) == "table" then
+            ---@diagnostic disable-next-line: param-type-mismatch
+            for _, plugin in ipairs(plugins) do
+                table.insert(M.plugins, plugin)
+            end
+        end
+        table.insert(M.plugins, plugins)
+    end
+end
+
+function M.auto_load_modules_packages()
+    local config_path = vim.fn.stdpath("config") .. "/"
+
+    for _, path in ipairs({
+        config_path .. "lua/config/ui",
+        config_path .. "lua/config/lsp",
+        config_path .. "lua/config/plugins",
+    }) do
+        for _, file in ipairs(vim.fn.split(vim.fn.globpath(path, "*"), "\n")) do
+            if not (file:match("autocmd.lua$") or file:match("setup.lua$")) then
+                local require_name = file:match("nvim/lua/(.*)%.lua")
+                if require_name then
+                    M.add_plugin(require(require_name))
+                end
+            end
+        end
+    end
+end
+
+function M.setup()
+    M.boot_strap()
     local lazy = require("lazy")
     local opts = {
         defaults = { lazy = true },
@@ -34,12 +68,9 @@ function M.load_plugins()
             colorscheme = { colorscheme.current_colorscheme(), "habamax" },
         },
     }
+    M.auto_load_modules_packages()
     lazy.setup(M.plugins, opts)
     require("core.keymap").nmap("<leader>l", "<cmd>Lazy<cr>", { desc = lazy })
-end
-
-function M.add_plugin(repo)
-    table.insert(M.plugins, repo)
 end
 
 return M

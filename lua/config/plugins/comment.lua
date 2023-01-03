@@ -1,10 +1,8 @@
-local Comment = require("utils").require("Comment")
-
-if not Comment then
-    return
-end
-
-Comment.setup({
-    -- ignores empty lines
-    ignore = "^$",
-})
+return {
+    "numToStr/Comment.nvim",
+    keys = { { "gc", mode = { "n", "v" } }, "gb", mode = { "n", "v" } },
+    config = {
+        -- ignores empty lines
+        ignore = "^$",
+    },
+}

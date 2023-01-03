@@ -1,24 +1,31 @@
-local dressing = require("utils").require("dressing")
-if not dressing then
-    return
-end
-
-dressing.setup({
-    -- If you want the mapping in vim.ui.input
-    input = {
-        mappings = {
-            -- n for normal mode
-            n = {
-                q = "Close",
-            },
-        },
-    },
-    -- If you want the mapping in vim.ui.select
-    select = {
-        builtin = {
+return {
+    "stevearc/dressing.nvim",
+    dependencies = "telescope.nvim",
+    init = function()
+        vim.ui.select = function(...)
+            require("lazy").load({ plugins = { "dressing.nvim" } })
+            return vim.ui.select(...)
+        end
+        vim.ui.input = function(...)
+            require("lazy").load({ plugins = { "dressing.nvim" } })
+            return vim.ui.input(...)
+        end
+    end,
+    config = {
+        input = {
             mappings = {
-                q = "Close",
+                -- n for normal mode
+                n = {
+                    q = "Close",
+                },
+            },
+        },
+        select = {
+            builtin = {
+                mappings = {
+                    q = "Close",
+                },
             },
         },
     },
-})
+}
