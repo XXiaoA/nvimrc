@@ -19,22 +19,26 @@ api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
     pattern = "*",
     group = autosave,
     callback = function(ctx)
+        -- conditions that donnot do autosave
+        local disabled_ft = { "acwrite" }
+        if
+            not vim.bo.modified
+            or fn.findfile(ctx.file, ".") == "" -- a new file
+            or ctx.file:match("wezterm.lua")
+            or vim.tbl_contains(disabled_ft, vim.bo[ctx.buf].ft)
+        then
+            return
+        end
+
         local ok, queued = pcall(api.nvim_buf_get_var, ctx.buf, "autosave_queued")
         if not ok then
             return
         end
 
         if not queued then
-            if
-                -- conditions to save
-                vim.bo.modified
-                and fn.findfile(ctx.file, ".") ~= ""
-                and not ctx.file:match("wezterm.lua")
-            then
-                vim.cmd("silent w")
-                api.nvim_buf_set_var(ctx.buf, "autosave_queued", true)
-                vim.notify("Saved at " .. os.date("%H:%M:%S"))
-            end
+            vim.cmd("silent w")
+            api.nvim_buf_set_var(ctx.buf, "autosave_queued", true)
+            vim.notify("Saved at " .. os.date("%H:%M:%S"))
         end
 
         local block = api.nvim_buf_get_var(ctx.buf, "autosave_block")
