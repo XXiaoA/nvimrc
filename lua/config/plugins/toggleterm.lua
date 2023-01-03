@@ -4,10 +4,10 @@ local M = {
 }
 M.config = function()
     local tg = require("utils").require("toggleterm")
-    local terminal = require("utils").require("toggleterm.terminal")
-    if not tg or not terminal then
+    if not tg then
         return
     end
+    local terminal = require("utils").require("toggleterm.terminal")
 
     local keymap = require("core.keymap")
     local tmap = keymap.tmap

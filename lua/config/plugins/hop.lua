@@ -11,9 +11,6 @@ local M = {
         { "F", mode = { "n", "x", "o" } },
         { "se", mode = { "n", "x", "o" } },
     },
-    config = function()
-        require("config.plugins.hop")
-    end,
 }
 
 M.config = function()

@@ -159,7 +159,7 @@ M.config = function()
     end
 
     -- https://github.com/L3MON4D3/LuaSnip/issues/554
-    vim.api.nvim_create_autocmd("BufEnter", {
+    vim.api.nvim_create_autocmd("InsertEnter", {
         pattern = "*",
         callback = function(ctx)
             local bufnr = ctx.buf

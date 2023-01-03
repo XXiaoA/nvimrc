@@ -10,9 +10,6 @@ local M = {
         "hrsh7th/cmp-nvim-lsp-signature-help",
         "LuaSnip",
     },
-    config = function()
-        require("config.plugins.cmp")
-    end,
 }
 
 M.config = function()

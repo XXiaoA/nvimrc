@@ -99,7 +99,7 @@ return {
 
     {
         "danymat/neogen",
-        keys = { {"<leader>/", "<cmd>Neogen<CR>", desc = "generate annotation"} },
+        keys = { { "<leader>/", "<cmd>Neogen<CR>", desc = "generate annotation" } },
         config = { snippet_engine = "luasnip" },
     },
 

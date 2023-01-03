@@ -10,7 +10,7 @@ function M.require(name, message)
         local info = debug.getinfo(2, "Sl")
         local file = info.short_src
         local line = info.currentline
-        local _hint = "require_plugin: Failed to load '%s'\n(%s: %d)"
+        local _hint = "require: Failed to load '%s'\n(%s: %d)"
         local hint = _hint:format(name, file, line)
         vim.notify(hint, vim.log.levels.WARN)
         return nil

@@ -1,9 +1,6 @@
 local M = {
     "stevearc/aerial.nvim",
     keys = { "[f", "]f", "<leader>aa", "<leader>fa" },
-    config = function()
-        require("config.plugins.aerial")
-    end,
 }
 
 M.config = function()
