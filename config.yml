@@ -1,5 +1,5 @@
 # run `XXiaoA all_colorschemes` to see all colorschemes
-colorscheme: rose-pine
+colorscheme: everforest
 
 lsp:
   # filetype: server

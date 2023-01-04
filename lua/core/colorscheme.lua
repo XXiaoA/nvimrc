@@ -34,6 +34,9 @@ function M.load_colorscheme(colorscheme)
 end
 
 function M.load_colorscheme_ui()
+    table.sort(M.all_colorschemes, function(a, b)
+        return string.len(a) < string.len(b)
+    end)
     vim.ui.select(M.all_colorschemes, {
         prompt = "Select a colorscheme:",
         format_item = function(item)

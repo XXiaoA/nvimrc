@@ -4,6 +4,21 @@ add_colorscheme("random")
 return {
     -- colorscheme
     {
+        "sainnhe/everforest",
+        init = function()
+            add_colorscheme("everforest")
+        end,
+    },
+
+    {
+        "folke/tokyonight.nvim",
+        init = function()
+            add_colorscheme("tokyonight-storm")
+            add_colorscheme("tokyonight-moon")
+        end,
+    },
+
+    {
         "sainnhe/gruvbox-material",
         init = function()
             add_colorscheme("gruvbox-material")
@@ -35,6 +50,7 @@ return {
         end,
     },
 
+    -- plugins
     {
         "kyazdani42/nvim-web-devicons",
         event = "BufEnter",

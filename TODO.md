@@ -16,3 +16,4 @@
 - [ ] echasnovski/mini.nvim,
 - [ ] leap.nvim
 - [ ] https://github.com/stevearc/overseer.nvim
+- [ ] null-ls
