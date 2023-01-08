@@ -2,7 +2,7 @@ local yamler = require("utils.yamler")
 return {
     {
         "neovim/nvim-lspconfig",
-        -- event = "BufReadPre",
+        event = "BufReadPre",
         ---@diagnostic disable-next-line: param-type-mismatch
         ft = vim.tbl_keys(yamler.get_value("lsp")),
         dependencies = {

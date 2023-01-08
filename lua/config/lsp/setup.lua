@@ -46,13 +46,17 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
     border = "single",
 })
 
+---@diagnostic disable-next-line: unused-local
 local function on_attach(client, bufnr)
     -- disable format
-    client.server_capabilities.documentFormattingProvider = false
-    client.server_capabilities.documentRangeFormattingProvider = false
+    -- client.server_capabilities.documentFormattingProvider = false
+    -- client.server_capabilities.documentRangeFormattingProvider = false
 
     -- keymap
     local nmap = require("core.keymap").nmap
+    local xmap = require("core.keymap").xmap
+    nmap("<leader>=", vim.lsp.buf.format)
+    xmap("<leader>=", vim.lsp.buf.format)
     nmap("<leader>rn", function()
         require("inc_rename")
         return ":IncRename " .. vim.fn.expand("<cword>")
@@ -130,6 +134,8 @@ local settings = {
     on_attach = on_attach,
     capabilities = capabilities,
 }
+
+require("config.lsp.null-ls").setup(settings)
 
 local lua_settings = vim.tbl_extend("force", settings, require("config.lsp.settings.sumneko_lua"))
 mason_lspconfig.setup_handlers({
