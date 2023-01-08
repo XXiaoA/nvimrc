@@ -1,5 +1,10 @@
 return {
     {
+        "tpope/vim-repeat",
+        event = "BufReadPost",
+    },
+
+    {
         "iamcco/markdown-preview.nvim",
         config = function()
             vim.g.mkdp_auto_close = 0

@@ -43,14 +43,11 @@ imap("jj", "<ESC>")
 xmap("<", "<gv")
 xmap(">", ">gv")
 
--- 分屏快捷键
-nmap("sv", ":vsp<CR>")
-nmap("sh", ":sp<CR>")
-
--- 关闭当前
-nmap("sc", "<C-w>c")
--- close others
-nmap("so", "<C-w>o")
+nmap("<leader>wo", "<C-W>o", { desc = "Only left one window" })
+nmap("<leader>wd", "<C-W>c", { desc = "Delete current window" })
+nmap("<leader>w-", "<C-W>s", { desc = "Split window below" })
+nmap("<leader>w|", "<C-W>v", { desc = "Split window right" })
+nmap("<leader>w\\", "<C-W>v", { desc = "Split window right" })
 
 -- resize
 nmap("<A-l>", ":vertical resize +2<CR>")

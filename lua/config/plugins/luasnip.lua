@@ -19,6 +19,11 @@ M.config = function()
             ls.change_choice(1)
         end
     end)
+    map({ "i", "s" })("<C-h>", function()
+        if ls.choice_active() then
+            ls.change_choice(-1)
+        end
+    end)
     map({ "i", "s" })("<C-u>", function()
         if ls.choice_active() then
             require("luasnip.extras.select_choice")()

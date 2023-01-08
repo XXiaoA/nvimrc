@@ -1,6 +1,6 @@
 local M = {
     "kylechui/nvim-surround",
-    keys = { "<C-g>s", "<C-g>S", "sa", "ssa", "sA", "ssA", "sa", "sA", "sd", "sr" },
+    event = "VeryLazy"
 }
 
 M.config = function()
@@ -16,14 +16,14 @@ M.config = function()
         keymaps = {
             insert = "<C-g>s",
             insert_line = "<C-g>S",
-            normal = "sa",
-            normal_cur = "ssa",
-            normal_line = "sA",
-            normal_cur_line = "ssA",
-            visual = "sa",
-            visual_line = "sA",
-            delete = "sd",
-            change = "sr",
+            normal = "gza",
+            normal_cur = "gzza",
+            normal_line = "gzA",
+            normal_cur_line = "gzzA",
+            visual = "gza",
+            visual_line = "gzA",
+            delete = "gzd",
+            change = "gzr",
         },
         surrounds = {
             ["q"] = {
