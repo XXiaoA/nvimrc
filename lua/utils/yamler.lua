@@ -42,7 +42,7 @@ function M.convert_yaml(data)
             while true do
                 _, next_content = next(M.data, line)
                 next_content =
-                    utils.trim(next_content:sub(1, (next_content:find("#") or 0) - 1), "tail")
+                utils.trim(next_content:sub(1, (next_content:find("#") or 0) - 1), "tail")
                 if next_content:match("^$") then
                     line = line + 1
                 else
@@ -62,7 +62,7 @@ function M.convert_yaml(data)
                 -- without indent or empty string
                 if indent_count == 0 or new_next_content:match("^$") then
                     break
-                -- is a comment
+                    -- is a comment
                 elseif new_next_content:match("%s*#") then
                     goto countine
                 end
@@ -100,8 +100,8 @@ function M.get_value(opt)
     if vim.tbl_isempty(M.config) then
         M.convert_yaml(M.data)
     end
-    if M.config[opt] then
-        return M.config[opt].value or M.config[opt]
+    if M.config[opt] ~= nil then
+        return (M.config[opt].value ~= nil and { M.config[opt].value } or { M.config[opt] })[1]
     end
 end
 
