@@ -156,12 +156,6 @@ return {
     },
 
     {
-        "gpanders/editorconfig.nvim",
-        enabled = false,
-        ft = { "lua" },
-    },
-
-    {
         "s1n7ax/nvim-window-picker",
         keys = {
             {
