@@ -1,13 +1,15 @@
 return {
     "stevearc/oil.nvim",
     lazy = false,
-    keys = { {
-        "<M-m>",
-        function()
-            require("oil").open()
-        end,
-        desc = "Open parent directory",
-    } },
+    keys = {
+        {
+            "<M-m>",
+            function()
+                require("oil").open()
+            end,
+            desc = "Open parent directory",
+        },
+    },
     config = {
         keymaps = {
             ["q"] = "actions.close",

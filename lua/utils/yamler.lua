@@ -42,7 +42,7 @@ function M.convert_yaml(data)
             while true do
                 _, next_content = next(M.data, line)
                 next_content =
-                utils.trim(next_content:sub(1, (next_content:find("#") or 0) - 1), "tail")
+                    utils.trim(next_content:sub(1, (next_content:find("#") or 0) - 1), "tail")
                 if next_content:match("^$") then
                     line = line + 1
                 else
