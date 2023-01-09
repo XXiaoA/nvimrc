@@ -3,6 +3,7 @@ local M = {
     dependencies = {
         "nvim-lua/plenary.nvim",
         "kyazdani42/nvim-web-devicons",
+        "nvim-telescope/telescope-project.nvim",
     },
     cmd = "Telescope",
 }
@@ -27,6 +28,9 @@ M.config = function()
     nmap("<leader>fb", ":Telescope buffers<CR>", { desc = "search buffers" })
     nmap("<leader>fh", ":Telescope help_tags<CR>", { desc = "search help tags" })
     nmap("<leader>fu", ":Telescope resume<CR>", { desc = "resume last picker" })
+
+    require("telescope").load_extension("project")
+    nmap("<leader>p", ":Telescope project<CR>", { desc = "projects" })
 
     telescope.setup({
         defaults = {
