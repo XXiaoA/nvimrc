@@ -20,7 +20,7 @@ api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
     group = autosave,
     callback = function(ctx)
         -- conditions that donnot do autosave
-        local disabled_ft = { "acwrite" }
+        local disabled_ft = { "acwrite", "oil" }
         if
             not vim.bo.modified
             or fn.findfile(ctx.file, ".") == "" -- a new file

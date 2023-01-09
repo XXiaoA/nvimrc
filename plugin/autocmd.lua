@@ -147,14 +147,3 @@ au("FileType", {
         vim.opt_local.buflisted = false
     end,
 })
-
-au("User", {
-    pattern = "VeryLazy",
-    group = xxiaoa_group,
-    callback = function()
-        local root_path = utils.get_root_path()
-        if root_path then
-            api.nvim_set_current_dir(root_path)
-        end
-    end,
-})

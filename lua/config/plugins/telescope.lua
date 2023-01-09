@@ -9,11 +9,23 @@ local M = {
 }
 
 M.config = function()
-    local actions = require("utils").require("telescope.actions")
-    local telescope = require("utils").require("telescope")
-
+    local utils = require("utils")
+    local actions = utils.require("telescope.actions")
+    local telescope = utils.require("telescope")
     if not actions or not telescope then
         return
+    end
+
+    -- Gets the root dir from either:
+    -- * connected lsp
+    -- * .git from file
+    -- * .git from cwd
+    -- * cwd
+    ---@param opts? table
+    local function project_files(opts)
+        opts = opts or {}
+        opts.cwd = require("utils").get_root()
+        require("telescope.builtin").find_files(opts)
     end
 
     local nmap = require("core.keymap").nmap
@@ -23,11 +35,12 @@ M.config = function()
     nmap("<leader>gC", ":Telescope git_bcommits<CR>", { desc = "buffer commit history" })
 
     nmap("<leader>fw", ":Telescope live_grep<CR>", { desc = "search words" })
-    nmap("<leader>ff", ":Telescope find_files<CR>", { desc = "search files" })
+    nmap("<leader>ff", project_files, { desc = "search files" })
     nmap("<leader>fr", ":Telescope oldfiles<CR>", { desc = "search recent files" })
     nmap("<leader>fb", ":Telescope buffers<CR>", { desc = "search buffers" })
     nmap("<leader>fh", ":Telescope help_tags<CR>", { desc = "search help tags" })
     nmap("<leader>fu", ":Telescope resume<CR>", { desc = "resume last picker" })
+    nmap("z=", ":Telescope spell_suggest<CR>", { desc = "spell suggest" })
 
     require("telescope").load_extension("project")
     nmap("<leader>p", ":Telescope project<CR>", { desc = "projects" })

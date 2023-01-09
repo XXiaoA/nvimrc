@@ -55,31 +55,37 @@ function M.trim(str, mode)
     return str:match(regex)
 end
 
--- Cache to use for speed up (at cost of possibly outdated results)
-local root_cache = {}
--- Array of file names indicating root directory. Modify to your liking.
-local root_names = { ".git", "Makefile" }
-
---- get the root path
----@return string?
-function M.get_root_path()
-    -- Get directory path to start search from
-    local path = vim.api.nvim_buf_get_name(0)
-    if path == "" then
-        return
-    end
-    path = vim.fs.dirname(path)
-
-    -- Try cache and resort to searching upward for root directory
-    local root = root_cache[path]
-    if root == nil then
-        local root_file = vim.fs.find(root_names, { path = path, upward = true })[1]
-        if root_file == nil then
-            return
+---@return string
+function M.get_root()
+    local path = vim.loop.fs_realpath(vim.api.nvim_buf_get_name(0))
+    ---@type string[]
+    local roots = {}
+    if path ~= "" then
+        for _, client in pairs(vim.lsp.get_active_clients({ bufnr = 0 })) do
+            local workspace = client.config.workspace_folders
+            local paths = workspace
+                and vim.tbl_map(function(ws)
+                    return vim.uri_to_fname(ws.uri)
+                end, workspace)
+                or client.config.root_dir and { client.config.root_dir }
+                or {}
+            for _, p in ipairs(paths) do
+                local r = vim.loop.fs_realpath(p)
+                if path:find(r, 1, true) then
+                    roots[#roots + 1] = r
+                end
+            end
         end
-        root = vim.fs.dirname(root_file)
-        root_cache[path] = root
     end
+    ---@type string?
+    local root = roots[1]
+    if not root then
+        path = path == "" and vim.loop.cwd() or vim.fs.dirname(path)
+        ---@type string?
+        root = vim.fs.find({ ".git" }, { path = path, upward = true })[1]
+        root = root and vim.fs.dirname(root) or vim.loop.cwd()
+    end
+    ---@cast root string
     return root
 end
 
