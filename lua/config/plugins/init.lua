@@ -16,7 +16,7 @@ return {
       execute "silent ! google-chrome-stable --new-window --app=" . a:url
     endfunction
     let g:mkdp_browserfunc = 'OpenMarkdownPreview'
-    ]]           )
+    ]])
             end
         end,
         build = "cd app && npm install",

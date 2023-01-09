@@ -39,6 +39,7 @@ return {
                     include_match_words = true,
                     -- disable = { "c", "ruby" },
                 },
+
             })
         end,
     },
@@ -53,5 +54,8 @@ return {
         "nvim-treesitter/nvim-treesitter-context",
         event = "BufReadPost",
         dependencies = "nvim-treesitter",
+        config = {
+            max_lines = 3
+        }
     },
 }

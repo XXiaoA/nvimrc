@@ -4,7 +4,7 @@ return {
     config = function()
         local presets = require("which-key.plugins.presets")
         presets.operators["v"] = nil
-        return {
+        require("which-key").setup({
             key_labels = {
                 ["<space>"] = "SPC",
                 ["<leader>"] = "SPC",
@@ -22,7 +22,7 @@ return {
                 winblend = 0,
             },
             ignore_missing = false,
-        }
+        })
     end,
 }
 
