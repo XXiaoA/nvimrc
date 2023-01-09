@@ -93,6 +93,9 @@ M.config = function()
             mappings = {
                 n = {
                     ["q"] = actions.close,
+                    ["-"] = actions.file_split,
+                    ["|"] = actions.file_vsplit,
+                    ["\\"] = actions.file_vsplit,
                 },
             },
             file_ignore_patterns = {
