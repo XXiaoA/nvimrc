@@ -2,6 +2,7 @@ local utils = require("utils")
 local api = vim.api
 local keymap = require("core.keymap")
 local nmap = keymap.nmap
+local au = api.nvim_create_autocmd
 
 local xxiaoa_group = api.nvim_create_augroup("xxiaoa_group", { clear = true })
 
@@ -23,24 +24,24 @@ local quit_current_win = function()
     end
 end
 
-api.nvim_create_autocmd("BufEnter", { callback = quit_current_win, group = xxiaoa_group })
+au("BufEnter", { callback = quit_current_win, group = xxiaoa_group })
 -- }}}
 
 -- smart number from https://github.com/jeffkreeftmeijer/vim-numbertoggle {{{
 
-api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave", "WinEnter" }, {
+au({ "BufEnter", "FocusGained", "InsertLeave", "WinEnter" }, {
     command = [[if &nu && mode() != 'i' | set rnu   | endif]],
     group = xxiaoa_group,
 })
 
-api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter", "WinLeave" }, {
+au({ "BufLeave", "FocusLost", "InsertEnter", "WinLeave" }, {
     command = [[if &nu | set nornu | endif]],
     group = xxiaoa_group,
 })
 -- }}}
 
 -- Disable inserting comment leader after hitting o or O or <Enter>
-api.nvim_create_autocmd("FileType", {
+au("FileType", {
     command = "set formatoptions-=ro",
     group = xxiaoa_group,
 })
@@ -52,21 +53,22 @@ local function mkdir()
         vim.fn.mkdir(dir, "p")
     end
 end
-api.nvim_create_autocmd({ "BufWritePre", "FileWritePre" }, {
+
+au({ "BufWritePre", "FileWritePre" }, {
     callback = mkdir,
     group = xxiaoa_group,
 })
 
 -- BUG: doesn't work
 -- replace != with ~= in lua file
-api.nvim_create_autocmd("FileType", {
+au("FileType", {
     pattern = "lua",
     command = "iabbr <buffer> != ~=",
     group = xxiaoa_group,
 })
 
 -- restore last position
-api.nvim_create_autocmd("BufReadPost", {
+au("BufReadPost", {
     pattern = "*",
     group = xxiaoa_group,
     command = [[
@@ -77,7 +79,7 @@ api.nvim_create_autocmd("BufReadPost", {
 })
 
 -- highlight after yanking the text
-api.nvim_create_autocmd("TextYankPost", {
+au("TextYankPost", {
     group = xxiaoa_group,
     pattern = "*",
     callback = function()
@@ -86,7 +88,7 @@ api.nvim_create_autocmd("TextYankPost", {
 })
 
 -- automatically set cursorline
-api.nvim_create_autocmd({ "WinEnter", "BufEnter", "InsertLeave" }, {
+au({ "WinEnter", "BufEnter", "InsertLeave" }, {
     group = xxiaoa_group,
     pattern = "*",
     callback = function()
@@ -95,7 +97,7 @@ api.nvim_create_autocmd({ "WinEnter", "BufEnter", "InsertLeave" }, {
         end
     end,
 })
-api.nvim_create_autocmd({ "WinLeave", "BufLeave", "InsertEnter" }, {
+au({ "WinLeave", "BufLeave", "InsertEnter" }, {
     group = xxiaoa_group,
     pattern = "*",
     callback = function()
@@ -114,6 +116,7 @@ local function stop_hl()
     local keycode = api.nvim_replace_termcodes("<Cmd>nohl<CR>", true, false, true)
     api.nvim_feedkeys(keycode, "n", false)
 end
+
 local function start_hl()
     local res = vim.fn.getreg("/")
     if vim.v.hlsearch == 1 and vim.fn.search([[\%#\zs]] .. res, "cnW") == 0 then
@@ -121,14 +124,14 @@ local function start_hl()
     end
 end
 
-api.nvim_create_autocmd("InsertEnter", {
+au("InsertEnter", {
     group = xxiaoa_group,
     callback = function()
         stop_hl()
     end,
     desc = "Auto remove hlsearch",
 })
-api.nvim_create_autocmd("CursorMoved", {
+au("CursorMoved", {
     group = xxiaoa_group,
     callback = function()
         start_hl()
@@ -136,7 +139,7 @@ api.nvim_create_autocmd("CursorMoved", {
     desc = "Auto hlsearch",
 })
 
-api.nvim_create_autocmd("FileType", {
+au("FileType", {
     group = xxiaoa_group,
     pattern = { "qf", "help", "man", "startuptime", "checkhealth" },
     callback = function(ctx)
@@ -145,7 +148,7 @@ api.nvim_create_autocmd("FileType", {
     end,
 })
 
-api.nvim_create_autocmd("User", {
+au("User", {
     pattern = "VeryLazy",
     group = xxiaoa_group,
     callback = function()
