@@ -1,39 +1,30 @@
 return {
     "folke/which-key.nvim",
     event = "VeryLazy",
-    config = {
-        key_labels = {
-            ["<space>"] = "SPC",
-            ["<leader>"] = "SPC",
-            ["<cr>"] = "ENT",
-            ["<tab>"] = "TAB",
-            ["<a>"] = "ALT",
-            ["<s>"] = "SHI",
-            ["<c>"] = "CTR",
-        },
-        window = {
-            border = "single", -- none, single, double, shadow
-            position = "bottom", -- bottom, top
-            margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
-            padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
-            winblend = 0,
-        },
-        ignore_missing = false,
-    },
+    config = function()
+        local presets = require("which-key.plugins.presets")
+        presets.operators["v"] = nil
+        return {
+            key_labels = {
+                ["<space>"] = "SPC",
+                ["<leader>"] = "SPC",
+                ["<cr>"] = "ENT",
+                ["<tab>"] = "TAB",
+                ["<a>"] = "ALT",
+                ["<s>"] = "SHI",
+                ["<c>"] = "CTR",
+            },
+            window = {
+                border = "single", -- none, single, double, shadow
+                position = "bottom", -- bottom, top
+                margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
+                padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
+                winblend = 0,
+            },
+            ignore_missing = false,
+        }
+    end,
 }
-
--- local wk = require("utils").require("which-key")
--- local presets = require("utils").require("which-key.plugins.presets")
-
--- if not wk or not presets then
---     return
--- end
-
--- presets.operators["v"] = nil
-
--- wk.setup()
-
--- -- Packer
 
 -- -- TODO: remove it
 -- -- -- Dap
