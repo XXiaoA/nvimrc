@@ -16,7 +16,7 @@ return {
       execute "silent ! google-chrome-stable --new-window --app=" . a:url
     endfunction
     let g:mkdp_browserfunc = 'OpenMarkdownPreview'
-    ]])
+    ]]           )
             end
         end,
         build = "cd app && npm install",
@@ -146,17 +146,19 @@ return {
 
     {
         "mfussenegger/nvim-treehopper",
-        keys = { { "m", mode = { "o", "x" } } },
-        dependencies = "hop.nvim",
+        keys = {
+            {
+                mode = { "o", "x" },
+                "m",
+                ":lua require('tsht').nodes()<CR>",
+                silent = true,
+            },
+        },
         config = function()
             local tsht = require("utils").require("tsht")
-            if not tsht then
-                return
+            if tsht then
+                tsht.config.hint_keys = { "h", "j", "f", "d", "g", "k", "l", "s", "a" }
             end
-            local map = require("core.keymap").set_keymap({ "o", "x" })
-
-            tsht.config.hint_keys = { "h", "j", "f", "d", "g", "k", "l", "s", "a" }
-            map("m", ":lua require('tsht').nodes()<CR>")
         end,
     },
 
