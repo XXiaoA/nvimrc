@@ -2,7 +2,7 @@ local M = {
     "jose-elias-alvarez/null-ls.nvim",
 }
 
-function M.setup(options)
+function M.config()
     local nls = require("null-ls")
     nls.setup({
         debounce = 150,
@@ -31,7 +31,6 @@ function M.setup(options)
             -- nls.builtins.code_actions.gitsigns,
             -- nls.builtins.diagnostics.flake8,
         },
-        on_attach = options.on_attach,
         root_dir = require("null-ls.utils").root_pattern(".git"),
     })
 end

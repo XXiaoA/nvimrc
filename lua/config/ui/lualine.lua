@@ -13,7 +13,7 @@ return {
     "nvim-lualine/lualine.nvim",
     event = "BufEnter",
     dependencies = "nvim-web-devicons",
-    config = {
+    opts = {
         options = {
             icons_enabled = true,
             theme = require("utils.yamler").get_value("lualine_theme"),

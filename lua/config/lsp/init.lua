@@ -7,7 +7,7 @@ return {
     {
         "j-hui/fidget.nvim",
         event = "VeryLazy",
-        config = {
+        opts = {
             sources = {
                 ["null-ls"] = {
                     ignore = true,

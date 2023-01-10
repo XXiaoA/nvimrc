@@ -26,7 +26,7 @@ return {
     {
         "NvChad/nvim-colorizer.lua",
         cmd = "ColorizerAttachToBuffer",
-        config = {
+        opts = {
             user_default_options = {
                 -- Available modes for `mode`: foreground, background,  virtualtext
                 mode = "background", -- Set the display mode.
@@ -55,7 +55,7 @@ return {
             { "<leader>sc", "<cmd>SessionManager load_session<CR>", desc = "load session" },
             { "<leader>sd", "<cmd>SessionManager delete_session<CR>", desc = "delete session" },
         },
-        config = function()
+        opts = function()
             return {
                 autoload_mode = require("session_manager.config").AutoloadMode.Disabled,
                 autosave_last_session = false,
@@ -91,7 +91,7 @@ return {
     {
         "jubnzv/mdeval.nvim",
         cmd = "MdEval",
-        config = {
+        opts = {
             -- Don't ask before executing code blocks
             require_confirmation = false,
             eval_options = {
@@ -105,7 +105,7 @@ return {
     {
         "danymat/neogen",
         keys = { { "<leader>/", "<cmd>Neogen<CR>", desc = "generate annotation" } },
-        config = { snippet_engine = "luasnip" },
+        opts = { snippet_engine = "luasnip" },
     },
 
     {
@@ -137,7 +137,7 @@ return {
         keys = {
             { "<leader>ft", ":TodoTelescope<CR>" },
         },
-        config = {
+        opts = {
             highlight = {
                 keyword = "bg",
             },
@@ -192,7 +192,7 @@ return {
                 desc = "Swap windows",
             },
         },
-        config = {
+        opts = {
             autoselect_one = true,
             include_current = false,
             filter_rules = {

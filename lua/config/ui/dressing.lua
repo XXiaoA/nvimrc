@@ -11,7 +11,7 @@ return {
             return vim.ui.input(...)
         end
     end,
-    config = {
+    opts = {
         input = {
             mappings = {
                 -- n for normal mode

@@ -10,7 +10,7 @@ return {
             desc = "Open parent directory",
         },
     },
-    config = {
+    opts = {
         keymaps = {
             ["q"] = "actions.close",
             ["<M-m>"] = "actions.close",

@@ -3,7 +3,7 @@ return {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
         event = "BufReadPre",
-        config = function()
+        opts = function()
             local tsc = require("utils").require("nvim-treesitter.configs")
             if not tsc then
                 return
@@ -53,7 +53,7 @@ return {
         "nvim-treesitter/nvim-treesitter-context",
         event = "BufReadPost",
         dependencies = "nvim-treesitter",
-        config = {
+        opts = {
             max_lines = 3,
         },
     },

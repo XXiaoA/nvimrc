@@ -8,13 +8,14 @@ return {
         dependencies = {
             "mason.nvim",
             "mason-lspconfig.nvim",
+            "null-ls.nvim",
             "simrat39/rust-tools.nvim",
         },
     },
     {
         "williamboman/mason.nvim",
         branch = "main",
-        config = {
+        opts = {
             ui = {
                 border = "single",
             },

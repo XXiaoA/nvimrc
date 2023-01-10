@@ -2,7 +2,7 @@ return {
     "akinsho/bufferline.nvim",
     event = "BufEnter",
     dependencies = "nvim-web-devicons",
-    config = {
+    opts = {
         options = {
             -- 使用 nvim 内置lsp
             diagnostics = "nvim_lsp",

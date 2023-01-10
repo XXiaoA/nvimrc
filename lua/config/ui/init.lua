@@ -66,7 +66,7 @@ return {
             { "<leader>zz", "<CMD>ZenMode<CR>" },
             { "<leader>zt", "<CMD>Twilight<CR>" },
         },
-        config = {
+        opts = {
             plugins = {
                 options = {
                     enabled = true,

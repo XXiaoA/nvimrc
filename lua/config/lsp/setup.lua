@@ -138,8 +138,6 @@ local settings = {
     capabilities = capabilities,
 }
 
-require("config.lsp.null-ls").setup(settings)
-
 local lua_settings = vim.tbl_extend("force", settings, require("config.lsp.settings.sumneko_lua"))
 mason_lspconfig.setup_handlers({
     function(server_name)

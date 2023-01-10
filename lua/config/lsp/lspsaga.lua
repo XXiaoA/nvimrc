@@ -1,5 +1,6 @@
 return {
     "glepnir/lspsaga.nvim",
+    enabled = false,
     event = "VeryLazy",
     config = function()
         local saga = require("lspsaga")
