@@ -1,11 +1,11 @@
 vim.api.nvim_create_autocmd("ColorScheme", {
     pattern = "rose-pine",
     command = [[
-    hi IlluminatedWord guibg=#6e6a86
-    hi IlluminatedCurWord guibg=#6e6a86
-    hi IlluminatedWordText guibg=#6e6a86
-    hi IlluminatedWordRead guibg=#6e6a86
-    hi IlluminatedWordWrite guibg=#6e6a86
+    hi IlluminatedWord ctermbg=237 guibg=#374145
+    hi IlluminatedCurWord ctermbg=237 guibg=#374145
+    hi IlluminatedWordText ctermbg=237 guibg=#374145
+    hi IlluminatedWordRead ctermbg=237 guibg=#374145
+    hi IlluminatedWordWrite ctermbg=237 guibg=#374145
     ]],
 })
 

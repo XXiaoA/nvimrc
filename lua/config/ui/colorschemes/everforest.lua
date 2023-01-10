@@ -2,6 +2,16 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     pattern = "everforest",
     command = "hi FloatBorder guibg=#272E33",
 })
+vim.api.nvim_create_autocmd("ColorScheme", {
+    pattern = "everforest",
+    command = [[
+    hi IlluminatedWord ctermbg=237 guibg=#443836
+    hi IlluminatedCurWord ctermbg=237 guibg=#443836
+    hi IlluminatedWordText ctermbg=237 guibg=#443836
+    hi IlluminatedWordRead ctermbg=237 guibg=#443836
+    hi IlluminatedWordWrite ctermbg=237 guibg=#443836
+    ]],
+})
 
 local g = vim.g
 g.everforest_background = "hard"

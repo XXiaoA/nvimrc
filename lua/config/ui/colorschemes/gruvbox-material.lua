@@ -3,6 +3,16 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     -- floating popups
     command = "hi FloatBorder guibg=#282828",
 })
+vim.api.nvim_create_autocmd("ColorScheme", {
+    pattern = "gruvbox-material",
+    command = [[
+    hi IlluminatedWord ctermbg=237 guibg=#374145
+    hi IlluminatedCurWord ctermbg=237 guibg=#374145
+    hi IlluminatedWordText ctermbg=237 guibg=#374145
+    hi IlluminatedWordRead ctermbg=237 guibg=#374145
+    hi IlluminatedWordWrite ctermbg=237 guibg=#374145
+    ]],
+})
 
 local g = vim.g
 -- option: hard, medium, soft

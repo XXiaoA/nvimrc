@@ -1,11 +1,11 @@
 vim.api.nvim_create_autocmd("ColorScheme", {
     pattern = "catppuccin-mocha",
     command = [[
-    hi IlluminatedWord guibg=#575860
-    hi IlluminatedCurWord guibg=#575860
-    hi IlluminatedWordText guibg=#575860
-    hi IlluminatedWordRead guibg=#575860
-    hi IlluminatedWordWrite guibg=#575860
+    hi IlluminatedWord ctermbg=237 guibg=#374145
+    hi IlluminatedCurWord ctermbg=237 guibg=#374145
+    hi IlluminatedWordText ctermbg=237 guibg=#374145
+    hi IlluminatedWordRead ctermbg=237 guibg=#374145
+    hi IlluminatedWordWrite ctermbg=237 guibg=#374145
     ]],
 })
 
