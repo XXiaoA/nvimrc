@@ -3,7 +3,7 @@ local M = {
     dependencies = {
         "nvim-lua/plenary.nvim",
         "kyazdani42/nvim-web-devicons",
-        "nvim-telescope/telescope-project.nvim",
+        { "XXiaoA/telescope-project.nvim", dev = false },
     },
     cmd = "Telescope",
 }
