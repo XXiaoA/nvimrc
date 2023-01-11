@@ -43,11 +43,9 @@ imap("jj", "<ESC>")
 xmap("<", "<gv")
 xmap(">", ">gv")
 
-nmap("<leader>wo", "<C-W>o", { desc = "Only left one window" })
-nmap("<leader>wd", "<C-W>c", { desc = "Delete current window" })
-nmap("<leader>w-", "<C-W>s", { desc = "Split window below" })
-nmap("<leader>w|", "<C-W>v", { desc = "Split window right" })
-nmap("<leader>w\\", "<C-W>v", { desc = "Split window right" })
+nmap("<c-w>-", "<C-W>s", { desc = "Split window below" })
+nmap("<c-w>|", "<C-W>v", { desc = "Split window right" })
+nmap("<c-w>\\", "<C-W>v", { desc = "Split window right" })
 
 -- resize
 nmap("<A-l>", ":vertical resize +2<CR>")

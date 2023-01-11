@@ -60,6 +60,9 @@ function M.setup()
     local opts = {
         defaults = { lazy = true },
         lockfile = vim.fn.stdpath("config") .. "/.lazy-lock.json",
+        diff = {
+            cmd = "diffview.nvim",
+        },
         dev = {
             path = "~/Workspace",
             patterns = { "XXiaoA", "xxiaoa" },
