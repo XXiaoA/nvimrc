@@ -69,6 +69,11 @@ M.config = function()
                 -- behavior = cmp.ConfirmBehavior.Replace
             }, { "i", "c" }),
 
+            ["<C-y>"] = cmp.mapping.confirm({
+                select = true,
+                behavior = cmp.ConfirmBehavior.Replace,
+            }, { "i", "c" }),
+
             -- ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
 
             ["<Tab>"] = cmp.mapping(function(fallback)

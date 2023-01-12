@@ -27,11 +27,18 @@ function M.get_random_colorscheme()
     return colorscheme
 end
 
-function M.load_colorscheme(colorscheme)
+--- change the colorscheme
+---@param colorscheme string
+---@param expand boolean? Whether change the colorscheme of fish and wezterm
+function M.load_colorscheme(colorscheme, expand)
     if colorscheme then
         pcall(require, "config.ui.colorschemes." .. colorscheme)
         pcall(vim.cmd.colorscheme, colorscheme)
         yamler.modify_value("colorscheme", colorscheme)
+        if expand then
+            swicher.fish(swicher.colorschemes[colorscheme].fish)
+            swicher.wezterm(swicher.colorschemes[colorscheme].wezterm)
+        end
     end
 end
 
@@ -49,13 +56,14 @@ function M.load_colorscheme_ui()
             return
         end
         local colorscheme = choice == "random" and M.get_random_colorscheme() or choice
-        M.load_colorscheme(colorscheme)
-        swicher.fish(swicher.colorschemes[colorscheme].fish)
-        swicher.wezterm(swicher.colorschemes[colorscheme].wezterm)
+        M.load_colorscheme(colorscheme, true)
     end)
 end
 
+--- get current colorscheme
+---@return string
 function M.current_colorscheme()
+    ---@diagnostic disable-next-line: return-type-mismatch
     return yamler.get_value("colorscheme")
 end
 

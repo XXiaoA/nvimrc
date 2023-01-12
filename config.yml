@@ -1,4 +1,4 @@
-# run `XXiaoA all_colorschemes` to see all colorschemes
+# run `XXiaoA colorschemes` to see all colorschemes
 colorscheme: tokyonight-moon
 
 lsp:
