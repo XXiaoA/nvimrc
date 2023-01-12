@@ -24,6 +24,19 @@ M.config = function()
 
     local Rule = require("nvim-autopairs.rule")
     local cond = require("nvim-autopairs.conds")
+
+    for _, bracket in ipairs({ ")", "]", "}" }) do
+        npairs.add_rules({
+            Rule("", " " .. bracket)
+                :with_pair(cond.none())
+                :with_move(function(opts)
+                    return opts.char == bracket
+                end)
+                :with_cr(cond.none())
+                :with_del(cond.none())
+                :use_key(bracket),
+        })
+    end
     npairs.add_rules({
         Rule(" ", " ")
             :with_pair(function(opts)
@@ -37,45 +50,7 @@ M.config = function()
                 local context = opts.line:sub(col - 1, col + 2)
                 return vim.tbl_contains({ "(  )", "{  }", "[  ]" }, context)
             end),
-        Rule("", " )")
-            :with_pair(cond.none())
-            :with_move(function(opts)
-                return opts.char == ")"
-            end)
-            :with_cr(cond.none())
-            :with_del(cond.none())
-            :use_key(")"),
-        Rule("", " }")
-            :with_pair(cond.none())
-            :with_move(function(opts)
-                return opts.char == "}"
-            end)
-            :with_cr(cond.none())
-            :with_del(cond.none())
-            :use_key("}"),
-        Rule("", " ]")
-            :with_pair(cond.none())
-            :with_move(function(opts)
-                return opts.char == "]"
-            end)
-            :with_cr(cond.none())
-            :with_del(cond.none())
-            :use_key("]"),
     })
-
-    -- Move past some specific character
-    for _, punct in pairs({ ",", ";" }) do
-        npairs.add_rules({
-            Rule("", punct)
-                :with_move(function(opts)
-                    return opts.char == punct
-                end)
-                :with_pair(cond.none())
-                :with_del(cond.none())
-                :with_cr(cond.none())
-                :use_key(punct),
-        })
-    end
 end
 
 return M
