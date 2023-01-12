@@ -1,5 +1,5 @@
 # run `XXiaoA all_colorschemes` to see all colorschemes
-colorscheme: everforest
+colorscheme: tokyonight-moon
 
 lsp:
   # filetype: server
