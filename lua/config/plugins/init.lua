@@ -1,7 +1,12 @@
 return {
     {
         "tpope/vim-repeat",
-        event = "BufReadPost",
+        event = "VeryLazy",
+    },
+
+    {
+        "nvim-lua/plenary.nvim",
+        event = "VeryLazy",
     },
 
     {

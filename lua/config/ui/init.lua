@@ -52,7 +52,6 @@ return {
     -- plugins
     {
         "kyazdani42/nvim-web-devicons",
-        event = "BufEnter",
     },
 
     {

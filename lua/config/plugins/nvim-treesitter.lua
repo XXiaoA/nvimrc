@@ -57,4 +57,19 @@ return {
             max_lines = 3,
         },
     },
+
+    {
+        "ckolkey/ts-node-action",
+        dependencies = "nvim-treesitter",
+        keys = {
+            {
+                "<leader>tn",
+                function()
+                    require("ts-node-action").node_action()
+                end,
+                { desc = "Trigger Node Action" },
+            },
+        },
+        config = true,
+    },
 }

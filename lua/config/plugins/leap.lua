@@ -4,6 +4,7 @@ local M = {
     dependencies = {
         { "ggandor/flit.nvim", config = true },
         { "ggandor/leap-spooky.nvim", config = true },
+        "vim-repeat",
     },
 }
 
