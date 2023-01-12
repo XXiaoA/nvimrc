@@ -30,6 +30,7 @@ git clone https://github.com/XXiaoA/nvimrc ~/.config/nvim
 
 ## Dependencies
 > ❗Run `:checkhealth` in neovim
+
 - [ripgrep](https://github.com/BurntSushi/ripgrep) for fuzzy find
 
 
@@ -44,4 +45,7 @@ npm install
 
 
 ## Others
+### SHOWCASE
+https://user-images.githubusercontent.com/62557596/212057176-3a2fa104-7a18-42b9-9030-ef1032556f86.mp4
+
 ### [TODO](./TODO.md)
