@@ -1,5 +1,6 @@
-local yamler = require("utils.yamler")
 local M = {}
+local yamler = require("utils.yamler")
+local swicher = require("utils.swicher")
 --- string[]
 M.all_colorschemes = {}
 
@@ -15,18 +16,19 @@ function M.add_colorscheme(...)
     end
 end
 
+function M.get_random_colorscheme()
+    local all_colorschemes = vim.tbl_filter(function(value)
+        if value ~= "random" and value ~= M.current_colorscheme() then
+            return true
+        end
+    end, M.all_colorschemes)
+    local random_index = (vim.fn.rand() % #all_colorschemes) + 1
+    local colorscheme = all_colorschemes[random_index]
+    return colorscheme
+end
+
 function M.load_colorscheme(colorscheme)
     if colorscheme then
-        if colorscheme == "random" then
-            local _all_colorschemes = vim.tbl_filter(function(value)
-                if value ~= "random" and value ~= M.current_colorscheme() then
-                    return true
-                end
-            end, M.all_colorschemes)
-            local random_index = (vim.fn.rand() % #_all_colorschemes) + 1
-            colorscheme = _all_colorschemes[random_index]
-        end
-
         pcall(require, "config.ui.colorschemes." .. colorscheme)
         pcall(vim.cmd.colorscheme, colorscheme)
         yamler.modify_value("colorscheme", colorscheme)
@@ -43,7 +45,13 @@ function M.load_colorscheme_ui()
             return item
         end,
     }, function(choice)
-        M.load_colorscheme(choice)
+        if choice == nil then
+            return
+        end
+        local colorscheme = choice == "random" and M.get_random_colorscheme() or choice
+        M.load_colorscheme(colorscheme)
+        swicher.fish(swicher.colorschemes[colorscheme].fish)
+        swicher.wezterm(swicher.colorschemes[colorscheme].wezterm)
     end)
 end
 
