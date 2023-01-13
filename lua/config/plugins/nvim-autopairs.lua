@@ -12,6 +12,7 @@ M.config = function()
 
     npairs.setup({
         check_ts = true,
+        enable_abbr = true,
     })
 
     -- If you want insert `(` after select function or method item
@@ -39,9 +40,13 @@ M.config = function()
     end
     npairs.add_rules({
         Rule(" ", " ")
-            :with_pair(function(opts)
+            :with_pair(cond.done())
+            :replace_endpair(function(opts)
                 local pair = opts.line:sub(opts.col - 1, opts.col)
-                return vim.tbl_contains({ "()", "{}", "[]" }, pair)
+                if vim.tbl_contains({ "()", "{}", "[]" }, pair) then
+                    return " "
+                end
+                return ""
             end)
             :with_move(cond.none())
             :with_cr(cond.none())
