@@ -33,7 +33,11 @@ end
 function M.load_colorscheme(colorscheme, expand)
     if colorscheme then
         pcall(require, "config.ui.colorschemes." .. colorscheme)
-        pcall(vim.cmd.colorscheme, colorscheme)
+        local status_ok, _ = pcall(vim.cmd.colorscheme, colorscheme)
+        if not status_ok then
+            vim.notify("No find colorscheme: " .. colorscheme, vim.log.levels.WARN)
+            return
+        end
         yamler.modify_value("colorscheme", colorscheme)
         if expand then
             swicher.fish(swicher.colorschemes[colorscheme].fish)
