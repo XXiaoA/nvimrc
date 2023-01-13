@@ -10,7 +10,7 @@ return {
             end
 
             tsc.setup({
-                ensure_installed = { "markdown", "vim", "lua", "python", "rust", "fish", "cpp" },
+                ensure_installed = {"markdown_inline", "markdown", "vim", "lua", "python", "rust", "fish", "cpp" },
                 highlight = {
                     enable = true,
                     -- Setting this to true will run `:h syntax` and tree-sitter at the same time.

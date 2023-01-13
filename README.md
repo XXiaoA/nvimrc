@@ -35,8 +35,6 @@ git clone https://github.com/XXiaoA/nvimrc ~/.config/nvim
 
 
 ## Notice
-for formatting feature (optional): [formatters](./lua/config/plugins/formatter.lua) <br>
-
 If you fail to use markdown preview, run:
 ```bash
 cd ~/.local/share/nvim/lazy/markdown-preview.nvim/app/
