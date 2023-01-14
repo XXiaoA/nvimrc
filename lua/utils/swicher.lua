@@ -45,6 +45,8 @@ function M.fish(colorscheme)
     end
 end
 
+-- TODO: add support inside the tmux
+-- "\033Ptmux;\033\033]1337;SetUserVar=Nvim_Colorscheme=R3J1dmJveCBEYXJr\007\033\\"
 function M.wezterm(colorscheme)
     if colorscheme and vim.fn.executable("wezterm") then
         local stdout = vim.loop.new_tty(1, false)

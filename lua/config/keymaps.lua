@@ -48,10 +48,10 @@ nmap("<c-w>|", "<C-W>v", { desc = "Split window right" })
 nmap("<c-w>\\", "<C-W>v", { desc = "Split window right" })
 
 -- resize
-nmap("<A-l>", ":vertical resize +2<CR>")
-nmap("<A-h>", ":vertical resize -2<CR>")
-nmap("<A-j>", ":resize +1<CR>")
-nmap("<A-k>", ":resize -1<CR>")
+nmap("<A-l>", ":vertical resize -2<CR>")
+nmap("<A-h>", ":vertical resize +2<CR>")
+nmap("<A-j>", ":resize -1<CR>")
+nmap("<A-k>", ":resize +1<CR>")
 nmap("<A-=>", "<C-w>=")
 
 -- ctrl + hjkl  窗口之间跳转
@@ -102,7 +102,7 @@ imap(";", ";<c-g>u")
 -- Quickly edit your macros
 nmap(
     "<leader>m",
-    [[:<c-u><c-r><c-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><c-f><left>]]
+    [[:<c-u><c-r><c-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><c-f><left>]], { desc = "Modify the register" }
 )
 
 -- Quickly add empty lines
