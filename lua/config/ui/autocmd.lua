@@ -14,3 +14,14 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     hi GitSign guibg=#c94f6d guifg=bg
     ]],
 })
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+    pattern = "*",
+    command = [[
+    hi MatchBackground cterm=underline gui=underline
+    hi MatchParen cterm=underline gui=underline
+    hi MatchWord cterm=underline gui=underline
+    hi MatchParenCur cterm=underline gui=underline
+    hi MatchWordCur cterm=underline gui=underline
+    ]],
+})
