@@ -55,6 +55,12 @@ return {
     },
 
     {
+        "uga-rosa/ccc.nvim",
+        event = "VeryLazy",
+        config = true
+    },
+
+    {
         "XXiaoA/zen-mode.nvim",
         dev = false,
         dependencies = {

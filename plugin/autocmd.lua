@@ -59,7 +59,6 @@ au({ "BufWritePre", "FileWritePre" }, {
     group = xxiaoa_group,
 })
 
--- BUG: doesn't work
 -- replace != with ~= in lua file
 au("FileType", {
     pattern = "lua",

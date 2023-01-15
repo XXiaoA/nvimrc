@@ -93,7 +93,6 @@ nmap("<leader>bn", ":enew<CR>", { desc = "New Buffer" })
 nmap("k", "v:count == 0 ? 'gk' : 'k'", { expr = true })
 nmap("j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
 
--- BUG: doesn't work
 imap(",", ",<c-g>u")
 imap(".", ".<c-g>u")
 imap(";", ";<c-g>u")

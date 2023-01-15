@@ -8,34 +8,9 @@ return {
         "iamcco/markdown-preview.nvim",
         config = function()
             vim.g.mkdp_auto_close = 0
-
-            -- open in new window
-            if vim.fn.executable("google-chrome-stable") == 1 then
-                vim.cmd([[
-    function OpenMarkdownPreview (url)
-      execute "silent ! google-chrome-stable --new-window --app=" . a:url
-    endfunction
-    let g:mkdp_browserfunc = 'OpenMarkdownPreview'
-    ]])
-            end
         end,
         build = "cd app && npm install",
         ft = "markdown",
-    },
-
-    {
-        "NvChad/nvim-colorizer.lua",
-        cmd = "ColorizerAttachToBuffer",
-        opts = {
-            user_default_options = {
-                -- Available modes for `mode`: foreground, background,  virtualtext
-                mode = "background", -- Set the display mode.
-                -- Available methods are false / true / "normal" / "lsp" / "both"
-                -- True is same as normal
-                tailwind = false, -- Enable tailwind colors
-                virtualtext = "■",
-            },
-        },
     },
 
     -- session

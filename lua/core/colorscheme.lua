@@ -60,7 +60,12 @@ function M.load_colorscheme_ui()
             return
         end
         local colorscheme = choice == "random" and M.get_random_colorscheme() or choice
-        M.load_colorscheme(colorscheme, true)
+        -- TODO:
+        if os.getenv("TMUX") then
+            M.load_colorscheme(colorscheme, false)
+        else
+            M.load_colorscheme(colorscheme, true)
+        end
     end)
 end
 
