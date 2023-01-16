@@ -10,10 +10,10 @@
 - [x] [firenvim](https://github.com/glacambre/firenvim)
 - [ ] highlights for markdown, etc. like [headlines.nvim](https://github.com/lukas-reineke/headlines.nvim) and [md-nanny](https://github.com/nvim-zh/md-nanny)
 - [x] configure lsp by yaml
-- [ ] improve move line. [nvim-gomove](https://github.com/booperlv/nvim-gomove)
+- [x] improve move line. [nvim-gomove](https://github.com/booperlv/nvim-gomove)
 - [ ] windwp/nvim-spectre; ~~ThePrimeagen/refactoring.nvim~~; cshuaimin/ssr.nvim
 - [x] andymass/vim-matchup
-- [ ] echasnovski/mini.nvim,
+- [x] echasnovski/mini.nvim,
 - [x] leap.nvim
 - [ ] https://github.com/stevearc/overseer.nvim
 - [x] null-ls

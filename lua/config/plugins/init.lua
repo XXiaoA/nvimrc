@@ -5,6 +5,33 @@ return {
     },
 
     {
+        "echasnovski/mini.move",
+        keys = {
+            { mode = { "n", "x" }, "<M-left>" },
+            { mode = { "n", "x" }, "<M-right>" },
+            { mode = { "n", "x" }, "<M-down>" },
+            { mode = { "n", "x" }, "<M-up>" },
+        },
+        config = function()
+            require("mini.move").setup({
+                mappings = {
+                    -- Move visual selection in Visual mode.
+                    left = "<M-left>",
+                    right = "<M-right>",
+                    down = "<M-down>",
+                    up = "<M-up>",
+
+                    -- Move current line in Normal mode
+                    line_left = "<M-left>",
+                    line_right = "<M-right>",
+                    line_down = "<M-down>",
+                    line_up = "<M-up>",
+                },
+            })
+        end,
+    },
+
+    {
         "iamcco/markdown-preview.nvim",
         config = function()
             vim.g.mkdp_auto_close = 0
