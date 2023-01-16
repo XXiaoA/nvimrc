@@ -59,13 +59,6 @@ au({ "BufWritePre", "FileWritePre" }, {
     group = xxiaoa_group,
 })
 
--- replace != with ~= in lua file
-au("FileType", {
-    pattern = "lua",
-    command = "iabbr <buffer> != ~=",
-    group = xxiaoa_group,
-})
-
 -- restore last position
 au("BufReadPost", {
     pattern = "*",
@@ -145,4 +138,40 @@ au("FileType", {
         nmap("q", "<cmd>close<CR>", { buffer = ctx.buf })
         vim.opt_local.buflisted = false
     end,
+})
+
+-- automatically hint after entering nvim and opening a new file
+local function enter_hint()
+    local cur_file = vim.fn.expand("<afile>:t")
+
+    if cur_file ~= "" and vim.fn.findfile(cur_file, ".") == "" then
+        local findfile_command = vim.fn.executable("fd") == 1 and "fd --max-depth 1"
+            or "find -maxdepth 1"
+        local fuzzy_command = vim.fn.executable("rg") == 1 and "rg --ignore-case"
+            or "grep --ignore-case --extended-regexp"
+        local command = ("%s | %s '^(./)?%s'"):format(findfile_command, fuzzy_command, cur_file)
+        local selections = vim.fn.system(command)
+        selections = vim.tbl_filter(function(s)
+            return vim.fn.isdirectory(s) ~= 1 and s ~= ""
+        end, vim.split(selections, "\n"))
+
+        if #selections == 0 then
+            return
+        end
+
+        vim.ui.select(selections, {
+            prompt = "Do you mean?",
+            format_item = function(item)
+                return item
+            end,
+        }, function(choice)
+            vim.api.nvim_buf_delete(0, {})
+            vim.cmd.e(choice)
+        end)
+    end
+end
+
+vim.api.nvim_create_autocmd("VimEnter", {
+    group = xxiaoa_group,
+    callback = enter_hint,
 })

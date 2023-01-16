@@ -6,7 +6,7 @@
 - [x] change colorschemes with fish,tmux and wezterm (https://github.com/wez/wezterm/discussions/2550)
 - [ ] utils `logger.lua`
 - [ ] feature: template
-- [ ] feature auto hint for fuzzy file after enter new file
+- [x] feature auto hint for fuzzy file after enter new file
 - [x] [firenvim](https://github.com/glacambre/firenvim)
 - [ ] highlights for markdown, etc. like [headlines.nvim](https://github.com/lukas-reineke/headlines.nvim) and [md-nanny](https://github.com/nvim-zh/md-nanny)
 - [x] configure lsp by yaml
