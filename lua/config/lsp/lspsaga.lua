@@ -11,6 +11,7 @@ return {
         symbol_in_winbar = {
             enable = false,
             show_file = false,
+            separator = " ",
         },
     },
 }

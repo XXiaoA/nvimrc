@@ -35,7 +35,7 @@ M.config = function()
     nmap("<leader>gC", ":Telescope git_bcommits<CR>", { desc = "buffer commit history" })
 
     nmap("<leader>fw", ":Telescope live_grep<CR>", { desc = "search words" })
-    nmap("<leader>ff", project_files, { desc = "search files" })
+    nmap("<leader><space>", project_files, { desc = "search files" })
     nmap("<leader>fr", ":Telescope oldfiles<CR>", { desc = "search recent files" })
     nmap("<leader>fb", ":Telescope buffers<CR>", { desc = "search buffers" })
     nmap("<leader>fh", ":Telescope help_tags<CR>", { desc = "search help tags" })

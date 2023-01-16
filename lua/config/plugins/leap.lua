@@ -14,6 +14,11 @@ M.config = function()
 
     -- to fix the conflict with treehopper
     vim.keymap.del({ "x", "o" }, "mm")
+
+    vim.keymap.del({ "n", "o", "x" }, "s")
+    vim.keymap.del({ "n", "o", "x" }, "S")
+    vim.keymap.set({ "n", "o", "x" }, "<CR>", "<Plug>(leap-forward-to)")
+    vim.keymap.set({ "n", "o", "x" }, "<S-CR>", "<Plug>(leap-backward-to)")
 end
 
 return M
