@@ -101,6 +101,7 @@ capabilities.textDocument.foldingRange = {
     lineFoldingOnly = true,
 }
 
+capabilities.offsetEncoding = 'utf-8'
 capabilities.textDocument.completion = {
     completionItem = {
         commitCharactersSupport = true,

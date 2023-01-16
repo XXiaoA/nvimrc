@@ -10,6 +10,7 @@ function M.setup(options)
         sources = {
             nls.builtins.formatting.stylua,
             nls.builtins.formatting.fish_indent,
+            nls.builtins.formatting.clang_format,
             nls.builtins.formatting.rustfmt.with({
                 extra_args = function(params)
                     local Path = require("plenary.path")
