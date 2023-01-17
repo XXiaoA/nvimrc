@@ -171,7 +171,16 @@ local function enter_hint()
     end
 end
 
-vim.api.nvim_create_autocmd("VimEnter", {
+au("VimEnter", {
     group = xxiaoa_group,
     callback = enter_hint,
+})
+
+-- lazy load my own scripts
+au("User", {
+    pattern = "VeryLazy",
+    group = xxiaoa_group,
+    callback = function()
+        require("scripts")
+    end,
 })

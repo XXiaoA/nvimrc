@@ -6,6 +6,7 @@ local delay = 250 -- ms
 
 local autosave = api.nvim_create_augroup("autosave", { clear = true })
 -- Initialization
+-- BUG:
 api.nvim_create_autocmd("BufRead", {
     pattern = "*",
     group = autosave,
