@@ -101,7 +101,8 @@ imap(";", ";<c-g>u")
 -- Quickly edit your macros
 nmap(
     "<leader>m",
-    [[:<c-u><c-r><c-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><c-f><left>]], { desc = "Modify the register" }
+    [[:<c-u><c-r><c-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><c-f><left>]],
+    { desc = "Modify the register" }
 )
 
 -- Quickly add empty lines

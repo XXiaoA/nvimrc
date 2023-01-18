@@ -57,7 +57,7 @@ return {
     {
         "uga-rosa/ccc.nvim",
         event = "VeryLazy",
-        config = true
+        config = true,
     },
 
     {

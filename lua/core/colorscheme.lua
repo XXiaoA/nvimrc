@@ -78,7 +78,7 @@ function M.setup()
     vim.o.background = "dark"
     M.load_colorscheme(M.current_colorscheme())
     nmap("<leader>cc", M.load_colorscheme_ui, { desc = "Change ColorScheme" })
-    nmap("<leader>ce", function ()
+    nmap("<leader>ce", function()
         M.load_colorscheme_ui(true)
     end, { desc = "Change ColorScheme with expand" })
 end
