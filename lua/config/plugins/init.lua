@@ -84,12 +84,6 @@ return {
     -- 翻译
     { "voldikss/vim-translator", cmd = { "Translate", "TranslateW" } },
 
-    -- TODO: configure it! (with rust-tools)
-    -- Debugging
-    -- { "mfussenegger/nvim-dap" },
-    -- { "rcarriga/nvim-dap-ui" },
-    -- { "Pocco81/DAPInstall.nvim" },
-
     {
         "jubnzv/mdeval.nvim",
         cmd = "MdEval",
@@ -137,7 +131,11 @@ return {
         event = "VeryLazy",
         dependencies = { "telescope.nvim", "nvim-lua/plenary.nvim" },
         keys = {
-            { "<leader>ft", ":TodoTelescope<CR>" },
+            {
+                "<leader>ft",
+                ":TodoTelescope cwd=" .. require("utils").get_root() .. "<CR>",
+                silent = true,
+            },
         },
         opts = {
             highlight = {

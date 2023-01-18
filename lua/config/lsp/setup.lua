@@ -101,7 +101,6 @@ capabilities.textDocument.foldingRange = {
     lineFoldingOnly = true,
 }
 
-capabilities.offsetEncoding = 'utf-8'
 capabilities.textDocument.completion = {
     completionItem = {
         commitCharactersSupport = true,
@@ -134,21 +133,29 @@ capabilities.textDocument.completion = {
     insertTextMode = 1,
 }
 
-local settings = {
+local opts = {
     on_attach = on_attach,
     capabilities = capabilities,
 }
 
-require("config.lsp.null-ls").setup(settings)
+local sumneko_lua_opts = vim.tbl_extend("force", opts, require("config.lsp.opts.sumneko_lua"))
 
-local lua_settings = vim.tbl_extend("force", settings, require("config.lsp.settings.sumneko_lua"))
+local clangd_opts = opts
+clangd_opts.capabilities.offsetEncoding = "utf-8"
+
+require("config.lsp.null-ls").setup(opts)
+
 mason_lspconfig.setup_handlers({
     function(server_name)
-        lspconfig[server_name].setup(settings)
+        lspconfig[server_name].setup(opts)
     end,
 
     ["sumneko_lua"] = function()
-        lspconfig.sumneko_lua.setup(lua_settings)
+        lspconfig.sumneko_lua.setup(sumneko_lua_opts)
+    end,
+
+    ["clangd"] = function()
+        lspconfig.clangd.setup(clangd_opts)
     end,
 
     ["rust_analyzer"] = function()
