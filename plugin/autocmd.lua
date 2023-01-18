@@ -1,7 +1,6 @@
 local utils = require("utils")
 local api = vim.api
-local keymap = require("core.keymap")
-local nmap = keymap.nmap
+local nmap = require("core.keymap").nmap
 local au = api.nvim_create_autocmd
 
 local xxiaoa_group = api.nvim_create_augroup("xxiaoa_group", { clear = true })
@@ -181,6 +180,6 @@ au("User", {
     pattern = "VeryLazy",
     group = xxiaoa_group,
     callback = function()
-        require("scripts")
+        utils.require("scripts")
     end,
 })

@@ -3,7 +3,7 @@ local M = {}
 --- require plugin and check if it exists
 ---@param name string
 ---@param message boolean?
----@return any
+---@return unknown
 function M.require(name, message)
     local status_ok, plugin = pcall(require, name)
     if not status_ok and message ~= false then
