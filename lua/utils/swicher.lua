@@ -45,18 +45,16 @@ function M.fish(colorscheme)
     end
 end
 
--- TODO: add support inside the tmux
--- "\033Ptmux;\033\033]1337;SetUserVar=Nvim_Colorscheme=R3J1dmJveCBEYXJr\007\033\\"
 function M.wezterm(colorscheme)
     if colorscheme and vim.fn.executable("wezterm") then
+        local passthrough_str = os.getenv("TMUX")
+                and "\x1bPtmux;\x1b\x1b]1337;SetUserVar=%s=%s\b\x1b\\"
+            or "\x1b]1337;SetUserVar=%s=%s\b"
         local stdout = vim.loop.new_tty(1, false)
         stdout:write(
-            ("\x1b]1337;SetUserVar=%s=%s\b"):format(
-                "Nvim_Colorscheme",
-                vim.fn.system({ "base64" }, colorscheme)
-            )
+            passthrough_str:format("Nvim_Colorscheme", vim.fn.system("base64", colorscheme))
         )
-        vim.cmd([[redraw]])
+        vim.cmd.redraw()
     end
 end
 

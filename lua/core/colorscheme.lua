@@ -16,6 +16,8 @@ function M.add_colorscheme(...)
     end
 end
 
+--- get a random colorscheme in all colorschemes except current colorscheme
+---@return string
 function M.get_random_colorscheme()
     local all_colorschemes = vim.tbl_filter(function(value)
         if value ~= "random" and value ~= M.current_colorscheme() then
@@ -46,7 +48,9 @@ function M.load_colorscheme(colorscheme, expand)
     end
 end
 
-function M.load_colorscheme_ui()
+--- choice a colorscheme with ui
+---@param expand boolean?
+function M.load_colorscheme_ui(expand)
     table.sort(M.all_colorschemes, function(a, b)
         return string.len(a) < string.len(b)
     end)
@@ -56,16 +60,8 @@ function M.load_colorscheme_ui()
             return item
         end,
     }, function(choice)
-        if choice == nil then
-            return
-        end
         local colorscheme = choice == "random" and M.get_random_colorscheme() or choice
-        -- TODO:
-        if os.getenv("TMUX") then
-            M.load_colorscheme(colorscheme, false)
-        else
-            M.load_colorscheme(colorscheme, true)
-        end
+        M.load_colorscheme(colorscheme, expand)
     end)
 end
 
@@ -76,15 +72,15 @@ function M.current_colorscheme()
     return yamler.get_value("colorscheme")
 end
 
-function M.init()
+function M.setup()
+    local nmap = require("core.keymap").nmap
     require("config.ui.autocmd")
     vim.o.background = "dark"
     M.load_colorscheme(M.current_colorscheme())
-    require("core.keymap").nmap(
-        "<leader>cc",
-        M.load_colorscheme_ui,
-        { desc = "Change ColorScheme" }
-    )
+    nmap("<leader>cc", M.load_colorscheme_ui, { desc = "Change ColorScheme" })
+    nmap("<leader>ce", function ()
+        M.load_colorscheme_ui(true)
+    end, { desc = "Change ColorScheme with expand" })
 end
 
 return M
