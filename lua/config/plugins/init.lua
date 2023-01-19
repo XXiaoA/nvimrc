@@ -1,7 +1,10 @@
 return {
     {
+        "tpope/vim-repeat",
+    },
+
+    {
         "nvim-lua/plenary.nvim",
-        event = "VeryLazy",
     },
 
     {

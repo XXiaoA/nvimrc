@@ -56,7 +56,7 @@ return {
 
     {
         "uga-rosa/ccc.nvim",
-        event = "VeryLazy",
+        cmd = { "CccPick", "CccConvert", "CccHighlighterEnable", "CccHighlighterToggle" },
         config = true,
     },
 

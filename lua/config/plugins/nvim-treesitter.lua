@@ -69,7 +69,10 @@ return {
 
     {
         "ckolkey/ts-node-action",
-        dependencies = "nvim-treesitter",
+        dependencies = {
+            "nvim-treesitter",
+            "vim-repeat",
+        },
         keys = {
             {
                 "<leader>tn",

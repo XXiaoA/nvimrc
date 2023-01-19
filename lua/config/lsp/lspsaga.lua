@@ -1,6 +1,6 @@
 return {
     "XXiaoA/lspsaga.nvim",
-    event = "VeryLazy",
+    cmd = "Lspsaga",
     opts = {
         code_action_lightbulb = {
             enable_in_insert = false,

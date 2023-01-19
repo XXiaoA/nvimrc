@@ -1,9 +1,15 @@
 local M = {
     "ggandor/leap.nvim",
-    event = "VeryLazy",
+    keys = {
+        { mode = { "n", "o", "x" }, "<CR>" },
+        { mode = { "n", "o", "x" }, "<S-CR>" },
+        { mode = { "n", "o", "x" }, "gs" },
+        { mode = { "o", "x" }, "x" },
+        { mode = { "o", "x" }, "X" },
+    },
     dependencies = {
         { "ggandor/flit.nvim", config = true },
-        "tpope/vim-repeat",
+        "vim-repeat",
     },
 }
 
