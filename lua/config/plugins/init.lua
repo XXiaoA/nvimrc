@@ -8,6 +8,12 @@ return {
     },
 
     {
+        "kevinhwang91/nvim-bqf",
+        ft = "qf",
+        config = true,
+    },
+
+    {
         "echasnovski/mini.move",
         keys = {
             { mode = { "n", "x" }, "<M-left>" },
