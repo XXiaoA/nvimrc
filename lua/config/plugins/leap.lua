@@ -8,7 +8,16 @@ local M = {
         { mode = { "o", "x" }, "X" },
     },
     dependencies = {
-        { "ggandor/flit.nvim", config = true },
+        {
+            "ggandor/flit.nvim",
+            config = true,
+            keys = {
+                { mode = { "n", "o", "x" }, "t" },
+                { mode = { "n", "o", "x" }, "T" },
+                { mode = { "n", "o", "x" }, "f" },
+                { mode = { "n", "o", "x" }, "F" },
+            },
+        },
         "vim-repeat",
     },
 }
