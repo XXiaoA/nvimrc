@@ -20,7 +20,7 @@ return {
     keys = {
         { "<leader>bh", ":BufferLineMovePrev<CR>", silent = true, desc = "Move buffer Left" },
         { "<leader>bl", ":BufferLineMoveNext<CR>", silent = true, desc = "Move buffer Right" },
-        { "<A-,>", ":BufferLineCyclePrev<CR>", silent = true, desc = "Go to previous buffer" },
-        { "<A-.>", ":BufferLineCycleNext<CR>", silent = true, desc = "Go to next buffer" },
+        { "[b", ":BufferLineCyclePrev<CR>", silent = true, desc = "Go to previous buffer" },
+        { "]b", ":BufferLineCycleNext<CR>", silent = true, desc = "Go to next buffer" },
     },
 }

@@ -101,3 +101,6 @@ nmap(
     '<CMD>call append(line(".")-1, repeat([""], v:count1))<CR>',
     { desc = "Add a empty line above" }
 )
+
+nmap("[t", "<CMD>tabNext<CR>")
+nmap("]t", "<CMD>tabnext<CR>")
