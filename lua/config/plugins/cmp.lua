@@ -110,9 +110,9 @@ M.config = function()
                 item.kind = nerd_icons[item.kind] or ""
                 -- Source
                 item.menu = ({
-                    buffer = "[Buffer]",
+                    buffer = "[Buf]",
                     nvim_lsp = "[LSP]",
-                    luasnip = "[LuaSnip]",
+                    luasnip = "[Snip]",
                 })[entry.source.name]
                 return item
             end,
