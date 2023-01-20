@@ -7,25 +7,15 @@ local xmap = keymap.xmap
 local tmap = keymap.tmap
 local omap = keymap.omap
 
--- leader key 为空格
+-- leader key
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- 退出终端插入模式
+-- Escape in terminal mode
 tmap("<ESC>", [[<C-\><C-n>]])
 
--- 移动代码
-nmap("<A-up>", ":m .-2<cr>==")
-nmap("<A-down>", ":m .+1<cr>==")
-imap("<A-up>", "<ESC>:m .-2<cr>==a")
-imap("<A-down>", "<ESC>:m .+1<cr>==a")
-xmap("<A-up>", ":m '<-2<cr>gv=gv")
-xmap("<A-down>", ":m '>+1<cr>gv=gv")
-
--- 保存/退出
-imap("<C-s>", "<C-o>:w<CR>")
-imap("<C-q>", "<C-o>:qall<CR>")
-nmap("W", ":w<CR>")
+-- Save or quit
+nmap("<C-s>", ":w<CR>")
 nmap("Q", function()
     local ft = vim.api.nvim_buf_get_option(0, "ft")
     if ft == "TelescopePrompt" then
@@ -35,11 +25,8 @@ nmap("Q", function()
     end
 end, { desc = "Quit the nvim" })
 
--- 输入模式/选择模式 jj/JJ 退出
-xmap("JJ", "<ESC>")
 imap("jj", "<ESC>")
 
--- visual模式下缩进代码
 xmap("<", "<gv")
 xmap(">", ">gv")
 
@@ -54,7 +41,7 @@ nmap("<A-j>", ":resize -1<CR>")
 nmap("<A-k>", ":resize +1<CR>")
 nmap("<A-=>", "<C-w>=")
 
--- ctrl + hjkl  窗口之间跳转
+-- ctrl + hjkl  jump among windows
 nmap("<C-h>", "<C-w>h", { desc = "Jump to left window" })
 nmap("<C-j>", "<C-w>j", { desc = "Jump to below window" })
 nmap("<C-k>", "<C-w>k", { desc = "Jump to above window" })
@@ -63,8 +50,6 @@ tmap("<C-h>", [[<C-\><C-n><C-W>h]])
 tmap("<C-j>", [[<C-\><C-n><C-W>j]])
 tmap("<C-k>", [[<C-\><C-n><C-W>k]])
 tmap("<C-l>", [[<C-\><C-n><C-W>l]])
-
-nmap("<leader>i", "gg=G")
 
 -- Toggle spelling check
 nmap("<leader>sp", "<cmd>set spell!<CR>", { desc = "Toggle spelling check" })
@@ -106,5 +91,13 @@ nmap(
 )
 
 -- Quickly add empty lines
-nmap("[<space>", ":<c-u>put! =repeat(nr2char(10), v:count1)<cr>")
-nmap("]<space>", ":<c-u>put =repeat(nr2char(10), v:count1)<cr>")
+nmap(
+    "<leader>o",
+    '<CMD>call append(line("."),   repeat([""], v:count1))<CR>',
+    { desc = "Add a empty line below" }
+)
+nmap(
+    "<leader>O",
+    '<CMD>call append(line(".")-1, repeat([""], v:count1))<CR>',
+    { desc = "Add a empty line above" }
+)
