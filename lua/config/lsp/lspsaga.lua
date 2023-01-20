@@ -2,7 +2,7 @@ return {
     "XXiaoA/lspsaga.nvim",
     event = "VeryLazy",
     opts = {
-        code_action_lightbulb = {
+        lightbulb = {
             enable_in_insert = false,
             sign = true,
             virtual_text = false,

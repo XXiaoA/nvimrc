@@ -132,7 +132,7 @@ au("CursorMoved", {
 
 au("FileType", {
     group = xxiaoa_group,
-    pattern = { "qf", "help", "man", "startuptime", "checkhealth" },
+    pattern = { "qf", "help", "man", "startuptime", "checkhealth", "spectre_panel" },
     callback = function(ctx)
         nmap("q", "<cmd>close<CR>", { buffer = ctx.buf })
         vim.opt_local.buflisted = false

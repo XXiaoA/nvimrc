@@ -14,6 +14,13 @@ return {
     },
 
     {
+        "windwp/nvim-spectre",
+        dependencies = "plenary.nvim",
+        cmd = "Spectre",
+        config = true,
+    },
+
+    {
         "echasnovski/mini.move",
         keys = {
             { mode = { "n", "x" }, "<M-left>" },
