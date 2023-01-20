@@ -46,25 +46,42 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
     border = "single",
 })
 
----@diagnostic disable-next-line: unused-local
-local function on_attach(client, bufnr)
-    -- disable format
-    -- client.server_capabilities.documentFormattingProvider = false
-    -- client.server_capabilities.documentRangeFormattingProvider = false
+local autoformat = true
+vim.api.nvim_create_user_command("AutoFormatToggle", function()
+    autoformat = not autoformat
+    vim.notify("Format on save: " .. tostring(autoformat))
+end, {})
 
+local function format()
+    local buf = vim.api.nvim_get_current_buf()
+    local ft = vim.bo[buf].filetype
+    local have_nls = #require("null-ls.sources").get_available(ft, "NULL_LS_FORMATTING") > 0
+
+    vim.lsp.buf.format({
+        bufnr = buf,
+        filter = function(client)
+            if have_nls then
+                return client.name == "null-ls"
+            end
+            return client.name ~= "null-ls"
+        end,
+    })
+end
+
+local function on_attach(client, bufnr)
     local nmap = require("core.keymap").nmap
 
     if client.supports_method("textDocument/formatting") then
-        nmap("<leader>=", function()
-            vim.lsp.buf.format({
-                ---@diagnostic disable-next-line: redefined-local
-                filter = function(client)
-                    -- apply whatever logic you want
-                    return client.name == "null-ls"
-                end,
-                bufnr = bufnr,
-            })
-        end, { buffer = bufnr, desc = "Format" })
+        vim.api.nvim_create_autocmd("BufWritePre", {
+            group = vim.api.nvim_create_augroup("LspFormat." .. bufnr, {}),
+            buffer = bufnr,
+            callback = function()
+                if autoformat then
+                    format()
+                end
+            end,
+        })
+        nmap("<leader>=", format, { buffer = bufnr, desc = "Format" })
     end
 
     nmap("<leader>rn", function()
@@ -100,7 +117,6 @@ capabilities.textDocument.foldingRange = {
     dynamicRegistration = false,
     lineFoldingOnly = true,
 }
-
 capabilities.textDocument.completion = {
     completionItem = {
         commitCharactersSupport = true,
