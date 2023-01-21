@@ -95,7 +95,7 @@ M.config = function()
     nmap("K", function()
         local winid = require("ufo").peekFoldedLinesUnderCursor()
         if not winid then
-            vim.cmd("Lspsaga hover_doc")
+            vim.lsp.buf.hover()
         end
     end)
 end

@@ -5,13 +5,12 @@
 - [ ] <https://github.com/kevinhwang91/nvim-ufo/issues/4>
 - [x] change colorschemes with fish,tmux and wezterm (https://github.com/wez/wezterm/discussions/2550)
 - [ ] utils `logger.lua`
-- [ ] feature: template
 - [x] feature auto hint for fuzzy file after enter new file
 - [x] [firenvim](https://github.com/glacambre/firenvim)
 - [ ] highlights for markdown, etc. like [headlines.nvim](https://github.com/lukas-reineke/headlines.nvim) and [md-nanny](https://github.com/nvim-zh/md-nanny)
 - [x] configure lsp by yaml
 - [x] improve move line. [nvim-gomove](https://github.com/booperlv/nvim-gomove)
-- [ ] windwp/nvim-spectre; ~~ThePrimeagen/refactoring.nvim~~; cshuaimin/ssr.nvim
+- [ ] ~~windwp/nvim-spectre~~; ~~ThePrimeagen/refactoring.nvim~~; cshuaimin/ssr.nvim
 - [x] andymass/vim-matchup
 - [x] echasnovski/mini.nvim,
 - [x] leap.nvim
