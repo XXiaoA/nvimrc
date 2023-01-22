@@ -2,7 +2,7 @@ local M = {
     "jose-elias-alvarez/null-ls.nvim",
 }
 
-function M.setup(options)
+function M.config()
     local nls = require("null-ls")
     nls.setup({
         debounce = 150,
@@ -33,7 +33,9 @@ function M.setup(options)
             -- nls.builtins.diagnostics.flake8,
         },
         root_dir = require("null-ls.utils").root_pattern(".git"),
-        on_attach = options.on_attach,
+        on_attach = function(client, bufnr)
+            require("config.lsp.keymaps").on_attach(client, bufnr)
+        end,
     })
 end
 

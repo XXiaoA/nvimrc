@@ -47,7 +47,7 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
 })
 
 local function on_attach(client, bufnr)
-      require("config.lsp.keymaps").on_attach(client, bufnr)
+    require("config.lsp.keymaps").on_attach(client, bufnr)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -96,8 +96,6 @@ local sumneko_lua_opts = vim.tbl_extend("force", opts, require("config.lsp.opts.
 
 local clangd_opts = opts
 clangd_opts.capabilities.offsetEncoding = "utf-8"
-
-require("config.lsp.null-ls").setup(opts)
 
 mason_lspconfig.setup_handlers({
     function(server_name)
