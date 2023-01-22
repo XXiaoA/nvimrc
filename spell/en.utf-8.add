@@ -21,7 +21,6 @@ keymap
 nvim
 cmd
 lua
-colorsheme
 XXiaoA
 lazyload
 utils

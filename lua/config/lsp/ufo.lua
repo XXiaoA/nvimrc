@@ -1,6 +1,6 @@
 local M = {
     "kevinhwang91/nvim-ufo",
-    event = "VeryLazy",
+    event = { "VeryLazy", "LspAttach" },
     dependencies = {
         "kevinhwang91/promise-async",
     },

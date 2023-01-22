@@ -1,6 +1,6 @@
 return {
     "RRethy/vim-illuminate",
-    event = "VeryLazy",
+    event = { "VeryLazy", "LspAttach" },
     config = function()
         require("illuminate").configure({ delay = 200 })
     end,

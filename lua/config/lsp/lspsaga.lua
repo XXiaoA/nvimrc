@@ -1,6 +1,6 @@
 return {
     "XXiaoA/lspsaga.nvim",
-    event = "VeryLazy",
+    event = "LspAttach",
     opts = {
         lightbulb = {
             enable_in_insert = false,

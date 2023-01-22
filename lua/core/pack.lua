@@ -44,7 +44,13 @@ function M.auto_load_modules_packages()
         config_path .. "lua/config/plugins",
     }) do
         for _, file in ipairs(vim.fn.split(vim.fn.globpath(path, "*"), "\n")) do
-            if not (file:match("autocmd.lua$") or file:match("setup.lua$")) then
+            if
+                not (
+                    file:match("autocmd.lua$")
+                    or file:match("setup.lua$")
+                    or file:match("lsp/keymaps.lua$")
+                )
+            then
                 local require_name = file:match("nvim/lua/(.*)%.lua")
                 if require_name then
                     M.add_plugin(utils.require(require_name))

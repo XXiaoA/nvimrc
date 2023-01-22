@@ -46,70 +46,8 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
     border = "single",
 })
 
-local autoformat = true
-vim.api.nvim_create_user_command("AutoFormatToggle", function()
-    autoformat = not autoformat
-    vim.notify("Format on save: " .. tostring(autoformat))
-end, {})
-
-local function format()
-    local buf = vim.api.nvim_get_current_buf()
-    local ft = vim.bo[buf].filetype
-    local have_nls = #require("null-ls.sources").get_available(ft, "NULL_LS_FORMATTING") > 0
-
-    vim.lsp.buf.format({
-        bufnr = buf,
-        filter = function(client)
-            if have_nls then
-                return client.name == "null-ls"
-            end
-            return client.name ~= "null-ls"
-        end,
-    })
-end
-
 local function on_attach(client, bufnr)
-    local nmap = require("core.keymap").nmap
-
-    if client.supports_method("textDocument/formatting") then
-        vim.api.nvim_create_autocmd("BufWritePre", {
-            group = vim.api.nvim_create_augroup("LspFormat." .. bufnr, {}),
-            buffer = bufnr,
-            callback = function()
-                if autoformat then
-                    format()
-                end
-            end,
-        })
-        nmap("<leader>=", format, { buffer = bufnr, desc = "Format" })
-    end
-
-    nmap("<leader>rn", function()
-        require("inc_rename")
-        return ":IncRename " .. vim.fn.expand("<cword>")
-    end, { expr = true })
-    nmap("<space>ca", "<cmd>Lspsaga code_action<CR>", { buffer = bufnr, desc = "Lsp code action" })
-    nmap("gd", "<cmd>Telescope lsp_definitions<CR>", { buffer = bufnr, desc = "Lsp definition" })
-    nmap("gD", vim.lsp.buf.declaration, { buffer = bufnr, desc = "Lsp declaration" })
-    nmap("gp", "<cmd>Lspsaga peek_definition<CR>")
-    nmap(
-        "gi",
-        "<cmd>Telescope lsp_implementations<CR>",
-        { buffer = bufnr, desc = "Lsp implementation" }
-    )
-    nmap("gr", "<cmd>Telescope lsp_references<CR>", { buffer = bufnr, desc = "Lsp references" })
-
-    nmap("[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true })
-    nmap("]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
-    nmap("[e", function()
-        require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR })
-    end)
-    nmap("]e", function()
-        require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
-    end)
-    nmap("go", "<cmd>Lspsaga show_line_diagnostics<CR>")
-
-    nmap("gk", vim.lsp.buf.signature_help, { buffer = bufnr, desc = "Lsp open signature help" })
+      require("config.lsp.keymaps").on_attach(client, bufnr)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()

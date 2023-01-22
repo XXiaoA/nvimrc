@@ -49,7 +49,7 @@ return {
 
     {
         "j-hui/fidget.nvim",
-        event = "VeryLazy",
+        event = "LspAttach",
         opts = {
             sources = {
                 ["null-ls"] = {
