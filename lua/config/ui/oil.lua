@@ -14,6 +14,7 @@ return {
         keymaps = {
             ["q"] = "actions.close",
             ["<M-m>"] = "actions.close",
+            ["<C-s>"] = false,
         },
         view_options = {
             show_hidden = true,
