@@ -101,20 +101,6 @@ return {
     { "voldikss/vim-translator", cmd = { "Translate", "TranslateW" } },
 
     {
-        "jubnzv/mdeval.nvim",
-        cmd = "MdEval",
-        opts = {
-            -- Don't ask before executing code blocks
-            require_confirmation = false,
-            eval_options = {
-                cpp = {
-                    command = { "clang++", "-std=c++20", "-O0" },
-                },
-            },
-        },
-    },
-
-    {
         "danymat/neogen",
         keys = { { "<leader>/", "<cmd>Neogen<CR>", desc = "generate annotation" } },
         opts = { snippet_engine = "luasnip" },
