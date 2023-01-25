@@ -16,16 +16,12 @@ M.config = function()
         return
     end
 
-    -- Gets the root dir from either:
-    -- * connected lsp
-    -- * .git from file
-    -- * .git from cwd
-    -- * cwd
-    ---@param opts? table
-    local function project_files(opts)
-        opts = opts or {}
-        opts.cwd = require("utils").get_root()
-        require("telescope.builtin").find_files(opts)
+    local function do_builtin(builtin, opts)
+        return function()
+            builtin = builtin
+            opts = vim.tbl_deep_extend("force", { cwd = require("utils").get_root() }, opts or {})
+            require("telescope.builtin")[builtin](opts)
+        end
     end
 
     local nmap = require("core.keymap").nmap
@@ -34,8 +30,8 @@ M.config = function()
     nmap("<leader>gc", ":Telescope git_commits<CR>", { desc = "commit history" })
     nmap("<leader>gC", ":Telescope git_bcommits<CR>", { desc = "buffer commit history" })
 
-    nmap("<leader>fw", ":Telescope live_grep<CR>", { desc = "search words" })
-    nmap("<leader><space>", project_files, { desc = "search files" })
+    nmap("<leader>fw", do_builtin("live_grep"), { desc = "search words" })
+    nmap("<leader><space>", do_builtin("find_files"), { desc = "search files" })
     nmap("<leader>fr", ":Telescope oldfiles<CR>", { desc = "search recent files" })
     nmap("<leader>fb", ":Telescope buffers<CR>", { desc = "search buffers" })
     nmap("<leader>fh", ":Telescope help_tags<CR>", { desc = "search help tags" })
