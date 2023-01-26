@@ -61,8 +61,7 @@ return {
     },
 
     {
-        "XXiaoA/zen-mode.nvim",
-        dev = false,
+        "folke/zen-mode.nvim",
         dependencies = {
             "folke/twilight.nvim",
             config = true,
