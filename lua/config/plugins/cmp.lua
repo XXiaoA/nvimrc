@@ -77,8 +77,8 @@ M.config = function()
             -- ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
 
             ["<Tab>"] = cmp.mapping(function(fallback)
-                if luasnip.expand_or_locally_jumpable() then
-                    luasnip.expand_or_jump()
+                if luasnip.jumpable(1) then
+                    luasnip.jump(1)
                 else
                     fallback()
                 end
