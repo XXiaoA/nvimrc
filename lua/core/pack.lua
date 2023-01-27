@@ -80,7 +80,7 @@ function M.setup()
     }
     M.auto_load_modules_packages()
     lazy.setup(M.plugins, opts)
-    require("core.keymap").nmap("<leader>l", "<cmd>Lazy<cr>", { desc = lazy })
+    require("core.keymap").nmap("<leader>ol", "<cmd>Lazy<cr>", { desc = "Lazy" })
 end
 
 return M

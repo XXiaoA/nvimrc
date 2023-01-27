@@ -18,6 +18,7 @@ return {
     {
         "williamboman/mason.nvim",
         branch = "main",
+        keys = { { "<leader>om", "<cmd>Mason<CR>", desc = "Mason" } },
         opts = {
             ui = {
                 border = "single",
@@ -27,22 +28,18 @@ return {
 
     {
         "williamboman/mason-lspconfig.nvim",
-        config = function()
-            local mason_lspconfig = require("utils").require("mason-lspconfig")
-            if mason_lspconfig then
-                mason_lspconfig.setup({
-                    -- TODO: prefect lazy load
-                    ---@diagnostic disable-next-line: param-type-mismatch
-                    ensure_installed = vim.tbl_values(yamler.get_value("lsp")),
-                })
-            end
-
+        opts = {
+            -- TODO: prefect lazy load
+            ---@diagnostic disable-next-line: param-type-mismatch
+            ensure_installed = vim.tbl_values(yamler.get_value("lsp")),
+        },
+        config = function(_, opts)
+            require("mason-lspconfig").setup(opts)
             require("config.lsp.setup")
         end,
     },
 
     {
-        -- TODO: perfect it
         -- workspace library for sumneko_lua
         "ii14/emmylua-nvim",
     },

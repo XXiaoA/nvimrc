@@ -92,12 +92,12 @@ nmap(
 
 -- Quickly add empty lines
 nmap(
-    "<leader>o",
+    "<leader><leader>o",
     '<CMD>call append(line("."),   repeat([""], v:count1))<CR>',
     { desc = "Add a empty line below" }
 )
 nmap(
-    "<leader>O",
+    "<leader><leader>O",
     '<CMD>call append(line(".")-1, repeat([""], v:count1))<CR>',
     { desc = "Add a empty line above" }
 )
