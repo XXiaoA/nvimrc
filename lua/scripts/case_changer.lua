@@ -196,13 +196,7 @@ api.nvim_create_user_command("CaseChange", function(ctx)
     end
 
     local new_name
-    if ctx.args == "" then
-        -- TODO: use rotate style instead of random type
-        local random_index = fn.rand() % vim.tbl_count(all_case) + 1
-        new_name = change_case(current_name, all_case[random_index])
-    else
-        new_name = change_case(current_name, ctx.args)
-    end
+    new_name = change_case(current_name, ctx.args)
 
     if ctx.range == 0 then
         vim.cmd.normal({ "diwi" .. new_name, bang = true })
@@ -211,7 +205,7 @@ api.nvim_create_user_command("CaseChange", function(ctx)
     end
 end, {
     range = true,
-    nargs = "?",
+    nargs = 1,
     complete = function(arg)
         return vim.tbl_filter(function(s)
             return string.match(s, "^" .. arg)

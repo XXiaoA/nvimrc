@@ -3,8 +3,6 @@ local yamler = require("utils.yamler")
 return {
     {
         "neovim/nvim-lspconfig",
-        -- TODO: prefect lazy load
-        event = "BufReadPre",
         ---@diagnostic disable-next-line: param-type-mismatch
         ft = vim.tbl_keys(yamler.get_value("lsp")),
         dependencies = {
@@ -29,7 +27,6 @@ return {
     {
         "williamboman/mason-lspconfig.nvim",
         opts = {
-            -- TODO: prefect lazy load
             ---@diagnostic disable-next-line: param-type-mismatch
             ensure_installed = vim.tbl_values(yamler.get_value("lsp")),
         },

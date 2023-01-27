@@ -5,7 +5,7 @@ local fn = vim.fn
 local delay = 250 -- ms
 
 local autosave = api.nvim_create_augroup("autosave", { clear = true })
--- BUG: won't initialize if require this file after BufRead
+
 -- Initialization
 api.nvim_create_autocmd("BufRead", {
     pattern = "*",
