@@ -1,18 +1,6 @@
 local M = {
     "L3MON4D3/LuaSnip",
     event = "InsertEnter",
-    init = function()
-        -- https://github.com/L3MON4D3/LuaSnip/issues/554
-        vim.api.nvim_create_autocmd("BufEnter", {
-            pattern = "*",
-            callback = function(ctx)
-                local buf_ft = vim.api.nvim_buf_get_option(ctx.buf, "filetype")
-                if buf_ft ~= "gitcommit" then
-                    require("luasnip").filetype_extend(buf_ft, { "commentable" })
-                end
-            end,
-        })
-    end,
 }
 
 M.config = function()
@@ -130,6 +118,19 @@ M.config = function()
     end
 
     ls.add_snippets("commentable", todo_comment_snippets, { key = "todo_comments" })
+
+    if vim.bo.ft ~= "gitcommit" then
+        ls.filetype_extend(vim.bo.ft, { "commentable" })
+    end
+    -- https://github.com/L3MON4D3/LuaSnip/issues/554
+    vim.api.nvim_create_autocmd("BufEnter", {
+        pattern = "*",
+        callback = function(ctx)
+            if vim.bo[ctx.buf].ft ~= "gitcommit" then
+                ls.filetype_extend(vim.bo[ctx.buf], { "commentable" })
+            end
+        end,
+    })
 end
 
 return M
