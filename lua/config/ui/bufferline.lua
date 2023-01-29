@@ -20,6 +20,12 @@ return {
     keys = {
         { "<leader>bh", ":BufferLineMovePrev<CR>", silent = true, desc = "Move buffer Left" },
         { "<leader>bl", ":BufferLineMoveNext<CR>", silent = true, desc = "Move buffer Right" },
+        {
+            "<leader>bc",
+            ":BufferLinePickClose<CR>",
+            silent = true,
+            desc = "Pick a buffer to close",
+        },
         { "<A-,>", ":BufferLineCyclePrev<CR>", silent = true, desc = "Go to previous buffer" },
         { "<A-.>", ":BufferLineCycleNext<CR>", silent = true, desc = "Go to next buffer" },
     },
