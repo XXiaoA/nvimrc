@@ -1,5 +1,5 @@
 return {
-    "XXiaoA/lspsaga.nvim",
+    "XXiaoA/aphrodite.nvim",
     event = "LspAttach",
     opts = {
         lightbulb = {

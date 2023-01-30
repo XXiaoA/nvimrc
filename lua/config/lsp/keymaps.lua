@@ -53,8 +53,8 @@ end
 
 function M.diagnostic_goto(next, severity)
     -- local go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
-    local lspsaga = require("lspsaga.diagnostic")
-    local go = next and lspsaga.goto_next or lspsaga.goto_prev
+    local aphrodite = require("aphrodite.diagnostic")
+    local go = next and aphrodite.goto_next or aphrodite.goto_prev
     severity = severity and vim.diagnostic.severity[severity] or nil
     return function()
         go({ severity = severity })
