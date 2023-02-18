@@ -92,7 +92,7 @@ local opts = {
     capabilities = capabilities,
 }
 
-local sumneko_lua_opts = vim.tbl_extend("force", opts, require("config.lsp.opts.sumneko_lua"))
+local lua_ls_opts = vim.tbl_extend("force", opts, require("config.lsp.opts.lua_ls"))
 
 local clangd_opts = opts
 clangd_opts.capabilities.offsetEncoding = "utf-8"
@@ -102,8 +102,8 @@ mason_lspconfig.setup_handlers({
         lspconfig[server_name].setup(opts)
     end,
 
-    ["sumneko_lua"] = function()
-        lspconfig.sumneko_lua.setup(sumneko_lua_opts)
+    ["lua_ls"] = function()
+        lspconfig.lua_ls.setup(lua_ls_opts)
     end,
 
     ["clangd"] = function()

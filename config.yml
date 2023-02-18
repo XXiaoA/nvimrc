@@ -1,10 +1,10 @@
 # run `XXiaoA colorschemes` to see all colorschemes
-colorscheme: duskfox
+colorscheme: tokyonight-moon
 
 lsp:
   # filetype: server
   cpp: clangd
-  lua: sumneko_lua
+  lua: lua_ls
   python: pylsp
   rust: rust_analyzer
   vim: vimls

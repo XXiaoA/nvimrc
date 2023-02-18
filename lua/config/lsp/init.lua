@@ -37,7 +37,7 @@ return {
     },
 
     {
-        -- workspace library for sumneko_lua
+        -- workspace library for lua_ls
         "ii14/emmylua-nvim",
     },
 
