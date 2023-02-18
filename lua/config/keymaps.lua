@@ -77,6 +77,8 @@ nmap("<leader>bn", ":enew<CR>", { desc = "New Buffer" })
 -- Remap for dealing with word wrap
 nmap("k", "v:count == 0 ? 'gk' : 'k'", { expr = true })
 nmap("j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
+xmap("k", "v:count == 0 ? 'gk' : 'k'", { expr = true })
+xmap("j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
 
 imap(",", ",<c-g>u")
 imap(".", ".<c-g>u")
