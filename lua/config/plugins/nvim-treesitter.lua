@@ -49,7 +49,7 @@ return {
     },
 
     {
-        "mrjones2014/nvim-ts-rainbow",
+        "HiPhish/nvim-ts-rainbow2",
         event = "BufReadPre",
         dependencies = "nvim-treesitter",
     },
