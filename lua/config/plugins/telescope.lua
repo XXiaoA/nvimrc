@@ -39,7 +39,7 @@ M.config = function()
     nmap("z=", ":Telescope spell_suggest<CR>", { desc = "spell suggest" })
 
     require("telescope").load_extension("project")
-    nmap("<leader>p", ":Telescope project<CR>", { desc = "projects" })
+    nmap("<leader>op", ":Telescope project<CR>", { desc = "Projects" })
 
     telescope.setup({
         defaults = {
