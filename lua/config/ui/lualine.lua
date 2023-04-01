@@ -50,6 +50,6 @@ return {
             lualine_z = {},
         },
         tabline = {},
-        extensions = {},
+        extensions = { "lazy" },
     },
 }
