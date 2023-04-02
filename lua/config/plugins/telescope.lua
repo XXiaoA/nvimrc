@@ -36,6 +36,7 @@ M.config = function()
     nmap("<leader>fb", ":Telescope buffers<CR>", { desc = "search buffers" })
     nmap("<leader>fh", ":Telescope help_tags<CR>", { desc = "search help tags" })
     nmap("<leader>fu", ":Telescope resume<CR>", { desc = "resume last picker" })
+    nmap("<leader>fm", ":Telescope man_pages<CR>", { desc = "man pages" })
     nmap("z=", ":Telescope spell_suggest<CR>", { desc = "spell suggest" })
 
     require("telescope").load_extension("project")
