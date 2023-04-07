@@ -13,7 +13,7 @@ return {
                 "rust",
                 "fish",
                 "cpp",
-                "help",
+                "vimdoc",
                 "yaml",
             },
             highlight = {
