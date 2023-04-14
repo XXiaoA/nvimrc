@@ -18,6 +18,13 @@ return {
     },
 
     {
+        "AlexvZyl/nordic.nvim",
+        init = function()
+            add_colorscheme("nordic")
+        end,
+    },
+
+    {
         "sainnhe/gruvbox-material",
         init = function()
             add_colorscheme("gruvbox-material")
