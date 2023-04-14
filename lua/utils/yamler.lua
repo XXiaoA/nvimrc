@@ -119,7 +119,7 @@ function M.modify_value(opt, value)
         M.data[opt_line] = M.data[opt_line]:gsub([[:%s*([^%s]*)]], ": " .. value, 1)
 
         local f = assert(io.open(M.file_path, "w"))
-        f:write(table.concat(M.data, "\n"))
+        f:write(table.concat(M.data, "\n") .. "\n")
         f:close()
     end
 end
