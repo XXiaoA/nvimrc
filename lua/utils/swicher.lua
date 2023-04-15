@@ -3,7 +3,7 @@ local M = {}
 M.colorschemes = {
     ["gruvbox-material"] = {
         fish = "Gruvbox",
-        wezterm = "Gruvbox Dark",
+        wezterm = "Gruvbox Dark (Gogh)",
     },
     ["catppuccin-mocha"] = {
         fish = "Catppuccin Mocha",
