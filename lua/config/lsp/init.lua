@@ -49,6 +49,9 @@ return {
                 ["null-ls"] = {
                     ignore = true,
                 },
+                ["pylsp"] = {
+                    ignore = true,
+                },
             },
         },
     },
