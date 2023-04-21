@@ -38,6 +38,24 @@ M.config = function()
     nmap("<leader>fu", ":Telescope resume<CR>", { desc = "resume last picker" })
     nmap("<leader>fm", ":Telescope man_pages<CR>", { desc = "man pages" })
     nmap("z=", ":Telescope spell_suggest<CR>", { desc = "spell suggest" })
+    nmap(
+        "<leader>fs",
+        do_builtin("lsp_document_symbols", {
+            symbols = {
+                "Class",
+                "Function",
+                "Method",
+                "Constructor",
+                "Interface",
+                "Module",
+                "Struct",
+                "Trait",
+                "Field",
+                "Property",
+            },
+        }),
+        { desc = "search symbol" }
+    )
 
     require("telescope").load_extension("project")
     nmap("<leader>op", ":Telescope project<CR>", { desc = "Projects" })
