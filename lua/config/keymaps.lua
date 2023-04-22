@@ -105,5 +105,5 @@ nmap(
     { desc = "Add a empty line above" }
 )
 
-nmap("[t", "<CMD>tabNext<CR>")
-nmap("]t", "<CMD>tabnext<CR>")
+nmap("[t", "<CMD>tabNext<CR>", { desc = "Net tab" })
+nmap("]t", "<CMD>tabnext<CR>", { desc = "Previous tab" })

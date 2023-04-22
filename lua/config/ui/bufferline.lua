@@ -26,7 +26,7 @@ return {
             silent = true,
             desc = "Pick a buffer to close",
         },
-        { "<A-,>", ":BufferLineCyclePrev<CR>", silent = true, desc = "Go to previous buffer" },
-        { "<A-.>", ":BufferLineCycleNext<CR>", silent = true, desc = "Go to next buffer" },
+        { "]b", ":BufferLineCyclePrev<CR>", silent = true, desc = "Previous buffer" },
+        { "[b", ":BufferLineCycleNext<CR>", silent = true, desc = "Next buffer" },
     },
 }

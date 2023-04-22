@@ -150,7 +150,7 @@ return {
         "s1n7ax/nvim-window-picker",
         keys = {
             {
-                ",w",
+                "<leader>ww",
                 function()
                     local picked_window_id = require("window-picker").pick_window({
                         include_current_win = false,
@@ -161,7 +161,7 @@ return {
                 desc = "Pick a window",
             },
             {
-                ",W",
+                "<leader>ws",
                 function()
                     local window = require("window-picker").pick_window({
                         include_current_win = false,

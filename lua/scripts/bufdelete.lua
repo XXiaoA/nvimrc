@@ -47,4 +47,4 @@ end, {
 })
 
 local nmap = require("core.keymap").nmap
-nmap("<A-w>", ":Bdelete<CR>", { desc = "Close current buffer" })
+nmap("<leader>bd", ":Bdelete<CR>", { desc = "Close current buffer" })
