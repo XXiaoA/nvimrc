@@ -83,6 +83,7 @@ xmap("j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
 imap(",", ",<c-g>u")
 imap(".", ".<c-g>u")
 imap(";", ";<c-g>u")
+imap(":", ":<c-g>u")
 
 -- https://github.com/mhinz/vim-galore#quickly-edit-your-macros
 -- Quickly edit your macros
