@@ -1,5 +1,5 @@
 # run `XXiaoA colorschemes` to see all colorschemes
-colorscheme: nordic
+colorscheme: everforest
 
 lsp:
   # filetype: server

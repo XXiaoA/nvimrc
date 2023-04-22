@@ -60,6 +60,6 @@ return {
         },
 
         tabline = {},
-        extensions = { "lazy" },
+        extensions = { "lazy", "neo-tree" },
     },
 }
