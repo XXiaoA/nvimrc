@@ -4,13 +4,6 @@ add_colorscheme("random")
 return {
     -- colorscheme
     {
-        "marko-cerovac/material.nvim",
-        init = function()
-            add_colorscheme("material")
-        end,
-    },
-
-    {
         "sainnhe/everforest",
         init = function()
             add_colorscheme("everforest")
