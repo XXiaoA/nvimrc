@@ -33,18 +33,21 @@ end
 ---@param colorscheme string
 ---@param expand boolean? Whether change the colorscheme of fish and wezterm
 function M.load_colorscheme(colorscheme, expand)
-    if colorscheme then
-        pcall(require, "config.ui.colorschemes." .. colorscheme)
-        local status_ok, _ = pcall(vim.cmd.colorscheme, colorscheme)
-        if not status_ok then
-            vim.notify("No find colorscheme: " .. colorscheme, vim.log.levels.WARN)
-            return
-        end
-        yamler.modify_value("colorscheme", colorscheme)
-        if expand then
-            swicher.fish(swicher.colorschemes[colorscheme].fish)
-            swicher.wezterm(swicher.colorschemes[colorscheme].wezterm)
-        end
+    if not colorscheme then
+        return false
+    end
+
+    colorscheme = colorscheme == "random" and M.get_random_colorscheme() or colorscheme
+    pcall(require, "config.ui.colorschemes." .. colorscheme)
+    local status_ok, _ = pcall(vim.cmd.colorscheme, colorscheme)
+    if not status_ok then
+        vim.notify("No find colorscheme: " .. colorscheme, vim.log.levels.WARN)
+        return
+    end
+    yamler.modify_value("colorscheme", colorscheme)
+    if expand then
+        swicher.fish(swicher.colorschemes[colorscheme].fish)
+        swicher.wezterm(swicher.colorschemes[colorscheme].wezterm)
     end
 end
 
@@ -60,8 +63,7 @@ function M.load_colorscheme_ui(expand)
             return item
         end,
     }, function(choice)
-        local colorscheme = choice == "random" and M.get_random_colorscheme() or choice
-        M.load_colorscheme(colorscheme, expand)
+        M.load_colorscheme(choice, expand)
     end)
 end
 

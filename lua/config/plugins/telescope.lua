@@ -60,6 +60,9 @@ M.config = function()
     require("telescope").load_extension("project")
     nmap("<leader>op", ":Telescope project<CR>", { desc = "Projects" })
 
+    require("telescope").load_extension("themes")
+    nmap("<leader>cp", "<cmd>Telescope themes<CR>", { desc = "change colorscheme with preview" })
+
     telescope.setup({
         defaults = {
             vimgrep_arguments = {

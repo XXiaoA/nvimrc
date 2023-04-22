@@ -1,5 +1,5 @@
 # run `XXiaoA colorschemes` to see all colorschemes
-colorscheme: catppuccin-mocha
+colorscheme: nordic
 
 lsp:
   # filetype: server
