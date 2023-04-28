@@ -20,7 +20,7 @@ function M.get()
         { "]w", M.diagnostic_goto(true, "WARN"), desc = "Next Warning" },
         { "[w", M.diagnostic_goto(false, "WARN"), desc = "Prev Warning" },
         { "<leader>ca", "<cmd>Aphrodite code_action<CR>", desc = "Code Action", mode = { "n", "v" }, has = "codeAction" },
-        { "<leader>=", M.format, desc = "Format Document", has = "documentFormatting" },
+        { "<leader>=", M.format, desc = "Format", has = "documentFormatting" },
         { "<leader>=", M.format, desc = "Format Range", mode = "v", has = "documentRangeFormatting" },
         { "<leader>rn", M.rename, expr = true, desc = "Rename", has = "rename" },
     }

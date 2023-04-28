@@ -107,3 +107,7 @@ nmap(
 
 nmap("[t", "<CMD>tabNext<CR>", { desc = "Net tab" })
 nmap("]t", "<CMD>tabnext<CR>", { desc = "Previous tab" })
+
+nmap("<leader>td", "<CMD>tabclose<CR>", { desc = "Close tab" })
+
+imap("<C-v>", "<C-r>+", { desc = "Paste" })
