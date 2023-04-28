@@ -16,4 +16,4 @@
 - [x] leap.nvim
 - [ ] https://github.com/stevearc/overseer.nvim
 - [x] null-ls
-- [ ] improve resize the window, like bspwm
+- [ ] https://github.com/ThePrimeagen/harpoon
