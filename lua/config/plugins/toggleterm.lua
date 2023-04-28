@@ -9,9 +9,6 @@ M.config = function()
     end
     local terminal = require("utils").require("toggleterm.terminal")
 
-    local keymap = require("core.keymap")
-    local tmap = keymap.tmap
-
     local Terminal = terminal.Terminal
     tg.setup({
         size = 13,
@@ -21,6 +18,9 @@ M.config = function()
         start_in_insert = true,
         persist_size = true,
         direction = "horizontal",
+        on_open = function()
+            vim.cmd.startinsert()
+        end,
     })
 
     -- 新建浮动终端
@@ -30,14 +30,8 @@ M.config = function()
         float_opts = {
             border = "single",
         },
-        on_open = function(term)
-            vim.cmd("startinsert")
-            -- 浮动终端中 <ESC> 是退出插入模式
-            tmap("<ESC>", "<C-\\><C-n>", { buffer = term.bufnr })
-        end,
-        on_close = function()
-            -- 重新映射 <ESC>
-            tmap("<ESC>", "<C-\\><C-n>")
+        on_open = function()
+            vim.cmd.startinsert()
         end,
     })
 
