@@ -5,6 +5,10 @@ local utils = require("utils")
 local save_dir = fn.stdpath("data") .. "/XXiaoA/"
 local nmap = require("core.keymap").nmap
 
+if not utils.is_directory(save_dir) then
+    vim.fn.mkdir(save_dir, "p")
+end
+
 -- Gets a set of lines from the buffer, inclusive and 1-indexed.
 ---@param start integer The starting line.
 ---@param stop integer? The final line.
