@@ -2,7 +2,10 @@ return {
     "RRethy/vim-illuminate",
     event = { "VeryLazy", "LspAttach" },
     config = function()
-        require("illuminate").configure({ delay = 200 })
+        require("illuminate").configure({
+            delay = 200,
+            modes_allowlist = { "n" },
+        })
     end,
     keys = {
         {
