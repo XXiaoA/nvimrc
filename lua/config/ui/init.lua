@@ -1,3 +1,4 @@
+local current_colorscheme = require("core.colorscheme").current_colorscheme
 local add_colorscheme = require("core.colorscheme").add_colorscheme
 add_colorscheme("random")
 
@@ -50,7 +51,7 @@ return {
     {
         "catppuccin/nvim",
         name = "catppuccin",
-        build = ":CatppuccinCompile",
+        build = ":CatppuccinCompile" and current_colorscheme():find("catppuccin"),
         init = function()
             add_colorscheme("catppuccin-mocha", "catppuccin-macchiato")
         end,
