@@ -28,5 +28,7 @@ return {
         },
         { "]b", ":BufferLineCyclePrev<CR>", silent = true, desc = "Previous buffer" },
         { "[b", ":BufferLineCycleNext<CR>", silent = true, desc = "Next buffer" },
+        { "<S-Tab>", "]b", remap = true, desc = "Previous buffer" },
+        { "<Tab>", "[b", remap = true, desc = "Next buffer" },
     },
 }
