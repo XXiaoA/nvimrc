@@ -73,6 +73,11 @@ nmap("<A-P>", "<cmd>pu!<CR>")
 
 nmap("<leader>be", ":noh<CR>", { desc = "Erase Search Highlights" })
 nmap("<leader>bn", ":enew<CR>", { desc = "New Buffer" })
+nmap("<leader>bt", function()
+    local winview = vim.fn.winsaveview()
+    vim.cmd([[%s/\s\+$//e]])
+    vim.fn.winrestview(winview)
+end, { desc = "Remove trailing white spaces" })
 
 -- Remap for dealing with word wrap
 nmap("k", "v:count == 0 ? 'gk' : 'k'", { expr = true })
