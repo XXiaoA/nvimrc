@@ -73,7 +73,6 @@ return {
         "folke/zen-mode.nvim",
         dependencies = {
             "folke/twilight.nvim",
-            config = true,
         },
         keys = {
             { "<leader>zz", "<CMD>ZenMode<CR>" },
@@ -89,6 +88,13 @@ return {
                 gitsigns = { enabled = true },
                 tmux = { enabled = true },
             },
+            on_open = function()
+                require("lualine").hide()
+                vim.opt_local.winbar = nil
+            end,
+            on_close = function()
+                require("lualine").hide({ unhide = true })
+            end,
         },
     },
 }
