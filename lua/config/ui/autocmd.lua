@@ -1,8 +1,8 @@
 vim.api.nvim_create_autocmd("ColorScheme", {
     pattern = "*",
     command = [[
-    hi! link TSNodeKey HopNextKey
-    hi! link TSNodeUnmatched HopUnmatched
+    hi! link TSNodeKey Keyword
+    hi! link TSNodeUnmatched Comment
     ]],
 })
 
