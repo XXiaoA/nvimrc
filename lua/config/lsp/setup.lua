@@ -86,10 +86,10 @@ local servers = {
     },
 }
 local setup = {
-    ["rust_analyzer"] = function(_, _)
+    ["rust_analyzer"] = function(_, opts)
         require("rust-tools").setup({
             server = {
-                on_attach = on_attach,
+                on_attach = opts.on_attach,
             },
             tools = {
                 inlay_hints = {
@@ -110,6 +110,7 @@ mason_lspconfig.setup_handlers({
         local server_opts = vim.tbl_deep_extend("force", {
             capabilities = vim.deepcopy(capabilities),
         }, servers[server] or {})
+        server_opts.on_attach = on_attach
 
         if setup[server] then
             if setup[server](server, server_opts) then

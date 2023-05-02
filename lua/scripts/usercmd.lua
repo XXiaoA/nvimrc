@@ -3,13 +3,13 @@ local api = vim.api
 
 api.nvim_create_user_command("XXiaoA", function(ctx)
     if ctx.args == "colorschemes" then
-        vim.pretty_print(colorscheme.all_colorschemes)
+        vim.print(colorscheme.all_colorschemes)
     elseif ctx.args == "current_colorscheme" then
-        vim.pretty_print(colorscheme.current_colorscheme())
+        vim.print(colorscheme.current_colorscheme())
     elseif ctx.args == "config" then
         vim.cmd.e(vim.fn.stdpath("config") .. "/config.yml")
     else
-        vim.pretty_print("no command " .. ctx.args)
+        vim.print("no command " .. ctx.args)
     end
 end, {
     nargs = 1,
