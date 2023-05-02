@@ -50,71 +50,76 @@ local function on_attach(client, bufnr)
     require("config.lsp.keymaps").on_attach(client, bufnr)
 end
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.foldingRange = {
-    dynamicRegistration = false,
-    lineFoldingOnly = true,
-}
-capabilities.textDocument.completion = {
-    completionItem = {
-        commitCharactersSupport = true,
-        deprecatedSupport = true,
-        insertReplaceSupport = true,
-        insertTextModeSupport = {
-            valueSet = { 1, 2 },
-        },
-        labelDetailsSupport = true,
-        preselectSupport = true,
-        resolveSupport = {
-            properties = { "documentation", "detail", "additionalTextEdits" },
-        },
-        snippetSupport = true,
-        tagSupport = {
-            valueSet = { 1 },
+local capabilities = vim.tbl_deep_extend(
+    "force",
+    {},
+    vim.lsp.protocol.make_client_capabilities(),
+    require("cmp_nvim_lsp").default_capabilities()
+)
+
+local servers = {
+    clangd = {
+        capabilities = {
+            offsetEncoding = "utf-8",
         },
     },
-    completionList = {
-        itemDefaults = {
-            "commitCharacters",
-            "editRange",
-            "insertTextFormat",
-            "insertTextMode",
-            "data",
+
+    lua_ls = {
+        settings = {
+            Lua = {
+                runtime = {
+                    version = "LuaJIT",
+                },
+                diagnostics = {
+                    globals = { "vim" },
+                },
+                workspace = {
+                    library = {
+                        vim.fn.stdpath("data") .. "/lazy/emmylua-nvim",
+                    },
+                },
+                telemetry = {
+                    enable = false,
+                },
+            },
         },
     },
-    contextSupport = true,
-    dynamicRegistration = false,
-    insertTextMode = 1,
 }
-
-local opts = {
-    on_attach = on_attach,
-    capabilities = capabilities,
-}
-
-local lua_ls_opts = vim.tbl_extend("force", opts, require("config.lsp.opts.lua_ls"))
-
-local clangd_opts = opts
-clangd_opts.capabilities.offsetEncoding = "utf-8"
-
-mason_lspconfig.setup_handlers({
-    function(server_name)
-        lspconfig[server_name].setup(opts)
-    end,
-
-    ["lua_ls"] = function()
-        lspconfig.lua_ls.setup(lua_ls_opts)
-    end,
-
-    ["clangd"] = function()
-        lspconfig.clangd.setup(clangd_opts)
-    end,
-
-    ["rust_analyzer"] = function()
+local setup = {
+    ["rust_analyzer"] = function(_, _)
         require("rust-tools").setup({
             server = {
                 on_attach = on_attach,
             },
+            tools = {
+                inlay_hints = {
+                    auto = false,
+                },
+            },
         })
+        return true
+    end,
+    -- ["*"] = function(server, opts)
+    --     require("lspconfig")[server].setup(opts)
+    --     return true
+    -- end,
+}
+
+mason_lspconfig.setup_handlers({
+    function(server)
+        local server_opts = vim.tbl_deep_extend("force", {
+            capabilities = vim.deepcopy(capabilities),
+        }, servers[server] or {})
+
+        if setup[server] then
+            if setup[server](server, server_opts) then
+                return
+            end
+        elseif setup["*"] then
+            if setup["*"](server, server_opts) then
+                return
+            end
+        end
+        require("lspconfig")[server].setup(server_opts)
     end,
 })
