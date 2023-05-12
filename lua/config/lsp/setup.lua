@@ -4,15 +4,11 @@ if not mason_lspconfig or not lspconfig then
     return
 end
 
-local signs = {
-    { name = "DiagnosticSignError", text = "" },
-    { name = "DiagnosticSignWarn", text = "" },
-    { name = "DiagnosticSignHint", text = "" },
-    { name = "DiagnosticSignInfo", text = "" },
-}
-
-for _, sign in ipairs(signs) do
-    vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
+-- set diagnostic icons for signcolumn
+local diagnostic_icon = require("utils.lspkind").diagnostic
+for name, icon in pairs(diagnostic_icon) do
+    local sign_name = "DiagnosticSign" .. name
+    vim.fn.sign_define(sign_name, { texthl = sign_name, text = icon, numhl = "" })
 end
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
@@ -21,10 +17,13 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 )
 
 vim.diagnostic.config({
-    virtual_text = true,
     update_in_insert = false,
     underline = true,
     severity_sort = true,
+    virtual_text = {
+        spacing = 4,
+        prefix = "●",
+    },
     float = {
         focusable = false,
         style = "minimal",
@@ -32,9 +31,6 @@ vim.diagnostic.config({
         source = "always",
         header = "",
         prefix = "",
-    },
-    signs = {
-        active = signs,
     },
 })
 

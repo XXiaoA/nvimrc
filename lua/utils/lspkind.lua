@@ -37,6 +37,13 @@ M.icons = {
     Folder = "",
 }
 
+M.diagnostic = {
+    Error = "󰅚 ",
+    Warn = "󰀪 ",
+    Hint = "󰌶 ",
+    Info = "󰋽 ",
+}
+
 M.icons_with_whitespaces = {}
 for name, icon in pairs(M.icons) do
     M.icons_with_whitespaces[name] = icon .. " "
