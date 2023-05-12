@@ -14,6 +14,11 @@ return {
     },
 
     {
+        "tpope/vim-fugitive",
+        event = "VeryLazy",
+    },
+
+    {
         "windwp/nvim-spectre",
         dependencies = "plenary.nvim",
         cmd = "Spectre",
