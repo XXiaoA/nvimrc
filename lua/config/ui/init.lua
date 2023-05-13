@@ -51,7 +51,7 @@ return {
     {
         "catppuccin/nvim",
         name = "catppuccin",
-        build = ":CatppuccinCompile" and current_colorscheme():find("catppuccin"),
+        build = ":CatppuccinCompile" and current_colorscheme:find("catppuccin"),
         init = function()
             add_colorscheme("catppuccin-mocha", "catppuccin-macchiato")
         end,

@@ -75,7 +75,7 @@ function M.setup()
         },
         ui = { border = "single" },
         install = {
-            colorscheme = { colorscheme.current_colorscheme(), "habamax" },
+            colorscheme = { colorscheme.current_colorscheme, "habamax" },
         },
     }
     M.auto_load_modules_packages()

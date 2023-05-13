@@ -1,8 +1,24 @@
 local M = {}
-local yamler = require("utils.yamler")
 local swicher = require("utils.swicher")
 --- string[]
 M.all_colorschemes = {}
+--- string
+M.current_colorscheme = "rose-pine"
+
+function M.modify_colorscheme(colorscheme)
+    local file_path = vim.fn.stdpath("config") .. "/lua/core/colorscheme.lua"
+    local _f = assert(io.open(file_path, "r"))
+    local data = _f:read("*a")
+    _f:close()
+
+    local f = assert(io.open(file_path, "w"))
+    data = data:gsub(
+        'local current_theme = "[^%%]-"',
+        ('local current_theme = "%s"'):format(colorscheme)
+    )
+    f:write(data)
+    f:close()
+end
 
 --- Add new colorschemes
 ---@vararg string colorschemes
@@ -20,9 +36,10 @@ end
 ---@return string
 function M.get_random_colorscheme()
     local all_colorschemes = vim.tbl_filter(function(value)
-        if value ~= "random" and value ~= M.current_colorscheme() then
+        if value ~= "random" and value ~= M.current_colorscheme then
             return true
         end
+        return false
     end, M.all_colorschemes)
     local random_index = (vim.fn.rand() % #all_colorschemes) + 1
     local colorscheme = all_colorschemes[random_index]
@@ -44,7 +61,7 @@ function M.load_colorscheme(colorscheme, expand)
         vim.notify("No find colorscheme: " .. colorscheme, vim.log.levels.WARN)
         return
     end
-    yamler.modify_value("colorscheme", colorscheme)
+    M.modify_colorscheme(colorscheme)
     if expand then
         swicher.fish(swicher.colorschemes[colorscheme].fish)
         swicher.wezterm(swicher.colorschemes[colorscheme].wezterm)
@@ -67,18 +84,11 @@ function M.load_colorscheme_ui(expand)
     end)
 end
 
---- get current colorscheme
----@return string
-function M.current_colorscheme()
-    ---@diagnostic disable-next-line: return-type-mismatch
-    return yamler.get_value("colorscheme")
-end
-
 function M.setup()
     local nmap = require("core.keymap").nmap
     require("config.ui.autocmd")
     vim.o.background = "dark"
-    M.load_colorscheme(M.current_colorscheme())
+    M.load_colorscheme(M.current_colorscheme)
     nmap("<leader>cc", M.load_colorscheme_ui, { desc = "Change ColorScheme" })
     nmap("<leader>ce", function()
         M.load_colorscheme_ui(true)
