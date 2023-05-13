@@ -1,10 +1,7 @@
-local yamler = require("utils.yamler")
-
 return {
     {
         "neovim/nvim-lspconfig",
-        ---@diagnostic disable-next-line: param-type-mismatch
-        ft = vim.tbl_keys(yamler.get_value("lsp")),
+        event = { "BufReadPre", "BufNewFile" },
         dependencies = {
             "mason.nvim",
             "mason-lspconfig.nvim",
@@ -27,8 +24,7 @@ return {
     {
         "williamboman/mason-lspconfig.nvim",
         opts = {
-            ---@diagnostic disable-next-line: param-type-mismatch
-            ensure_installed = vim.tbl_values(yamler.get_value("lsp")),
+            ensure_installed = { "lua_ls", "pylsp", "vimls", "rust_analyzer", "clangd" },
         },
         config = function(_, opts)
             require("mason-lspconfig").setup(opts)
