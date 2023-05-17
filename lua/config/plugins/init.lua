@@ -51,6 +51,12 @@ return {
     },
 
     {
+        "echasnovski/mini.trailspace",
+        event = "VeryLazy",
+        config = true,
+    },
+
+    {
         "iamcco/markdown-preview.nvim",
         config = function()
             vim.g.mkdp_auto_close = 0
