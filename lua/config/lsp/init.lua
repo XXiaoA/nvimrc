@@ -24,7 +24,7 @@ return {
     {
         "williamboman/mason-lspconfig.nvim",
         opts = {
-            ensure_installed = { "lua_ls", "pylsp", "vimls", "rust_analyzer", "clangd" },
+            ensure_installed = { "lua_ls", "pyright", "vimls", "rust_analyzer", "clangd" },
         },
         config = function(_, opts)
             require("mason-lspconfig").setup(opts)
