@@ -13,8 +13,8 @@ function M.modify_colorscheme(colorscheme)
 
     local f = assert(io.open(file_path, "w"))
     data = data:gsub(
-        'local current_theme = "[^%%]-"',
-        ('local current_theme = "%s"'):format(colorscheme)
+        'M.current_colorscheme = "[^%%]-"',
+        ('M.current_colorscheme = "%s"'):format(colorscheme)
     )
     f:write(data)
     f:close()
