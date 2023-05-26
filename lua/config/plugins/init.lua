@@ -92,14 +92,6 @@ return {
 
     { "junegunn/vim-easy-align", cmd = "EasyAlign" },
 
-    {
-        "XXiaoA/ns-textobject.nvim",
-        -- Operator-pending mode
-        event = "ModeChanged",
-        dependencies = "nvim-surround",
-        config = true,
-    },
-
     -- better text-objects
     {
         "echasnovski/mini.ai",
