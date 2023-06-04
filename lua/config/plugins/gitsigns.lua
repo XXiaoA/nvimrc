@@ -49,9 +49,9 @@ M.config = function()
             local nmap = map("n")
 
             -- Navigation
-            map({ "n", "v" })("]c", function()
+            map({ "n", "v" })("]h", function()
                 if vim.wo.diff then
-                    return "]c"
+                    return "]h"
                 end
                 vim.schedule(function()
                     gs.next_hunk()
@@ -59,9 +59,9 @@ M.config = function()
                 return "<Ignore>"
             end, { expr = true, desc = "next hunk" })
 
-            map({ "n", "v" })("[c", function()
+            map({ "n", "v" })("[h", function()
                 if vim.wo.diff then
-                    return "[c"
+                    return "[h"
                 end
                 vim.schedule(function()
                     gs.prev_hunk()
