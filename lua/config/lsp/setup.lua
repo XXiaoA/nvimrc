@@ -96,6 +96,25 @@ local setup = {
         })
         return true
     end,
+
+    clangd = function(_, opts)
+        require("clangd_extensions").setup({
+            server = {
+                on_attach = opts.on_attach,
+                capabilities = opts.capabilities,
+            },
+            extensions = {
+                autoSetHints = false,
+                memory_usage = {
+                    border = "single",
+                },
+                symbol_info = {
+                    border = "single",
+                },
+            },
+        })
+        return true
+    end,
     -- ["*"] = function(server, opts)
     --     require("lspconfig")[server].setup(opts)
     --     return true

@@ -7,6 +7,7 @@ return {
             "mason-lspconfig.nvim",
             "null-ls.nvim",
             "simrat39/rust-tools.nvim",
+            "p00f/clangd_extensions.nvim",
         },
     },
 
