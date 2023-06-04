@@ -18,8 +18,6 @@ M.config = function()
         return
     end
 
-    local luasnip = require("utils").require("luasnip")
-
     -- limit the max height of windows
     vim.o.pumheight = 14
 
@@ -31,13 +29,11 @@ M.config = function()
             completion = cmp.config.window.bordered(),
             documentation = cmp.config.window.bordered(),
         },
-        -- 指定 snippet 引擎
         snippet = {
             expand = function(args)
-                luasnip.lsp_expand(args.body)
+                require("luasnip").lsp_expand(args.body)
             end,
         },
-        -- 来源
         sources = cmp.config.sources({
             { name = "nvim_lsp" },
             { name = "luasnip" },
@@ -45,7 +41,6 @@ M.config = function()
             { name = "path" },
             { name = "nvim_lsp_signature_help" },
         }),
-        -- 快捷键
         mapping = {
             ["<C-k>"] = cmp.mapping.select_prev_item(),
             ["<C-j>"] = cmp.mapping.select_next_item(),
@@ -53,7 +48,6 @@ M.config = function()
             ["<C-d>"] = cmp.mapping.scroll_docs(4),
             ["<C-u>"] = cmp.mapping.scroll_docs(-4),
 
-            -- 出现/取消补全
             ["<C-e>"] = cmp.mapping(function()
                 if cmp.visible() then
                     cmp.abort()
@@ -66,34 +60,15 @@ M.config = function()
             -- Set `select` to `false` to only confirm explicitly selected items.
             ["<CR>"] = cmp.mapping.confirm({
                 select = true,
-                -- behavior = cmp.ConfirmBehavior.Replace
             }, { "i", "c" }),
-
-            ["<C-y>"] = cmp.mapping.confirm({
+            ["<S-CR>"] = cmp.mapping.confirm({
                 select = true,
                 behavior = cmp.ConfirmBehavior.Replace,
             }, { "i", "c" }),
 
             -- ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
-
-            ["<Tab>"] = cmp.mapping(function(fallback)
-                if luasnip.jumpable(1) then
-                    luasnip.jump(1)
-                else
-                    fallback()
-                end
-            end, { "i", "s" }),
-
-            ["<S-Tab>"] = cmp.mapping(function(fallback)
-                if luasnip.jumpable(-1) then
-                    luasnip.jump(-1)
-                else
-                    fallback()
-                end
-            end, { "i", "s" }),
         },
 
-        -- 使用lspkind-nvim显示类型图标
         formatting = {
             fields = { "kind", "abbr", "menu" },
             format = function(entry, item)

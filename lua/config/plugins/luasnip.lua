@@ -1,39 +1,47 @@
 local M = {
     "L3MON4D3/LuaSnip",
-    event = "InsertEnter",
+    opts = {
+        history = true,
+        delete_check_events = "TextChanged",
+    },
+    -- stylua: ignore
+    keys = {
+        {
+            "<tab>",
+            function()
+                return require("luasnip").jumpable(1) and "<Plug>luasnip-jump-next" or "<tab>"
+            end,
+            expr = true, silent = true, mode = "i",
+        },
+        { "<tab>", function() require("luasnip").jump(1) end, mode = "s" },
+        { "<s-tab>", function() require("luasnip").jump(-1) end, mode = { "i", "s" } },
+        { "<C-l>", function()
+            if require("luasnip").choice_active() then
+                require("luasnip").change_choice(1)
+            end
+        end, mode = { "i", "s" } },
+        { "<C-h>", function()
+            if require("luasnip").choice_active() then
+                require("luasnip").change_choice(-1)
+            end
+        end, mode = { "i", "s" } },
+        { "<C-u>", function()
+            if require("luasnip").choice_active() then
+                require("luasnip.extras.select_choice")()
+            end
+        end, mode = { "i", "s" } },
+    },
 }
 
 M.config = function()
-    -- https://github.com/L3MON4D3/LuaSnip/wiki/Cool-Snippets#all---todo-commentsnvim-snippets
-    local ls = require("utils").require("luasnip")
-    if not ls then
-        return
-    end
-    -- load the luasnip
+    local ls = require("luasnip")
     require("luasnip.loaders.from_lua").load({ paths = "./snippets" })
 
-    local map = require("core.keymap").set_keymap
-    map({ "i", "s" })("<C-l>", function()
-        if ls.choice_active() then
-            ls.change_choice(1)
-        end
-    end)
-    map({ "i", "s" })("<C-h>", function()
-        if ls.choice_active() then
-            ls.change_choice(-1)
-        end
-    end)
-    map({ "i", "s" })("<C-u>", function()
-        if ls.choice_active() then
-            require("luasnip.extras.select_choice")()
-        end
-    end)
-
+    -- https://github.com/L3MON4D3/LuaSnip/wiki/Cool-Snippets#all---todo-commentsnvim-snippets
     local s = ls.snippet
     local i = ls.insert_node
     local c = ls.choice_node
     local fmt = require("luasnip.extras.fmt").fmt
-    local fmta = require("luasnip.extras.fmt").fmta
 
     local informations = {
         username = "XXiaoA",
@@ -71,13 +79,12 @@ M.config = function()
         for _, mark in pairs(marks) do
             table.insert(sigmark_nodes, mark())
         end
-        local format_strings = "<>: <>"
         -- format them into the actual snippet
-        local comment_node = fmta(format_strings, {
+        local comment_node = fmt("{}: {}", {
             c(1, aliases_nodes), -- [name-of-comment]
             c(2, {
                 i(1), -- {comment-text}
-                fmta("<> <>", {
+                fmt("{} {}", {
                     i(2),
                     c(1, sigmark_nodes), -- [comment-mark]
                 }),
