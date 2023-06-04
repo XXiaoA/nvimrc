@@ -86,6 +86,7 @@ local setup = {
         require("rust-tools").setup({
             server = {
                 on_attach = opts.on_attach,
+                capabilities = opts.capabilities,
             },
             tools = {
                 inlay_hints = {
