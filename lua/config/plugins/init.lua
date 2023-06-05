@@ -26,6 +26,12 @@ return {
     },
 
     {
+        "eraserhd/parinfer-rust",
+        ft = { "lisp", "yuck" },
+        build = "cargo build --release",
+    },
+
+    {
         "echasnovski/mini.move",
         keys = {
             { mode = { "n", "x" }, "<M-left>" },

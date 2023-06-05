@@ -15,6 +15,7 @@ return {
                 "cpp",
                 "vimdoc",
                 "yaml",
+                "yuck",
             },
             highlight = {
                 enable = true,
