@@ -11,7 +11,7 @@ if os.getenv("SSH_TTY") ~= nil then
     return
 end
 
-local os_name = vim.loop.os_uname().sysname
+local os_name = vim.uv.os_uname().sysname
 if
     (os_name == "Linux" or os_name == "Unix")
     and os.getenv("DISPLAY") == nil

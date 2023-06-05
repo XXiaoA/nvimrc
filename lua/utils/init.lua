@@ -26,7 +26,7 @@ end
 ---@param path string path to check
 ---@return boolean
 function M.is_file(path)
-    local stat = vim.loop.fs_stat(path)
+    local stat = vim.uv.fs_stat(path)
     return stat and stat.type == "file" or false
 end
 
@@ -34,7 +34,7 @@ end
 ---@param path string path to check
 ---@return  boolean
 function M.is_directory(path)
-    local stat = vim.loop.fs_stat(path)
+    local stat = vim.uv.fs_stat(path)
     return stat and stat.type == "directory" or false
 end
 
@@ -57,7 +57,7 @@ end
 
 ---@return string
 function M.get_root()
-    local path = vim.loop.fs_realpath(vim.api.nvim_buf_get_name(0))
+    local path = vim.uv.fs_realpath(vim.api.nvim_buf_get_name(0))
     ---@type string[]
     local roots = {}
     if path ~= "" then
@@ -70,7 +70,7 @@ function M.get_root()
                 or client.config.root_dir and { client.config.root_dir }
                 or {}
             for _, p in ipairs(paths) do
-                local r = vim.loop.fs_realpath(p)
+                local r = vim.uv.fs_realpath(p)
                 if path:find(r, 1, true) then
                     roots[#roots + 1] = r
                 end
@@ -80,10 +80,10 @@ function M.get_root()
     ---@type string?
     local root = roots[1]
     if not root then
-        path = path == "" and vim.loop.cwd() or vim.fs.dirname(path)
+        path = path == "" and vim.uv.cwd() or vim.fs.dirname(path)
         ---@type string?
         root = vim.fs.find({ ".git" }, { path = path, upward = true })[1]
-        root = root and vim.fs.dirname(root) or vim.loop.cwd()
+        root = root and vim.fs.dirname(root) or vim.uv.cwd()
     end
     ---@cast root string
     return root
