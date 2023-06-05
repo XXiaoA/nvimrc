@@ -11,7 +11,7 @@ end
 
 return {
     "nvim-lualine/lualine.nvim",
-    event = "BufEnter",
+    event = "VeryLazy",
     dependencies = "nvim-web-devicons",
     opts = {
         options = {
@@ -48,15 +48,6 @@ return {
             lualine_x = { "location" },
             lualine_y = {},
             lualine_z = {},
-        },
-
-        winbar = {
-            lualine_b = { { "filetype", icon_only = true }, { "filename" } },
-            lualine_c = { { "aerial", sep = " " } },
-        },
-
-        inactive_winbar = {
-            lualine_b = { { "filetype", icon_only = true }, { "filename", path = 3 } },
         },
 
         tabline = {},

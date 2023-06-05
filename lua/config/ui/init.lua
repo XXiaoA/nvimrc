@@ -70,6 +70,18 @@ return {
     },
 
     {
+        "Bekaboo/dropbar.nvim",
+        lazy = false,
+        opts = {
+            icons = {
+                kinds = {
+                    symbols = require("utils.lspkind").icons_with_whitespaces,
+                },
+            },
+        },
+    },
+
+    {
         "folke/zen-mode.nvim",
         dependencies = {
             "folke/twilight.nvim",
