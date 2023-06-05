@@ -1,6 +1,6 @@
 local M = {}
 
-M.icons = {
+local icons = {
     File = "",
     Module = "", -- ""
     Namespace = "",
@@ -35,6 +35,37 @@ M.icons = {
     Color = "",
     Reference = "",
     Folder = "",
+
+    MarkdownH1 = "󰉫 ",
+    MarkdownH2 = "󰉬 ",
+    MarkdownH3 = "󰉭 ",
+    MarkdownH4 = "󰉮 ",
+    MarkdownH5 = "󰉯 ",
+    MarkdownH6 = "󰉰 ",
+    Call = "󰃷 ",
+    BreakStatement = "󰙧 ",
+    CaseStatement = "󱃙 ",
+    ContinueStatement = "→ ",
+    Copilot = " ",
+    Declaration = "󰙠 ",
+    Delete = "󰩺 ",
+    DoStatement = "󰑖 ",
+    ForStatement = "󰑖 ",
+    Identifier = "󰀫 ",
+    IfStatement = "󰇉 ",
+    List = "󰅪 ",
+    Log = "󰦪 ",
+    Lsp = " ",
+    Macro = "󰁌 ",
+    Regex = " ",
+    Repeat = "󰑖 ",
+    Scope = "󰅩 ",
+    Specifier = "󰦪 ",
+    Statement = "󰅩 ",
+    SwitchStatement = "󰺟 ",
+    Terminal = " ",
+    Type = " ",
+    WhileStatement = "󰑖 ",
 }
 
 M.diagnostic = {
@@ -44,9 +75,12 @@ M.diagnostic = {
     Info = "󰋽 ",
 }
 
-M.icons_with_whitespaces = {}
-for name, icon in pairs(M.icons) do
-    M.icons_with_whitespaces[name] = icon .. " "
-end
+M.icons = vim.tbl_map(function(value)
+    return require("utils").trim(value)
+end, icons)
+
+M.icons_with_whitespaces = vim.tbl_map(function(value)
+    return value .. " "
+end, M.icons)
 
 return M

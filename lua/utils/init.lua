@@ -47,7 +47,7 @@ end
 
 --- Remove string trim
 ---@param str string
----@param mode "all"|"head"|"tail"?
+---@param mode "all"|"head"|"tail"? default is `all`
 ---@return string
 function M.trim(str, mode)
     mode = mode or "all"
