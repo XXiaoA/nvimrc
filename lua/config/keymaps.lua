@@ -110,9 +110,11 @@ nmap(
     { desc = "Add a empty line above" }
 )
 
-nmap("[t", "<CMD>tabNext<CR>", { desc = "Net tab" })
-nmap("]t", "<CMD>tabnext<CR>", { desc = "Previous tab" })
-
-nmap("<leader>td", "<CMD>tabclose<CR>", { desc = "Close tab" })
+nmap("[t", "<CMD>tabNext<CR>", { desc = "Previous tab" })
+nmap("]t", "<CMD>tabnext<CR>", { desc = "Next tab" })
+nmap("<leader><tab><S-tab>", "[t", { remap = true, desc = "Previous tab" })
+nmap("<leader><tab><tab>", "]t", { remap = true, desc = "Next tab" })
+nmap("<leader><tab>n", "<CMD>tabnew<CR>", { desc = "Create a tab" })
+nmap("<leader><tab>d", "<CMD>tabclose<CR>", { desc = "Close tab" })
 
 imap("<C-v>", "<C-r>+", { desc = "Paste" })
