@@ -26,9 +26,9 @@ return {
     },
 
     {
-        "eraserhd/parinfer-rust",
-        ft = { "lisp", "yuck" },
-        build = "cargo build --release",
+        "gpanders/nvim-parinfer",
+        enabled = true,
+        lazy = false,
     },
 
     {
