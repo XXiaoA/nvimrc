@@ -1,19 +1,17 @@
 local M = {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
+    opts = {
+        disable_filetype = { "TelescopePrompt", "spectre_panel", "yuck" },
+        check_ts = true,
+        enable_abbr = true,
+    },
     dependencies = "nvim-cmp",
 }
 
-M.config = function()
-    local npairs = require("utils").require("nvim-autopairs")
-    if not npairs then
-        return
-    end
-
-    npairs.setup({
-        check_ts = true,
-        enable_abbr = true,
-    })
+M.config = function(_, config)
+    local npairs = require("nvim-autopairs")
+    npairs.setup(config)
 
     -- If you want insert `(` after select function or method item
     local cmp = require("utils").require("cmp")
