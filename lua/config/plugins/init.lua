@@ -1,3 +1,4 @@
+---@diagnostic disable: assign-type-mismatch
 return {
     {
         "tpope/vim-repeat",

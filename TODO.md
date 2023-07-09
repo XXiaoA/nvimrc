@@ -17,3 +17,4 @@
 - [ ] https://github.com/stevearc/overseer.nvim
 - [x] null-ls
 - [ ] https://github.com/ThePrimeagen/harpoon
+- [ ] https://github.com/akinsho/git-conflict.nvim
