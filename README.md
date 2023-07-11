@@ -44,6 +44,8 @@ npm install
 
 ## Others
 ### SHOWCASE
+![SHOWCASE](https://github.com/XXiaoA/nvimrc/assets/62557596/9b8eff0a-f5e6-46ea-9f33-ad19ab1b9136)
+
 https://user-images.githubusercontent.com/62557596/212057176-3a2fa104-7a18-42b9-9030-ef1032556f86.mp4
 
 ### [TODO](./TODO.md)
