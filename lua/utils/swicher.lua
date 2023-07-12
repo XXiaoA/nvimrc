@@ -37,6 +37,10 @@ M.colorschemes = {
         fish = "Rosé Pine Moon",
         wezterm = "Rosé Pine Moon",
     },
+    ["nordic"] = {
+        fish = "Nordic",
+        wezterm = "Nordic",
+    },
 }
 
 function M.fish(colorscheme)
