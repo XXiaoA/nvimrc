@@ -9,7 +9,6 @@ function M.get()
         { "gD", vim.lsp.buf.declaration, desc = "Goto Declaration" },
         { "gI", "<cmd>Telescope lsp_implementations<cr>", desc = "Goto Implementation" },
         { "gt", "<cmd>Telescope lsp_type_definitions<cr>", desc = "Goto Type Definition" },
-        { "K", vim.lsp.buf.hover, desc = "Hover" },
         { "gK", vim.lsp.buf.signature_help, desc = "Signature Help", has = "signatureHelp" },
         { "<c-k>", vim.lsp.buf.signature_help, mode = "i", desc = "Signature Help", has = "signatureHelp" },
         { "gp", "<cmd>Aphrodite peek_definition<CR>", "Peek Definition" },
