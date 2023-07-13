@@ -11,14 +11,11 @@ local M = {
 }
 
 M.config = function()
-    local hlslens = require("utils").require("hlslens")
-    if not hlslens then
-        return
-    end
-    require("hlslens").setup()
+    local hlslens = require("hlslens")
+    hlslens.setup({})
+    hlslens.start()
 
-    local map = require("core.keymap").set_keymap({ "x", "n", "o" })
-
+    -- work with nvim-ufo
     local function nN(char)
         local ok, winid = hlslens.nNPeekWithUFO(char)
         if ok and winid then
@@ -32,26 +29,29 @@ M.config = function()
         end
     end
 
-    map("n", function()
-        nN("n")
-    end)
-    map("N", function()
-        nN("N")
-    end)
-    map("*", [[*<Cmd>lua require('hlslens').start()<CR>N]])
-    map("#", [[#<Cmd>lua require('hlslens').start()<CR>N]])
-    map("g*", [[g*<Cmd>lua require('hlslens').start()<CR>N]])
+    local map = require("core.keymap").set_keymap({ "x", "n", "o" })
+    -- stylua: ignore start
+    for _, rhs in ipairs({ "n", "N" }) do
+        map(rhs, function() nN(rhs) end)
+    end
+    for _, rhs in ipairs({ "*", "#" }) do
+        map( rhs, [[:<c-u>let @/='\V\<'.escape(expand('<cword>'), '/\').'\>'<bar>call histadd('/',@/)<bar>set hlsearch<cr>]])
+    end
+    for _, rhs in ipairs({ "g*", "g#" }) do
+        map( rhs, [[:<c-u>let @/='\V'.escape(expand('<cword>'), '/\').''<bar>call histadd('/',@/)<bar>set hlsearch<cr>]])
+    end
+    -- stylua: ignore end
 
     -- makes * and # work on visual mode too.
     vim.cmd([[
-  function! g:VSetSearch(cmdtype)
-    let temp = @s
-    norm! gv"sy
-    let @/ = '\V' . substitute(escape(@s, a:cmdtype.'\'), '\n', '\\n', 'g')
-    let @s = temp
-  endfunction
-  xnoremap * :<C-u>call g:VSetSearch('/')<CR>/<C-R>=@/<CR><CR><Cmd>lua require('hlslens').start()<CR>N
-  xnoremap # :<C-u>call g:VSetSearch('?')<CR>?<C-R>=@/<CR><CR><Cmd>lua require('hlslens').start()<CR>N
+      function! g:VSetSearch(cmdtype)
+        let temp = @s
+        norm! gv"sy
+        let @/ = '\V' . substitute(escape(@s, a:cmdtype.'\'), '\n', '\\n', 'g')
+        let @s = temp
+      endfunction
+      xnoremap * :<C-u>call g:VSetSearch('/')<CR>/<C-R>=@/<CR><CR><Cmd>lua require('hlslens').start()<CR>N
+      xnoremap # :<C-u>call g:VSetSearch('?')<CR>?<C-R>=@/<CR><CR><Cmd>lua require('hlslens').start()<CR>N
 ]])
 end
 
