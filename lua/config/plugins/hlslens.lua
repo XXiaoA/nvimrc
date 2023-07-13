@@ -35,10 +35,10 @@ M.config = function()
         map(rhs, function() nN(rhs) end)
     end
     for _, rhs in ipairs({ "*", "#" }) do
-        map( rhs, [[:<c-u>let @/='\V\<'.escape(expand('<cword>'), '/\').'\>'<bar>call histadd('/',@/)<bar>set hlsearch<cr>]])
+        map(rhs, [[:<c-u>let @/='\V\<'.escape(expand('<cword>'), '/\').'\>'<bar>call histadd('/',@/)<bar>set hlsearch<cr>]])
     end
     for _, rhs in ipairs({ "g*", "g#" }) do
-        map( rhs, [[:<c-u>let @/='\V'.escape(expand('<cword>'), '/\').''<bar>call histadd('/',@/)<bar>set hlsearch<cr>]])
+        map(rhs, [[:<c-u>let @/='\V'.escape(expand('<cword>'), '/\').''<bar>call histadd('/',@/)<bar>set hlsearch<cr>]])
     end
     -- stylua: ignore end
 
