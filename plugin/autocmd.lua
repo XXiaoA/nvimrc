@@ -180,7 +180,7 @@ au("User", {
     pattern = "VeryLazy",
     group = xxiaoa_group,
     callback = function()
-        utils.require("scripts")
+        utils.require("misc")
     end,
 })
 
