@@ -20,6 +20,11 @@ return {
     },
 
     {
+        "tpope/vim-sleuth",
+        event = { "BufNewFile", "BufReadPost", "BufFilePost" },
+    },
+
+    {
         "windwp/nvim-spectre",
         dependencies = "plenary.nvim",
         cmd = "Spectre",
