@@ -3,7 +3,7 @@ return {
     cmd = "Neotree",
     keys = {
         {
-            "<leader>ne",
+            "<leader>e",
             function()
                 require("neo-tree.command").execute({
                     toggle = true,
@@ -13,14 +13,12 @@ return {
             desc = "Explorer NeoTree (root dir)",
         },
         {
-            "<leader>nE",
+            "<leader>E",
             function()
                 require("neo-tree.command").execute({ toggle = true, dir = vim.uv.cwd() })
             end,
             desc = "Explorer NeoTree (cwd)",
         },
-        { "<leader>e", "<leader>ne", desc = "Explorer NeoTree (root dir)", remap = true },
-        { "<leader>E", "<leader>nE", desc = "Explorer NeoTree (cwd)", remap = true },
     },
     deactivate = function()
         vim.cmd([[Neotree close]])
