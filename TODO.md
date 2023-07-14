@@ -10,11 +10,15 @@
 - [ ] highlights for markdown, etc. like [headlines.nvim](https://github.com/lukas-reineke/headlines.nvim) and [md-nanny](https://github.com/nvim-zh/md-nanny)
 - [x] configure lsp by yaml
 - [x] improve move line. [nvim-gomove](https://github.com/booperlv/nvim-gomove)
-- [x] ~~windwp/nvim-spectre~~; ~~ThePrimeagen/refactoring.nvim~~; cshuaimin/ssr.nvim
+- [x] ~~windwp/nvim-spectre~~; ~~ThePrimeagen/refactoring.nvim~~; ~~cshuaimin/ssr.nvim~~
 - [x] andymass/vim-matchup
 - [x] echasnovski/mini.nvim,
 - [x] leap.nvim
 - [ ] https://github.com/stevearc/overseer.nvim
+- [ ] https://github.com/skywind3000/asynctasks.vim with `asyncrun`
 - [x] null-ls
 - [ ] https://github.com/ThePrimeagen/harpoon
 - [ ] https://github.com/akinsho/git-conflict.nvim
+- [ ] learn `vim-fugitive`
+- [ ] https://github.com/rbong/vim-flog
+- [ ] https://github.com/tpope/vim-rhubarb
