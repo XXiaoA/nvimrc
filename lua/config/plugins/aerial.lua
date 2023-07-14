@@ -35,7 +35,7 @@ M.config = function()
             "Operator",
             "Package",
             "Property",
-            "String",
+            -- "String",
             "Struct",
             "TypeParameter",
             "Variable",
