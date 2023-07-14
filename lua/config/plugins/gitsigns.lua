@@ -57,7 +57,7 @@ M.config = function()
                     gs.next_hunk()
                 end)
                 return "<Ignore>"
-            end, { expr = true, desc = "next hunk" })
+            end, { expr = true, desc = "Next hunk" })
 
             map({ "n", "v" })("[h", function()
                 if vim.wo.diff then
@@ -67,27 +67,27 @@ M.config = function()
                     gs.prev_hunk()
                 end)
                 return "<Ignore>"
-            end, { expr = true, desc = "previous hunk" })
+            end, { expr = true, desc = "Previous hunk" })
 
             -- Actions
-            nmap("<leader>gA", gs.stage_buffer, { desc = "git stage buffer" })
-            map({ "n", "v" })("<leader>ga", ":Gitsigns stage_hunk<CR>", { desc = "git stage hunk" })
-            nmap("<leader>gR", gs.reset_buffer, { desc = "git reset buffer" })
-            map({ "n", "v" })("<leader>gr", ":Gitsigns reset_hunk<CR>", { desc = "git reset hunk" })
-            nmap("<leader>gp", gs.preview_hunk, { desc = "preview hunk" })
-            nmap("<leader>gu", gs.undo_stage_hunk, { desc = "git undo stage hunk" })
-            nmap("<leader>gd", gs.diffthis, { desc = "git diffthis" })
+            nmap("<leader>gA", gs.stage_buffer, { desc = "Stage buffer" })
+            map({ "n", "v" })("<leader>ga", ":Gitsigns stage_hunk<CR>", { desc = "Stage hunk" })
+            nmap("<leader>gR", gs.reset_buffer, { desc = "Reset buffer" })
+            map({ "n", "v" })("<leader>gr", ":Gitsigns reset_hunk<CR>", { desc = "Reset hunk" })
+            nmap("<leader>gp", gs.preview_hunk, { desc = "Preview hunk" })
+            nmap("<leader>gu", gs.undo_stage_hunk, { desc = "Undo stage hunk" })
+            nmap("<leader>gd", gs.diffthis, { desc = "Git diffthis" })
             nmap("<leader>gD", function()
                 gs.diffthis("~")
-            end, { desc = "git diffthis" })
+            end, { desc = "Diffthis with ~" })
             nmap("<leader>gb", function()
                 gs.blame_line({ full = true })
-            end, { desc = "git blame line" })
-            nmap("<leader>td", gs.toggle_deleted, { desc = "git toggle deleted" })
-            nmap("<leader>tw", gs.toggle_word_diff, { desc = "git toggle word diff" })
+            end, { desc = "Blame line" })
+            nmap("<leader>gtd", gs.toggle_deleted, { desc = "Toggle deleted" })
+            nmap("<leader>gtw", gs.toggle_word_diff, { desc = "Toggle word diff" })
 
             -- Text object
-            map({ "o", "x" })("ih", ":<C-U>Gitsigns select_hunk<CR>", { desc = "" })
+            map({ "o", "x" })("ih", ":<C-U>Gitsigns select_hunk<CR>", { desc = "Huck" })
         end,
     })
     package.loaded.trouble = nil

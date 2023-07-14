@@ -80,6 +80,7 @@ return {
             },
         },
         config = true,
+        nowait = true,
     },
 
     {

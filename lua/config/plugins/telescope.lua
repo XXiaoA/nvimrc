@@ -25,19 +25,18 @@ M.config = function()
     end
 
     local nmap = require("core.keymap").nmap
-    nmap("<C-p>", ":Telescope current_buffer_fuzzy_find<CR>", { desc = "find current buffer" })
-    nmap("<leader>gs", ":Telescope git_status<CR>", { desc = "git status and diff" })
-    nmap("<leader>gc", ":Telescope git_commits<CR>", { desc = "commit history" })
-    nmap("<leader>gC", ":Telescope git_bcommits<CR>", { desc = "buffer commit history" })
+    nmap("<leader>gs", ":Telescope git_status<CR>", { desc = "Search git status" })
+    nmap("<leader>gc", ":Telescope git_commits<CR>", { desc = "Search commit history" })
+    nmap("<leader>gC", ":Telescope git_bcommits<CR>", { desc = "Buffer commit history" })
 
-    nmap("<leader>fw", do_builtin("live_grep"), { desc = "search words" })
-    nmap("<leader>ff", do_builtin("find_files"), { desc = "search files" })
-    nmap("<leader>fr", ":Telescope oldfiles<CR>", { desc = "search recent files" })
-    nmap("<leader>fb", ":Telescope buffers<CR>", { desc = "search buffers" })
-    nmap("<leader>fh", ":Telescope help_tags<CR>", { desc = "search help tags" })
-    nmap("<leader>fu", ":Telescope resume<CR>", { desc = "resume last picker" })
-    nmap("<leader>fm", ":Telescope man_pages<CR>", { desc = "man pages" })
-    nmap("z=", ":Telescope spell_suggest<CR>", { desc = "spell suggest" })
+    nmap("<leader>fw", do_builtin("live_grep"), { desc = "Search words" })
+    nmap("<leader>ff", do_builtin("find_files"), { desc = "Search files" })
+    nmap("<leader>fr", ":Telescope oldfiles<CR>", { desc = "Search recent files" })
+    nmap("<leader>fb", ":Telescope buffers<CR>", { desc = "Search buffers" })
+    nmap("<leader>fh", ":Telescope help_tags<CR>", { desc = "Search help tags" })
+    nmap("<leader>fu", ":Telescope resume<CR>", { desc = "Resume last picker" })
+    nmap("<leader>fm", ":Telescope man_pages<CR>", { desc = "Search man pages" })
+    nmap("z=", ":Telescope spell_suggest<CR>", { desc = "Spell suggest" })
     nmap(
         "<leader>fs",
         do_builtin("lsp_document_symbols", {
@@ -54,14 +53,14 @@ M.config = function()
                 "Property",
             },
         }),
-        { desc = "search symbol" }
+        { desc = "Search symbol" }
     )
 
     require("telescope").load_extension("project")
     nmap("<leader>op", ":Telescope project<CR>", { desc = "Projects" })
 
     require("telescope").load_extension("themes")
-    nmap("<leader>cp", "<cmd>Telescope themes<CR>", { desc = "change colorscheme with preview" })
+    nmap("<leader>cp", "<cmd>Telescope themes<CR>", { desc = "Change colorscheme with preview" })
 
     telescope.setup({
         defaults = {
