@@ -43,7 +43,7 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
 })
 
 local function on_attach(client, bufnr)
-    require("config.lsp.keymaps").on_attach(client, bufnr)
+    require("config.lsp.attach").on_attach(client, bufnr)
 end
 
 local capabilities = vim.tbl_deep_extend(

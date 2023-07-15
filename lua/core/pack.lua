@@ -48,7 +48,7 @@ function M.auto_load_modules_packages()
                 not (
                     file:match("autocmd.lua$")
                     or file:match("setup.lua$")
-                    or file:match("lsp/keymaps.lua$")
+                    or file:match("lsp/attach.lua$")
                 )
             then
                 local require_name = file:match("nvim/lua/(.*)%.lua")

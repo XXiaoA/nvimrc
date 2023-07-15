@@ -17,7 +17,7 @@ function M.config()
         },
         root_dir = require("null-ls.utils").root_pattern(".git"),
         on_attach = function(client, bufnr)
-            require("config.lsp.keymaps").on_attach(client, bufnr)
+            require("config.lsp.attach").on_attach(client, bufnr)
         end,
     })
 end
