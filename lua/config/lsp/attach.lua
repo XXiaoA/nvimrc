@@ -1,6 +1,6 @@
 local M = {}
 
-function M.get()
+function M.get_keymaps()
     -- stylua: ignore start
     return {
         { "go", "<cmd>Aphrodite show_line_diagnostics<CR>", desc = "Line Diagnostics" },
@@ -68,7 +68,7 @@ function M.on_attach(client, buffer)
     local Keys = require("lazy.core.handler.keys")
     local keymaps = {}
 
-    for _, value in ipairs(M.get()) do
+    for _, value in ipairs(M.get_keymaps()) do
         local keys = Keys.parse(value)
         if keys[2] == vim.NIL or keys[2] == false then
             keymaps[keys.id] = nil
@@ -80,7 +80,6 @@ function M.on_attach(client, buffer)
     for _, keys in pairs(keymaps) do
         if not keys.has or client.server_capabilities[keys.has .. "Provider"] then
             local opts = Keys.opts(keys)
-            ---@diagnostic disable-next-line: no-unknown
             opts.has = nil
             opts.silent = true
             opts.buffer = buffer
@@ -88,6 +87,7 @@ function M.on_attach(client, buffer)
         end
     end
 
+    -- auto format
     M.autoformat = true
     vim.api.nvim_create_user_command("AutoFormatToggle", function()
         M.autoformat = not M.autoformat
@@ -103,6 +103,11 @@ function M.on_attach(client, buffer)
                 end
             end,
         })
+    end
+
+    -- inlay hint
+    if client.server_capabilities.inlayHintProvider then
+        vim.lsp.inlay_hint(buffer, true)
     end
 end
 
