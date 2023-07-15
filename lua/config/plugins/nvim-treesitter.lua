@@ -65,25 +65,6 @@ return {
     },
 
     {
-        "ckolkey/ts-node-action",
-        dependencies = {
-            "nvim-treesitter",
-            "vim-repeat",
-        },
-        keys = {
-            {
-                "<leader>tn",
-                function()
-                    require("ts-node-action").node_action()
-                end,
-                desc = "Trigger Node Action",
-            },
-        },
-        config = true,
-        nowait = true,
-    },
-
-    {
         "mfussenegger/nvim-treehopper",
         dependencies = "nvim-treesitter",
         keys = {
