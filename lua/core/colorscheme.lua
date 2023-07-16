@@ -87,7 +87,7 @@ end
 function M.setup()
     local nmap = require("core.keymap").nmap
     require("config.ui.autocmd")
-    vim.o.background = "dark"
+    vim.opt.background = "dark"
     M.load_colorscheme(M.current_colorscheme)
     nmap("<leader>cc", M.load_colorscheme_ui, { desc = "Change ColorScheme" })
     nmap("<leader>ce", function()

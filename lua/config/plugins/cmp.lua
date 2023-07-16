@@ -19,7 +19,7 @@ M.config = function()
     end
 
     -- limit the max height of windows
-    vim.o.pumheight = 14
+    vim.opt.pumheight = 14
 
     cmp.setup({
         experimental = {

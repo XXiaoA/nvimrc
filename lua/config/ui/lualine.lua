@@ -33,7 +33,7 @@ return {
             lualine_c = {
                 "filename",
                 function()
-                    return vim.o.spell and "[SPELL]" or ""
+                    return vim.opt.spell and "[SPELL]" or ""
                 end,
             },
             lualine_x = { "filetype" },
