@@ -2,6 +2,7 @@ return {
     "XXiaoA/aphrodite.nvim",
     event = "LspAttach",
     opts = {
+        border_style = "rounded",
         lightbulb = {
             enable_in_insert = false,
             sign = true,
