@@ -7,7 +7,7 @@ return {
             sign = true,
             virtual_text = false,
         },
-        diagnostic_header = { " ", " ", " ", " " },
+        diagnostic_header = { "󰅚 ", "󰀪 ", "󰋽 ", "󰌶 " },
         symbol_in_winbar = {
             enable = false,
             show_file = false,
