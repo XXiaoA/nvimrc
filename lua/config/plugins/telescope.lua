@@ -4,6 +4,7 @@ local M = {
         "nvim-lua/plenary.nvim",
         "kyazdani42/nvim-web-devicons",
         { "XXiaoA/telescope-project.nvim", dev = false },
+        { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     },
     cmd = "Telescope",
 }
@@ -124,6 +125,7 @@ M.config = function()
             },
         },
     })
+    require("telescope").load_extension("fzf")
 end
 
 return M
