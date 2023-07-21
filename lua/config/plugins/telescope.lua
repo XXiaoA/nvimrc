@@ -1,3 +1,11 @@
+local function do_builtin(builtin, opts)
+    return function()
+        builtin = builtin
+        opts = vim.tbl_deep_extend("force", { cwd = require("utils").get_root() }, opts or {})
+        require("telescope.builtin")[builtin](opts)
+    end
+end
+
 local M = {
     "nvim-telescope/telescope.nvim",
     dependencies = {
@@ -5,65 +13,49 @@ local M = {
         "kyazdani42/nvim-web-devicons",
         { "XXiaoA/telescope-project.nvim", dev = false },
         { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+        {
+            "danielfalk/smart-open.nvim",
+            dependencies = {
+                "kkharji/sqlite.lua",
+            },
+        },
     },
     cmd = "Telescope",
-}
-
-M.config = function()
-    local utils = require("utils")
-    local actions = utils.require("telescope.actions")
-    local telescope = utils.require("telescope")
-    if not actions or not telescope then
-        return
-    end
-
-    local function do_builtin(builtin, opts)
-        return function()
-            builtin = builtin
-            opts = vim.tbl_deep_extend("force", { cwd = require("utils").get_root() }, opts or {})
-            require("telescope.builtin")[builtin](opts)
-        end
-    end
-
-    local nmap = require("core.keymap").nmap
-    nmap("<leader>gs", ":Telescope git_status<CR>", { desc = "Search git status" })
-    nmap("<leader>gc", ":Telescope git_commits<CR>", { desc = "Search commit history" })
-    nmap("<leader>gC", ":Telescope git_bcommits<CR>", { desc = "Buffer commit history" })
-
-    nmap("<leader>fw", do_builtin("live_grep"), { desc = "Search words" })
-    nmap("<leader>ff", do_builtin("find_files"), { desc = "Search files" })
-    nmap("<leader>fr", ":Telescope oldfiles<CR>", { desc = "Search recent files" })
-    nmap("<leader>fb", ":Telescope buffers<CR>", { desc = "Search buffers" })
-    nmap("<leader>fh", ":Telescope help_tags<CR>", { desc = "Search help tags" })
-    nmap("<leader>fu", ":Telescope resume<CR>", { desc = "Resume last picker" })
-    nmap("<leader>fm", ":Telescope man_pages<CR>", { desc = "Search man pages" })
-    nmap("z=", ":Telescope spell_suggest<CR>", { desc = "Spell suggest" })
-    nmap(
-        "<leader>fs",
-        do_builtin("lsp_document_symbols", {
-            symbols = {
-                "Class",
-                "Function",
-                "Method",
-                "Constructor",
-                "Interface",
-                "Module",
-                "Struct",
-                "Trait",
-                "Field",
-                "Property",
-            },
-        }),
-        { desc = "Search symbol" }
-    )
-
-    require("telescope").load_extension("project")
-    nmap("<leader>op", ":Telescope project<CR>", { desc = "Projects" })
-
-    require("telescope").load_extension("themes")
-    nmap("<leader>cp", "<cmd>Telescope themes<CR>", { desc = "Change colorscheme with preview" })
-
-    telescope.setup({
+    keys = {
+        {
+            "<leader>fs",
+            do_builtin("lsp_document_symbols", {
+                symbols = {
+                    "Class",
+                    "Function",
+                    "Method",
+                    "Constructor",
+                    "Interface",
+                    "Module",
+                    "Struct",
+                    "Trait",
+                    "Field",
+                    "Property",
+                },
+            }),
+            desc = "Search symbol",
+        },
+        { "<leader>fa", "<cmd>Telescope smart_open<CR>", desc = "Smart open" },
+        { "<leader>fm", "<cmd>Telescope man_pages<CR>", desc = "Search man pages" },
+        { "<leader>fu", "<cmd>Telescope resume<CR>", desc = "Resume last picker" },
+        { "<leader>fh", "<cmd>Telescope help_tags<CR>", desc = "Search help tags" },
+        { "<leader>fb", "<cmd>Telescope buffers<CR>", desc = "Search buffers" },
+        { "<leader>fr", "<cmd>Telescope oldfiles<CR>", desc = "Search recent files" },
+        { "<leader>ff", do_builtin("find_files"), desc = "Search files" },
+        { "<leader>fw", do_builtin("live_grep"), desc = "Search words" },
+        { "<leader>gC", "<cmd>Telescope git_bcommits<CR>", desc = "Buffer commit history" },
+        { "<leader>gc", "<cmd>Telescope git_commits<CR>", desc = "Search commit history" },
+        { "<leader>gs", "<cmd>Telescope git_status<CR>", desc = "Search git status" },
+        { "<leader>cp", "<cmd>Telescope themes<CR>", desc = "Change colorscheme with preview" },
+        { "<leader>op", "<cmd>Telescope project<CR>", desc = "Projects" },
+        { "z=", "<cmd>Telescope spell_suggest<CR>", desc = "Spell suggest" },
+    },
+    opts = {
         defaults = {
             vimgrep_arguments = {
                 "rg",
@@ -95,25 +87,39 @@ M.config = function()
                 height = 0.80,
                 preview_cutoff = 120,
             },
-            file_sorter = require("telescope.sorters").get_fuzzy_file,
-            generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
             path_display = { "truncate" },
             winblend = 0,
             border = {},
             borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
             color_devicons = true,
             set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
-            file_previewer = require("telescope.previewers").vim_buffer_cat.new,
-            grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
-            qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
+            file_previewer = function(...)
+                return require("telescope.previewers").vim_buffer_cat.new(...)
+            end,
+            grep_previewer = function(...)
+                return require("telescope.previewers").vim_buffer_vimgrep.new(...)
+            end,
+            qflist_previewer = function(...)
+                return require("telescope.previewers").vim_buffer_qflist.new(...)
+            end,
             -- Developer configurations: Not meant for general override
-            buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
+            buffer_previewer_maker = function(...)
+                return require("telescope.previewers").buffer_previewer_maker(...)
+            end,
             mappings = {
                 n = {
-                    ["q"] = actions.close,
-                    ["-"] = actions.file_split,
-                    ["|"] = actions.file_vsplit,
-                    ["\\"] = actions.file_vsplit,
+                    ["q"] = function(...)
+                        return require("telescope.actions").close(...)
+                    end,
+                    ["-"] = function(...)
+                        return require("telescope.actions").file_split(...)
+                    end,
+                    ["|"] = function(...)
+                        return require("telescope.actions").file_vsplit(...)
+                    end,
+                    ["\\"] = function(...)
+                        return require("telescope.actions").file_vsplit(...)
+                    end,
                 },
             },
             file_ignore_patterns = {
@@ -124,8 +130,21 @@ M.config = function()
                 "COMMIT_EDITMSG",
             },
         },
-    })
-    require("telescope").load_extension("fzf")
+        extensions = {
+            smart_open = {
+                match_algorithm = "fzf",
+            },
+        },
+    },
+}
+
+M.config = function(_, opts)
+    local telescope = require("telescope")
+
+    telescope.setup(opts)
+    for _, extension in ipairs({ "project", "themes", "fzf", "smart_open" }) do
+        telescope.load_extension(extension)
+    end
 end
 
 return M
