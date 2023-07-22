@@ -51,6 +51,15 @@ return {
         },
 
         tabline = {},
-        extensions = { "lazy", "neo-tree" },
+        extensions = {
+            "lazy",
+            "neo-tree",
+            "aerial",
+            "fugitive",
+            "man",
+            "mundo",
+            "quickfix",
+            "toggleterm",
+        },
     },
 }
