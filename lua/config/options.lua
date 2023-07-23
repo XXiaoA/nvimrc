@@ -29,8 +29,6 @@ o.mouse = "nv" -- "a"
 o.backupdir = cache_dir .. "backup/"
 -- open swap
 o.swapfile = false
--- F9打开/关闭粘贴模式
-o.pastetoggle = "<F9>"
 -- 编码设置
 o.encoding = "utf-8"
 -- 加快响应速度
