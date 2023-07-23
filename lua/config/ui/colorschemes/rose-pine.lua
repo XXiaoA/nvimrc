@@ -25,5 +25,6 @@ require("rose-pine").setup({
         TelescopeResultsNormal = { fg = "subtle", bg = "none" },
         TelescopeSelection = { fg = "text", bg = "base" },
         TelescopeSelectionCaret = { fg = "rose", bg = "rose" },
+        LeapMatch = { fg = "pine", bg = "overlay", inherit = false },
     },
 })
