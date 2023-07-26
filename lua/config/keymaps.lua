@@ -118,3 +118,5 @@ nmap("<leader><tab>n", "<CMD>tabnew<CR>", { desc = "Create a tab" })
 nmap("<leader><tab>d", "<CMD>tabclose<CR>", { desc = "Close tab" })
 
 imap("<C-v>", "<C-r>+", { desc = "Paste" })
+
+keymap.set_keymap("s")("<BS>", "<BS>:startinsert<CR>")
