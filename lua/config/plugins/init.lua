@@ -33,7 +33,7 @@ return {
 
     {
         "gpanders/nvim-parinfer",
-        enabled = true,
+        enabled = false,
         lazy = false,
     },
 
