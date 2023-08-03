@@ -26,5 +26,6 @@ require("rose-pine").setup({
         TelescopeSelection = { fg = "text", bg = "base" },
         TelescopeSelectionCaret = { fg = "rose", bg = "rose" },
         LeapMatch = { fg = "pine", bg = "overlay", inherit = false },
+        LspInlayHint = { bg = "#2d2943", fg = "#8883a0", inherit = false },
     },
 })
