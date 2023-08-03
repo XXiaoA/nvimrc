@@ -31,7 +31,6 @@ for _, type in ipairs(types) do
                     { i(1, type), t("!") },
 
                     fmt([[{}({})!]], {
-                        -- t(type),
                         t(type),
                         r(1, "scope"),
                     }),
