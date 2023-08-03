@@ -3,7 +3,7 @@
 local api = vim.api
 local fn = vim.fn
 
-if vim.fn.executable("fcitx5-remote") ~= 1 then
+if fn.executable("fcitx5-remote") ~= 1 then
     return
 end
 
@@ -50,8 +50,10 @@ api.nvim_create_autocmd("BufRead", {
     pattern = "*",
     group = fcitx5,
     callback = function(ctx)
-        api.nvim_buf_set_var(ctx.buf, "fcitx5_should_toggle_i", false)
-        api.nvim_buf_set_var(ctx.buf, "fcitx5_should_toggle_o", false)
+        if fn.reg_executing() == "" then
+            api.nvim_buf_set_var(ctx.buf, "fcitx5_should_toggle_i", false)
+            api.nvim_buf_set_var(ctx.buf, "fcitx5_should_toggle_o", false)
+        end
     end,
 })
 
@@ -59,27 +61,35 @@ api.nvim_create_autocmd("InsertEnter", {
     pattern = "*",
     group = fcitx5,
     callback = function(ctx)
-        fcitx5_to_nonlatin(ctx.buf, "i")
+        if fn.reg_executing() == "" then
+            fcitx5_to_nonlatin(ctx.buf, "i")
+        end
     end,
 })
 api.nvim_create_autocmd("InsertLeave", {
     pattern = "*",
     group = fcitx5,
     callback = function(ctx)
-        fcitx5_to_en(ctx.buf, "i")
+        if fn.reg_executing() == "" then
+            fcitx5_to_en(ctx.buf, "i")
+        end
     end,
 })
 api.nvim_create_autocmd("CmdlineEnter", {
     pattern = "[/?]",
     group = fcitx5,
     callback = function(ctx)
-        fcitx5_to_nonlatin(ctx.buf, "o")
+        if fn.reg_executing() == "" then
+            fcitx5_to_nonlatin(ctx.buf, "o")
+        end
     end,
 })
 api.nvim_create_autocmd("CmdlineLeave", {
     pattern = "*",
     group = fcitx5,
     callback = function(ctx)
-        fcitx5_to_en(ctx.buf, "o")
+        if fn.reg_executing() == "" then
+            fcitx5_to_en(ctx.buf, "o")
+        end
     end,
 })
