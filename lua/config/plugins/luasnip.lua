@@ -3,6 +3,7 @@ local M = {
     opts = {
         history = true,
         delete_check_events = "TextChanged",
+        update_events = { "TextChanged", "TextChangedI" },
     },
     -- stylua: ignore
     keys = {
@@ -33,9 +34,10 @@ local M = {
     },
 }
 
-M.config = function()
+M.config = function(_, opts)
     local ls = require("luasnip")
     require("luasnip.loaders.from_lua").load({ paths = "./snippets" })
+    ls.setup(opts)
 
     -- https://github.com/L3MON4D3/LuaSnip/wiki/Cool-Snippets#all---todo-commentsnvim-snippets
     local s = ls.snippet
