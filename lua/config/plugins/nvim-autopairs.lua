@@ -4,6 +4,7 @@ local M = {
     opts = {
         disable_filetype = { "TelescopePrompt", "spectre_panel", "yuck" },
         check_ts = true,
+        disable_in_macro = false,
         enable_abbr = true,
     },
     dependencies = "nvim-cmp",
