@@ -2,7 +2,7 @@ local M = {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
     opts = {
-        disable_filetype = { "TelescopePrompt", "spectre_panel", "yuck" },
+        disable_filetype = {},
         check_ts = true,
         disable_in_macro = false,
         enable_abbr = true,
@@ -27,7 +27,7 @@ M.config = function(_, config)
 
     for _, bracket in ipairs({ ")", "]", "}" }) do
         npairs.add_rules({
-            Rule("", " " .. bracket)
+            Rule("", " " .. bracket, "-yuck")
                 :with_pair(cond.none())
                 :with_move(function(opts)
                     return opts.char == bracket
@@ -38,7 +38,7 @@ M.config = function(_, config)
         })
     end
     npairs.add_rules({
-        Rule(" ", " ")
+        Rule(" ", " ", "-yuck")
             :with_pair(cond.done())
             :replace_endpair(function(opts)
                 local pair = opts.line:sub(opts.col - 1, opts.col)
