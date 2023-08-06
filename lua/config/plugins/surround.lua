@@ -17,6 +17,7 @@ M.opts = function()
             visual_line = "sA",
             delete = "sd",
             change = "sr",
+            change_line = "sR",
         },
         surrounds = {
             -- remove the default configuration
