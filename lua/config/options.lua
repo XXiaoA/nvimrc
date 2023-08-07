@@ -119,3 +119,5 @@ o.virtualedit = "block"
 o.showmode = false
 o.splitkeep = "screen"
 o.mousemodel = "extend"
+
+o.matchpairs:append("<:>")
