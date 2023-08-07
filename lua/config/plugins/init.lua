@@ -9,6 +9,29 @@ return {
     },
 
     {
+        "monaqa/dial.nvim",
+        -- stylua: ignore
+        keys = {
+            { "<C-a>", function() return require("dial.map").inc_normal() end, expr = true, desc = "Increment" },
+            { "<C-x>", function() return require("dial.map").dec_normal() end, expr = true, desc = "Decrement" },
+        },
+        config = function()
+            local augend = require("dial.augend")
+            require("dial.config").augends:register_group({
+                default = {
+                    augend.integer.alias.decimal,
+                    augend.integer.alias.hex,
+                    augend.semver.alias.semver,
+                    augend.date.alias["%Y/%m/%d"],
+                    augend.constant.alias.bool,
+                    augend.constant.new({ elements = { "and", "or" } }),
+                    augend.constant.new({ elements = { "&&", "||" } }),
+                },
+            })
+        end,
+    },
+
+    {
         "kevinhwang91/nvim-bqf",
         ft = "qf",
         config = true,
