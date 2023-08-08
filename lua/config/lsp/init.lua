@@ -34,11 +34,6 @@ return {
     },
 
     {
-        -- workspace library for lua_ls
-        "ii14/emmylua-nvim",
-    },
-
-    {
         "j-hui/fidget.nvim",
         tag = "legacy",
         event = "LspAttach",

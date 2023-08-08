@@ -54,33 +54,31 @@ local capabilities = vim.tbl_deep_extend(
 )
 
 local servers = {
-    clangd = {
-        capabilities = {
-            offsetEncoding = "utf-8",
-        },
-    },
+    clangd = { capabilities = { offsetEncoding = "utf-8" } },
 
     lua_ls = {
         settings = {
             Lua = {
-                runtime = {
-                    version = "LuaJIT",
+                hint = {
+                    enable = true,
+                    arrayIndex = "Disable",
+                    paramName = "Literal",
+                    setType = true,
                 },
-                diagnostics = {
-                    globals = { "vim" },
-                },
+                runtime = { version = "LuaJIT" },
                 workspace = {
+                    checkThirdParty = false,
                     library = {
-                        vim.fn.stdpath("data") .. "/lazy/emmylua-nvim",
+                        vim.env.VIMRUNTIME,
+                        "${3rd}/luv/library",
                     },
                 },
-                telemetry = {
-                    enable = false,
-                },
+                telemetry = { enable = false },
             },
         },
     },
 }
+
 local setup = {
     ["rust_analyzer"] = function(_, opts)
         require("rust-tools").setup({
