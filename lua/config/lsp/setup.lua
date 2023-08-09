@@ -82,10 +82,7 @@ local servers = {
 local setup = {
     ["rust_analyzer"] = function(_, opts)
         require("rust-tools").setup({
-            server = {
-                on_attach = opts.on_attach,
-                capabilities = opts.capabilities,
-            },
+            server = opts,
             tools = {
                 inlay_hints = {
                     auto = false,
@@ -97,21 +94,35 @@ local setup = {
 
     clangd = function(_, opts)
         require("clangd_extensions").setup({
-            server = {
-                on_attach = opts.on_attach,
-                capabilities = opts.capabilities,
+            server = opts,
+            memory_usage = {
+                border = "rounded",
             },
-            extensions = {
-                autoSetHints = false,
-                memory_usage = {
-                    border = "single",
+            symbol_info = {
+                border = "rounded",
+            },
+            ast = {
+                --These require codicons (https://github.com/microsoft/vscode-codicons)
+                role_icons = {
+                    type = "",
+                    declaration = "",
+                    expression = "",
+                    specifier = "",
+                    statement = "",
+                    ["template argument"] = "",
                 },
-                symbol_info = {
-                    border = "single",
+                kind_icons = {
+                    Compound = "",
+                    Recovery = "",
+                    TranslationUnit = "",
+                    PackExpansion = "",
+                    TemplateTypeParm = "",
+                    TemplateTemplateParm = "",
+                    TemplateParamObject = "",
                 },
             },
         })
-        return true
+        return false
     end,
     -- ["*"] = function(server, opts)
     --     require("lspconfig")[server].setup(opts)
