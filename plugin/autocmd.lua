@@ -1,3 +1,5 @@
+---@diagnostic disable: param-type-mismatch
+
 local utils = require("utils")
 local api = vim.api
 local nmap = require("core.keymap").nmap
@@ -164,8 +166,10 @@ local function enter_hint()
                 return item
             end,
         }, function(choice)
-            vim.api.nvim_buf_delete(0, {})
-            vim.cmd.e(choice)
+            if choice then
+                vim.api.nvim_buf_delete(0, {})
+                vim.cmd.e(choice)
+            end
         end)
     end
 end
