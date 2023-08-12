@@ -23,11 +23,6 @@ return {
                 -- Instead of true it can also be a list of languages
                 additional_vim_regex_highlighting = false,
             },
-            rainbow = {
-                enable = true,
-                extended_mode = true,
-                max_file_lines = nil,
-            },
             incremental_selection = {
                 enable = false,
                 keymaps = {
@@ -50,7 +45,7 @@ return {
     },
 
     {
-        "HiPhish/nvim-ts-rainbow2",
+        "hiphish/rainbow-delimiters.nvim",
         event = "BufReadPre",
         dependencies = "nvim-treesitter",
     },
