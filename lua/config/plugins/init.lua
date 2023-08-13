@@ -229,19 +229,38 @@ return {
     },
 
     {
-        "karb94/neoscroll.nvim",
-        keys = {
-            { "<C-u>", mode = { "n", "x" } },
-            { "<C-d>", mode = { "n", "x" } },
-            { "<C-b>", mode = { "n", "x" } },
-            { "<C-f>", mode = { "n", "x" } },
-            { "<C-y>", mode = { "n", "x" } },
-            { "<C-e>", mode = { "n", "x" } },
-            { "zt", mode = { "n", "x" } },
-            { "zz", mode = { "n", "x" } },
-            { "zb", mode = { "n", "x" } },
-        },
-        config = true,
+        "echasnovski/mini.animate",
+        event = "VeryLazy",
+        opts = function()
+            -- don't use animate when scrolling with the mouse
+            local mouse_scrolled = false
+            for _, scroll in ipairs({ "Up", "Down" }) do
+                local key = "<ScrollWheel" .. scroll .. ">"
+                vim.keymap.set({ "", "i" }, key, function()
+                    mouse_scrolled = true
+                    return key
+                end, { expr = true })
+            end
+
+            local animate = require("mini.animate")
+            return {
+                resize = {
+                    timing = animate.gen_timing.linear({ duration = 100, unit = "total" }),
+                },
+                scroll = {
+                    timing = animate.gen_timing.linear({ duration = 150, unit = "total" }),
+                    subscroll = animate.gen_subscroll.equal({
+                        predicate = function(total_scroll)
+                            if mouse_scrolled then
+                                mouse_scrolled = false
+                                return false
+                            end
+                            return total_scroll > 1
+                        end,
+                    }),
+                },
+            }
+        end,
     },
 
     {
