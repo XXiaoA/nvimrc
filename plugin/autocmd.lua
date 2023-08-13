@@ -41,9 +41,9 @@ au({ "BufLeave", "FocusLost", "InsertEnter", "WinLeave" }, {
 })
 -- }}}
 
--- Disable inserting comment leader after hitting o or O or <Enter>
+-- Disable inserting comment leader after hitting o or O
 au("FileType", {
-    command = "set formatoptions-=ro",
+    command = "set formatoptions-=o",
     group = xxiaoa_group,
 })
 
