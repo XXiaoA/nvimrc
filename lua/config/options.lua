@@ -59,11 +59,11 @@ o.number = true
 -- 显示行尾空格
 o.list = true
 -- 设置自动折行
-o.wrap = false
--- 取消自动换行，把textwidth调大
-o.textwidth = 1000
+o.wrap = true
+-- 取消自动换行
+o.textwidth = 0
 -- jk移动时光标下上方保留8行
-o.scrolloff = 4
+o.scrolloff = 10
 o.sidescrolloff = 8
 -- 使用系统剪切板
 o.clipboard = "unnamedplus"
