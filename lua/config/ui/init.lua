@@ -70,11 +70,23 @@ return {
     },
 
     {
-        "lewis6991/satellite.nvim",
+        "dstein64/nvim-scrollview",
         event = "VeryLazy",
         opts = {
-            excluded_filetypes = { "man" },
+            signs_on_startup = {
+                "conflicts",
+                "cursor",
+                "diagnostics",
+                "marks",
+                "search",
+                "quickfix",
+                "loclist",
+            },
         },
+        config = function(_, opts)
+            require("scrollview").setup(opts)
+            require("scrollview.contrib.gitsigns").setup()
+        end,
     },
 
     {
