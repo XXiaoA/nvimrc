@@ -49,7 +49,7 @@ return {
 
     {
         "dstein64/vim-win",
-        keys = "<leader>w",
+        keys = { { "<leader>w", desc = "Window manager" } },
         cmd = "Win",
         config = function()
             vim.g.win_ext_command_map = {

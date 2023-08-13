@@ -62,7 +62,7 @@ return {
     {
         "Wansmer/treesj",
         dependencies = "nvim-treesitter",
-        keys = { { "<leader>J", "<cmd>TSJToggle<cr>", desc = "Join Toggle" } },
+        keys = { { "<leader>J", "<cmd>TSJToggle<cr>", desc = "Join toggle" } },
         opts = { use_default_keymaps = false, max_join_length = 150 },
     },
 
