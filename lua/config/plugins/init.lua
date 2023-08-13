@@ -25,7 +25,10 @@ return {
                     augend.date.alias["%Y/%m/%d"],
                     augend.constant.alias.bool,
                     augend.constant.new({ elements = { "and", "or" } }),
-                    augend.constant.new({ elements = { "&&", "||" } }),
+                    augend.constant.new({
+                        elements = { "&&", "||" },
+                        word = false,
+                    }),
                 },
             })
         end,
