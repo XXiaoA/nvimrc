@@ -25,8 +25,6 @@ nmap("Q", function()
     end
 end, { desc = "Quit the nvim" })
 
-imap("jj", "<ESC>")
-
 xmap("<", "<gv")
 xmap(">", ">gv")
 
