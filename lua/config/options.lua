@@ -59,20 +59,18 @@ o.number = true
 -- 显示行尾空格
 o.list = true
 -- 设置自动折行
-o.wrap = true
+o.wrap = false
 -- 取消自动换行，把textwidth调大
 o.textwidth = 1000
 -- jk移动时光标下上方保留8行
-o.scrolloff = 15
-o.sidescrolloff = 15
+o.scrolloff = 4
+o.sidescrolloff = 8
 -- 使用系统剪切板
 o.clipboard = "unnamedplus"
 -- 设置自动缩进
 o.autoindent = true
 -- 将缩进转换为空格
 o.expandtab = true
--- tab 的空格数量
-o.shiftwidth = 4
 -- 设置 tab 缩进显示宽度
 o.tabstop = 4
 -- 设置 tab 缩进实际宽度
@@ -109,15 +107,26 @@ o.autoindent = true
 
 -- Ask for confirmation when handling unsaved or read-only files
 o.confirm = true
-o.signcolumn = "yes"
+o.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shift the text each time
 
 o.undofile = true
+o.undolevels = 10000
 
 o.hidden = true
 o.magic = true
 o.virtualedit = "block"
-o.showmode = false
+o.showmode = false -- Dont show mode since we have a statusline
 o.splitkeep = "screen"
 o.mousemodel = "extend"
 
 o.matchpairs:append("<:>")
+
+o.autowrite = true -- Enable auto write
+o.conceallevel = 3 -- Hide * markup for bold and italic etc.
+o.shiftround = true -- Round indent
+o.shortmess:append({ W = true, I = true, C = true, c = true })
+o.smartindent = true -- Insert indents automatically
+o.splitbelow = true -- Put new windows below current
+o.splitright = true -- Put new windows right of current
+o.winminwidth = 5 -- Minimum window width
+o.pumheight = 14 -- limit the max height of windows
