@@ -1,9 +1,21 @@
 -- separate from https://github.com/nvimdev/lspsaga.nvim
+-- TODO: refactor it
 
 local lsp, api, fn = vim.lsp, vim.api, vim.fn
+local buffers = {}
+local main_winid
 
+-- options for peek window
 local options = {
     -- nu = true,
+}
+
+local maps = {
+    edit = "<C-c>o",
+    vsplit = "<C-c>v",
+    split = "<C-c>i",
+    tabe = "<C-c>t",
+    quit = "q",
 }
 
 local function check_lsp_active(silent)
@@ -161,6 +173,174 @@ local function create_win_with_border(content_opts, opts)
     return bufnr, winid
 end
 
+local function find_current_scope()
+    local curr_winid = api.nvim_get_current_win()
+
+    local curr_scope
+    for _, scope in pairs(buffers) do
+        if type(scope) == "table" then
+            if scope.winid == curr_winid then
+                curr_scope = scope
+                break
+            end
+        end
+    end
+
+    return curr_scope
+end
+
+-- Function to iterate all the scopes with given callback function
+-- @param cb - The callback function for each scope
+local function process_all_scopes(cb)
+    for bufnr, scopes in pairs(buffers) do
+        if type(scopes) == "table" and api.nvim_buf_is_valid(bufnr) then
+            for _, scope in ipairs(scopes) do
+                cb(bufnr, scope)
+            end
+        end
+    end
+end
+
+-- Function to find the last definition window and then focus it
+local function focus_last_window()
+    local last_window
+    local curr_win = api.nvim_get_current_win()
+    process_all_scopes(function(_, scope)
+        local valid_win = scope.winid ~= curr_win and api.nvim_win_is_valid(scope.winid)
+
+        if (last_window == nil or scope.winid > last_window) and valid_win then
+            last_window = scope.winid
+        end
+    end)
+
+    if last_window ~= nil then
+        api.nvim_set_current_win(last_window)
+    end
+end
+
+-- Function to close the given window
+-- @param curr_scope - Scope data for the current window
+-- @param opts       - Options including `close_all`
+local function close_window(curr_scope, opts)
+    opts = opts or {}
+    local curr_bufnr = api.nvim_get_current_buf()
+
+    local close_scope = function(item)
+        local bufnr, winid = item.bufnr, item.winid
+        if bufnr and api.nvim_buf_is_loaded(bufnr) then
+            api.nvim_buf_delete(bufnr, { force = true })
+        end
+
+        if winid and api.nvim_win_is_valid(winid) then
+            api.nvim_win_close(winid, true)
+        end
+    end
+
+    if opts.close_all then
+        process_all_scopes(function(bufnr, scope)
+            close_scope(scope)
+
+            if bufnr ~= curr_bufnr then
+                api.nvim_buf_delete(bufnr, { force = true })
+            end
+        end)
+    elseif curr_scope ~= nil then
+        close_scope(curr_scope)
+    end
+end
+
+-- Function to clear the tmp data on triggering the keymap
+-- @param bufnr       - Current buffer number
+-- @param curr_scope  - Scope data for the current window
+-- @param opts        - Options including `close_all`
+local function clear_tmp_data(bufnr, curr_scope, opts)
+    opts = opts or {}
+
+    if opts.close_all then
+        process_all_scopes(function(key, _)
+            buffers[key] = nil
+        end)
+    elseif curr_scope ~= nil then
+        local scopes = buffers[bufnr]
+
+        local matched_index
+        if scopes ~= nil then
+            for i, item in ipairs(scopes) do
+                if item.winid == curr_scope.winid then
+                    matched_index = i
+                end
+            end
+
+            if matched_index ~= nil then
+                table.remove(scopes, matched_index)
+            end
+        end
+    end
+
+    -- INFO: unset the `main_winid` when all the definition windows are closed.
+    local cleared = true
+    process_all_scopes(function(_, _)
+        cleared = false
+    end)
+
+    if cleared then
+        main_winid = nil
+    end
+end
+
+-- Function to clear all the keymappings when there's no window
+-- @param bufnr - The buffer number that those keymappings set for
+local function clear_all_maps(bufnr)
+    local scopes = buffers[bufnr]
+
+    if scopes == nil or next(scopes) == nil then
+        if api.nvim_buf_is_valid(bufnr) then
+            for _, key in pairs(maps) do
+                vim.keymap.del("n", key, { buffer = bufnr })
+            end
+        end
+    end
+end
+
+local function apply_aciton_keys(scope, bufnr, pos)
+    -- Save the current scope data
+    if buffers[bufnr] == nil then
+        buffers[bufnr] = {}
+    end
+    table.insert(buffers, scope)
+
+    for action, key in pairs(maps) do
+        vim.keymap.set("n", key, function()
+            local curr_scope = find_current_scope()
+            local link, def_win_ns = curr_scope.link, curr_scope.def_win_ns
+
+            api.nvim_buf_clear_namespace(bufnr, def_win_ns, 0, -1)
+
+            local non_quit_action = action ~= "quit"
+
+            if non_quit_action then
+                local win
+                api.nvim_win_call(main_winid, function()
+                    vim.cmd(action .. " " .. link)
+                    win = api.nvim_get_current_win()
+                end)
+
+                if win then
+                    api.nvim_set_current_win(win)
+                    api.nvim_win_set_cursor(win, { pos[1] + 1, pos[2] })
+                end
+            else
+                focus_last_window() -- INFO: Only focus the last window when `quit`
+            end
+
+            close_window(curr_scope, { close_all = non_quit_action })
+
+            clear_tmp_data(bufnr, curr_scope, { close_all = non_quit_action })
+            clear_all_maps(bufnr)
+        end, { buffer = bufnr })
+    end
+end
+
 local function peek_definition()
     local scope = {}
     if not check_lsp_active() then
@@ -178,6 +358,9 @@ local function peek_definition()
     local params = lsp.util.make_position_params()
 
     local current_buf = api.nvim_get_current_buf()
+    if not main_winid then
+        main_winid = api.nvim_get_current_win()
+    end
 
     lsp.buf_request_all(current_buf, "textDocument/definition", params, function(results)
         if not results or next(results) == nil then
@@ -260,11 +443,7 @@ local function peek_definition()
             end_char_pos
         )
 
-        -- TODO: find a better way. Now if peek twice in the same buffer, we can only use `q` once
-        vim.keymap.set("n", "q", function()
-            vim.keymap.del("n", "q", { buffer = 0 })
-            api.nvim_win_close(0, false)
-        end, { buffer = true })
+        apply_aciton_keys(scope, bufnr, { start_line, start_char_pos })
 
         for option, value in pairs(options) do
             api.nvim_win_set_option(scope.winid, option, value)
