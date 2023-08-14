@@ -3,7 +3,7 @@ local M = {}
 function M.get_keymaps()
     -- stylua: ignore start
     return {
-        { "go", "<cmd>Aphrodite show_line_diagnostics<CR>", desc = "Line Diagnostics" },
+        { "go", vim.diagnostic.open_float, desc = "Line Diagnostics" },
         { "gd",  function() require("telescope.builtin").lsp_definitions({ reuse_win = true }) end, desc = "Goto Definition" },
         { "gr", "<cmd>Telescope lsp_references<cr>", desc = "References" },
         { "gD", vim.lsp.buf.declaration, desc = "Goto Declaration" },
@@ -11,14 +11,14 @@ function M.get_keymaps()
         { "gt", function() require("telescope.builtin").lsp_type_definitions({ reuse_win = true  }) end, desc = "Goto Type Definition" },
         { "gK", vim.lsp.buf.signature_help, desc = "Signature Help", has = "signatureHelp" },
         { "<c-k>", vim.lsp.buf.signature_help, mode = "i", desc = "Signature Help", has = "signatureHelp" },
-        { "gp", "<cmd>Aphrodite peek_definition<CR>", "Peek Definition" },
+        { "gp", "<cmd>LspPeek<CR>", "Peek Definition" },
         { "]d", M.diagnostic_goto(true), desc = "Next Diagnostic" },
         { "[d", M.diagnostic_goto(false), desc = "Prev Diagnostic" },
         { "]e", M.diagnostic_goto(true, "ERROR"), desc = "Next Error" },
         { "[e", M.diagnostic_goto(false, "ERROR"), desc = "Prev Error" },
         { "]w", M.diagnostic_goto(true, "WARN"), desc = "Next Warning" },
         { "[w", M.diagnostic_goto(false, "WARN"), desc = "Prev Warning" },
-        { "<leader>ca", "<cmd>Aphrodite code_action<CR>", desc = "Code Action", mode = { "n", "v" }, has = "codeAction" },
+        { "<leader>ca", vim.lsp.buf.code_action, desc = "Code Action", mode = { "n", "v" }, has = "codeAction" },
         { "<leader>=", M.format, desc = "Format", has = "documentFormatting" },
         { "<leader>=", M.format, desc = "Format Range", mode = "v", has = "documentRangeFormatting" },
         { "<leader>rn", M.rename, expr = true, desc = "Rename", has = "rename" },
@@ -51,16 +51,14 @@ function M.rename()
 end
 
 function M.diagnostic_goto(next, severity)
-    local go
-    local ok, aphrodite = pcall(require, "aphrodite.diagnostic")
-    if ok then
-        go = next and aphrodite.goto_next or aphrodite.goto_prev
-    else
-        go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
-    end
+    local go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
     severity = severity and vim.diagnostic.severity[severity] or nil
+    local mini_animate = require("mini.animate")
     return function()
         go({ severity = severity })
+        mini_animate.execute_after("scroll", function()
+            vim.defer_fn(vim.diagnostic.open_float, 10)
+        end)
     end
 end
 
