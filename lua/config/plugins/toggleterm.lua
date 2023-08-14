@@ -37,11 +37,12 @@ M.config = function()
 
     -- 定义新的方法
     tg.float_toggle = function()
+        vim.cmd.w()
         floatTerm:toggle()
     end
 
     local nmap = require("core.keymap").nmap
-    nmap("<leader>tt", '<cmd>exe v:count."ToggleTerm"<CR>', { desc = "Toggle a common terminal" })
+    nmap("<leader>tt", '<cmd>w|exe v:count."ToggleTerm"<CR>', { desc = "Toggle a common terminal" })
     nmap("<leader>tf", tg.float_toggle, { desc = "Toggle a float terminal" })
     nmap("<leader>ta", "<cmd>ToggleTermToggleAll<CR>", { desc = "Toggle all terminal" })
 end
