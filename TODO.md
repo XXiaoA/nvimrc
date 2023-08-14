@@ -22,3 +22,4 @@
 - [ ] learn `vim-fugitive`
 - [ ] https://github.com/rbong/vim-flog
 - [ ] https://github.com/tpope/vim-rhubarb
+- [ ] https://github.com/eugen0329/vim-esearch

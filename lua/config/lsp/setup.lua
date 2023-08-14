@@ -54,14 +54,7 @@ local capabilities = vim.tbl_deep_extend(
 )
 
 local servers = {
-    clangd = {
-        cmd = {
-            "clangd",
-            "--background-index",
-            "--clang-tidy",
-        },
-        capabilities = { offsetEncoding = "utf-8" },
-    },
+    clangd = { capabilities = { offsetEncoding = "utf-8" } },
 
     lua_ls = {
         settings = {
