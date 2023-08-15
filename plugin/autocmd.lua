@@ -142,6 +142,7 @@ au("FileType", {
 })
 
 -- automatically hint after entering nvim and opening a new file
+-- TODO: add support for changing fish shell history
 local function enter_hint()
     local cur_file = vim.fn.expand("<afile>:t")
 

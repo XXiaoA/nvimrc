@@ -82,6 +82,8 @@ return {
                 "quickfix",
                 "loclist",
             },
+            signs_column = 0,
+            -- signs_max_per_row = 1,
         },
         config = function(_, opts)
             require("scrollview").setup(opts)
