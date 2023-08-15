@@ -8,11 +8,12 @@ local M = {
         { "g*", mode = { "n", "x", "o" } },
         { "g#", mode = { "n", "x", "o" } },
     },
+    opts = {},
 }
 
-M.config = function()
+M.config = function(_, opts)
     local hlslens = require("hlslens")
-    hlslens.setup({})
+    hlslens.setup(opts)
     hlslens.start()
 
     -- work with nvim-ufo
@@ -44,14 +45,16 @@ M.config = function()
 
     -- makes * and # work on visual mode too.
     vim.cmd([[
-      function! g:VSetSearch(cmdtype)
+      function! g:VSetSearch()
         let temp = @s
         norm! gv"sy
-        let @/ = '\V' . substitute(escape(@s, a:cmdtype.'\'), '\n', '\\n', 'g')
+        let @/ = '\V' . substitute(escape(@s, '/\'), '\n', '\\n', 'g')
         let @s = temp
       endfunction
-      xnoremap * :<C-u>call g:VSetSearch('/')<CR>/<C-R>=@/<CR><CR><Cmd>lua require('hlslens').start()<CR>N
-      xnoremap # :<C-u>call g:VSetSearch('?')<CR>?<C-R>=@/<CR><CR><Cmd>lua require('hlslens').start()<CR>N
+      xnoremap <silent> * :<C-u>call g:VSetSearch()<bar>call histadd('/',@/)<bar>set hlsearch<CR>
+      xnoremap <silent> # :<C-u>call g:VSetSearch()<bar>call histadd('/',@/)<bar>set hlsearch<CR>
+      xnoremap <silent> g* :<C-u>call g:VSetSearch()<bar>call histadd('/',@/)<bar>set hlsearch<CR>
+      xnoremap <silent> g# :<C-u>call g:VSetSearch()<bar>call histadd('/',@/)<bar>set hlsearch<CR>
 ]])
 end
 
