@@ -29,8 +29,11 @@ vim.diagnostic.config({
         style = "minimal",
         border = "single",
         source = "always",
-        header = "",
-        prefix = "",
+        header = { "  Diagnostics", "Bold" },
+        prefix = function(ctx)
+            local severity = vim.diagnostic.severity[ctx.severity]
+            return "  ", "Diagnostic" .. severity
+        end,
     },
 })
 
