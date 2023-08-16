@@ -11,7 +11,6 @@ local M = {
     dependencies = {
         "nvim-lua/plenary.nvim",
         "kyazdani42/nvim-web-devicons",
-        { "XXiaoA/telescope-project.nvim", dev = false },
         { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
         {
             "danielfalk/smart-open.nvim",
@@ -142,7 +141,7 @@ M.config = function(_, opts)
     local telescope = require("telescope")
 
     telescope.setup(opts)
-    for _, extension in ipairs({ "project", "themes", "fzf", "smart_open" }) do
+    for _, extension in ipairs({ "themes", "fzf", "smart_open" }) do
         telescope.load_extension(extension)
     end
 end
