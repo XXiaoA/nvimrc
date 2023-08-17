@@ -28,8 +28,10 @@ M.config = function()
 
     vim.keymap.del({ "n", "o", "x" }, "s")
     vim.keymap.del({ "n", "o", "x" }, "S")
+    vim.keymap.del({ "n", "o", "x" }, "gs")
     vim.keymap.set({ "n", "o", "x" }, "<CR>", "<Plug>(leap-forward-to)")
     vim.keymap.set({ "n", "o", "x" }, "<S-CR>", "<Plug>(leap-backward-to)")
+    vim.keymap.set({ "n", "o", "x" }, "g<CR>", "<Plug>(leap-from-window)")
 end
 
 return M
