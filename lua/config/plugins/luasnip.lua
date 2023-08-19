@@ -1,8 +1,6 @@
 local M = {
     "L3MON4D3/LuaSnip",
     opts = {
-        history = true,
-        delete_check_events = "TextChanged",
         update_events = { "TextChanged", "TextChangedI" },
     },
     -- stylua: ignore
