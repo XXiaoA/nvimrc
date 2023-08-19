@@ -6,13 +6,30 @@ api.nvim_create_user_command("XXiaoA", function(ctx)
         vim.print(colorscheme.all_colorschemes)
     elseif ctx.args == "current_colorscheme" then
         vim.print(colorscheme.current_colorscheme)
+    elseif ctx.args == "oi" then
+        if vim.bo.ft ~= "cpp" then
+            vim.print("Not in a cpp file")
+            return
+        else
+            api.nvim_buf_set_lines(0, 0, -1, true, {
+                "#include <bits/stdc++.h>",
+                "using namespace std;",
+                "",
+                "int main() {",
+                "\tint n;",
+                "\tcin >> n;",
+                "",
+                "\treturn 0;",
+                "}",
+            })
+        end
     else
         vim.print("no command " .. ctx.args)
     end
 end, {
     nargs = 1,
     complete = function(arg)
-        local list = { "colorschemes", "current_colorscheme" }
+        local list = { "colorschemes", "current_colorscheme", "oi" }
         return vim.tbl_filter(function(s)
             return string.match(s, "^" .. arg)
         end, list)
