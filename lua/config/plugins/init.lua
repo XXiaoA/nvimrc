@@ -156,11 +156,14 @@ return {
             return {
                 n_lines = 500,
                 custom_textobjects = {
+                    -- Disable brackets alias in favor of builtin block textobject
+                    b = false,
+
                     o = ai.gen_spec.treesitter({
                         a = { "@block.outer", "@conditional.outer", "@loop.outer" },
                         i = { "@block.inner", "@conditional.inner", "@loop.inner" },
                     }, {}),
-                    f = ai.gen_spec.treesitter(
+                    F = ai.gen_spec.treesitter(
                         { a = "@function.outer", i = "@function.inner" },
                         {}
                     ),
@@ -187,9 +190,9 @@ return {
                 ["?"] = "User Prompt",
                 _ = "Underscore",
                 a = "Argument",
-                b = "Balanced ), ], }",
                 c = "Class",
-                f = "Function",
+                f = "Function call",
+                F = "Function definition",
                 o = "Block, conditional, loop",
                 q = "Quote `, \", '",
                 t = "Tag",
