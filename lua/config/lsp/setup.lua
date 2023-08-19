@@ -29,6 +29,7 @@ vim.diagnostic.config({
         style = "minimal",
         border = "single",
         source = "always",
+        max_width = 100,
         header = { "  Diagnostics", "Bold" },
         prefix = function(ctx)
             local severity = vim.diagnostic.severity[ctx.severity]
