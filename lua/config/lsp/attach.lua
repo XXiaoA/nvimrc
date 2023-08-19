@@ -1,7 +1,5 @@
 local M = {}
 
-local lsppeek = require("utils.lsppeek")
-
 function M.get_keymaps()
     -- stylua: ignore start
     return {
@@ -13,8 +11,8 @@ function M.get_keymaps()
         { "gt", function() require("telescope.builtin").lsp_type_definitions({ reuse_win = true  }) end, desc = "Goto Type Definition" },
         { "gK", vim.lsp.buf.signature_help, desc = "Signature Help", has = "signatureHelp" },
         { "<c-k>", vim.lsp.buf.signature_help, mode = "i", desc = "Signature Help", has = "signatureHelp" },
-        { "gp", function () lsppeek:peek_definition(1) end, "Peek definition" },
-        { "gP", function () lsppeek:peek_definition(2) end, "Peek type definition" },
+        { "gp", "<CMD>Aphrodite peek_definition<CR>", "Peek definition" },
+        { "gP", "<CMD>Aphrodite peek_type_definition<CR>", "Peek type definition" },
         { "]d", M.diagnostic_goto(true), desc = "Next Diagnostic" },
         { "[d", M.diagnostic_goto(false), desc = "Prev Diagnostic" },
         { "]e", M.diagnostic_goto(true, "ERROR"), desc = "Next Error" },
