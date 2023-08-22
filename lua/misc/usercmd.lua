@@ -12,7 +12,7 @@ api.nvim_create_user_command("XXiaoA", function(ctx)
             return
         else
             api.nvim_buf_set_lines(0, 0, -1, true, {
-                "#include <bits/stdc++.h>",
+                "#include <iostream>",
                 "using namespace std;",
                 "",
                 "int main() {",

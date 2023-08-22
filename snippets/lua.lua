@@ -29,7 +29,7 @@ return {
 
     s("ll", fmt([[
     local {} = {}
-    ]], { i(1), i(2) } )
+    ]], { i(1), i(0) } )
     ),
 
     s("req", fmt([[

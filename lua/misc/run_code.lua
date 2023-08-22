@@ -28,4 +28,21 @@ local function run_code()
     end
 end
 
+local function build_code()
+    local file = fn.expand("%:p")
+    local file_type = vim.api.nvim_buf_get_option(0, "filetype")
+
+    vim.cmd("silent w")
+    if file_type == "cpp" then
+        local exe_dir = (fn.expand("%:p:h") .. "/build")
+        if fn.isdirectory(exe_dir) == 0 then
+            fn.system("mkdir -p " .. exe_dir)
+        end
+        vim.cmd([[
+            AsyncRun -reuse -listed=0 -focus=0 -rows=6 g++ "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/build/$(VIM_FILENOEXT)"
+            ]])
+    end
+end
+
 nmap("<F5>", run_code, { desc = "Run code" })
+nmap("<F4>", build_code, { desc = "Build code" })
