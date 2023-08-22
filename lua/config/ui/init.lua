@@ -14,7 +14,7 @@ return {
     {
         "folke/tokyonight.nvim",
         init = function()
-            add_colorscheme("tokyonight-storm", "tokyonight-moon")
+            add_colorscheme("tokyonight-storm", "tokyonight-moon", "tokyonight-night")
         end,
     },
 
