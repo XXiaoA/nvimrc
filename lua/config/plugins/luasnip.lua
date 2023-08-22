@@ -1,8 +1,5 @@
 local M = {
     "L3MON4D3/LuaSnip",
-    opts = {
-        update_events = { "TextChanged", "TextChangedI" },
-    },
     -- stylua: ignore
     keys = {
         {
@@ -32,10 +29,36 @@ local M = {
     },
 }
 
-M.config = function(_, opts)
+M.config = function()
     local ls = require("luasnip")
+    local types = require("luasnip.util.types")
+    ls.setup({
+        update_events = { "TextChanged", "TextChangedI" },
+        delete_check_events = "TextChanged",
+        ext_opts = {
+            [types.choiceNode] = {
+                active = {
+                    virt_text = { { "«", "Boolean" } },
+                    priority = 10,
+                },
+            },
+            [types.insertNode] = {
+                active = {
+                    virt_text = { { "●", "Title" } },
+                    virt_text_pos = "inline",
+                },
+                unvisited = {
+                    virt_text = { { "●", "NonText" } },
+                    virt_text_pos = "inline",
+                },
+                visited = {
+                    virt_text = { { "●", "NonText" } },
+                    virt_text_pos = "inline",
+                },
+            },
+        },
+    })
     require("luasnip.loaders.from_lua").load({ paths = "./snippets" })
-    ls.setup(opts)
 
     -- https://github.com/L3MON4D3/LuaSnip/wiki/Cool-Snippets#all---todo-commentsnvim-snippets
     local s = ls.snippet
