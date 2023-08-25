@@ -76,7 +76,7 @@ api.nvim_create_autocmd("InsertLeave", {
     end,
 })
 api.nvim_create_autocmd("CmdlineEnter", {
-    pattern = "[/?]",
+    pattern = "*",
     group = fcitx5,
     callback = function(ctx)
         if fn.reg_executing() == "" then
