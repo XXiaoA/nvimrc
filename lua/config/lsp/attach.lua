@@ -107,6 +107,9 @@ function M.on_attach(client, buffer)
     -- inlay hint
     if client.server_capabilities.inlayHintProvider then
         vim.lsp.inlay_hint(buffer, true)
+        vim.api.nvim_create_user_command("InlayHintToggle", function()
+            vim.lsp.inlay_hint(buffer, nil)
+        end, {})
     end
 end
 
