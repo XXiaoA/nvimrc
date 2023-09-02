@@ -67,6 +67,13 @@ return {
     },
 
     {
+        "mizlan/iswap.nvim",
+        dependencies = "nvim-treesitter",
+        event = "VeryLazy",
+        opts = {},
+    },
+
+    {
         "mfussenegger/nvim-treehopper",
         dependencies = "nvim-treesitter",
         keys = {
