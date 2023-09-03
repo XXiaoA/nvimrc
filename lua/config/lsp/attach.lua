@@ -111,6 +111,11 @@ function M.on_attach(client, buffer)
             vim.lsp.inlay_hint(buffer, nil)
         end, {})
     end
+
+    -- disable treesitter highlight if has semantic highlight
+    if client.server_capabilities.semanticTokensProvider then
+        vim.cmd("TSDisable highlight")
+    end
 end
 
 return M
