@@ -12,13 +12,26 @@ return {
     ),
 
     s("fori", fmt([[
-    for (int {} = 0; {i} < {}; {i}++) {{
+    for (int {} = {}; {i} < {}; {i}++) {{
         {}
     }}
     ]], {
         i(1),
+        i(2, "0");
         i = f(function(args) return args[1][1] end, 1),
-        i(2),
+        i(3),
+        i(0)
+    })),
+
+    s("forir", fmt([[
+    for (int {} = {}; {i} > {}; {i}--) {{
+        {}
+    }}
+    ]], {
+        i(1),
+        i(2);
+        i = f(function(args) return args[1][1] end, 1),
+        i(3),
         i(0)
     })),
 
