@@ -80,6 +80,12 @@ local servers = {
                         "${3rd}/luv/library",
                     },
                 },
+                codelens = {
+                    enable = true,
+                },
+                completion = {
+                    callSnippet = "Replace",
+                },
                 telemetry = { enable = false },
             },
         },

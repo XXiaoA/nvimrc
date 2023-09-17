@@ -113,9 +113,9 @@ function M.on_attach(client, buffer)
     end
 
     -- disable treesitter highlight if has semantic highlight
-    if client.server_capabilities.semanticTokensProvider then
-        vim.cmd("TSDisable highlight")
-    end
+    -- if client.server_capabilities.semanticTokensProvider then
+    -- vim.cmd("TSDisable highlight")
+    -- end
 end
 
 return M
