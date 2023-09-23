@@ -1,17 +1,9 @@
 return {
     "lukas-reineke/indent-blankline.nvim",
     event = "BufReadPre",
-    opts = {
-        space_char_blankline = " ",
-        show_current_context = true,
-        show_current_context_start = true,
-        filetype_exclude = {
-            "help",
-            "TERMINAL",
-            "terminal",
-            "startuptime",
-            "toggleterm",
-            "translator",
-        },
-    },
+    branch = "v3",
+    opts = {},
+    config = function(_, opts)
+        require("ibl").setup(opts)
+    end,
 }
