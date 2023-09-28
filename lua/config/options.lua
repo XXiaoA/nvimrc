@@ -124,7 +124,7 @@ o.matchpairs:append("<:>")
 o.autowrite = true -- Enable auto write
 o.conceallevel = 3 -- Hide * markup for bold and italic etc.
 o.shiftround = true -- Round indent
-o.shortmess:append({ W = true, I = true, C = true, c = true })
+o.shortmess:append({ W = false, I = true, C = true, c = true })
 o.smartindent = true -- Insert indents automatically
 o.splitbelow = true -- Put new windows below current
 o.splitright = true -- Put new windows right of current
