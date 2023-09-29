@@ -11,7 +11,6 @@ local M = {
     dependencies = {
         {
             "ggandor/flit.nvim",
-            enabled = false,
             config = true,
             keys = {
                 { mode = { "n", "o", "x" }, "t" },
