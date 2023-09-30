@@ -22,13 +22,6 @@ return {
             },
         },
         routes = {
-            -- {
-            --     filter = {
-            --         event = "msg_show",
-            --         find = "[written|已写入]",
-            --     },
-            --     opts = { skip = true },
-            -- },
             {
                 filter = {
                     event = "msg_show",
