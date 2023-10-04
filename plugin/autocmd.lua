@@ -194,3 +194,8 @@ au("User", {
         utils.require("misc")
     end,
 })
+
+au("BufNewFile", {
+    pattern = "*/luogu*/*.cpp",
+    command = "0r ~/.config/nvim/templates/oi.cpp",
+})
