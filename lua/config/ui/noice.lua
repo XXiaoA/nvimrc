@@ -1,6 +1,21 @@
 return {
     "folke/noice.nvim",
     event = "VeryLazy",
+    config = function(_, opt)
+        require("noice").setup(opt)
+        -- fix for macroing
+        require("lualine").setup({
+            sections = {
+                lualine_x = {
+                    {
+                        require("noice").api.statusline.mode.get,
+                        cond = require("noice").api.statusline.mode.has,
+                        color = { fg = "#ff9e64" },
+                    },
+                },
+            },
+        })
+    end,
     opts = {
         lsp = {
             progress = {
