@@ -23,14 +23,14 @@ local function run_code()
             fn.system("mkdir -p " .. exe_dir)
         end
         vim.cmd([[
-            AsyncRun -mode=term -reuse -listed=0 -focus=0 -rows=6 g++ "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/build/$(VIM_FILENOEXT)" && "$(VIM_FILEDIR)/build/$(VIM_FILENOEXT)"
+            AsyncRun -mode=term -reuse -listed=0 -focus=0 -rows=6 g++ -DLOCAL "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/build/$(VIM_FILENOEXT)" && "$(VIM_FILEDIR)/build/$(VIM_FILENOEXT)"
             ]])
     end
 end
 
 local function build_code()
     local file = fn.expand("%:p")
-    local file_type = vim.api.nvim_buf_get_option(0, "filetype")
+    local file_type = vim.api.nvim_get_option_value("filetype", { buf = 0 })
 
     vim.cmd("silent w")
     if file_type == "cpp" then
@@ -39,7 +39,7 @@ local function build_code()
             fn.system("mkdir -p " .. exe_dir)
         end
         vim.cmd([[
-            AsyncRun -reuse -listed=0 -focus=0 -rows=6 g++ "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/build/$(VIM_FILENOEXT)"
+            AsyncRun -reuse -listed=0 -focus=0 -rows=6 g++ -DLOCAL "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/build/$(VIM_FILENOEXT)"
             ]])
     end
 end
