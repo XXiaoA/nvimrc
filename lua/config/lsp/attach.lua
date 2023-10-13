@@ -20,27 +20,9 @@ function M.get_keymaps()
         { "]w", M.diagnostic_goto(true, "WARN"), desc = "Next Warning" },
         { "[w", M.diagnostic_goto(false, "WARN"), desc = "Prev Warning" },
         { "<leader>ca", vim.lsp.buf.code_action, desc = "Code Action", mode = { "n", "v" }, has = "codeAction" },
-        { "<leader>=", M.format, desc = "Format", has = "documentFormatting" },
-        { "<leader>=", M.format, desc = "Format Range", mode = "v", has = "documentRangeFormatting" },
         { "<leader>rn", M.rename, expr = true, desc = "Rename", has = "rename" },
     }
     -- stylua: ignore end
-end
-
-function M.format()
-    local buf = vim.api.nvim_get_current_buf()
-    local ft = vim.bo[buf].filetype
-    local have_nls = #require("null-ls.sources").get_available(ft, "NULL_LS_FORMATTING") > 0
-
-    vim.lsp.buf.format({
-        bufnr = buf,
-        filter = function(client)
-            if have_nls then
-                return client.name == "null-ls"
-            end
-            return client.name ~= "null-ls"
-        end,
-    })
 end
 
 function M.rename()
@@ -82,26 +64,8 @@ function M.on_attach(client, buffer)
             opts.has = nil
             opts.silent = true
             opts.buffer = buffer
-            vim.keymap.set(keys.mode or "n", keys[1], keys[2], opts)
+            vim.keymap.set(keys.mode or "n", keys.lhs, keys.rhs, opts)
         end
-    end
-
-    -- auto format
-    M.autoformat = true
-    vim.api.nvim_create_user_command("AutoFormatToggle", function()
-        M.autoformat = not M.autoformat
-        vim.notify("Format on save: " .. tostring(M.autoformat))
-    end, {})
-    if client.supports_method("textDocument/formatting") then
-        vim.api.nvim_create_autocmd("BufWritePre", {
-            group = vim.api.nvim_create_augroup("LspFormat." .. buffer, {}),
-            buffer = buffer,
-            callback = function()
-                if M.autoformat then
-                    M.format()
-                end
-            end,
-        })
     end
 
     -- inlay hint
