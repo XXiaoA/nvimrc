@@ -125,3 +125,5 @@ nmap("<Plug>(unimpaired-blank-down)", function()
 end)
 nmap("[<Space>", "<Plug>(unimpaired-blank-up)", { desc = "Add a empty line up" })
 nmap("]<Space>", "<Plug>(unimpaired-blank-down)", { desc = "Add a empty line down" })
+
+nmap("<ESC>", "<CMD>w|e|redraw<CR>")
