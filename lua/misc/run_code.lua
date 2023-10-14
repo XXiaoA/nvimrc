@@ -3,7 +3,7 @@ local nmap = require("core.keymap").nmap
 
 local function run_code()
     local file = fn.expand("%:p")
-    local file_type = vim.api.nvim_buf_get_option(0, "filetype")
+    local file_type = vim.api.nvim_get_option_value("filetype", { buf = 0 })
 
     vim.cmd("silent w")
 
@@ -29,7 +29,6 @@ local function run_code()
 end
 
 local function build_code()
-    local file = fn.expand("%:p")
     local file_type = vim.api.nvim_get_option_value("filetype", { buf = 0 })
 
     vim.cmd("silent w")

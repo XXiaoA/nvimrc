@@ -51,7 +51,6 @@ local M = {
         { "<leader>gc", "<cmd>Telescope git_commits<CR>", desc = "Search commit history" },
         { "<leader>gs", "<cmd>Telescope git_status<CR>", desc = "Search git status" },
         { "<leader>cp", "<cmd>Telescope themes<CR>", desc = "Change colorscheme with preview" },
-        { "<leader>op", "<cmd>Telescope project<CR>", desc = "Projects" },
         { "z=", "<cmd>Telescope spell_suggest<CR>", desc = "Spell suggest" },
     },
     opts = {

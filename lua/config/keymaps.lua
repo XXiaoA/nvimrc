@@ -17,7 +17,7 @@ tmap("<ESC>", [[<C-\><C-n>]])
 -- Save or quit
 nmap("<C-s>", ":w<CR>")
 nmap("Q", function()
-    local ft = vim.api.nvim_buf_get_option(0, "ft")
+    local ft = vim.api.nvim_get_option_value("ft", { buf = 0 })
     if ft == "TelescopePrompt" then
         vim.cmd("qall!")
     else
@@ -127,3 +127,5 @@ nmap("[<Space>", "<Plug>(unimpaired-blank-up)", { desc = "Add a empty line up" }
 nmap("]<Space>", "<Plug>(unimpaired-blank-down)", { desc = "Add a empty line down" })
 
 nmap("<ESC>", "<CMD>w|e|redraw<CR>")
+
+imap("jj", "<ESC>")

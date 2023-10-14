@@ -3,7 +3,7 @@ local swicher = require("utils.swicher")
 --- string[]
 M.all_colorschemes = {}
 --- string
-M.current_colorscheme = "nightfox"
+M.current_colorscheme = "everforest"
 
 function M.modify_colorscheme(colorscheme)
     local file_path = vim.fn.stdpath("config") .. "/lua/core/colorscheme.lua"

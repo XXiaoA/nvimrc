@@ -14,7 +14,7 @@ local quit_current_win = function()
     local tabwins = api.nvim_tabpage_list_wins(0)
     for _, w in ipairs(tabwins) do
         local buf = api.nvim_win_get_buf(w)
-        local bf = api.nvim_buf_get_option(buf, "filetype")
+        local bf = api.nvim_get_option_value("filetype", { buf = buf })
         if not vim.tbl_contains(quit_filetypes, bf) then
             should_quit = false
         end
