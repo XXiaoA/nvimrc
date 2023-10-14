@@ -2,13 +2,12 @@
 using namespace std;
 
 int read() {
-    int x = 0, w = 1;
-    char ch = 0;
     // clang-format off
+    int x = 0, w = 1; char ch = 0;
     while (ch < '0' || ch > '9') { if (ch == '-') w = -1; ch = getchar(); }
     while (ch >= '0' && ch <= '9') { x = x * 10 + (ch - '0'); ch = getchar(); }
-    // clang-format on
     return x * w;
+    // clang-format on
 }
 
 int main() {
