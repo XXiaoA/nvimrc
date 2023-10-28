@@ -117,6 +117,7 @@ return {
                 options = {
                     enabled = true,
                     showcmd = true,
+                    laststatus = 0, -- turn off statusline in zen mode
                 },
                 twilight = { enabled = true },
                 gitsigns = { enabled = true },
