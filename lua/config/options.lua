@@ -122,7 +122,7 @@ o.mousemodel = "extend"
 o.matchpairs:append("<:>")
 
 o.autowrite = true -- Enable auto write
-o.conceallevel = 3 -- Hide * markup for bold and italic etc.
+o.conceallevel = 0 -- Hide * markup for bold and italic etc.
 o.shiftround = true -- Round indent
 o.shortmess:append({ W = true, I = true, C = true, c = true })
 o.smartindent = true -- Insert indents automatically
