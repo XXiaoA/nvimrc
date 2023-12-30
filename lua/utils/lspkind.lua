@@ -67,13 +67,6 @@ local icons = {
     WhileStatement = "󰑖",
 }
 
-M.diagnostic = {
-    Error = "󰅚 ",
-    Warn = "󰀪 ",
-    Hint = "󰌶 ",
-    Info = "󰋽 ",
-}
-
 M.icons = vim.tbl_map(function(value)
     return require("utils").trim(value)
 end, icons)
