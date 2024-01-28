@@ -2,7 +2,7 @@ return {
     {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
-        event = "BufReadPre",
+        event = { "BufReadPre", "BufNewFile" },
         opts = {
             ensure_installed = {
                 "markdown_inline",
