@@ -3,7 +3,7 @@ return {
     event = "VeryLazy",
     opts = {
         chat_shortcut_respond = { modes = { "n", "x" }, shortcut = "<leader>r" },
-        chat_shortcut_delete = { modes = { "n", "x" }, shortcut = "<leaderd" },
+        chat_shortcut_delete = { modes = { "n", "x" }, shortcut = "<leader>d" },
         chat_shortcut_stop = { modes = { "n", "x" }, shortcut = "<leader>s" },
         chat_shortcut_new = { modes = { "n", "x" }, shortcut = "<leader>n" },
     },
