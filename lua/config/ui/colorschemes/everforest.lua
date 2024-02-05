@@ -1,6 +1,9 @@
 vim.api.nvim_create_autocmd("ColorScheme", {
     pattern = "everforest",
-    command = "hi FloatBorder guibg=#272E33",
+    command = [[
+    hi FloatBorder guibg=#272E33
+    hi WinBar guibg=NONE
+    ]],
 })
 vim.api.nvim_create_autocmd("ColorScheme", {
     pattern = "everforest",
