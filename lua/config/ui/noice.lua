@@ -1,6 +1,10 @@
 return {
     "folke/noice.nvim",
     event = "VeryLazy",
+    dependencies = {
+        "nui.nvim",
+        "nvim-notify",
+    },
     config = function(_, opt)
         require("noice").setup(opt)
         -- fix for macroing
@@ -54,7 +58,7 @@ return {
                         { find = "; before #%d+" },
                     },
                 },
-                view = "mini",
+                opts = { skip = true },
             },
         },
         presets = {
