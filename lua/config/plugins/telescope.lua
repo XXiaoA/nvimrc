@@ -12,12 +12,6 @@ local M = {
         "nvim-lua/plenary.nvim",
         "kyazdani42/nvim-web-devicons",
         { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-        {
-            "danielfalk/smart-open.nvim",
-            dependencies = {
-                "kkharji/sqlite.lua",
-            },
-        },
     },
     cmd = "Telescope",
     keys = {
@@ -39,7 +33,6 @@ local M = {
             }),
             desc = "Search symbol",
         },
-        { "<leader>fa", "<cmd>Telescope smart_open<CR>", desc = "Smart open" },
         { "<leader>fm", "<cmd>Telescope man_pages<CR>", desc = "Search man pages" },
         { "<leader>fu", "<cmd>Telescope resume<CR>", desc = "Resume last picker" },
         { "<leader>fh", "<cmd>Telescope help_tags<CR>", desc = "Search help tags" },
@@ -128,11 +121,6 @@ local M = {
                 "COMMIT_EDITMSG",
             },
         },
-        extensions = {
-            smart_open = {
-                match_algorithm = "fzf",
-            },
-        },
     },
 }
 
@@ -140,7 +128,7 @@ M.config = function(_, opts)
     local telescope = require("telescope")
 
     telescope.setup(opts)
-    for _, extension in ipairs({ "themes", "fzf", "smart_open" }) do
+    for _, extension in ipairs({ "themes", "fzf" }) do
         telescope.load_extension(extension)
     end
 end
