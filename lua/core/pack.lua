@@ -65,7 +65,7 @@ function M.setup()
     local lazy = require("lazy")
     local opts = {
         defaults = { lazy = true },
-        lockfile = vim.fn.stdpath("config") .. "/.lazy-lock.json",
+        lockfile = vim.fn.stdpath("data") .. "/lazy-lock.json",
         diff = {
             cmd = "diffview.nvim",
         },
