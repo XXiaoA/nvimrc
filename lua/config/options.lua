@@ -40,8 +40,6 @@ o.timeoutlen = 500
 o.timeout = true
 o.ttimeout = true
 o.ttimeoutlen = 10
--- 总是在当前目录下执行命令
-o.autochdir = true
 -- 显示命令字符
 o.showcmd = true
 -- always show tabline
