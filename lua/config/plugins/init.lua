@@ -269,6 +269,7 @@ return {
 
     {
         "aserowy/tmux.nvim",
+        cond = vim.env.TMUX ~= nil,
         keys = { "<C-h>", "<C-j>", "<C-k>", "<C-l>", "<A-h>", "<A-j>", "<A-k>", "<A-l>" },
         config = true,
     },
