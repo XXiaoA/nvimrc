@@ -116,7 +116,6 @@ local M = {
             file_ignore_patterns = {
                 "./node_modules",
                 ".*~",
-                "vimcdoc",
                 "/usr/share/nvim/runtime/doc",
                 "COMMIT_EDITMSG",
             },

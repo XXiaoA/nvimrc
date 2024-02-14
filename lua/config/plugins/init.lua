@@ -213,9 +213,6 @@ return {
     -- 运行时间
     { "dstein64/vim-startuptime", cmd = "StartupTime" },
 
-    -- 中文文档
-    { "yianwillis/vimcdoc", event = "VeryLazy" },
-
     -- 翻译
     { "voldikss/vim-translator", cmd = { "Translate", "TranslateW" } },
 
