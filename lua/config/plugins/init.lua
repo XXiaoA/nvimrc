@@ -171,43 +171,6 @@ return {
                 },
             }
         end,
-        config = function(_, opts)
-            require("mini.ai").setup(opts)
-            -- register all text objects with which-key
-            local i = {
-                [" "] = "Whitespace",
-                ['"'] = 'Balanced "',
-                ["'"] = "Balanced '",
-                ["`"] = "Balanced `",
-                ["("] = "Balanced (",
-                [")"] = "Balanced ) including white-space",
-                [">"] = "Balanced > including white-space",
-                ["<lt>"] = "Balanced <",
-                ["]"] = "Balanced ] including white-space",
-                ["["] = "Balanced [",
-                ["}"] = "Balanced } including white-space",
-                ["{"] = "Balanced {",
-                ["?"] = "User Prompt",
-                _ = "Underscore",
-                a = "Argument",
-                c = "Class",
-                f = "Function call",
-                F = "Function definition",
-                o = "Block, conditional, loop",
-                q = "Quote `, \", '",
-                t = "Tag",
-            }
-            local a = vim.deepcopy(i)
-            for k, v in pairs(a) do
-                a[k] = v:gsub(" including.*", "")
-            end
-
-            require("which-key").register({
-                mode = { "o", "x" },
-                i = i,
-                a = a,
-            })
-        end,
     },
 
     -- 运行时间
