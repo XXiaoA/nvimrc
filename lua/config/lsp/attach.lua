@@ -36,12 +36,8 @@ end
 function M.diagnostic_goto(next, severity)
     local go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
     severity = severity and vim.diagnostic.severity[severity] or nil
-    local mini_animate = require("mini.animate")
     return function()
         go({ severity = severity })
-        mini_animate.execute_after("scroll", function()
-            vim.defer_fn(vim.diagnostic.open_float, 10)
-        end)
     end
 end
 

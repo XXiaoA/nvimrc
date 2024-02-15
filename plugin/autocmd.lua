@@ -119,22 +119,12 @@ end
 
 au("InsertEnter", {
     group = xxiaoa_group,
-    callback = function()
-        local execute_after = require("mini.animate").execute_after
-        execute_after("scroll", function()
-            stop_hl()
-        end)
-    end,
+    callback = stop_hl,
     desc = "Auto remove hlsearch",
 })
 au("CursorMoved", {
     group = xxiaoa_group,
-    callback = function()
-        local execute_after = require("mini.animate").execute_after
-        execute_after("scroll", function()
-            start_hl()
-        end)
-    end,
+    callback = start_hl,
     desc = "Auto hlsearch",
 })
 
