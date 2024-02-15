@@ -52,18 +52,6 @@ return {
     },
 
     {
-        "dstein64/vim-win",
-        keys = { { "<leader>w", desc = "Window manager" } },
-        cmd = "Win",
-        config = function()
-            vim.g.win_ext_command_map = {
-                ["="] = "wincmd =",
-                q = "Win#exit",
-            }
-        end,
-    },
-
-    {
         "windwp/nvim-spectre",
         dependencies = "plenary.nvim",
         cmd = "Spectre",
