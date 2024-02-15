@@ -1,14 +1,3 @@
-vim.api.nvim_create_autocmd("ColorScheme", {
-    pattern = "rose-pine",
-    command = [[
-    hi IlluminatedWord ctermbg=237 guibg=#57406b
-    hi IlluminatedCurWord ctermbg=237 guibg=#57406b
-    hi IlluminatedWordText ctermbg=237 guibg=#57406b
-    hi IlluminatedWordRead ctermbg=237 guibg=#57406b
-    hi IlluminatedWordWrite ctermbg=237 guibg=#57406b
-    ]],
-})
-
 require("rose-pine").setup({
     --- @usage 'main' | 'moon'
     dark_variant = "moon",
@@ -19,6 +8,12 @@ require("rose-pine").setup({
     disable_italics = false,
 
     highlight_groups = {
+        IlluminatedWord = { bg = "#57406b" },
+        IlluminatedCurWord = { bg = "#57406b" },
+        IlluminatedWordText = { bg = "#57406b" },
+        IlluminatedWordRead = { bg = "#57406b" },
+        IlluminatedWordWrite = { bg = "#57406b" },
+
         TelescopeBorder = { fg = "highlight_high", bg = "none" },
         TelescopeNormal = { bg = "none" },
         TelescopePromptNormal = { bg = "base" },

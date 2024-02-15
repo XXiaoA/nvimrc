@@ -1,14 +1,3 @@
-vim.api.nvim_create_autocmd("ColorScheme", {
-    pattern = "catppuccin-mocha",
-    command = [[
-    hi IlluminatedWord ctermbg=237 guibg=#374145
-    hi IlluminatedCurWord ctermbg=237 guibg=#374145
-    hi IlluminatedWordText ctermbg=237 guibg=#374145
-    hi IlluminatedWordRead ctermbg=237 guibg=#374145
-    hi IlluminatedWordWrite ctermbg=237 guibg=#374145
-    ]],
-})
-
 require("catppuccin").setup({
     flavour = "mocha", -- latte, frappe, macchiato, mocha
     compile = {

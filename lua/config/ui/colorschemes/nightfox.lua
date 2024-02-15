@@ -12,18 +12,6 @@ require("nightfox").setup({
             types = "NONE",
             variables = "NONE",
         },
-        modules = {
-            aerial = true,
-            cmp = true,
-            fidget = true,
-            gitsigns = true,
-            illuminate = true,
-            indent_blanklines = true,
-            neotree = true,
-            telescope = true,
-            tsrainbow2 = true,
-            whichkey = true,
-        },
     },
     groups = {
         nightfox = {

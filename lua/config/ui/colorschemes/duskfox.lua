@@ -1,18 +1,3 @@
-vim.api.nvim_create_autocmd("ColorScheme", {
-    pattern = "duskfox",
-    command = "hi NvimSurroundHighlight guibg=#39506d",
-})
-vim.api.nvim_create_autocmd("ColorScheme", {
-    pattern = "duskfox",
-    command = [[
-    hi IlluminatedWord ctermbg=237 guibg=#374145
-    hi IlluminatedCurWord ctermbg=237 guibg=#374145
-    hi IlluminatedWordText ctermbg=237 guibg=#374145
-    hi IlluminatedWordRead ctermbg=237 guibg=#374145
-    hi IlluminatedWordWrite ctermbg=237 guibg=#374145
-    ]],
-})
-
 require("nightfox").setup({
     options = {
         styles = {
@@ -26,6 +11,11 @@ require("nightfox").setup({
             strings = "NONE",
             types = "NONE",
             variables = "NONE",
+        },
+    },
+    groups = {
+        duskfox = {
+            NvimSurroundHighlight = { bg = "bg4" },
         },
     },
 })
