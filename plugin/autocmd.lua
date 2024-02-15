@@ -175,6 +175,9 @@ local function enter_hint()
         }, function(choice)
             if choice then
                 vim.api.nvim_buf_delete(0, {})
+                vim.fn.system(
+                    "history delete --exact --case-sensitive " .. ("'nvim %s'"):format(cur_file)
+                )
                 vim.cmd.e(choice)
             end
         end)
@@ -195,7 +198,8 @@ au("User", {
     end,
 })
 
+-- template for competitive code
 au("BufNewFile", {
-    pattern = "*/luogu*/*.cpp",
+    pattern = vim.env.HOME .. "/Workspace/oj*/*.cpp",
     command = "0r ~/.config/nvim/templates/oi.cpp",
 })

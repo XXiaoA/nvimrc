@@ -11,9 +11,6 @@ int read() {
 }
 
 int main() {
-#ifdef LOCAL
-    freopen("in", "r", stdin);
-#endif
     ios::sync_with_stdio(false);
     int n;
     n = read();

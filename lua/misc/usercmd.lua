@@ -11,34 +11,7 @@ api.nvim_create_user_command("XXiaoA", function(ctx)
             vim.print("Not in a cpp file")
             return
         else
-            api.nvim_buf_set_lines(0, 0, -1, true, {
-                "#include <iostream>",
-                "using namespace std;",
-                "",
-                [[int read() {]],
-                [[  int x = 0, w = 1;  ]],
-                [[  char ch = 0;]],
-                [[  while (ch < '0' || ch > '9') {]],
-                [[      if (ch == '-')]],
-                [[          w = -1;]],
-                [[      ch = getchar();]],
-                [[  }]],
-                [[  while (ch >= '0' && ch <= '9') {]],
-                [[      x = x * 10 + (ch - '0');]],
-                [[      ch = getchar();]],
-                [[  }]],
-                [[  return x * w;]],
-                [[}]],
-                "",
-                "int main() {",
-                "   ios::sync_with_stdio(false);",
-                "   int n;",
-                "   n = read();",
-                "",
-                "   return 0;",
-                "}",
-            })
-            vim.cmd("w!")
+            vim.cmd("0r ~/.config/nvim/templates/oi.cpp")
         end
     else
         vim.print("no command " .. ctx.args)
