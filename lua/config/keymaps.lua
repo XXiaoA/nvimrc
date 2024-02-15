@@ -16,7 +16,7 @@ tmap("<ESC>", [[<C-\><C-n>]])
 
 -- Save or quit
 nmap("<C-s>", ":w<CR>")
-nmap("Q", function()
+nmap("<C-q>", function()
     local ft = vim.api.nvim_get_option_value("ft", { buf = 0 })
     if ft == "TelescopePrompt" then
         vim.cmd("qall!")
