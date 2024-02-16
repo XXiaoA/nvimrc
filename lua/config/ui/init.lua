@@ -93,7 +93,7 @@ return {
 
     {
         "Bekaboo/dropbar.nvim",
-        lazy = false,
+        event = "BufEnter",
         opts = {
             icons = {
                 kinds = {
