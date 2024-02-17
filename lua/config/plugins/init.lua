@@ -60,8 +60,7 @@ return {
 
     {
         "gpanders/nvim-parinfer",
-        enabled = false,
-        lazy = false,
+        ft = "yuck",
     },
 
     {
