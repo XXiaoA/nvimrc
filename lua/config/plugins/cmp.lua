@@ -123,6 +123,27 @@ M.config = function()
             { name = "cmdline" },
         },
     })
+
+    -- https://github.com/altermo/ultimate-autopair.nvim/issues/5#issuecomment-1772186460
+    local ind = cmp.lsp.CompletionItemKind
+
+    local function ls_name_from_event(event)
+        return event.entry.source.source.client.config.name
+    end
+
+    -- Add parenthesis on completion confirmation
+    cmp.event:on("confirm_done", function(event)
+        local ok, ls_name = pcall(ls_name_from_event, event)
+        if ok and not vim.tbl_contains({ "lua_ls" }, ls_name) then
+            return
+        end
+
+        local completion_kind = event.entry:get_completion_item().kind
+        if vim.tbl_contains({ ind.Function, ind.Method }, completion_kind) then
+            local left = vim.api.nvim_replace_termcodes("<Left>", true, true, true)
+            vim.api.nvim_feedkeys("()" .. left, "n", false)
+        end
+    end)
 end
 
 return M

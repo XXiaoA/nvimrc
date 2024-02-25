@@ -4,10 +4,8 @@ if not mason_lspconfig or not lspconfig then
     return
 end
 
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-    vim.lsp.diagnostic.on_publish_diagnostics,
-    { underline = true, update_in_insert = false }
-)
+vim.lsp.handlers["textDocument/publishDiagnostics"] =
+    vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, { underline = true, update_in_insert = false })
 
 vim.diagnostic.config({
     update_in_insert = false,
@@ -78,7 +76,7 @@ local servers = {
                     enable = true,
                 },
                 completion = {
-                    callSnippet = "Replace",
+                    callSnippet = "Disable",
                 },
                 telemetry = { enable = false },
             },
