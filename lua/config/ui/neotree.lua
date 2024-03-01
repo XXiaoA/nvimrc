@@ -65,10 +65,7 @@ return {
                         if not node:is_expanded() then
                             require("neo-tree.sources.filesystem").toggle_directory(state, node)
                         elseif node:has_children() then
-                            require("neo-tree.ui.renderer").focus_node(
-                                state,
-                                node:get_child_ids()[1]
-                            )
+                            require("neo-tree.ui.renderer").focus_node(state, node:get_child_ids()[1])
                         end
                     end
                 end,

@@ -12,11 +12,7 @@ if os.getenv("SSH_TTY") ~= nil then
 end
 
 local os_name = vim.uv.os_uname().sysname
-if
-    (os_name == "Linux" or os_name == "Unix")
-    and os.getenv("DISPLAY") == nil
-    and os.getenv("WAYLAND_DISPLAY") == nil
-then
+if (os_name == "Linux" or os_name == "Unix") and os.getenv("DISPLAY") == nil and os.getenv("WAYLAND_DISPLAY") == nil then
     return
 end
 
@@ -35,8 +31,7 @@ end
 ---@param buf integer
 ---@param mode "i"|"o"
 local function fcitx5_to_nonlatin(buf, mode)
-    local _, fcitx5_should_toggle =
-        pcall(api.nvim_buf_get_var, buf, "fcitx5_should_toggle_" .. mode)
+    local _, fcitx5_should_toggle = pcall(api.nvim_buf_get_var, buf, "fcitx5_should_toggle_" .. mode)
     if fcitx5_should_toggle == true then
         fn.system("fcitx5-remote" .. " -o")
         api.nvim_buf_set_var(buf, "fcitx5_should_toggle_" .. mode, false)

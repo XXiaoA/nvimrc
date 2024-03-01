@@ -143,10 +143,8 @@ local function enter_hint()
     local cur_file = vim.fn.expand("<afile>:t")
 
     if cur_file ~= "" and vim.fn.findfile(cur_file, ".") == "" then
-        local findfile_command = vim.fn.executable("fd") == 1 and "fd --max-depth 1"
-            or "find -maxdepth 1"
-        local fuzzy_command = vim.fn.executable("rg") == 1 and "rg --ignore-case"
-            or "grep --ignore-case --extended-regexp"
+        local findfile_command = vim.fn.executable("fd") == 1 and "fd --max-depth 1" or "find -maxdepth 1"
+        local fuzzy_command = vim.fn.executable("rg") == 1 and "rg --ignore-case" or "grep --ignore-case --extended-regexp"
         local command = ("%s | %s '^(./)?%s'"):format(findfile_command, fuzzy_command, cur_file)
         local selections = vim.fn.system(command)
         selections = vim.tbl_filter(function(s)
@@ -165,9 +163,7 @@ local function enter_hint()
         }, function(choice)
             if choice then
                 vim.api.nvim_buf_delete(0, {})
-                vim.fn.system(
-                    "history delete --exact --case-sensitive " .. ("'nvim %s'"):format(cur_file)
-                )
+                vim.fn.system("history delete --exact --case-sensitive " .. ("'nvim %s'"):format(cur_file))
                 vim.cmd.e(choice)
             end
         end)

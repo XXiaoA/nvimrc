@@ -26,8 +26,7 @@ M.opts = function()
             ["?"] = { -- TODO: Add find/delete/change functions
                 add = function()
                     local left_delimiter = config.get_input("Enter the left delimiter: ")
-                    local right_delimiter = left_delimiter
-                        and config.get_input("Enter the right delimiter: ")
+                    local right_delimiter = left_delimiter and config.get_input("Enter the right delimiter: ")
                     if right_delimiter then
                         return { { left_delimiter }, { right_delimiter } }
                     end

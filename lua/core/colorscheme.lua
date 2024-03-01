@@ -12,10 +12,7 @@ function M.modify_colorscheme(colorscheme)
     _f:close()
 
     local f = assert(io.open(file_path, "w"))
-    data = data:gsub(
-        'M.current_colorscheme = "[^%%]-"',
-        ('M.current_colorscheme = "%s"'):format(colorscheme)
-    )
+    data = data:gsub('M.current_colorscheme = "[^%%]-"', ('M.current_colorscheme = "%s"'):format(colorscheme))
     f:write(data)
     f:close()
 end
