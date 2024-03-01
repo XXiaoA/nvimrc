@@ -8,13 +8,11 @@ local function run_code()
     vim.cmd("silent w")
 
     if file_type == "lua" then
-        vim.cmd("so")
+        vim.cmd("AsyncRun -mode=term -reuse -listed=0 -focus=0 -rows=6 nvim -l '$(VIM_FILEPATH)'")
     elseif file_type == "rust" then
         vim.cmd("RustRun")
     elseif file_type == "python" then
-        vim.cmd(
-            [[ AsyncRun -mode=term -reuse -listed=0 -focus=0 -rows=6 python "$(VIM_FILEPATH)" ]]
-        )
+        vim.cmd([[ AsyncRun -mode=term -reuse -listed=0 -focus=0 -rows=6 python "$(VIM_FILEPATH)" ]])
     elseif file_type == "fish" then
         vim.notify(fn.system("fish " .. file))
     elseif file_type == "cpp" then
@@ -40,6 +38,8 @@ local function build_code()
         vim.cmd([[
             AsyncRun -reuse -listed=0 -focus=0 -rows=6 g++ -DLOCAL "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/build/$(VIM_FILENOEXT)"
             ]])
+    elseif file_type == "lua" then
+        vim.cmd("so" .. fn.expand("%:p"))
     end
 end
 
