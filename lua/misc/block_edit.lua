@@ -30,7 +30,7 @@ local function edit()
     api.nvim_open_win(0, true, {
         relative = "win",
         width = math.floor(api.nvim_get_option("columns") * 0.7),
-        height = math.floor(vim.opt.lines * 0.7),
+        height = math.floor(vim.opt.lines:get() * 0.7),
         title = "XXiaoA",
         title_pos = "center",
         border = "single",
