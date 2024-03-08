@@ -163,7 +163,6 @@ local function enter_hint()
         }, function(choice)
             if choice then
                 vim.api.nvim_buf_delete(0, {})
-                vim.fn.system("history delete --exact --case-sensitive " .. ("'nvim %s'"):format(cur_file))
                 vim.cmd.e(choice)
             end
         end)
