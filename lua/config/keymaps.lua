@@ -105,7 +105,7 @@ nmap("<leader><tab>d", "<CMD>tabclose<CR>", { desc = "Close tab" })
 
 imap("<C-v>", "<C-r>+", { desc = "Paste" })
 
-keymap.set_keymap("s")("<BS>", "<BS>:startinsert<CR>")
+keymap.set("s")("<BS>", "<BS>:startinsert<CR>")
 
 -- Quickly add empty lines
 -- https://github.com/tpope/vim-unimpaired/blob/6d44a6dc2ec34607c41ec78acf81657248580bf1/plugin/unimpaired.vim#L231-L254

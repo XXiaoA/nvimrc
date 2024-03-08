@@ -45,7 +45,7 @@ M.config = function()
         word_diff = false,
         on_attach = function()
             local gs = package.loaded.gitsigns
-            local map = require("core.keymap").set_keymap
+            local map = require("core.keymap").set
             local nmap = map("n")
 
             -- Navigation

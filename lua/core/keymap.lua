@@ -1,7 +1,7 @@
 local M = {}
 
 ---@param mode string|table
-function M.set_keymap(mode)
+function M.set(mode)
     --- set a new keymap
     ---@param lhs string
     ---@param rhs string|function
@@ -18,10 +18,10 @@ function M.set_keymap(mode)
     end
 end
 
-M.nmap = M.set_keymap("n")
-M.xmap = M.set_keymap("x")
-M.omap = M.set_keymap("o")
-M.imap = M.set_keymap("i")
-M.tmap = M.set_keymap("t")
+M.nmap = M.set("n")
+M.xmap = M.set("x")
+M.omap = M.set("o")
+M.imap = M.set("i")
+M.tmap = M.set("t")
 
 return M
