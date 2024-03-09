@@ -156,11 +156,18 @@ return {
         end,
     },
 
-    -- 运行时间
+    -- calculate the startup time
     { "dstein64/vim-startuptime", cmd = "StartupTime" },
 
-    -- 翻译
-    { "voldikss/vim-translator", cmd = { "Translate", "TranslateW" } },
+    -- translate
+    {
+        "voldikss/vim-translator",
+        cmd = { "Translate", "TranslateW" },
+        keys = {
+            { mode = { "n", "x" }, "<leader>tw", "<cmd>TranslateW<CR>", desc = "Translate (float)" },
+            { mode = { "n", "x" }, "<leader>ts", "<cmd>Translate<CR>", desc = "Translate" },
+        },
+    },
 
     {
         "danymat/neogen",
