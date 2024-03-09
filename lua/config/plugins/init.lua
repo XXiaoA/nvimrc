@@ -164,8 +164,8 @@ return {
         "voldikss/vim-translator",
         cmd = { "Translate", "TranslateW" },
         keys = {
-            { mode = { "n", "x" }, "<leader>tw", "<cmd>TranslateW<CR>", desc = "Translate (float)" },
-            { mode = { "n", "x" }, "<leader>ts", "<cmd>Translate<CR>", desc = "Translate" },
+            { "<leader>tw", "<cmd>TranslateW<CR>", desc = "Translate" },
+            { mode = "x", "<leader>tw", ":<C-u>'<,'>TranslateW<CR>", desc = "Translate" },
         },
     },
 
