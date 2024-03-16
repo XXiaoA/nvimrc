@@ -10,7 +10,6 @@ function M.get_keymaps()
         { "gI", function() require("telescope.builtin").lsp_implementations({ reuse_win = true }) end, desc = "Goto Implementation" },
         { "gt", function() require("telescope.builtin").lsp_type_definitions({ reuse_win = true  }) end, desc = "Goto Type Definition" },
         { "gK", vim.lsp.buf.signature_help, desc = "Signature Help", has = "signatureHelp" },
-        { "<c-k>", vim.lsp.buf.signature_help, mode = "i", desc = "Signature Help", has = "signatureHelp" },
         { "gp", "<CMD>Aphrodite peek_definition<CR>", "Peek definition" },
         { "gP", "<CMD>Aphrodite peek_type_definition<CR>", "Peek type definition" },
         { "]d", M.diagnostic_goto(true), desc = "Next Diagnostic" },
