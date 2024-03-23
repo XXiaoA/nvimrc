@@ -98,7 +98,7 @@ M.config = function()
         fold_virt_text_handler = handler,
         open_fold_hl_timeout = 150,
         close_fold_kinds_for_ft = {
-            default = { "imports", "comment" },
+            default = { "imports" },
         },
         preview = {
             win_config = {
