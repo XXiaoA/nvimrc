@@ -130,3 +130,10 @@ o.splitbelow = true -- Put new windows below current
 o.splitright = true -- Put new windows right of current
 o.winminwidth = 5 -- Minimum window width
 o.pumheight = 14 -- limit the max height of windows
+
+-- smarter diff algorithm
+-- https://vimways.org/2018/the-power-of-diff/
+-- https://stackoverflow.com/questions/32365271/whats-the-difference-between-git-diff-patience-and-git-diff-histogram
+-- https://luppeng.wordpress.com/2020/10/10/when-to-use-each-of-the-git-diff-algorithms/
+o.diffopt:append("algorithm:histogram")
+o.diffopt:append("indent-heuristic")
