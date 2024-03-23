@@ -17,7 +17,7 @@
 - [ ] https://github.com/stevearc/overseer.nvim
 - [ ] https://github.com/skywind3000/asynctasks.vim with `asyncrun`
 - [x] null-ls
-- [ ] https://github.com/ThePrimeagen/harpoon
+- [x] https://github.com/ThePrimeagen/harpoon
 - [ ] https://github.com/akinsho/git-conflict.nvim
 - [ ] learn `vim-fugitive`
 - [ ] https://github.com/rbong/vim-flog
