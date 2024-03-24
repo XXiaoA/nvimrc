@@ -23,7 +23,7 @@ vim.diagnostic.config({
         focusable = true,
         style = "minimal",
         border = "single",
-        source = "always",
+        source = true,
         max_width = 100,
         header = { "  Diagnostics", "Bold" },
         prefix = function(ctx)
