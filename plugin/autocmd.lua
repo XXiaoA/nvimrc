@@ -185,6 +185,7 @@ au("User", {
 
 -- template for competitive code
 au("BufNewFile", {
+    group = xxiaoa_group,
     pattern = vim.env.HOME .. "/Workspace/oj*/*.cpp",
     command = "0r ~/.config/nvim/templates/oi.cpp",
 })
