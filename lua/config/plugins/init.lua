@@ -38,6 +38,12 @@ return {
         "kevinhwang91/nvim-bqf",
         ft = "qf",
         config = true,
+        dependencies = {
+            "junegunn/fzf",
+            build = function()
+                vim.fn["fzf#install"]()
+            end,
+        },
     },
 
     {
