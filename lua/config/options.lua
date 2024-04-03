@@ -43,7 +43,7 @@ o.ttimeoutlen = 10
 -- 显示命令字符
 o.showcmd = true
 -- always show tabline
-o.showtabline = 2
+o.showtabline = 1
 -- use global line
 o.laststatus = 3
 -- 允许当前窗口未保存时切换到其他窗口
