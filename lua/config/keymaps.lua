@@ -129,3 +129,8 @@ nmap("]<Space>", "<Plug>(unimpaired-blank-down)", { desc = "Add a empty line dow
 nmap("<ESC>", "<CMD>w|e|redraw<CR>")
 
 imap("jj", "<ESC>")
+
+nmap("]b", "<cmd>bnext<CR>", { desc = "Next buffer" })
+nmap("[b", "<cmd>bprevious<CR>", { desc = "Previous buffer" })
+
+nmap("<Tab>", "<C-^>", { desc = "Alternate buffer" })
