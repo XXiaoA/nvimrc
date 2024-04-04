@@ -1,18 +1,15 @@
 return {
-    "Exafunction/codeium.vim",
+    "monkoose/neocodeium",
     event = "VeryLazy",
-    config = function()
-        vim.keymap.set("i", "<M-g>", function()
-            return vim.fn["codeium#Accept"]()
-        end, { expr = true, silent = true })
-        vim.keymap.set("i", "<M-;>", function()
-            return vim.fn["codeium#CycleCompletions"](1)
-        end, { expr = true, silent = true })
-        vim.keymap.set("i", "<M-,>", function()
-            return vim.fn["codeium#CycleCompletions"](-1)
-        end, { expr = true, silent = true })
-        vim.keymap.set("i", "<M-x>", function()
-            return vim.fn["codeium#Clear"]()
-        end, { expr = true, silent = true })
-    end,
+    opts = {},
+    keys = {
+        -- stylua: ignore start
+        { mode = "i", "<A-g>", function() require("neocodeium").accept() end },
+        { mode = "i", "<A-w>", function() require("neocodeium").accept_word() end },
+        { mode = "i", "<A-a>", function() require("neocodeium").accept_line() end },
+        { mode = "i", "<A-n>", function() require("neocodeium").cycle_or_complete() end },
+        { mode = "i", "<A-N>", function() require("neocodeium").cycle_or_complete(-1) end },
+        { mode = "i", "<A-c>", function() require("neocodeium").clear() end },
+        -- stylua: ignore end
+    },
 }
