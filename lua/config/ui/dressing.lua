@@ -20,6 +20,12 @@ return {
             },
         },
         select = {
+            backend = { "fzf_lua", "telescope", "fzf", "builtin", "nui" },
+            fzf_lua = {
+                winopts = {
+                    height = 0.6,
+                },
+            },
             builtin = {
                 mappings = {
                     q = "Close",
