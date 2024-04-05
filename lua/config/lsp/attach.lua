@@ -4,11 +4,11 @@ function M.get_keymaps()
     -- stylua: ignore start
     return {
         { "go", vim.diagnostic.open_float, desc = "Line Diagnostics" },
-        { "gd",  function() require("telescope.builtin").lsp_definitions({ reuse_win = true }) end, desc = "Goto Definition" },
-        { "gr", "<cmd>Telescope lsp_references<cr>", desc = "References" },
+        { "gd",  vim.lsp.buf.definition, desc = "Goto Definition" },
+        { "gr", vim.lsp.buf.references, desc = "References" },
         { "gD", vim.lsp.buf.declaration, desc = "Goto Declaration" },
-        { "gI", function() require("telescope.builtin").lsp_implementations({ reuse_win = true }) end, desc = "Goto Implementation" },
-        { "gt", function() require("telescope.builtin").lsp_type_definitions({ reuse_win = true  }) end, desc = "Goto Type Definition" },
+        { "gI", vim.lsp.buf.implementation, desc = "Goto Implementation" },
+        { "gt", vim.lsp.buf.type_definition, desc = "Goto Type Definition" },
         { "gK", vim.lsp.buf.signature_help, desc = "Signature Help", has = "signatureHelp" },
         { "gp", "<CMD>Aphrodite peek_definition<CR>", "Peek definition" },
         { "gP", "<CMD>Aphrodite peek_type_definition<CR>", "Peek type definition" },

@@ -1,6 +1,5 @@
 return {
     "stevearc/dressing.nvim",
-    dependencies = "telescope.nvim",
     init = function()
         vim.ui.select = function(...)
             require("lazy").load({ plugins = { "dressing.nvim" } })

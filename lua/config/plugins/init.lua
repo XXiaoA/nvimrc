@@ -195,14 +195,7 @@ return {
     {
         "folke/todo-comments.nvim",
         event = "VeryLazy",
-        dependencies = { "telescope.nvim", "nvim-lua/plenary.nvim" },
-        keys = {
-            {
-                "<leader>ft",
-                ":TodoTelescope cwd=" .. require("utils").get_root() .. "<CR>",
-                silent = true,
-            },
-        },
+        dependencies = { "plenary.nvim" },
         opts = {
             highlight = {
                 keyword = "bg",
