@@ -9,5 +9,6 @@ return {
         backends = { "lsp", "treesitter", "markdown" },
         icons = require("utils.lspkind").icons,
         show_guides = true,
+        link_tree_to_folds = false,
     },
 }
