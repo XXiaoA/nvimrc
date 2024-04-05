@@ -37,7 +37,11 @@ return {
     {
         "kevinhwang91/nvim-bqf",
         ft = "qf",
-        config = true,
+        opts = {
+            preview = {
+                winblend = 5,
+            },
+        },
         dependencies = {
             "junegunn/fzf",
             build = function()
