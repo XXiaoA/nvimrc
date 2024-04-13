@@ -47,6 +47,7 @@ M.config = function()
             return res
         end,
     }
+    ftMap.gitcommit = ftMap.git
 
     local function customizeSelector(bufnr)
         local function handleFallbackException(err, providerName)
