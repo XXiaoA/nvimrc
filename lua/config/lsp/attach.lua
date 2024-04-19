@@ -65,9 +65,9 @@ function M.on_attach(client, buffer)
 
     -- inlay hint
     if client.server_capabilities.inlayHintProvider then
-        vim.lsp.inlay_hint.enable(buffer, false)
+        vim.lsp.inlay_hint.enable(false, { bufnr = buffer })
         vim.api.nvim_create_user_command("InlayHintToggle", function()
-            vim.lsp.inlay_hint.enable(0, not vim.lsp.inlay_hint.is_enabled())
+            vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled(), { bufnr = 0 })
         end, {})
     end
 
