@@ -1,7 +1,9 @@
 return {
     "monkoose/neocodeium",
     event = "VeryLazy",
-    opts = {},
+    opts = {
+        silent = true,
+    },
     keys = {
         -- stylua: ignore start
         { mode = "i", "<A-g>", function() require("neocodeium").accept() end },
