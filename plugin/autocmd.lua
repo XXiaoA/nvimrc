@@ -137,19 +137,32 @@ au("FileType", {
     end,
 })
 
+-- escape the special regex characters
+local function escape_regex_chars(str)
+    local special_chars_to_escape = { ".", "^", "$", "*", "+", "-", "?", "[", "]", "(", ")", "{", "}", "|" }
+    for _, char in ipairs(special_chars_to_escape) do
+        str = str:gsub("%" .. char, "\\" .. char)
+    end
+    return str
+end
+
 -- automatically hint after entering nvim and opening a new file
 -- TODO: add support for changing fish shell history
 local function enter_hint()
     local cur_file = vim.fn.expand("<afile>:t")
+    local cwd = vim.fn.getcwd()
+    local file_dir = vim.fn.expand("<afile>:p:h")
+    -- set the cwd which the below command will use
+    vim.api.nvim_set_current_dir(file_dir)
 
     if cur_file ~= "" and vim.fn.findfile(cur_file, ".") == "" then
-        local findfile_command = vim.fn.executable("fd") == 1 and "fd --max-depth 1" or "find -maxdepth 1"
-        local fuzzy_command = vim.fn.executable("rg") == 1 and "rg --ignore-case" or "grep --ignore-case --extended-regexp"
-        local command = ("%s | %s '^(./)?%s'"):format(findfile_command, fuzzy_command, cur_file)
-        local selections = vim.fn.system(command)
-        selections = vim.tbl_filter(function(s)
-            return vim.fn.isdirectory(s) ~= 1 and s ~= ""
-        end, vim.split(selections, "\n"))
+        local findfile_command = vim.fn.executable("fd") == 1 and "fd . -t f --max-depth 1 --hidden"
+            or "find . -maxdepth 1 -type f -printf '%P\n'" -- remove the `./` prefix
+        local fuzzy_command = vim.fn.executable("rg") == 1 and "rg --ignore-case" or "grep --ignore-case"
+        local command = ("%s | %s '^%s'"):format(findfile_command, fuzzy_command, escape_regex_chars(cur_file))
+        local selections = vim.split(vim.fn.system(command), "\n")
+        -- remove the trailing newline
+        table.remove(selections, #selections)
 
         if #selections == 0 then
             return
@@ -163,10 +176,13 @@ local function enter_hint()
         }, function(choice)
             if choice then
                 vim.api.nvim_buf_delete(0, {})
-                vim.cmd.e(choice)
+                vim.cmd.e(file_dir .. "/" .. choice)
             end
         end)
     end
+
+    -- reset the cwd
+    vim.api.nvim_set_current_dir(cwd)
 end
 
 au("VimEnter", {
