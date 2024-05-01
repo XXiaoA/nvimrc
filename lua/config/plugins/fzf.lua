@@ -11,30 +11,8 @@ return {
     },
     keys = {
         -- stylua: ignore start
-        {
-            "<leader>fw",
-            function()
-                require("fzf-lua").live_grep_native({
-                    actions = {
-                        ["ctrl-g"] = false,
-                        ["ctrl-x"] = { require("fzf-lua.actions").grep_lgrep },
-                    },
-                })
-            end,
-            desc = "Live grep",
-        },
-        {
-            "<leader>ff",
-            function()
-                require("fzf-lua").files({
-                    actions = {
-                        ["ctrl-g"] = false,
-                        ["ctrl-x"] = { require("fzf-lua.actions").toggle_ignore },
-                    },
-                })
-            end,
-            desc = "Files",
-        },
+        { "<leader>fw", function() require("fzf-lua").live_grep_native() end, desc = "Live grep" },
+        { "<leader>ff", function() require("fzf-lua").files() end, desc = "Files" },
         { "<C-p>", "<leader>ff", remap = true, desc = "Files" },
         { "<leader>fb", function() require("fzf-lua").buffers() end, desc = "Buffers" },
         { "<leader>fh", function() require("fzf-lua").help_tags() end, desc = "Help tags" },
