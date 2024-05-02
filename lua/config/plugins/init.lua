@@ -8,6 +8,10 @@ return {
         "nvim-lua/plenary.nvim",
     },
 
+    {
+        "AndrewRadev/linediff.vim",
+        cmd = { "Linediff", "LinediffAdd", "LinediffMerge", "LinediffPick" },
+    },
 
     {
         "notjedi/nvim-rooter.lua",
@@ -60,6 +64,12 @@ return {
     {
         "tpope/vim-fugitive",
         event = "VeryLazy",
+    },
+
+    {
+        "rbong/vim-flog",
+        lazy = true,
+        cmd = { "Flog", "Flogsplit", "Floggit" },
     },
 
     {
