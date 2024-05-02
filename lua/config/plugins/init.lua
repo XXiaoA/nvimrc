@@ -192,7 +192,7 @@ return {
         cmd = { "Translate", "TranslateW" },
         keys = {
             { "<leader>tw", "<cmd>TranslateW<CR>", desc = "Translate" },
-            { mode = "x", "<leader>tw", ":<C-u>'<,'>TranslateW<CR>", desc = "Translate" },
+            { mode = "x", "<leader>tw", ":<C-u>'<,'>TranslateW<CR>", silent = true, desc = "Translate" },
         },
     },
 
