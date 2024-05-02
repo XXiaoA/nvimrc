@@ -55,38 +55,4 @@ function M.trim(str, mode)
     return str:match(regex)
 end
 
----@return string
-function M.get_root()
-    local path = vim.uv.fs_realpath(vim.api.nvim_buf_get_name(0))
-    ---@type string[]
-    local roots = {}
-    if path ~= "" then
-        for _, client in pairs(vim.lsp.get_active_clients({ bufnr = 0 })) do
-            local workspace = client.config.workspace_folders
-            local paths = workspace
-                    and vim.tbl_map(function(ws)
-                        return vim.uri_to_fname(ws.uri)
-                    end, workspace)
-                or client.config.root_dir and { client.config.root_dir }
-                or {}
-            for _, p in ipairs(paths) do
-                local r = vim.uv.fs_realpath(p)
-                if path:find(r, 1, true) then
-                    roots[#roots + 1] = r
-                end
-            end
-        end
-    end
-    ---@type string?
-    local root = roots[1]
-    if not root then
-        path = path == "" and vim.uv.cwd() or vim.fs.dirname(path)
-        ---@type string?
-        root = vim.fs.find({ ".git" }, { path = path, upward = true })[1]
-        root = root and vim.fs.dirname(root) or vim.uv.cwd()
-    end
-    ---@cast root string
-    return root
-end
-
 return M
