@@ -149,6 +149,10 @@ end
 -- automatically hint after entering nvim and opening a new file
 -- TODO: add support for changing fish shell history
 local function enter_hint()
+    if vim.bo.ft == "oil" then
+        return
+    end
+
     local cur_file = vim.fn.expand("<afile>:t")
     local cwd = vim.fn.getcwd()
     local file_dir = vim.fn.expand("<afile>:p:h")
