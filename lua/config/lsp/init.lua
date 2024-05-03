@@ -41,7 +41,12 @@ return {
     {
         "smjonas/inc-rename.nvim",
         cmd = "IncRename",
-        opts = {},
+        opts = {
+            -- input_buffer_type = "dressing",
+            post_hook = function()
+                vim.fn.histdel("cmd", "^IncRename ")
+            end,
+        },
     },
 
     {
