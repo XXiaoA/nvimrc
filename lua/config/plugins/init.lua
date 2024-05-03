@@ -216,6 +216,7 @@ return {
         opts = {
             highlight = {
                 keyword = "bg",
+                after = "empty",
             },
         },
     },
