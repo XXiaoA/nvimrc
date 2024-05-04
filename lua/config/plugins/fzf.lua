@@ -12,6 +12,7 @@ return {
     keys = {
         -- stylua: ignore start
         { "<leader>fw", function() require("fzf-lua").live_grep_native() end, desc = "Live grep" },
+        { mode = "x", "<leader>fw", "<cmd>lua require('fzf-lua').grep_visual()<cr>", desc = "Live grep" },
         { "<leader>ff", function() require("fzf-lua").files() end, desc = "Files" },
         { "<C-p>", "<leader>ff", remap = true, desc = "Files" },
         { "<leader>fb", function() require("fzf-lua").buffers() end, desc = "Buffers" },
