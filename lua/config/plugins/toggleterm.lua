@@ -23,7 +23,6 @@ M.config = function()
         end,
     })
 
-    -- 新建浮动终端
     local floatTerm = Terminal:new({
         hidden = true,
         direction = "float",
@@ -34,10 +33,8 @@ M.config = function()
             vim.cmd.startinsert()
         end,
     })
-
-    -- 定义新的方法
     tg.float_toggle = function()
-        vim.cmd.w()
+        pcall(vim.cmd.w)
         floatTerm:toggle()
     end
 
