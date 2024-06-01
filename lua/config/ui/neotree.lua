@@ -13,15 +13,15 @@ return {
     deactivate = function()
         vim.cmd([[Neotree close]])
     end,
-    init = function()
-        vim.g.neo_tree_remove_legacy_commands = 1
-        if vim.fn.argc() == 1 then
-            local stat = vim.uv.fs_stat(vim.fn.argv(0))
-            if stat and stat.type == "directory" then
-                require("neo-tree")
-            end
-        end
-    end,
+    -- init = function()
+    --     vim.g.neo_tree_remove_legacy_commands = 1
+    --     if vim.fn.argc() == 1 then
+    --         local stat = vim.uv.fs_stat(vim.fn.argv(0))
+    --         if stat and stat.type == "directory" then
+    --             require("neo-tree")
+    --         end
+    --     end
+    -- end,
     opts = {
         filesystem = {
             bind_to_cwd = false,

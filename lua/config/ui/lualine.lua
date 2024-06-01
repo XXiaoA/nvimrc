@@ -60,6 +60,7 @@ return {
             "mundo",
             "quickfix",
             "toggleterm",
+            "oil",
         },
     },
 }

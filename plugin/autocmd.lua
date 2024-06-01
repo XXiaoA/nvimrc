@@ -49,6 +49,9 @@ au("FileType", {
 
 -- When saving a file, automatically create the file's parent
 local function mkdir()
+    if vim.bo.filetype == "oil" then
+        return
+    end
     local dir = vim.fn.expand("<afile>:p:h")
     if not utils.is_directory(dir) then
         vim.fn.mkdir(dir, "p")
