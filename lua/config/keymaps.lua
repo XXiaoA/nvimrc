@@ -132,3 +132,8 @@ imap("jj", "<ESC>")
 
 nmap("]b", "<cmd>bnext<CR>", { desc = "Next buffer" })
 nmap("[b", "<cmd>bprevious<CR>", { desc = "Previous buffer" })
+
+-- remove the default keymaps from https://github.com/neovim/neovim/pull/28650
+vim.keymap.del("n", "grn")
+vim.keymap.del("n", "grr")
+vim.keymap.del({ "v", "n" }, "gra")
