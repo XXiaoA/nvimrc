@@ -1,8 +1,5 @@
 return {
-    "numToStr/Comment.nvim",
-    keys = { { "gc", mode = { "n", "v" } }, "gb", mode = { "n", "v" } },
-    opts = {
-        -- ignores empty lines
-        ignore = "^$",
-    },
+    "folke/ts-comments.nvim",
+    opts = {},
+    event = "VeryLazy",
 }
