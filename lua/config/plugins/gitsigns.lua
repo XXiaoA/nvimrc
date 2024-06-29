@@ -4,45 +4,26 @@ local M = {
 }
 
 M.config = function()
-    if not package.loaded.trouble then
-        package.preload.trouble = function()
-            return true
-        end
-    end
     require("gitsigns").setup({
         signs = {
             add = {
-                hl = "GitSignsAdd",
                 text = "│",
-                numhl = "GitSignsAddNr",
-                linehl = "GitSignsAddLn",
             },
             change = {
-                hl = "GitSignsChange",
                 text = "│",
-                numhl = "GitSignsChangeNr",
-                linehl = "GitSignsChangeLn",
             },
             delete = {
-                hl = "GitSignsDelete",
                 text = "_",
-                numhl = "GitSignsDeleteNr",
-                linehl = "GitSignsDeleteLn",
             },
             topdelete = {
-                hl = "GitSignsDelete",
                 text = "‾",
-                numhl = "GitSignsDeleteNr",
-                linehl = "GitSignsDeleteLn",
             },
             changedelete = {
-                hl = "GitSignsChange",
                 text = "~",
-                numhl = "GitSignsChangeNr",
-                linehl = "GitSignsChangeLn",
             },
         },
         word_diff = false,
+        attach_to_untracked = true,
         on_attach = function()
             local gs = package.loaded.gitsigns
             local map = require("core.keymap").set
@@ -90,8 +71,6 @@ M.config = function()
             map({ "o", "x" })("ih", ":<C-U>Gitsigns select_hunk<CR>", { desc = "Huck" })
         end,
     })
-    package.loaded.trouble = nil
-    package.preload.trouble = nil
 end
 
 return M
