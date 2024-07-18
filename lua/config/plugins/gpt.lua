@@ -1,6 +1,13 @@
 return {
     "robitx/gp.nvim",
     event = "VeryLazy",
+    opts = {
+        providers = {
+            openai = {
+                secret = { "bash", "-c", "cat ~/.OPENAI-KEY" },
+            },
+        },
+    },
     keys = {
         { "<leader>pn", "<Cmd>GpChatNew split<CR>", desc = "New Chat" },
         { "<leader>pn", ":<C-u>'<,'>GpChatNew split<CR>", mode = { "x" }, desc = "New Chat" },
