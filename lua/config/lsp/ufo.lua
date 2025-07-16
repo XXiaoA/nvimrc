@@ -7,7 +7,7 @@ local M = {
 }
 
 M.config = function()
-    local ufo = require("utils").require("ufo")
+    local ufo = require("ufo")
     if not ufo then
         return
     end

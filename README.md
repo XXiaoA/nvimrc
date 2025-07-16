@@ -32,6 +32,9 @@ git clone https://github.com/XXiaoA/nvimrc ~/.config/nvim
 > ❗Run `:checkhealth` in neovim
 
 - [ripgrep](https://github.com/BurntSushi/ripgrep) for fuzzy find
+- fzf
+- gcc/clang
+- unzip for clangd LSP
 
 
 ## Notice

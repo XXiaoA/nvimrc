@@ -13,7 +13,7 @@ local M = {
 }
 
 M.config = function()
-    local cmp = require("utils").require("cmp")
+    local cmp = require("cmp")
     if not cmp then
         return
     end

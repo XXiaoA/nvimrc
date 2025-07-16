@@ -1,8 +1,0 @@
-local utils = require("utils")
-utils.require("misc.bufdelete")
-utils.require("misc.fcitx5")
-utils.require("misc.run_code")
-utils.require("misc.usercmd")
-utils.require("misc.block_edit")
-utils.require("misc.case_changer")
-utils.require("misc.abbr")

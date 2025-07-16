@@ -1,5 +1,4 @@
 local colorscheme = require("core.colorscheme")
-local utils = require("utils")
 local M = {}
 
 M.plugins = {}
@@ -47,7 +46,7 @@ function M.auto_load_modules_packages()
             if not (file:match("autocmd.lua$") or file:match("setup.lua$") or file:match("lsp/attach.lua$")) then
                 local require_name = file:match("nvim/lua/(.*)%.lua")
                 if require_name then
-                    M.add_plugin(utils.require(require_name))
+                    M.add_plugin(require(require_name))
                 end
             end
         end

@@ -51,6 +51,7 @@ return {
 
     {
         "XXiaoA/aphrodite.nvim",
+        enabled =  false,
         dev = false,
         event = "LspAttach",
         opts = {

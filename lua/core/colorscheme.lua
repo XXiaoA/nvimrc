@@ -1,5 +1,5 @@
 local M = {}
-local swicher = require("utils.swicher")
+local switcher = require("utils.theme_switcher")
 --- string[]
 M.all_colorschemes = {}
 --- string
@@ -60,8 +60,8 @@ function M.load_colorscheme(colorscheme, expand)
     end
     M.modify_colorscheme(colorscheme)
     if expand then
-        swicher.fish(swicher.colorschemes[colorscheme].fish)
-        swicher.wezterm(swicher.colorschemes[colorscheme].wezterm)
+        switcher.fish(switcher.colorschemes[colorscheme].fish)
+        switcher.wezterm(switcher.colorschemes[colorscheme].wezterm)
     end
 end
 

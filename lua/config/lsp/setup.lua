@@ -1,5 +1,5 @@
-local mason_lspconfig = require("utils").require("mason-lspconfig")
-local lspconfig = require("utils").require("lspconfig")
+local mason_lspconfig = require("mason-lspconfig")
+local lspconfig = require("lspconfig")
 if not mason_lspconfig or not lspconfig then
     return
 end
@@ -131,22 +131,22 @@ local setup = {
     -- end,
 }
 
-mason_lspconfig.setup_handlers({
-    function(server)
-        local server_opts = vim.tbl_deep_extend("force", {
-            capabilities = vim.deepcopy(capabilities),
-        }, servers[server] or {})
-        server_opts.on_attach = on_attach
-
-        if setup[server] then
-            if setup[server](server, server_opts) then
-                return
-            end
-        elseif setup["*"] then
-            if setup["*"](server, server_opts) then
-                return
-            end
-        end
-        require("lspconfig")[server].setup(server_opts)
-    end,
-})
+-- mason_lspconfig.setup_handlers({
+--     function(server)
+--         local server_opts = vim.tbl_deep_extend("force", {
+--             capabilities = vim.deepcopy(capabilities),
+--         }, servers[server] or {})
+--         server_opts.on_attach = on_attach
+--
+--         if setup[server] then
+--             if setup[server](server, server_opts) then
+--                 return
+--             end
+--         elseif setup["*"] then
+--             if setup["*"](server, server_opts) then
+--                 return
+--             end
+--         end
+--         require("lspconfig")[server].setup(server_opts)
+--     end,
+-- })

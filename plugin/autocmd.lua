@@ -202,7 +202,13 @@ au("User", {
     pattern = "VeryLazy",
     group = xxiaoa_group,
     callback = function()
-        utils.require("misc")
+        require("utils.bufdelete")
+        require("utils.fcitx5")
+        require("utils.run_code")
+        require("utils.usercmd")
+        require("utils.block_edit")
+        require("utils.case_changer")
+        require("utils.abbr")
     end,
 })
 

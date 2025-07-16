@@ -1,27 +1,5 @@
 local M = {}
 
---- require plugin and check if it exists
----@param name string
----@param message boolean?
----@return unknown
-function M.require(name, message)
-    local status_ok, plugin = pcall(require, name)
-    if not status_ok and message ~= false then
-        local info = debug.getinfo(2, "Sl")
-        local file = info.short_src
-        local line = info.currentline
-        local _hint = "require: Failed to load '%s'\n(%s: %d)"
-        local hint = _hint:format(name, file, line)
-        vim.notify(hint, vim.log.levels.WARN)
-        return nil
-    else
-        if status_ok and plugin ~= true then
-            return plugin
-        end
-    end
-    return nil
-end
-
 --- Checks whether a given path exists and is a file.
 ---@param path string path to check
 ---@return boolean
@@ -36,13 +14,6 @@ end
 function M.is_directory(path)
     local stat = vim.uv.fs_stat(path)
     return stat and stat.type == "directory" or false
-end
-
---- Get the current nvim version
----@return string
-function M.get_nvim_version()
-    local version = vim.version()
-    return string.format("%d.%d.%d", version.major, version.minor, version.patch)
 end
 
 --- Remove string trim
