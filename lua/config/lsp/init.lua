@@ -1,13 +1,16 @@
 return {
     {
         "neovim/nvim-lspconfig",
-        event = { "BufReadPre", "BufNewFile" },
+        event = "Filetype",
         dependencies = {
             "mason.nvim",
             "mason-lspconfig.nvim",
             "simrat39/rust-tools.nvim",
             "p00f/clangd_extensions.nvim",
         },
+        config = function()
+            require("config.lsp.setup")
+        end,
     },
 
     {
@@ -19,17 +22,6 @@ return {
                 border = "single",
             },
         },
-    },
-
-    {
-        "williamboman/mason-lspconfig.nvim",
-        opts = {
-            ensure_installed = { "lua_ls", "pyright", "vimls", "rust_analyzer", "clangd" },
-        },
-        config = function(_, opts)
-            require("mason-lspconfig").setup(opts)
-            require("config.lsp.setup")
-        end,
     },
 
     {
@@ -51,7 +43,7 @@ return {
 
     {
         "XXiaoA/aphrodite.nvim",
-        enabled =  false,
+        enabled = false,
         dev = false,
         event = "LspAttach",
         opts = {

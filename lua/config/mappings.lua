@@ -160,4 +160,5 @@ end, { desc = "Comment above" })
 -- remove the default keymaps from https://github.com/neovim/neovim/pull/28650
 vim.keymap.del("n", "grn")
 vim.keymap.del("n", "grr")
+vim.keymap.del("n", "gri")
 vim.keymap.del({ "v", "n" }, "gra")

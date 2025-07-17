@@ -3,11 +3,11 @@ local M = {
     keys = { "<leader>tt", "<leader>tf", "<leader>ta" },
 }
 M.config = function()
-    local tg = require("utils").require("toggleterm")
+    local tg = require("toggleterm")
     if not tg then
         return
     end
-    local terminal = require("utils").require("toggleterm.terminal")
+    local terminal = require("toggleterm.terminal")
 
     local Terminal = terminal.Terminal
     tg.setup({
