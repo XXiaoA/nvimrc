@@ -108,3 +108,5 @@ o.pumheight = 14 -- Maximum number of items to show in the popup menu
 -- https://luppeng.wordpress.com/2020/10/10/when-to-use-each-of-the-git-diff-algorithms/
 o.diffopt:append("algorithm:histogram")
 o.diffopt:append("indent-heuristic")
+
+o.winborder = "single"
