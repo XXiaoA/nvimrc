@@ -74,7 +74,7 @@ return {
         opts = {
             formatters_by_ft = {
                 lua = { "stylua" },
-                python = { "black" },
+                python = { "ruff_format" },
                 cpp = { "clang_format" },
                 fish = { "fish_indent" },
             },
