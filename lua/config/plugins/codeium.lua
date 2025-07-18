@@ -1,5 +1,6 @@
 return {
     "monkoose/neocodeium",
+    enabled = false,
     event = "VeryLazy",
     opts = {
         silent = true,

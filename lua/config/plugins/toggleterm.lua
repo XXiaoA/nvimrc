@@ -27,7 +27,7 @@ M.config = function()
         hidden = true,
         direction = "float",
         float_opts = {
-            border = "single",
+            border = "rounded",
         },
         on_open = function()
             vim.cmd.startinsert()

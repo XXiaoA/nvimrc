@@ -109,4 +109,4 @@ o.pumheight = 14 -- Maximum number of items to show in the popup menu
 o.diffopt:append("algorithm:histogram")
 o.diffopt:append("indent-heuristic")
 
-o.winborder = "single"
+o.winborder = "rounded"

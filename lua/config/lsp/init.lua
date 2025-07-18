@@ -19,7 +19,7 @@ return {
         keys = { { "<leader>om", "<cmd>Mason<CR>", desc = "Mason" } },
         opts = {
             ui = {
-                border = "single",
+                border = "rounded",
             },
         },
     },

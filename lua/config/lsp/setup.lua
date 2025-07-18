@@ -13,7 +13,7 @@ vim.diagnostic.config({
     float = {
         focusable = true,
         style = "minimal",
-        border = "single",
+        border = "rounded",
         source = true,
         max_width = 100,
         header = { "  Diagnostics", "Bold" },

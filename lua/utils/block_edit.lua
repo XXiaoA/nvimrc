@@ -33,7 +33,7 @@ local function edit()
         height = math.floor(vim.opt.lines:get() * 0.7),
         title = "XXiaoA",
         title_pos = "center",
-        border = "single",
+        border = "rounded",
         row = 20,
         col = 20,
     })

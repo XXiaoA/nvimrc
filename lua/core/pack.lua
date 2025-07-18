@@ -66,7 +66,7 @@ function M.setup()
             path = "~/Workspace",
             patterns = { "XXiaoA", "xxiaoa" },
         },
-        ui = { border = "single" },
+        ui = { border = "rounded" },
         install = {
             colorscheme = { colorscheme.current_colorscheme, "habamax" },
         },

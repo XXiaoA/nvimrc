@@ -103,7 +103,7 @@ M.config = function()
         },
         preview = {
             win_config = {
-                border = "single",
+                border = "rounded",
                 winhighlight = "Normal:Folded",
                 winblend = 0,
             },
