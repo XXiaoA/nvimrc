@@ -43,20 +43,6 @@ return {
     },
 
     {
-        "XXiaoA/aphrodite.nvim",
-        enabled = false,
-        dev = false,
-        event = "LspAttach",
-        opts = {
-            lightbulb = {
-                enable_in_insert = false,
-                sign = false,
-                virtual_text = true,
-            },
-        },
-    },
-
-    {
         "stevearc/conform.nvim",
         event = { "BufWritePre" },
         cmd = { "ConformInfo" },
