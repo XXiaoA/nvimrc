@@ -2,12 +2,12 @@
 - [ ] mfussenegger/nvim-dap
 - [ ] write docs
 - [ ] work with [obsidian](https://github.com/epwalsh/obsidian.nvim)
-- [ ] <https://github.com/kevinhwang91/nvim-ufo/issues/4>
+- [x] <https://github.com/kevinhwang91/nvim-ufo/issues/4>
 - [x] change colorschemes with fish,tmux and wezterm (https://github.com/wez/wezterm/discussions/2550)
 - [ ] utils `logger.lua`
 - [x] feature auto hint for fuzzy file after enter new file
 - [x] [firenvim](https://github.com/glacambre/firenvim)
-- [ ] highlights for markdown, etc. like [headlines.nvim](https://github.com/lukas-reineke/headlines.nvim) and [md-nanny](https://github.com/nvim-zh/md-nanny)
+- [x] highlights for markdown, etc. like [headlines.nvim](https://github.com/lukas-reineke/headlines.nvim) and [md-nanny](https://github.com/nvim-zh/md-nanny)
 - [x] configure lsp by yaml
 - [x] improve move line. [nvim-gomove](https://github.com/booperlv/nvim-gomove)
 - [x] ~~windwp/nvim-spectre~~; ~~ThePrimeagen/refactoring.nvim~~; ~~cshuaimin/ssr.nvim~~
@@ -23,3 +23,4 @@
 - [ ] https://github.com/rbong/vim-flog
 - [ ] https://github.com/tpope/vim-rhubarb
 - [ ] https://github.com/eugen0329/vim-esearch
+- [ ] write a new language translator

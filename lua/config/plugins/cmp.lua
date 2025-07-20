@@ -1,5 +1,6 @@
 local M = {
     "hrsh7th/nvim-cmp",
+    enabled = false,
     event = { "InsertEnter", "CmdlineEnter" },
     dependencies = {
         "saadparwaiz1/cmp_luasnip",
@@ -134,7 +135,7 @@ M.config = function()
     -- Add parenthesis on completion confirmation
     cmp.event:on("confirm_done", function(event)
         local ok, ls_name = pcall(ls_name_from_event, event)
-        if ok and not vim.tbl_contains({ "lua_ls", "pyright" }, ls_name) then
+        if ok and not vim.tbl_contains({ "lua_ls", "basedpyright" }, ls_name) then
             return
         end
 
