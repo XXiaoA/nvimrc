@@ -30,7 +30,7 @@ return {
             local augend = require("dial.augend")
             require("dial.config").augends:register_group({
                 default = {
-                    augend.integer.alias.decimal,
+                    augend.integer.alias.decimal_int,
                     augend.integer.alias.hex,
                     augend.semver.alias.semver,
                     augend.date.alias["%Y/%m/%d"],
@@ -207,18 +207,6 @@ return {
         "aserowy/tmux.nvim",
         keys = { "<C-h>", "<C-j>", "<C-k>", "<C-l>", "<A-h>", "<A-j>", "<A-k>", "<A-l>" },
         config = true,
-    },
-
-    {
-        "folke/todo-comments.nvim",
-        event = "VeryLazy",
-        dependencies = { "plenary.nvim" },
-        opts = {
-            highlight = {
-                keyword = "bg",
-                after = "empty",
-            },
-        },
     },
 
     {

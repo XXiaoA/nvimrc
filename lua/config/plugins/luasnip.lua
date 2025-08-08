@@ -135,10 +135,10 @@ M.config = function()
 
     local todo_snippet_specs = {
         { { trig = "todo" }, { "TODO" } },
-        { { trig = "fix" }, { "FIX", "BUG", "ISSUE", "FIXIT" } },
+        { { trig = "fix" }, { "FIX", "BUG" } },
         { { trig = "hack" }, { "HACK" } },
-        { { trig = "warn" }, { "WARN", "WARNING", "XXX" } },
-        { { trig = "perf" }, { "PERF", "PERFORMANCE", "OPTIM", "OPTIMIZE" } },
+        { { trig = "warn" }, { "WARN" } },
+        { { trig = "perf" }, { "PERF" } },
         { { trig = "note" }, { "NOTE", "INFO" } },
     }
 

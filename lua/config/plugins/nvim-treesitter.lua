@@ -5,6 +5,7 @@ return {
         event = { "BufReadPre", "BufNewFile" },
         opts = {
             ensure_installed = {
+                "comment",
                 "markdown_inline",
                 "markdown",
                 "vim",

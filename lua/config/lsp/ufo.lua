@@ -52,13 +52,13 @@ M.config = function()
     local function customizeSelector(bufnr)
         local function handleFallbackException(err, providerName)
             if type(err) == "string" and err:match("UfoFallbackException") then
-                return ufo.getFolds(providerName, bufnr)
+                return ufo.getFolds(bufnr, providerName)
             else
                 return require("promise").reject(err)
             end
         end
 
-        return ufo.getFolds("lsp", bufnr)
+        return ufo.getFolds(bufnr, "lsp")
             :catch(function(err)
                 return handleFallbackException(err, "treesitter")
             end)
@@ -98,9 +98,6 @@ M.config = function()
     ufo.setup({
         fold_virt_text_handler = handler,
         open_fold_hl_timeout = 150,
-        close_fold_kinds_for_ft = {
-            default = { "imports" },
-        },
         preview = {
             win_config = {
                 border = "rounded",
@@ -124,6 +121,7 @@ M.config = function()
     nmap("zM", require("ufo").closeAllFolds)
     nmap("zr", require("ufo").openFoldsExceptKinds)
     nmap("zm", require("ufo").closeFoldsWith) -- closeAllFolds == closeFoldsWith(0)
+    -- FIX: the keymap is covered by default mapping
     nmap("K", function()
         local winid = require("ufo").peekFoldedLinesUnderCursor()
         if not winid then

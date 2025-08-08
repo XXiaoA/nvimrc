@@ -77,7 +77,7 @@ vim.diagnostic.config({
 
 local function rename()
     if pcall(require, "inc_rename") then
-        return ":IncRename " .. vim.fn.expand("cword")
+        return ":IncRename "
     else
         vim.lsp.buf.rename()
     end
@@ -95,8 +95,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
         nmap("gI", vim.lsp.buf.implementation, { desc = "Goto Implementation" })
         nmap("gt", vim.lsp.buf.type_definition, { desc = "Goto Type Definition" })
         nmap("gK",  function() vim.lsp.buf.signature_help({ border = 'rounded' }) end, { desc = "Signature Help" })
-        nmap("gp", "<CMD>Aphrodite peek_definition<CR>", { desc = "Peek definition" })
-        nmap("gP", "<CMD>Aphrodite peek_type_definition<CR>", { desc = "Peek type definition" })
         nmap("]d", function() vim.diagnostic.jump({ count = 1, float = true }) end, { desc = "Next Diagnostic" })
         nmap("[d", function() vim.diagnostic.jump({ count = -1, float = true }) end, { desc = "Prev Diagnostic" })
         map({ "n", "v" })("<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })

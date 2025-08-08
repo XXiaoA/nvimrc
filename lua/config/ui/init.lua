@@ -125,4 +125,16 @@ return {
             },
         },
     },
+
+    {
+        "nvim-zh/colorful-winsep.nvim",
+        dev = true,
+        config = {
+            highlight = { fg = "#eccdff" },
+            indicator_for_2wins = {
+                position = "center",
+            },
+        },
+        event = { "WinLeave" },
+    },
 }

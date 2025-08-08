@@ -157,7 +157,22 @@ nmap("gcO", function()
     comment_above_or_below(-1)
 end, { desc = "Comment above" })
 
--- remove the default keymaps from https://github.com/neovim/neovim/pull/28650
+nmap("gcA", function()
+    local row, _ = unpack(vim.api.nvim_win_get_cursor(0))
+    local l_cms, r_cms = string.match(vim.bo.commentstring, "(.*)%%s(.*)")
+    l_cms = vim.trim(l_cms)
+    r_cms = vim.trim(r_cms)
+    if #r_cms ~= 0 then
+        r_cms = " " .. r_cms
+    end
+    local line = vim.api.nvim_get_current_line():gsub("%s*$", "")
+    vim.api.nvim_buf_set_lines(0, row - 1, row, false, { line .. " " .. l_cms .. " " .. r_cms })
+    vim.api.nvim_win_set_cursor(0, { row, #line + #l_cms + 1 })
+    vim.api.nvim_feedkeys("a", "ni", true)
+end, { desc = "Comment at the end of line" })
+
+-- remove the default LSP keymaps
+vim.keymap.del("n", "grt")
 vim.keymap.del("n", "grn")
 vim.keymap.del("n", "grr")
 vim.keymap.del("n", "gri")

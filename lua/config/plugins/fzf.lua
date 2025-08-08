@@ -28,6 +28,17 @@ return {
         { "<leader>fgc", function() require("fzf-lua").git_commits() end, desc = "Commits" },
         { "<leader>fgb", function() require("fzf-lua").git_branches() end, desc = "Branchs" },
         { "<leader>fgt", function() require("fzf-lua").git_tags() end, desc = "Tags" },
+        {
+            "<leader>ft",
+            function()
+                require("fzf-lua").grep({
+                    search = [[\b(TODO|WIP|NOTE|XXX|INFO|DOCS|PERF|TEST|HACK|WARNING|WARN|FIX|FIXME|BUG|ERROR):]],
+                    no_esc = true,
+                    multiline = true,
+                })
+            end,
+            desc = "Todo comments",
+        },
         -- stylua: ignore end
     },
 }
