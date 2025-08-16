@@ -209,6 +209,7 @@ au("User", {
         require("utils.block_edit")
         require("utils.case_changer")
         require("utils.abbr")
+        require("utils.rooter")
     end,
 })
 

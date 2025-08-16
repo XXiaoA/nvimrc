@@ -14,12 +14,6 @@ return {
     },
 
     {
-        "notjedi/nvim-rooter.lua",
-        event = { "BufRead", "BufEnter" },
-        opts = true,
-    },
-
-    {
         "monaqa/dial.nvim",
         -- stylua: ignore
         keys = {
