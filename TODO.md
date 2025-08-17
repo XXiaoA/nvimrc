@@ -1,26 +1,26 @@
 # TODO
-- [ ] mfussenegger/nvim-dap
-- [ ] write docs
-- [ ] work with [obsidian](https://github.com/epwalsh/obsidian.nvim)
-- [x] <https://github.com/kevinhwang91/nvim-ufo/issues/4>
-- [x] change colorschemes with fish,tmux and wezterm (https://github.com/wez/wezterm/discussions/2550)
-- [ ] utils `logger.lua`
-- [x] feature auto hint for fuzzy file after enter new file
-- [x] [firenvim](https://github.com/glacambre/firenvim)
-- [x] highlights for markdown, etc. like [headlines.nvim](https://github.com/lukas-reineke/headlines.nvim) and [md-nanny](https://github.com/nvim-zh/md-nanny)
-- [x] configure lsp by yaml
-- [x] improve move line. [nvim-gomove](https://github.com/booperlv/nvim-gomove)
-- [x] ~~windwp/nvim-spectre~~; ~~ThePrimeagen/refactoring.nvim~~; ~~cshuaimin/ssr.nvim~~
-- [x] andymass/vim-matchup
-- [x] echasnovski/mini.nvim,
-- [x] leap.nvim
-- [ ] https://github.com/stevearc/overseer.nvim
-- [ ] https://github.com/skywind3000/asynctasks.vim with `asyncrun`
-- [x] null-ls
-- [x] https://github.com/ThePrimeagen/harpoon
 - [ ] https://github.com/akinsho/git-conflict.nvim
-- [ ] learn `vim-fugitive`
 - [ ] https://github.com/rbong/vim-flog
+- [ ] https://github.com/skywind3000/asynctasks.vim with `asyncrun`
+- [ ] https://github.com/stevearc/overseer.nvim
 - [ ] https://github.com/tpope/vim-rhubarb
-- [ ] https://github.com/eugen0329/vim-esearch
+- [ ] learn `vim-fugitive`
+- [ ] mfussenegger/nvim-dap
+- [ ] utils `logger.lua`
+- [ ] work with [obsidian](https://github.com/epwalsh/obsidian.nvim)
 - [ ] write a new language translator
+- [ ] write docs
+- [x] <https://github.com/kevinhwang91/nvim-ufo/issues/4>
+- [x] [firenvim](https://github.com/glacambre/firenvim)
+- [x] andymass/vim-matchup
+- [x] change colorschemes with fish,tmux and wezterm (https://github.com/wez/wezterm/discussions/2550)
+- [x] configure lsp by yaml
+- [x] echasnovski/mini.nvim,
+- [x] feature auto hint for fuzzy file after enter new file
+- [x] highlights for markdown, etc. like [headlines.nvim](https://github.com/lukas-reineke/headlines.nvim) and [md-nanny](https://github.com/nvim-zh/md-nanny)
+- [x] https://github.com/ThePrimeagen/harpoon
+- [x] https://github.com/eugen0329/vim-esearch
+- [x] improve move line. [nvim-gomove](https://github.com/booperlv/nvim-gomove)
+- [x] leap.nvim
+- [x] null-ls
+- [x] ~~windwp/nvim-spectre~~; ~~ThePrimeagen/refactoring.nvim~~; ~~cshuaimin/ssr.nvim~~

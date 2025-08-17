@@ -1,12 +1,6 @@
 ---@diagnostic disable: undefined-global
 -- stylua: ignore
 return {
-    s("p", {
-        t("print("),
-        i(1),
-        t(")"),
-    }),
-
     s("if", {
         t({ "if " }),
         i(1),
@@ -36,8 +30,6 @@ return {
     require("{}")
     ]], i(1) )
     ),
-
-    s("l", t("local ")),
 
     s("class", fmta([[
     local <> = {}

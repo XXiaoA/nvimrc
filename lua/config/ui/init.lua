@@ -128,12 +128,13 @@ return {
 
     {
         "nvim-zh/colorful-winsep.nvim",
+        enabled = false,
         dev = true,
-        config = {
+        opts = {
+            border = "single",
             highlight = { fg = "#eccdff" },
-            indicator_for_2wins = {
-                position = "center",
-            },
+            animate = { enabled = false },
+            indicator_for_2wins = { position = "center" },
         },
         event = { "WinLeave" },
     },

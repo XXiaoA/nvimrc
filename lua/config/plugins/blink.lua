@@ -21,6 +21,9 @@ return {
         },
 
         completion = {
+            accept = {
+                create_undo_point = false,
+            },
             documentation = {
                 auto_show = true,
                 auto_show_delay_ms = 0,

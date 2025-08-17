@@ -23,6 +23,14 @@ local function run_code()
         vim.cmd([[
             AsyncRun -mode=term -reuse -listed=0 -focus=0 -rows=6 g++ -DLOCAL "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/build/$(VIM_FILENOEXT)" && "$(VIM_FILEDIR)/build/$(VIM_FILENOEXT)"
             ]])
+    elseif file_type == "c" then
+        local exe_dir = (fn.expand("%:p:h") .. "/build")
+        if fn.isdirectory(exe_dir) == 0 then
+            fn.system("mkdir -p " .. exe_dir)
+        end
+        vim.cmd([[
+            AsyncRun -mode=term -reuse -listed=0 -focus=0 -rows=6 gcc -DLOCAL "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/build/$(VIM_FILENOEXT)" && "$(VIM_FILEDIR)/build/$(VIM_FILENOEXT)"
+            ]])
     end
 end
 
