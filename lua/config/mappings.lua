@@ -100,32 +100,6 @@ imap("<C-v>", "<C-r>+", { desc = "Paste" })
 
 keymap.set("s")("<BS>", "<BS>:startinsert<CR>")
 
--- Quickly add empty lines
--- https://github.com/tpope/vim-unimpaired/blob/6d44a6dc2ec34607c41ec78acf81657248580bf1/plugin/unimpaired.vim#L231-L254
-local function load_repeat()
-    if not require("lazy.core.config").plugins["vim-repeat"]._.loaded then
-        require("lazy").load({ plugins = { "vim-repeat" } })
-    end
-end
-nmap("<Plug>(unimpaired-blank-up)", function()
-    load_repeat()
-    local cmd = "put!=repeat(nr2char(10), v:count1)|silent ']+"
-    if vim.bo.modifiable then
-        cmd = cmd .. '|silent! call repeat#set("\\<Plug>(unimpaired-blank-up)", v:count1)'
-    end
-    vim.cmd(cmd)
-end)
-nmap("<Plug>(unimpaired-blank-down)", function()
-    load_repeat()
-    local cmd = "put =repeat(nr2char(10), v:count1)|silent '[-"
-    if vim.bo.modifiable then
-        cmd = cmd .. '|silent! call repeat#set("\\<Plug>(unimpaired-blank-down)", v:count1)'
-    end
-    vim.cmd(cmd)
-end)
-nmap("[<Space>", "<Plug>(unimpaired-blank-up)", { desc = "Add a empty line up" })
-nmap("]<Space>", "<Plug>(unimpaired-blank-down)", { desc = "Add a empty line down" })
-
 nmap("<ESC>", "<CMD>w|e|redraw<CR>")
 
 imap("jj", "<ESC>")
