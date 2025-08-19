@@ -4,6 +4,10 @@ require("catppuccin").setup({
         enabled = true,
         path = vim.fn.stdpath("cache") .. "/catppuccin",
     },
+    float = {
+        transparent = false,
+        solid = false,
+    },
     styles = {
         comments = { "italic" },
         -- conditionals = { "italic" },
@@ -19,10 +23,9 @@ require("catppuccin").setup({
         operators = {},
     },
     integrations = {
-        neotree = {
+        colorful_winsep = {
             enabled = true,
-            show_root = true,
-            transparent_panel = false,
+            color = "blue",
         },
         dropbar = {
             enabled = true,
@@ -32,9 +35,11 @@ require("catppuccin").setup({
             enabled = true,
             lsp = false,
         },
+        nvim_surround = true,
+        neotree = true,
         noice = true,
+        notify = false,
         fidget = true,
-        cmp = true,
         semantic_tokens = true,
         ufo = true,
         mason = true,
@@ -47,7 +52,8 @@ require("catppuccin").setup({
         which_key = true,
         dashboard = true,
         ts_rainbow = true,
-        hop = true,
         aerial = true,
+        diffview = true,
+        harpoon = true,
     },
 })
