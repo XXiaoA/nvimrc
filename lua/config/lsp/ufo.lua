@@ -117,17 +117,11 @@ M.config = function()
     })
 
     local nmap = require("core.keymap").nmap
-    nmap("zR", require("ufo").openAllFolds)
-    nmap("zM", require("ufo").closeAllFolds)
-    nmap("zr", require("ufo").openFoldsExceptKinds)
-    nmap("zm", require("ufo").closeFoldsWith) -- closeAllFolds == closeFoldsWith(0)
-    -- FIX: the keymap is covered by default mapping
-    nmap("K", function()
-        local winid = require("ufo").peekFoldedLinesUnderCursor()
-        if not winid then
-            vim.lsp.buf.hover()
-        end
-    end)
+    nmap("zR", ufo.openAllFolds)
+    nmap("zM", ufo.closeAllFolds)
+    nmap("zr", ufo.openFoldsExceptKinds)
+    nmap("zm", ufo.closeFoldsWith) -- closeAllFolds == closeFoldsWith(0)
+    nmap("K", ufo.peekFoldedLinesUnderCursor)
 end
 
 return M

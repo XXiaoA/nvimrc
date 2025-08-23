@@ -84,7 +84,7 @@ local function rename()
 end
 
 vim.api.nvim_create_autocmd("LspAttach", {
-    callback = function()
+    callback = function(ctx)
         local map = require("core.keymap").set
         local nmap = map("n")
         -- stylua: ignore start
@@ -99,6 +99,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
         nmap("[d", function() vim.diagnostic.jump({ count = -1, float = true }) end, { desc = "Prev Diagnostic" })
         map({ "n", "v" })("<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
         nmap("<leader>rn", rename, { expr = true, desc = "Rename" })
+        nmap("K", function()
+            local winid = require("ufo").peekFoldedLinesUnderCursor()
+            if not winid then
+                vim.lsp.buf.hover()
+            end
+        end, { buffer = ctx.buf })
         -- stylua: ignore end
 
         vim.lsp.inlay_hint.enable(false)
