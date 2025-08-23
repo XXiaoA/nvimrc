@@ -13,6 +13,7 @@ return {
                 "python",
                 "rust",
                 "fish",
+                "c",
                 "cpp",
                 "vimdoc",
                 "yaml",
