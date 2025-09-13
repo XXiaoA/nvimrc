@@ -238,15 +238,57 @@ return {
     },
 
     {
-        "simnalamburt/vim-mundo",
-        cmd = "MundoToggle",
-    },
-
-    {
         "andymass/vim-matchup",
         event = "BufReadPost",
         config = function()
             vim.g.matchup_matchparen_offscreen = { method = "status_manual" }
         end,
+    },
+
+    {
+        "simnalamburt/vim-mundo",
+        cmd = "MundoToggle",
+    },
+
+    {
+        "rbong/vim-flog",
+        enabled = true,
+        lazy = true,
+        cmd = { "Flog", "Flogsplit", "Floggit" },
+        dependencies = {
+            "tpope/vim-fugitive",
+        },
+    },
+
+    {
+        "SuperBo/fugit2.nvim",
+        enabled = true,
+        build = false,
+        opts = {
+            width = 100,
+            -- Fugit2 setup table
+
+            libgit2_path = "libgit2.so.1.7",
+        },
+        dependencies = {
+            "MunifTanjim/nui.nvim",
+            "nvim-tree/nvim-web-devicons",
+            "nvim-lua/plenary.nvim",
+            {
+                "chrisgrieser/nvim-tinygit", -- optional: for Github PR view
+                dependencies = { "stevearc/dressing.nvim" },
+            },
+        },
+        cmd = { "Fugit2", "Fugit2Diff", "Fugit2Graph" },
+        keys = {
+            { "<leader>F", mode = "n", "<cmd>Fugit2<cr>" },
+        },
+    },
+
+    {
+        "mbbill/undotree",
+        enabled = true,
+        lazy = false,
+        config = function() end,
     },
 }

@@ -55,7 +55,7 @@ M.config = function(_, opts)
       xnoremap <silent> # :<C-u>call g:VSetSearch()<bar>call histadd('/',@/)<bar>set hlsearch<CR>
       xnoremap <silent> g* :<C-u>call g:VSetSearch()<bar>call histadd('/',@/)<bar>set hlsearch<CR>
       xnoremap <silent> g# :<C-u>call g:VSetSearch()<bar>call histadd('/',@/)<bar>set hlsearch<CR>
-]])
+    ]])
 end
 
 return M

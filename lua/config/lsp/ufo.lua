@@ -14,8 +14,6 @@ M.config = function()
 
     local ftMap = {
         -- option: lsp treesitter indent ""
-        vim = "indent",
-        python = { "indent" },
         git = function(bufnr)
             local res = {}
             local fileStart, hunkStart

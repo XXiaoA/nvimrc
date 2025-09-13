@@ -107,6 +107,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
         end, { buffer = ctx.buf })
         -- stylua: ignore end
 
+        vim.lsp.on_type_formatting.enable()
         vim.lsp.inlay_hint.enable(false)
         vim.api.nvim_create_user_command("InlayHintToggle", function()
             vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())

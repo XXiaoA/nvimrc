@@ -25,7 +25,7 @@ require("catppuccin").setup({
     integrations = {
         colorful_winsep = {
             enabled = true,
-            color = "blue",
+            color = "yellow",
         },
         dropbar = {
             enabled = true,

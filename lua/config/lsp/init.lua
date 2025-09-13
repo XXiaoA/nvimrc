@@ -4,9 +4,6 @@ return {
         event = "Filetype",
         dependencies = {
             "mason.nvim",
-            "mason-lspconfig.nvim",
-            -- "simrat39/rust-tools.nvim",
-            -- "p00f/clangd_extensions.nvim",
         },
         config = function()
             require("config.lsp.setup")

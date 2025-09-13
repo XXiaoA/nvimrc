@@ -121,7 +121,7 @@ return {
                 },
                 twilight = { enabled = true },
                 gitsigns = { enabled = true },
-                tmux = { enabled = true },
+                tmux = { enabled = false },
             },
         },
     },
@@ -130,12 +130,12 @@ return {
         "nvim-zh/colorful-winsep.nvim",
         enabled = false,
         dev = true,
+        event = { "WinLeave" },
         opts = {
             border = "single",
-            highlight = { fg = "#eccdff" },
+            highlight = "#89b0f3",
             animate = { enabled = false },
             indicator_for_2wins = { position = "center" },
         },
-        event = { "WinLeave" },
     },
 }
