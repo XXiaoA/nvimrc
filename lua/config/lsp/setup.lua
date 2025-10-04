@@ -5,9 +5,6 @@ vim.diagnostic.config({
     virtual_text = {
         spacing = 4,
         prefix = "●",
-        format = function()
-            return ""
-        end,
     },
     signs = { text = { ERROR = "󰅚", WARN = "󰀪", HINT = "󰌶", INFO = "󰋽" } },
     float = {
@@ -23,57 +20,6 @@ vim.diagnostic.config({
         end,
     },
 })
-
--- local setup = {
---     ["rust_analyzer"] = function(_, opts)
---         require("rust-tools").setup({
---             server = opts,
---             tools = {
---                 inlay_hints = {
---                     auto = false,
---                 },
---             },
---         })
---         return true
---     end,
---
---     clangd = function(_, opts)
---         require("clangd_extensions").setup({
---             server = opts,
---             memory_usage = {
---                 border = "rounded",
---             },
---             symbol_info = {
---                 border = "rounded",
---             },
---             ast = {
---                 --These require codicons (https://github.com/microsoft/vscode-codicons)
---                 role_icons = {
---                     type = "",
---                     declaration = "",
---                     expression = "",
---                     specifier = "",
---                     statement = "",
---                     ["template argument"] = "",
---                 },
---                 kind_icons = {
---                     Compound = "",
---                     Recovery = "",
---                     TranslationUnit = "",
---                     PackExpansion = "",
---                     TemplateTypeParm = "",
---                     TemplateTemplateParm = "",
---                     TemplateParamObject = "",
---                 },
---             },
---         })
---         return false
---     end,
---     -- ["*"] = function(server, opts)
---     --     require("lspconfig")[server].setup(opts)
---     --     return true
---     -- end,
--- }
 
 local function rename()
     if pcall(require, "inc_rename") then

@@ -14,7 +14,6 @@ return {
         { "<leader>fw", function() require("fzf-lua").live_grep_native() end, desc = "Live grep" },
         { mode = "x", "<leader>fw", "<cmd>lua require('fzf-lua').grep_visual()<cr>", desc = "Live grep" },
         { "<leader>ff", function() require("fzf-lua").files() end, desc = "Files" },
-        { "<C-p>", "<leader>ff", remap = true, desc = "Files" },
         { "<leader>fb", function() require("fzf-lua").buffers() end, desc = "Buffers" },
         { "<leader>fh", function() require("fzf-lua").help_tags() end, desc = "Help tags" },
         { "<leader>fr", function() require("fzf-lua").oldfiles() end, desc = "Recent files" },
