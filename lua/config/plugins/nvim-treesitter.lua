@@ -90,25 +90,6 @@ return {
     },
 
     {
-        "mfussenegger/nvim-treehopper",
-        dependencies = "nvim-treesitter",
-        keys = {
-            {
-                mode = { "o", "x" },
-                "m",
-                ":lua require('tsht').nodes()<CR>",
-                silent = true,
-            },
-        },
-        config = function()
-            local tsht = require("tsht")
-            if tsht then
-                tsht.config.hint_keys = { "h", "j", "f", "d", "g", "k", "l", "s", "a" }
-            end
-        end,
-    },
-
-    {
         "nvim-treesitter/nvim-treesitter-textobjects",
         dependencies = "nvim-treesitter",
         init = function()
