@@ -7,8 +7,8 @@
 - [ ] learn `vim-fugitive`
 - [ ] mfussenegger/nvim-dap
 - [ ] utils `logger.lua`
-- [ ] work with [obsidian](https://github.com/epwalsh/obsidian.nvim)
-- [ ] write a new language translator
+- [ ] work with [obsidian](https://github.com/epwalsh/obsidian.nvim)?
+- [ ] language translator
 - [ ] write docs
 - [x] <https://github.com/kevinhwang91/nvim-ufo/issues/4>
 - [x] [firenvim](https://github.com/glacambre/firenvim)

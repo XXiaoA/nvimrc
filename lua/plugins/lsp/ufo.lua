@@ -114,7 +114,7 @@ M.config = function()
         end,
     })
 
-    local nmap = require("core.keymap").nmap
+    local nmap = require("utils").nmap
     nmap("zR", ufo.openAllFolds)
     nmap("zM", ufo.closeAllFolds)
     nmap("zr", ufo.openFoldsExceptKinds)

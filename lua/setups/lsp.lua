@@ -31,7 +31,7 @@ end
 
 vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(ctx)
-        local map = require("core.keymap").set
+        local map = require("utils").keymap
         local nmap = map("n")
         -- stylua: ignore start
         nmap("go", vim.diagnostic.open_float, { desc = "Line Diagnostics" })

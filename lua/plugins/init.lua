@@ -1,4 +1,5 @@
 ---@diagnostic disable: assign-type-mismatch
+---@type LazyPluginSpec[]
 return {
     {
         "tpope/vim-repeat",
@@ -6,6 +7,7 @@ return {
 
     {
         "nvim-lua/plenary.nvim",
+        cmd = { "PlenaryBustedDirectory", "PlenaryBustedFile" },
     },
 
     {
@@ -266,10 +268,8 @@ return {
 
     {
         "andymass/vim-matchup",
-        event = "BufReadPost",
-        config = function()
-            vim.g.matchup_matchparen_offscreen = { method = "status_manual" }
-        end,
+        event = "VeryLazy",
+        opts = {},
     },
 
     {
@@ -286,6 +286,10 @@ return {
         opts = {
             layout = {
                 -- width = "adaptive",
+            },
+            ui = {
+                compact = true,
+                extended_symbol = true,
             },
         },
     },
@@ -305,5 +309,18 @@ return {
         enabled = true,
         lazy = false,
         config = function() end,
+    },
+
+    {
+        "hat0uma/csvview.nvim",
+        opts = {
+            view = { display_mode = "border" },
+            -- parser = { comments = { "#", "//" } },
+            keymaps = {
+                jump_next_field_end = { "<Tab>", mode = { "n", "v" } },
+                jump_prev_field_end = { "<S-Tab>", mode = { "n", "v" } },
+            },
+        },
+        cmd = { "CsvViewEnable", "CsvViewToggle" },
     },
 }

@@ -1,5 +1,5 @@
 local fn = vim.fn
-local nmap = require("core.keymap").nmap
+local nmap = require("utils").nmap
 
 local function run_code()
     local file = fn.expand("%:p")

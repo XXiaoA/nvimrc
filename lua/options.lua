@@ -22,7 +22,7 @@ g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
 g.loaded_netrwSettings = 1
 g.loaded_netrwFileHandlers = 1
-g.no_python_maps = 1
+g.no_plugin_maps = false
 
 -- set the language to English
 -- vim.cmd("language en_US.utf8")

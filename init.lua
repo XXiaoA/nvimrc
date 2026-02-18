@@ -1,2 +1,7 @@
 vim.loader.enable()
-require("core")
+
+require("autocmds")
+require("options")
+require("mappings")
+require("pack")
+require("colorscheme").init()

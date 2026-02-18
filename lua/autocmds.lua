@@ -1,11 +1,28 @@
 ---@diagnostic disable: param-type-mismatch, missing-fields
-
 local utils = require("utils")
 local api = vim.api
-local nmap = require("core.keymap").nmap
+local nmap = utils.nmap
 local au = api.nvim_create_autocmd
+local xxiaoa_group = api.nvim_create_augroup("xxiaoa_group", {})
 
-local xxiaoa_group = api.nvim_create_augroup("xxiaoa_group", { clear = true })
+au("FileType", {
+    desc = "Enable treesitter-based features for supported filetypes",
+    callback = function(args)
+        local bufnr = args.buf
+        local filetype = args.match
+        local lang = vim.treesitter.language.get_lang(filetype)
+        if lang and vim.treesitter.language.add(lang) then
+            -- Highlighting
+            vim.treesitter.start(bufnr, lang)
+            -- Folds
+            -- vim.wo[0][0].foldmethod = "expr"
+            -- vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
+            -- Indentation
+            -- vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+        end
+    end,
+    group = augroup,
+})
 
 -- Exit nvim when we only have the following types of windows {{{
 local quit_current_win = function()
@@ -211,11 +228,4 @@ au("User", {
         require("utils.abbr")
         require("utils.rooter")
     end,
-})
-
--- template for competitive code
-au("BufNewFile", {
-    group = xxiaoa_group,
-    pattern = vim.env.HOME .. "/Workspace/oj*/*.cpp",
-    command = "0r ~/.config/nvim/templates/oi.cpp",
 })

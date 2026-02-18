@@ -3,7 +3,7 @@ local api = vim.api
 local utils = require("utils")
 
 local save_dir = fn.stdpath("data") .. "/XXiaoA/"
-local nmap = require("core.keymap").nmap
+local nmap = require("utils").nmap
 
 if not utils.is_directory(save_dir) then
     vim.fn.mkdir(save_dir, "p")

@@ -6,7 +6,7 @@ return {
             "mason.nvim",
         },
         config = function()
-            require("config.lsp.setup")
+            require("setups.lsp")
             require("utils.lightbulb")
         end,
     },
@@ -96,11 +96,10 @@ return {
         ft = "lua",
         opts = {
             library = {
-                { path = "luvit-meta/library", words = { "vim%.uv" } },
+                { path = "lazy.nvim", words = { "Lazy.*Spec" } },
             },
         },
     },
-    { "Bilal2453/luvit-meta", lazy = true },
 
     {
         "RRethy/vim-illuminate",

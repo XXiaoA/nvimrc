@@ -1,11 +1,11 @@
 -- Function for make mapping easier.
-local keymap = require("core.keymap")
+local utils = require("utils")
 
-local nmap = keymap.nmap
-local imap = keymap.imap
-local xmap = keymap.xmap
-local tmap = keymap.tmap
-local omap = keymap.omap
+local nmap = utils.nmap
+local imap = utils.imap
+local xmap = utils.xmap
+local tmap = utils.tmap
+local omap = utils.omap
 
 -- leader key
 vim.g.mapleader = " "
@@ -95,7 +95,7 @@ nmap("<leader><tab>d", "<CMD>tabclose<CR>", { desc = "Close tab" })
 
 imap("<C-v>", "<C-r>+", { desc = "Paste" })
 
-keymap.set("s")("<BS>", "<BS>:startinsert<CR>")
+utils.keymap("s")("<BS>", "<BS>:startinsert<CR>")
 
 nmap("<ESC>", "<CMD>w|e|redraw<CR>")
 

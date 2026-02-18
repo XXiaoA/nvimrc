@@ -19,8 +19,6 @@ g.everforest_disable_italic_comment = 0
 -- option: 'default' 'mix' 'original'
 g.everforest_statusline_style = "mix"
 
--- option: 'material' 'mix' 'original'
-
 -- don't show the eob
 g.everforest_show_eob = 0
 

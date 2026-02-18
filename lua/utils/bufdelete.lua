@@ -46,5 +46,4 @@ end, {
     desc = "Delete the current Buffer while maintaining the window layout",
 })
 
-local nmap = require("core.keymap").nmap
-nmap("<leader>bd", ":Bdelete<CR>", { desc = "Close current buffer" })
+require("utils").nmap("<leader>bd", ":Bdelete<CR>", { desc = "Close current buffer" })

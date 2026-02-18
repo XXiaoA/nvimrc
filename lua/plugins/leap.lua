@@ -1,5 +1,5 @@
 local M = {
-    "ggandor/leap.nvim",
+    url = "https://codeberg.org/andyg/leap.nvim",
     keys = {
         "f",
         "F",

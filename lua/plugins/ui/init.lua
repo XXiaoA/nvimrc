@@ -1,5 +1,5 @@
-local current_colorscheme = require("core.colorscheme").current_colorscheme
-local add_colorscheme = require("core.colorscheme").add_colorscheme
+local current_colorscheme = require("colorscheme").current_colorscheme
+local add_colorscheme = require("colorscheme").add_colorscheme
 add_colorscheme("random")
 
 return {
@@ -15,13 +15,6 @@ return {
         "folke/tokyonight.nvim",
         init = function()
             add_colorscheme("tokyonight-storm", "tokyonight-moon", "tokyonight-night")
-        end,
-    },
-
-    {
-        "AlexvZyl/nordic.nvim",
-        init = function()
-            add_colorscheme("nordic")
         end,
     },
 
@@ -61,6 +54,23 @@ return {
     {
         "kyazdani42/nvim-web-devicons",
         "MunifTanjim/nui.nvim",
+    },
+
+    {
+        "saghen/blink.indent",
+        event = "BufReadPre",
+        enabled = true,
+        --- @module 'blink.indent'
+        --- @type blink.indent.Config
+        opts = {
+            scope = {
+                highlights = { "LineNr" },
+                underline = {
+                    enabled = true,
+                    highlights = { "Underlined" },
+                },
+            },
+        },
     },
 
     {
@@ -128,13 +138,13 @@ return {
 
     {
         "nvim-zh/colorful-winsep.nvim",
-        enabled = false,
+        enabled = true,
         dev = true,
         event = { "WinLeave" },
         opts = {
             border = "single",
             highlight = "#89b0f3",
-            animate = { enabled = false },
+            animate = { enabled = "progressive" },
             indicator_for_2wins = { position = "center" },
         },
     },

@@ -30,7 +30,7 @@ M.config = function(_, opts)
         end
     end
 
-    local map = require("core.keymap").set({ "x", "n", "o" })
+    local map = require("utils").keymap({ "x", "n", "o" })
     -- stylua: ignore start
     for _, rhs in ipairs({ "n", "N" }) do
         map(rhs, function() nN(rhs) end)

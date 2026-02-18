@@ -1,5 +1,6 @@
 return {
     "folke/noice.nvim",
+    enabled = true,
     event = "VeryLazy",
     dependencies = {
         "nui.nvim",

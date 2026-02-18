@@ -6,7 +6,7 @@ M.all_colorschemes = {}
 M.current_colorscheme = "everforest"
 
 function M.modify_colorscheme(colorscheme)
-    local file_path = vim.fn.stdpath("config") .. "/lua/core/colorscheme.lua"
+    local file_path = vim.fn.stdpath("config") .. "/lua/colorscheme.lua"
     local _f = assert(io.open(file_path, "r"))
     local data = _f:read("*a")
     _f:close()
@@ -52,10 +52,10 @@ function M.load_colorscheme(colorscheme, expand)
     end
 
     colorscheme = colorscheme == "random" and M.get_random_colorscheme() or colorscheme
-    pcall(require, "config.ui.colorschemes." .. colorscheme)
-    local status_ok, _ = pcall(vim.cmd.colorscheme, colorscheme)
+    pcall(require, "setups." .. colorscheme)
+    local status_ok, err = pcall(vim.cmd.colorscheme, colorscheme)
     if not status_ok then
-        vim.notify("No find colorscheme: " .. colorscheme, vim.log.levels.WARN)
+        vim.notify(err, vim.log.levels.WARN)
         return
     end
     M.modify_colorscheme(colorscheme)
@@ -81,10 +81,10 @@ function M.load_colorscheme_ui(expand)
     end)
 end
 
-function M.setup()
-    local nmap = require("core.keymap").nmap
-    vim.opt.background = "dark"
+function M.init()
+    vim.o.background = "dark"
     M.load_colorscheme(M.current_colorscheme)
+    local nmap = require("utils").nmap
     nmap("<leader>cc", M.load_colorscheme_ui, { desc = "Change ColorScheme" })
     nmap("<leader>ce", function()
         M.load_colorscheme_ui(true)

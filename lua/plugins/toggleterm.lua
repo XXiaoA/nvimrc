@@ -38,7 +38,7 @@ M.config = function()
         floatTerm:toggle()
     end
 
-    local nmap = require("core.keymap").nmap
+    local nmap = require("utils").nmap
     nmap("<leader>tt", '<cmd>w|exe v:count."ToggleTerm"<CR>', { desc = "Toggle a common terminal" })
     nmap("<leader>tf", tg.float_toggle, { desc = "Toggle a float terminal" })
     nmap("<leader>ta", "<cmd>ToggleTermToggleAll<CR>", { desc = "Toggle all terminal" })

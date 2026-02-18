@@ -26,4 +26,29 @@ function M.trim(str, mode)
     return str:match(regex)
 end
 
+--- Add a new keymap
+---@param mode string|table
+function M.keymap(mode)
+    --- set a new keymap
+    ---@param lhs string
+    ---@param rhs string|function
+    ---@param opts table?
+    return function(lhs, rhs, opts)
+        opts = opts or {}
+
+        local options = vim.tbl_extend("force", {
+            noremap = true,
+            silent = true,
+        }, opts)
+
+        vim.keymap.set(mode, lhs, rhs, options)
+    end
+end
+
+M.nmap = M.keymap("n")
+M.xmap = M.keymap("x")
+M.omap = M.keymap("o")
+M.imap = M.keymap("i")
+M.tmap = M.keymap("t")
+
 return M
