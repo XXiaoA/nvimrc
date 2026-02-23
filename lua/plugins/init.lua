@@ -284,12 +284,16 @@ return {
         cmd = "Atone",
         keys = { { "<leader>u", "<CMD>Atone<CR>" } },
         opts = {
+            diff_cur_node = {
+                width = 0.8,
+            },
             layout = {
+                direction = "left",
                 -- width = "adaptive",
             },
             ui = {
                 compact = true,
-                extended_symbol = true,
+                extended_symbol = false,
             },
         },
     },

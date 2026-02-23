@@ -96,7 +96,7 @@ au("TextYankPost", {
     group = xxiaoa_group,
     pattern = "*",
     callback = function()
-        vim.highlight.on_yank({ higroup = "IncSearch", timeout = 300 })
+        vim.hl.on_yank({ higroup = "IncSearch", timeout = 300 })
     end,
 })
 
