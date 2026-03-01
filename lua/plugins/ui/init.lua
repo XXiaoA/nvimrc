@@ -102,18 +102,6 @@ return {
     },
 
     {
-        "Bekaboo/dropbar.nvim",
-        event = "BufEnter",
-        opts = {
-            icons = {
-                kinds = {
-                    symbols = require("utils.lspkind").icons_with_whitespaces,
-                },
-            },
-        },
-    },
-
-    {
         "folke/zen-mode.nvim",
         dependencies = {
             "folke/twilight.nvim",
