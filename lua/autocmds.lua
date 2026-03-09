@@ -153,6 +153,7 @@ au("FileType", {
     pattern = { "qf", "help", "man", "startuptime", "checkhealth", "spectre_panel", "fugitive" },
     callback = function(ctx)
         nmap("q", "<cmd>close<CR>", { buffer = ctx.buf })
+        nmap("<ESC>", "<cmd>close<CR>", { buffer = ctx.buf })
         vim.opt_local.buflisted = false
     end,
 })

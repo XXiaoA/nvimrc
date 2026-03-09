@@ -285,14 +285,14 @@ return {
         keys = { { "<leader>u", "<CMD>Atone<CR>" } },
         opts = {
             diff_cur_node = {
-                width = 0.8,
+                -- width = 0.8,
             },
             layout = {
                 direction = "left",
                 -- width = "adaptive",
             },
             ui = {
-                compact = true,
+                compact = false,
                 extended_symbol = false,
             },
         },

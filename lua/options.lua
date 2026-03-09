@@ -33,6 +33,7 @@ o.backupdir = cache_dir .. "backup/"
 -- open swap
 o.swapfile = false
 o.encoding = "utf-8"
+o.fileencodings = "utf-8,gbk"
 o.updatetime = 100
 o.timeoutlen = 500
 o.timeout = true

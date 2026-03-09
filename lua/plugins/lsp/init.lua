@@ -52,9 +52,6 @@ return {
                 desc = "Format buffer",
             },
         },
-        init = function()
-            vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
-        end,
         opts = {
             formatters_by_ft = {
                 lua = { "stylua" },

@@ -67,4 +67,5 @@ vim.lsp.enable({
     "clangd",
     "vimls",
     "rust_analyzer",
+    "matlab_ls",
 })

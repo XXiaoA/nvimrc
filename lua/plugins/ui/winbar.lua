@@ -14,7 +14,7 @@ M.config = function()
         },
         bar = {
             enable = function(buf, win, src)
-                local disabled = { markdown = true, matlab = true }
+                local disabled = { matlab = true }
                 if disabled[vim.bo[buf].filetype] then
                     return false
                 end

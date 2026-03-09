@@ -67,5 +67,4 @@ return {
             kind_icons = require("utils.lspkind").icons,
         },
     },
-    opts_extend = { "sources.default" },
 }
