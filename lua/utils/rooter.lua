@@ -2,7 +2,7 @@
 
 local config = {
     cd_scope = "window", -- "global" "window" "tabpage" "smart"
-    root_patterns = { ".git", ".hg", ".svn" },
+    root_patterns = { ".git", ".hg", ".svn", ".root" },
     exclude_filetypes = { "help", "nofile" },
 }
 
