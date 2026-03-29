@@ -31,6 +31,7 @@ return {
                     augend.semver.alias.semver,
                     augend.date.alias["%Y/%m/%d"],
                     augend.constant.alias.bool,
+                    augend.constant.new({ elements = { "True", "False" } }),
                     augend.constant.new({ elements = { "and", "or" } }),
                     augend.constant.new({
                         elements = { "&&", "||" },
