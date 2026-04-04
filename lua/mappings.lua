@@ -144,7 +144,36 @@ end, { desc = "Comment at the end of line" })
 
 -- remove the default LSP keymaps
 vim.keymap.del("n", "grt")
+vim.keymap.del("n", "grx")
 vim.keymap.del("n", "grn")
 vim.keymap.del("n", "grr")
 vim.keymap.del("n", "gri")
 vim.keymap.del({ "v", "n" }, "gra")
+
+local function copy_with_filename(is_visual)
+    local filepath = vim.api.nvim_buf_get_name(0)
+    local relpath = vim.fn.fnamemodify(filepath, ":.")
+    if relpath == "" then relpath = "[No Name]" end
+
+    local line_info
+    if is_visual then
+        local start_line = vim.fn.getpos("v")[2]
+        local end_line = vim.fn.getpos(".")[2]
+        if start_line > end_line then start_line, end_line = end_line, start_line end
+        line_info = start_line == end_line and string.format("@%s:L%d", relpath, start_line)
+            or string.format("@%s:L%d-L%d", relpath, start_line, end_line)
+    else
+        local lnum = vim.api.nvim_win_get_cursor(0)[1]
+        line_info = string.format("@%s:L%d", relpath, lnum)
+    end
+
+    vim.fn.setreg("+", line_info)
+    vim.notify("Copied: " .. line_info, vim.log.levels.INFO)
+end
+
+nmap("<leader>y", function()
+    copy_with_filename(false)
+end, { desc = "Copy line with filename" })
+xmap("<leader>y", function()
+    copy_with_filename(true)
+end, { desc = "Copy selection with filename" })

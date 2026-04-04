@@ -35,6 +35,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
         local nmap = map("n")
         -- stylua: ignore start
         nmap("go", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
+
+        nmap("gpd", "<CMD>Glance definitions<CR>", { desc = "Peek Definition" })
+        nmap("gpr", '<CMD>Glance references<CR>', { desc = "Peek References" })
+        nmap("gpi", '<CMD>Glance implementations<CR>', { desc = "Peek Implementation" })
+        nmap("gpt", '<CMD>Glance type_definitions<CR>', { desc = "Peek Type Definition" })
+
         nmap("gd", vim.lsp.buf.definition, { desc = "Goto Definition" })
         nmap("gr", vim.lsp.buf.references, { desc = "References" })
         nmap("gD", vim.lsp.buf.declaration, { desc = "Goto Declaration" })

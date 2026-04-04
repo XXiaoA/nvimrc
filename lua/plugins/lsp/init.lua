@@ -89,6 +89,11 @@ return {
     },
 
     {
+        "dnlhc/glance.nvim",
+        cmd = "Glance",
+    },
+
+    {
         "ofseed/lazydev.nvim",
         ft = "lua",
         opts = {
@@ -110,6 +115,7 @@ return {
                 large_file_overrides = {
                     providers = { "lsp" },
                 },
+                filetypes_denylist = { "atone" },
             })
         end,
         keys = {
