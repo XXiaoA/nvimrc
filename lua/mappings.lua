@@ -153,13 +153,17 @@ vim.keymap.del({ "v", "n" }, "gra")
 local function copy_with_filename(is_visual)
     local filepath = vim.api.nvim_buf_get_name(0)
     local relpath = vim.fn.fnamemodify(filepath, ":.")
-    if relpath == "" then relpath = "[No Name]" end
+    if relpath == "" then
+        relpath = "[No Name]"
+    end
 
     local line_info
     if is_visual then
         local start_line = vim.fn.getpos("v")[2]
         local end_line = vim.fn.getpos(".")[2]
-        if start_line > end_line then start_line, end_line = end_line, start_line end
+        if start_line > end_line then
+            start_line, end_line = end_line, start_line
+        end
         line_info = start_line == end_line and string.format("@%s:L%d", relpath, start_line)
             or string.format("@%s:L%d-L%d", relpath, start_line, end_line)
     else
