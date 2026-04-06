@@ -57,12 +57,12 @@ return {
         opts = { use_default_keymaps = false, max_join_length = 150 },
     },
 
-    -- {
-    --     "mizlan/iswap.nvim",
-    --     dependencies = "nvim-treesitter",
-    --     event = "VeryLazy",
-    --     opts = {},
-    -- },
+    {
+        "mizlan/iswap.nvim",
+        dependencies = "nvim-treesitter",
+        event = "VeryLazy",
+        opts = {},
+    },
 
     {
         "nvim-treesitter/nvim-treesitter-textobjects",

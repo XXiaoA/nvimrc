@@ -284,17 +284,37 @@ return {
         -- lazy = false,
         cmd = "Atone",
         keys = { { "<leader>u", "<CMD>Atone<CR>" } },
+        ---@module "atone"
+        ---@type AtoneConfig
         opts = {
             diff_cur_node = {
-                -- width = 0.8,
+                width = 0.5,
             },
             layout = {
                 direction = "left",
-                -- width = "adaptive",
+                width = 0.3,
             },
             ui = {
                 compact = false,
                 extended_symbol = false,
+                node_label = {
+                    custom = true,
+                    formatter = function(ctx)
+                        return {
+                            "[",
+                            { ctx.seq, ctx.is_current and "AtoneCurrentNode" or "CursorLineNr" },
+                            "] ",
+                            { ctx.h_time, "Comment" },
+                            " ",
+                            { ctx.diff.added, "diffadded" },
+                            " ",
+                            { ctx.diff.removed, "diffremoved" },
+                            ctx.bookmark and " " or "",
+                            { ctx.bookmark or "", "AtoneMark" },
+                        }
+                    end,
+                    extmark_opts = { strict = false },
+                },
             },
         },
     },

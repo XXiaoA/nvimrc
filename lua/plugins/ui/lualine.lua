@@ -37,7 +37,7 @@ return {
                 end,
             },
             lualine_x = { "filetype" },
-            lualine_y = { "" },
+            lualine_y = { "branch" },
             lualine_z = { "location" },
         },
 

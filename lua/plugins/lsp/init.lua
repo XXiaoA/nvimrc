@@ -94,11 +94,12 @@ return {
     },
 
     {
-        "ofseed/lazydev.nvim",
+        "folke/lazydev.nvim",
         ft = "lua",
         opts = {
             library = {
                 { path = "lazy.nvim", words = { "Lazy.*Spec" } },
+                -- { path = "atone.nvim", words = { "AtoneNode.Label.Ctx" } },
                 { path = "nvim-lspconfig", words = { "lspconfig" } },
             },
         },

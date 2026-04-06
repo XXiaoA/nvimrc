@@ -136,4 +136,11 @@ return {
             indicator_for_2wins = { position = "center" },
         },
     },
+
+    {
+        "NStefan002/screenkey.nvim",
+        enabled = false,
+        lazy = false,
+        opts = {},
+    },
 }
