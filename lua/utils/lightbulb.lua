@@ -89,8 +89,8 @@ local function lightbulb()
         -- For each client, only retrieve the diagnostics that belong to it. They are the ones that are
         -- pushed to this client by the server and ones this client pulls from the server.
         -- NOTE: Diagnostics returned by vim.diagnostic.get() are vim.Diagnostics[].
-        local ns_push = vim.lsp.diagnostic.get_namespace(client.id)
-        local ns_pull = vim.lsp.diagnostic.get_namespace(client.id, "nil")
+        local ns_push = vim.lsp.diagnostic.get_namespace(client.id, false)
+        local ns_pull = vim.lsp.diagnostic.get_namespace(client.id, true)
         local diagnostics = {}
         vim.list_extend(diagnostics, vim.diagnostic.get(bufnr, { namespace = ns_pull }))
         vim.list_extend(diagnostics, vim.diagnostic.get(bufnr, { namespace = ns_push }))
