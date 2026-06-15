@@ -103,12 +103,8 @@ return {
 
     {
         "folke/zen-mode.nvim",
-        dependencies = {
-            "folke/twilight.nvim",
-        },
         keys = {
             { "<leader>zz", "<CMD>ZenMode<CR>" },
-            { "<leader>zt", "<CMD>Twilight<CR>" },
         },
         opts = {
             plugins = {
@@ -117,7 +113,6 @@ return {
                     showcmd = true,
                     laststatus = 0, -- turn off statusline in zen mode
                 },
-                twilight = { enabled = true },
                 gitsigns = { enabled = true },
                 tmux = { enabled = false },
             },
@@ -138,9 +133,11 @@ return {
     },
 
     {
-        "NStefan002/screenkey.nvim",
-        enabled = false,
-        lazy = false,
-        opts = {},
+        "nvzone/showkeys",
+        cmd = "ShowkeysToggle",
+        opts = {
+            show_count = true,
+            maxkeys = 5,
+        },
     },
 }

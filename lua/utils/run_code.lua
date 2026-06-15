@@ -5,7 +5,7 @@ local function run_code()
     local file = fn.expand("%:p")
     local file_type = vim.api.nvim_get_option_value("filetype", { buf = 0 })
 
-    vim.cmd("silent w")
+    vim.cmd("silent wall")
 
     if file_type == "lua" then
         vim.cmd("AsyncRun -mode=term -reuse -listed=0 -focus=0 -rows=6 nvim -l '$(VIM_FILEPATH)'")

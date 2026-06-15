@@ -2,10 +2,12 @@ return {
     "saghen/blink.cmp",
     enabled = true,
     event = { "InsertEnter", "CmdlineEnter" },
-    -- use a release tag to download pre-built binaries
-    -- version = "*",
-    -- AND/OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
-    build = "cargo build --release",
+    dependencies = {
+        "saghen/blink.lib",
+    },
+    build = function()
+        require("blink.cmp").build():wait(60000)
+    end,
 
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
