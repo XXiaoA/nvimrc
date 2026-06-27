@@ -1,5 +1,6 @@
 local M = {
     "Bekaboo/dropbar.nvim",
+    enabled = false,
     event = "BufEnter",
 }
 

@@ -14,5 +14,6 @@ return {
             { "{", "}", nft = { "yuck" } },
             { "[", "]", nft = { "yuck" } },
         },
+        { "$", "$", ft = { "typst" }, multiline = false },
     },
 }

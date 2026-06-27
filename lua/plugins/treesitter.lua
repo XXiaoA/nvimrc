@@ -23,6 +23,7 @@ return {
                 "yaml",
                 "yuck",
                 "zsh",
+                "typst",
             })
         end,
     },

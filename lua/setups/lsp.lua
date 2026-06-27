@@ -70,9 +70,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 vim.lsp.enable({
     "lua_ls",
-    "basedpyright",
+    -- "basedpyright",
+    "pyright",
     "clangd",
     "vimls",
     "rust_analyzer",
     "matlab_ls",
+    "tinymist",
 })
