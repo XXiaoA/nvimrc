@@ -65,7 +65,7 @@ local function split_text(text)
         return fn.split(text, "-")
     elseif text_type == "camel" then
         local words = {}
-        local first_upper_char = text:find("%u")
+        local first_upper_char = text:find("%u") --[[@as integer]]
         local first_word = text:sub(0, first_upper_char - 1)
         local rest_word = text:sub(first_upper_char)
         table.insert(words, first_word)
@@ -184,8 +184,8 @@ api.nvim_create_user_command("CaseChange", function(ctx)
         local start_pos = get_mark("<")
         local end_pos = get_mark(">")
         ---@diagnostic disable-next-line: param-type-mismatch
-        current_name = get_text(start_pos, end_pos)
-        current_name = table.concat(current_name, "\n")
+        local text = get_text(start_pos, end_pos)
+        current_name = table.concat(text, "\n")
     end
 
     local new_name

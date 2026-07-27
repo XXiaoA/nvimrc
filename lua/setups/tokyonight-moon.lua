@@ -1,3 +1,4 @@
+---@diagnostic disable-next-line: missing-fields
 require("tokyonight").setup({
     style = "moon",
     transparent = false, -- Enable this to disable setting the background color

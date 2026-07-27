@@ -120,6 +120,7 @@ local function lightbulb()
             :totable()
 
         local params = vim.lsp.util.make_range_params(winid, client.offset_encoding)
+        ---@cast params table
         params.context = context
 
         client:request(method, params, function(_, result, _)

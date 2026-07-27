@@ -22,7 +22,6 @@ g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
 g.loaded_netrwSettings = 1
 g.loaded_netrwFileHandlers = 1
-g.no_plugin_maps = false
 
 -- set the language to English
 -- vim.cmd("language en_US.utf8")
@@ -76,8 +75,6 @@ o.foldlevelstart = 100
 -- o.foldcolumn = "1"
 o.fillchars = { eob = " ", fold = " ", foldopen = "", foldsep = " ", foldclose = "" }
 
-o.autoindent = true
-
 -- Ask for confirmation when handling unsaved or read-only files
 o.confirm = true
 o.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shift the text each time
@@ -85,7 +82,6 @@ o.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shift the
 o.undofile = true
 o.undolevels = 10000
 
-o.hidden = true
 o.magic = true
 o.virtualedit = "block"
 o.showmode = false -- Dont show mode since we have a statusline

@@ -44,7 +44,11 @@ return {
     {
         "catppuccin/nvim",
         name = "catppuccin",
-        build = ":CatppuccinCompile" and current_colorscheme:find("catppuccin"),
+        build = function()
+            if current_colorscheme:find("catppuccin") then
+                vim.cmd("CatppuccinCompile")
+            end
+        end,
         init = function()
             add_colorscheme("catppuccin-mocha", "catppuccin-macchiato")
         end,
@@ -52,7 +56,7 @@ return {
 
     -- plugins
     {
-        "kyazdani42/nvim-web-devicons",
+        "nvim-tree/nvim-web-devicons",
         "MunifTanjim/nui.nvim",
     },
 

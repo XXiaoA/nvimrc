@@ -29,7 +29,7 @@ local function edit()
 
     api.nvim_open_win(0, true, {
         relative = "win",
-        width = math.floor(api.nvim_get_option("columns") * 0.7),
+        width = math.floor(vim.o.columns * 0.7),
         height = math.floor(vim.opt.lines:get() * 0.7),
         title = "XXiaoA",
         title_pos = "center",
@@ -49,22 +49,22 @@ local function edit()
 
     --- the original lsp clients
     local client_ids = {}
-    for _, client in ipairs(vim.lsp.get_active_clients()) do
+    for _, client in ipairs(vim.lsp.get_clients()) do
         table.insert(client_ids, client.id)
     end
 
     vim.cmd("e! " .. cache_file)
-    api.nvim_buf_set_option(0, "ft", block_ft)
-    api.nvim_buf_set_option(0, "buflisted", false)
+    vim.bo[0].ft = block_ft
+    vim.bo[0].buflisted = false
 
     -- mappings for quitting float window
     for _, lhs in ipairs({ "sc", "q" }) do
         nmap(lhs, function()
             -- only close the new lsp client
-            local current_clients = vim.lsp.get_active_clients({ bufnr = api.nvim_get_current_buf() })
+            local current_clients = vim.lsp.get_clients({ bufnr = api.nvim_get_current_buf() })
             for _, client in ipairs(current_clients) do
                 if not vim.tbl_contains(client_ids, client.id) then
-                    vim.lsp.stop_client(client.id)
+                    client:stop()
                 end
             end
 

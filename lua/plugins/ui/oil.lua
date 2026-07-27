@@ -3,14 +3,16 @@ return {
     cmd = "Oil",
     init = function()
         if vim.fn.argc() == 1 then
-            local stat = vim.uv.fs_stat(vim.fn.argv(0))
+            local arg = vim.fn.argv(0)
+            ---@cast arg string
+            local stat = vim.uv.fs_stat(arg)
             if stat and stat.type == "directory" then
                 require("oil")
             end
         end
     end,
     keys = {
-        { "-", "<CMD>Oil<CR>", { desc = "Open parent directory" } },
+        { "-", "<CMD>Oil<CR>", desc = "Open parent directory" },
     },
     opts = {
         delete_to_trash = true,

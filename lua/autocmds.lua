@@ -21,7 +21,7 @@ au("FileType", {
             -- vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
         end
     end,
-    group = augroup,
+    group = xxiaoa_group,
 })
 
 -- Exit nvim when we only have the following types of windows {{{
@@ -92,11 +92,11 @@ au("BufReadPost", {
 })
 
 -- highlight after yanking the text
-au("TextYankPost", {
+au({ "TextYankPost", "TextPutPost" }, {
     group = xxiaoa_group,
     pattern = "*",
     callback = function()
-        vim.hl.on_yank({ higroup = "IncSearch", timeout = 300 })
+        vim.hl.hl_op({ higroup = "IncSearch", timeout = 300 })
     end,
 })
 
@@ -105,18 +105,14 @@ au({ "WinEnter", "BufEnter", "InsertLeave" }, {
     group = xxiaoa_group,
     pattern = "*",
     callback = function()
-        if not vim.opt_local.cursorline:get() then
-            vim.opt_local.cursorline = true
-        end
+        vim.wo.cursorline = true
     end,
 })
 au({ "WinLeave", "BufLeave", "InsertEnter" }, {
     group = xxiaoa_group,
     pattern = "*",
     callback = function()
-        if vim.opt_local.cursorline:get() then
-            vim.opt_local.cursorline = false
-        end
+        vim.wo.cursorline = false
     end,
 })
 
@@ -189,21 +185,19 @@ local function enter_hint()
         -- remove the trailing newline
         table.remove(selections, #selections)
 
-        if #selections == 0 then
-            return
+        if #selections ~= 0 then
+            vim.ui.select(selections, {
+                prompt = "Do you mean?",
+                format_item = function(item)
+                    return item
+                end,
+            }, function(choice)
+                if choice then
+                    vim.api.nvim_buf_delete(0, {})
+                    vim.cmd.e(file_dir .. "/" .. choice)
+                end
+            end)
         end
-
-        vim.ui.select(selections, {
-            prompt = "Do you mean?",
-            format_item = function(item)
-                return item
-            end,
-        }, function(choice)
-            if choice then
-                vim.api.nvim_buf_delete(0, {})
-                vim.cmd.e(file_dir .. "/" .. choice)
-            end
-        end)
     end
 
     -- reset the cwd

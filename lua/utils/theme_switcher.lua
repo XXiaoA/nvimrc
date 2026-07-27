@@ -54,6 +54,9 @@ function M.wezterm(colorscheme)
         local passthrough_str = os.getenv("TMUX") and "\x1bPtmux;\x1b\x1b]1337;SetUserVar=%s=%s\b\x1b\\"
             or "\x1b]1337;SetUserVar=%s=%s\b"
         local stdout = vim.uv.new_tty(1, false)
+        if not stdout then
+            return
+        end
         stdout:write(passthrough_str:format("Nvim_Colorscheme", vim.fn.system("base64", colorscheme)))
         vim.cmd.redraw()
     end

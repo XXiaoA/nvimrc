@@ -19,7 +19,8 @@ local function Bdelete(bufnr, bang)
                 ),
             },
         }, false, {})
-        local choice = string.char(vim.fn.getchar())
+        local char = vim.fn.getchar()
+        local choice = type(char) == "number" and string.char(char) or char
         if choice:lower() == "s" then
             vim.cmd.write()
         elseif choice:lower() == "i" then
@@ -33,7 +34,7 @@ local function Bdelete(bufnr, bang)
     -- due to options like bufhidden=wipe.
     if api.nvim_buf_is_valid(bufnr) then
         local command = bang and "bd!" or "bd"
-        local force = not vim.bo.buflisted or vim.bo.buftype == "nofile"
+        local force = not vim.bo[bufnr].buflisted or vim.bo[bufnr].buftype == "nofile"
         vim.cmd(force and "bd!" or string.format("bp | %s %d", command, bufnr))
     end
 end

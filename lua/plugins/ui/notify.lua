@@ -3,6 +3,7 @@ return {
     event = "VeryLazy",
     config = function()
         local notify = require("notify")
+        ---@diagnostic disable-next-line: missing-fields
         notify.setup({
             timeout = 3000,
             max_height = function()

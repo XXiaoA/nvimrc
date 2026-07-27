@@ -87,12 +87,6 @@ return {
     },
 
     {
-        "rbong/vim-flog",
-        lazy = true,
-        cmd = { "Flog", "Flogsplit", "Floggit" },
-    },
-
-    {
         "tpope/vim-sleuth",
         event = { "BufNewFile", "BufReadPost", "BufFilePost" },
     },
@@ -144,6 +138,13 @@ return {
         "iamcco/markdown-preview.nvim",
         config = function()
             vim.g.mkdp_auto_close = 0
+            vim.cmd([[
+            function! OpenMarkdownPreview(url)
+            call jobstart(['firefox', '-P', 'nvim-preview',  a:url, "--class", "nvim-preview"], {'detach': v:true})
+            endfunction
+            ]])
+
+            vim.g.mkdp_browserfunc = "OpenMarkdownPreview"
         end,
         build = "cd app && npm install",
         ft = "markdown",
@@ -311,6 +312,8 @@ return {
                             { ctx.diff.removed, "diffremoved" },
                             ctx.bookmark and " " or "",
                             { ctx.bookmark or "", "AtoneMark" },
+                            ctx.is_sticky_ref and " " or "",
+                            ctx.is_sticky_ref and { "[=]", "AtoneStickyRef" } or "",
                         }
                     end,
                     extmark_opts = { strict = false },
@@ -333,7 +336,6 @@ return {
         "mbbill/undotree",
         enabled = true,
         lazy = false,
-        config = function() end,
     },
 
     {

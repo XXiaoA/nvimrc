@@ -97,7 +97,13 @@ imap("<C-v>", "<C-r>+", { desc = "Paste" })
 
 utils.keymap("s")("<BS>", "<BS>:startinsert<CR>")
 
-nmap("<ESC>", "<CMD>w|e|redraw<CR>")
+nmap("<ESC>", function()
+    if vim.fn.expand("%") ~= "" then
+        vim.cmd("w|e|redraw")
+    else
+        vim.cmd("redraw")
+    end
+end)
 
 imap("jj", "<ESC>")
 
