@@ -89,7 +89,7 @@ return {
     ]], i(1) )
     ),
 
-    postfix(".i", {
+    postfix(".c", {
       l("`" .. l.POSTFIX_MATCH .. "`"),
     }),
 

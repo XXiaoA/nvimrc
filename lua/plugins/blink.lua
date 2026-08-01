@@ -4,9 +4,10 @@ return {
     event = { "InsertEnter", "CmdlineEnter" },
     dependencies = {
         "saghen/blink.lib",
+        "LuaSnip",
     },
     build = function()
-        require("blink.cmp").build():wait(60000)
+        require("blink.cmp").build():pwait()
     end,
 
     ---@module 'blink.cmp'

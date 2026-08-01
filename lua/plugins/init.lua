@@ -293,7 +293,7 @@ return {
             },
             layout = {
                 direction = "left",
-                width = 0.3,
+                width = 0.2,
             },
             ui = {
                 compact = false,
