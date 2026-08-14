@@ -12,13 +12,6 @@ return {
     },
 
     {
-        "folke/tokyonight.nvim",
-        init = function()
-            add_colorscheme("tokyonight-storm", "tokyonight-moon", "tokyonight-night")
-        end,
-    },
-
-    {
         "sainnhe/gruvbox-material",
         init = function()
             add_colorscheme("gruvbox-material")
@@ -50,7 +43,21 @@ return {
             end
         end,
         init = function()
-            add_colorscheme("catppuccin-mocha", "catppuccin-macchiato")
+            add_colorscheme("catppuccin-mocha", "catppuccin-macchiato", "catppuccin-latte")
+        end,
+    },
+
+    {
+        "NTBBloodbath/sweetie.nvim",
+        init = function()
+            add_colorscheme("sweetie")
+        end,
+    },
+
+    {
+        "NLKNguyen/papercolor-theme",
+        init = function()
+            add_colorscheme("PaperColor")
         end,
     },
 
