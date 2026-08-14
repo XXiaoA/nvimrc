@@ -3,6 +3,7 @@ return {
     enabled = true,
     cmd = { "FzfLua" },
     opts = {
+        fzf_colors = true,
         lsp = {
             symbols = {
                 symbol_icons = require("utils.lspkind").icons,
