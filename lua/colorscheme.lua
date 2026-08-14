@@ -1,9 +1,10 @@
 local M = {}
-local switcher = require("utils.theme_switcher")
 --- string[]
 M.all_colorschemes = {}
 --- string
-M.current_colorscheme = "everforest"
+M.background = "light"
+--- string
+M.current_colorscheme = "sweetie"
 
 function M.modify_colorscheme(colorscheme)
     local file_path = vim.fn.stdpath("config") .. "/lua/colorscheme.lua"
@@ -45,8 +46,7 @@ end
 
 --- change the colorscheme
 ---@param colorscheme string
----@param expand boolean? Whether change the colorscheme of fish and wezterm
-function M.load_colorscheme(colorscheme, expand)
+function M.load_colorscheme(colorscheme)
     if not colorscheme then
         return false
     end
@@ -59,15 +59,10 @@ function M.load_colorscheme(colorscheme, expand)
         return
     end
     M.modify_colorscheme(colorscheme)
-    if expand then
-        switcher.fish(switcher.colorschemes[colorscheme].fish)
-        switcher.wezterm(switcher.colorschemes[colorscheme].wezterm)
-    end
 end
 
 --- choice a colorscheme with ui
----@param expand boolean?
-function M.load_colorscheme_ui(expand)
+function M.load_colorscheme_ui()
     table.sort(M.all_colorschemes, function(a, b)
         return string.len(a) < string.len(b)
     end)
@@ -77,18 +72,15 @@ function M.load_colorscheme_ui(expand)
             return item
         end,
     }, function(choice)
-        M.load_colorscheme(choice, expand)
+        M.load_colorscheme(choice)
     end)
 end
 
 function M.init()
-    vim.o.background = "dark"
+    vim.o.background = M.background
     M.load_colorscheme(M.current_colorscheme)
     local nmap = require("utils").nmap
     nmap("<leader>cc", M.load_colorscheme_ui, { desc = "Change ColorScheme" })
-    nmap("<leader>ce", function()
-        M.load_colorscheme_ui(true)
-    end, { desc = "Change ColorScheme with expand" })
 end
 
 return M
