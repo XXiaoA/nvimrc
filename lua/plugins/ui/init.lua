@@ -2,6 +2,9 @@ local current_colorscheme = require("colorscheme").current_colorscheme
 local add_colorscheme = require("colorscheme").add_colorscheme
 add_colorscheme("random")
 
+-- built-in theme
+add_colorscheme("cedar")
+
 return {
     -- colorscheme
     {

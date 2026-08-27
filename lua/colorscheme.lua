@@ -4,7 +4,7 @@ M.all_colorschemes = {}
 --- string
 M.background = "light"
 --- string
-M.current_colorscheme = "sweetie"
+M.current_colorscheme = "cedar"
 
 function M.modify_colorscheme(colorscheme)
     local file_path = vim.fn.stdpath("config") .. "/lua/colorscheme.lua"
