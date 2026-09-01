@@ -4,6 +4,6 @@ return {
     opts = {
         debug = false,
         dependencies_bin = { tinymist = "tinymist" },
-        open_cmd = "firefox %s -P nvim-preview --class nvim-preview",
+        open_cmd = "firefox --new-window %s",
     },
 }

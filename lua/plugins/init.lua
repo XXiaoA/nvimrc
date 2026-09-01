@@ -140,7 +140,7 @@ return {
             vim.g.mkdp_auto_close = 0
             vim.cmd([[
             function! OpenMarkdownPreview(url)
-            call jobstart(['firefox', '-P', 'nvim-preview',  a:url, "--class", "nvim-preview"], {'detach': v:true})
+            call jobstart(['firefox', '--new-window', a:url], {'detach': v:true})
             endfunction
             ]])
 
@@ -296,8 +296,6 @@ return {
                 width = 0.2,
             },
             ui = {
-                compact = false,
-                extended_symbol = false,
                 node_label = {
                     custom = true,
                     formatter = function(ctx)
@@ -320,6 +318,14 @@ return {
                 },
             },
         },
+    },
+
+    {
+        "XXiaoA/encore.nvim",
+        cmd = "Encore",
+        config = function()
+            require("encore").setup()
+        end,
     },
 
     {
@@ -349,5 +355,27 @@ return {
             },
         },
         cmd = { "CsvViewEnable", "CsvViewToggle" },
+    },
+
+    {
+        "noearc/leap-zh.nvim",
+        dependencies = { "https://codeberg.org/andyg/leap.nvim" },
+        keys = { "s", "S" },
+        config = function()
+            vim.keymap.set("n", "s", "<cmd>lua require('leap-zh').leap_zh()<CR>")
+            vim.keymap.set("n", "S", "<cmd>lua require('leap-zh').leap_zh_bak()<CR>")
+        end,
+    },
+
+    {
+        "kkew3/jieba.vim",
+        branch = "release",
+        build = ":call jieba_vim#install()",
+        event = "VeryLazy",
+        dependencies = "vim-repeat",
+        init = function()
+            vim.g.jieba_vim_lazy = 1
+            vim.g.jieba_vim_keymap = 1
+        end,
     },
 }
