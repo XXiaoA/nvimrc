@@ -275,11 +275,6 @@ return {
     },
 
     {
-        "simnalamburt/vim-mundo",
-        cmd = "MundoToggle",
-    },
-
-    {
         "XXiaoA/atone.nvim",
         dev = true,
         -- lazy = false,
@@ -336,12 +331,6 @@ return {
         dependencies = {
             "tpope/vim-fugitive",
         },
-    },
-
-    {
-        "mbbill/undotree",
-        enabled = true,
-        lazy = false,
     },
 
     {
