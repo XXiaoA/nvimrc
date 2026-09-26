@@ -222,5 +222,6 @@ au("User", {
         require("utils.case_changer")
         require("utils.abbr")
         require("utils.rooter")
+        require("utils.paste_image")
     end,
 })
