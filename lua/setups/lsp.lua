@@ -77,4 +77,5 @@ vim.lsp.enable({
     "rust_analyzer",
     "matlab_ls",
     "tinymist",
+    "digestif",
 })

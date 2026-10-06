@@ -58,6 +58,7 @@ return {
                 python = { "ruff_format" },
                 cpp = { "clang_format" },
                 fish = { "fish_indent" },
+                tex = { "latexindent" },
             },
             format_on_save = function(bufnr)
                 if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
