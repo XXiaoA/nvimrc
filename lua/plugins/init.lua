@@ -148,6 +148,14 @@ return {
         end,
         build = "cd app && npm install",
         ft = "markdown",
+        keys = {
+            {
+                "<leader>ll",
+                "<cmd>MarkdownPreviewToggle<CR>",
+                ft = "markdown",
+                desc = "Toggle Markdown preview",
+            },
+        },
     },
 
     -- session
