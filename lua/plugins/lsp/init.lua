@@ -53,6 +53,16 @@ return {
             },
         },
         opts = {
+            formatters = {
+                latexindent = {
+                    prepend_args = function()
+                        return {
+                            "-c=" .. vim.fn.stdpath("log") .. "/",
+                            "-g=latexindent.log",
+                        }
+                    end,
+                },
+            },
             formatters_by_ft = {
                 lua = { "stylua" },
                 python = { "ruff_format" },
