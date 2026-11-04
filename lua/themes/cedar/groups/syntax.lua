@@ -71,6 +71,19 @@ function M.get(p)
         SpecialComment = { fg = p.violet, italic = true },
 
         ------------------------------------------------------------------
+        -- CSV column cycling
+        ------------------------------------------------------------------
+        csvCol0 = { fg = p.fg_alt },
+        csvCol1 = { fg = p.red },
+        csvCol2 = { fg = p.teal },
+        csvCol3 = { fg = p.orange },
+        csvCol4 = { fg = p.blue },
+        csvCol5 = { fg = p.yellow },
+        csvCol6 = { fg = p.violet },
+        csvCol7 = { fg = p.green },
+        csvCol8 = { fg = p.cyan },
+
+        ------------------------------------------------------------------
         -- Language-specific extras
         ------------------------------------------------------------------
         ["@type.java"] = { fg = p.orange, italic = true },
