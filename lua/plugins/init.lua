@@ -239,14 +239,21 @@ return {
         config = true,
     },
     {
-        "mrjones2014/smart-splits.nvim",
-        build = "./kitty/install-kittens.bash",
+        "smart-splits-nvim/smart-splits.nvim",
         lazy = false,
-        config = function()
-            -- recommended mappings
-            -- resizing splits
-            -- these keymaps will also accept a range,
-            -- for example `10<A-h>` will `resize_left` by `(10 * config.default_amount)`
+        dependencies = {
+            {
+                "smart-splits-nvim/backend-kitty",
+                build = "./kitten/install_relative_resize.lua",
+            },
+        },
+        opts = {
+            mux = { backend = "smart-splits-backend-kitty" },
+        },
+        config = function(_, opts)
+            require("smart-splits").setup(opts)
+
+            -- resizing splits; counts multiply the default resize amount
             vim.keymap.set("n", "<A-h>", require("smart-splits").resize_left)
             vim.keymap.set("n", "<A-j>", require("smart-splits").resize_down)
             vim.keymap.set("n", "<A-k>", require("smart-splits").resize_up)
@@ -256,7 +263,6 @@ return {
             vim.keymap.set("n", "<C-j>", require("smart-splits").move_cursor_down)
             vim.keymap.set("n", "<C-k>", require("smart-splits").move_cursor_up)
             vim.keymap.set("n", "<C-l>", require("smart-splits").move_cursor_right)
-            vim.keymap.set("n", "<C-\\>", require("smart-splits").move_cursor_previous)
             -- swapping buffers between windows
             vim.keymap.set("n", "<leader><leader>h", require("smart-splits").swap_buf_left)
             vim.keymap.set("n", "<leader><leader>j", require("smart-splits").swap_buf_down)
@@ -352,6 +358,18 @@ return {
             },
         },
         cmd = { "CsvViewEnable", "CsvViewToggle" },
+    },
+
+    {
+        url = "https://git.sr.ht/~campbellr/datagrid.nvim",
+        ft = { "csv", "tsv", "json", "jsonl", "ndjson" },
+        opts = { delimiter = ";" },
+    },
+
+    {
+        "XXiaoA/cell.nvim",
+        lazy = false,
+        opts = {},
     },
 
     {
