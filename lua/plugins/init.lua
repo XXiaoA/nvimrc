@@ -363,12 +363,18 @@ return {
     {
         url = "https://git.sr.ht/~campbellr/datagrid.nvim",
         ft = { "csv", "tsv", "json", "jsonl", "ndjson" },
-        opts = { delimiter = ";" },
     },
 
     {
         "XXiaoA/cell.nvim",
-        lazy = false,
+        keys = {
+            {
+                "<leader>ll",
+                "<cmd>Cell toggle<CR>",
+                ft = "csv",
+                desc = "Toggle CSV table editor",
+            },
+        },
         opts = {},
     },
 
